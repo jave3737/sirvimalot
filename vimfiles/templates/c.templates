@@ -1,0 +1,165 @@
+§ =============================================================
+§  Custom Templates
+§ =============================================================
+
+§ set the template style used after loading the library
+SetStyle( 'C' )
+§SetStyle( 'CPP' )
+§SetStyle( 'Doxygen' )
+
+§ templates automatically included into new files
+§ set the property to an empty string to disable the insertion
+§SetProperty ( 'C::FileSkeleton::Header',   'Comments.file description header' )
+§SetProperty ( 'C::FileSkeleton::Source',   'Comments.file description impl' )
+§SetProperty ( 'Cpp::FileSkeleton::Header', 'Comments.file description header' )
+§SetProperty ( 'Cpp::FileSkeleton::Source', 'Comments.file description impl' )
+
+§ -------------------------------------------------------------
+§  A template definition is build like this:
+§    == Menu.some name == <options> ==
+§    <inserted code>
+§    == Menu.other name == <options> ==
+§    <inserted code>
+§    == ENDTEMPLATE ==
+§  A template ends with the line "== ENDTEMPLATE ==" or with
+§  the start of a new template.
+§ -------------------------------------------------------------
+
+§ -------------------------------------------------------------
+§  Statements
+§ -------------------------------------------------------------
+
+§ uncomment and edit to customize, separately for each style
+
+== USE STYLES : C, Doxygen ==
+
+§== Statements.switch == map:ss, shortcut:s  ==
+§switch ( <CURSOR> ) {
+§	case <-LABEL->:	
+§		<SPLIT>break;
+§
+§	case <-LABEL->:	
+§		break;
+§
+§	case <-LABEL->:	
+§		break;
+§
+§	default:	
+§		break;
+§}				/* -----  end switch  ----- */
+§== ENDTEMPLATE ==
+
+== ENDSTYLES ==
+
+== USE STYLES : CPP ==
+
+§== Statements.switch == map:ss, shortcut:s  ==
+§switch ( <CURSOR> ) {
+§	case <-LABEL->:	
+§		<SPLIT>break;
+§
+§	case <-LABEL->:	
+§		break;
+§
+§	case <-LABEL->:	
+§		break;
+§
+§	default:	
+§		break;
+§}				// -----  end switch  -----
+§== ENDTEMPLATE ==
+
+== ENDSTYLES ==
+
+§ -------------------------------------------------------------
+§  Function Definition
+§ -------------------------------------------------------------
+
+§ uncomment and edit to customize, separately for each style
+
+== USE STYLES : C ==
+
+== Idioms.enum == map:ie, shortcut:e  ==
+typedef enum  /* ----------  start of enum |ENUM_NAME|  ---------- */ 
+{                      
+<SPLIT>
+} |?ENUM_NAME|;
+== ENDTEMPLATE ==
+
+== Idioms.struct == map:is, shortcut:s  ==
+typedef struct /* ----------  start of struct |STRUCT_NAME|  ---------- */ 
+{                    
+<SPLIT>
+} |?STRUCT_NAME|;
+== ENDTEMPLATE ==
+
+== Idioms.function == map:if, shortcut:f  ==
+|?RETURN_TYPE| |?FUNCTION_NAME| ( |?ARGUMENTS| )
+{
+<SPLIT>
+    return <+return_value+>;
+}/* -----  end of function |FUNCTION_NAME|  ----- */
+== ENDTEMPLATE ==
+
+== Statements.if == map:sif, shortcut:i  ==
+if ( |?STATEMENT| ) 
+{
+<SPLIT><-IF_PART->
+}/* ----------  end of if |STATEMENT|  ---------- */
+== ENDTEMPLATE ==
+
+== Statements.if + else == map:sie, shortcut:i  ==
+if ( |?STATEMENT| ) 
+{
+<SPLIT><-IF_PART->
+}
+else 
+{
+<SPLIT><-ELSE_PART->
+}/* ----------  end of if-else |STATEMENT|  ---------- */
+== ENDTEMPLATE ==
+
+== Statements.while == map:sw, shortcut:w  ==
+while ( |?STATEMENT| ) 
+{
+<SPLIT><-WHILE_PART->
+}/* ----------  end of while |STATEMENT|  ---------- */
+== ENDTEMPLATE ==
+
+== Statements.for == map:sfo, shortcut:f  ==
+for ( |?STATEMENT| ) 
+{
+<SPLIT><-FOR_PART->
+}/* ----------  end of for |STATEMENT|  ---------- */
+== ENDTEMPLATE ==
+
+== ENDSTYLES ==
+
+== USE STYLES : CPP ==
+
+§== Idioms.function == map:if, shortcut:f  ==
+§// ===  FUNCTION  ======================================================================
+§//         Name:  |?FUNCTION_NAME|
+§//  Description:  
+§// =====================================================================================
+§void<CURSOR>
+§|FUNCTION_NAME| ( <+argument_list+> )
+§{
+§<SPLIT>	return <+return_value+>;
+§}		// -----  end of function |FUNCTION_NAME|  -----
+§== ENDTEMPLATE ==
+
+== ENDSTYLES ==
+
+== USE STYLES : Doxygen ==
+
+§== Idioms.function == map:if, shortcut:f  ==
+§void<CURSOR>
+§|FUNCTION_NAME| ( <+argument_list+> )
+§{
+§<SPLIT>	return <+return_value+>;
+§}		// -----  end of function |FUNCTION_NAME|  -----
+§== ENDTEMPLATE ==
+
+== ENDSTYLES ==
+
