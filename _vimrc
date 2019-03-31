@@ -64,6 +64,7 @@ set directory=$HOME/swapfiles//
 set backupdir=$HOME/backup//
 set undodir=$HOME/undo//
 
+
 "How to split
 set splitbelow
 set splitright
