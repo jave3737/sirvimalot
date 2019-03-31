@@ -60,10 +60,9 @@ set ignorecase
 set nowrap 
 
 "Place all backup files in these special directories
-set directory=$HOME/swapfiles// 
-set backupdir=$HOME/backup//
-set undodir=$HOME/undo//
-
+set directory=$HOME/vimother/swapfiles// 
+set backupdir=$HOME/vimother/backup//
+set undodir=$HOME/vimother/undo//
 
 "How to split
 set splitbelow
@@ -157,6 +156,4 @@ let g:syntastic_c_config_file = '.syntastic_c_config_file'
 let g:syntastic_c_check_header = 1 
 "Example of how to quiet down syntastic based on certain warmings or messages
 "let g:syntastic_quiet_messages={'regex':'unknown type'}
-"
-"
 "
