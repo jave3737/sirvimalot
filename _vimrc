@@ -60,9 +60,9 @@ set ignorecase
 set nowrap 
 
 "Place all backup files in these special directories
-set directory=$HOME/vimfiles/swapfiles// 
-set backupdir=$HOME/vimfiles/backup//
-set undodir=$HOME/vimfiles/undo//
+set directory=$HOME/swapfiles// 
+set backupdir=$HOME/backup//
+set undodir=$HOME/undo//
 
 "How to split
 set splitbelow
