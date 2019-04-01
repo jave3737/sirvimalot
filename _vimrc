@@ -25,10 +25,10 @@ set guioptions -=m
 set guioptions -=T
 
 "Remove the right scrollbar
-set guioptions -=r
+set guioptions -=R
 
 "Remove the left scrollbar
-set guioptions -=l
+set guioptions -=L
 
 "Show the name of the file in the statusline
 set statusline=%t
@@ -84,19 +84,14 @@ map <F2> :echo @%<CR>
 "Toggle Syntastic Checking
 map <F3> :SyntasticToggleMode<CR>
 
-"Load the vimwiki session
-map <F4> :call LoadVimWikiSession()<CR>
-
 "Find lines quickly in the current file
 map <F5> :LeaderfFile<CR>
 map <C-F5> :LeaderfLine<CR>
 
-map <F6> :split<CR>
-map <C-F6> :vsplit<CR>
 "Time Stamp Quick Key
 nmap <F8> gg<CR>i<CR><C-R>=strftime("* *%Y-%m-%d %a %I:%M %p* ")<CR>
 nmap <C-F8> a<C-R>=strftime("*%Y-%m-%d %a %I:%M %p* ")<CR>
-imap <C-F8> a<C-R>=strftime("*%Y-%m-%d %a %I:%M %p* ")<CR>
+imap <C-F8> <C-R>=strftime("*%Y-%m-%d %a %I:%M %p* ")<CR>
 
 "Change vsplit size
 nnoremap _ 10<C-w><<CR>
@@ -128,10 +123,6 @@ set nocompatible
 filetype plugin on
 syntax on
 let g:vimwiki_list = [{'path':'~/vimwiki','path_html':'~/vimwiki/html/'}]
-fu! LoadVimWikiSession()
-    :source ~/vimfiles/sessions/vimwiki_session.vim
-    :set titlestring=VimWiki
-endfunction
 
 "Taboo
 set sessionoptions+=tabpages,globals
