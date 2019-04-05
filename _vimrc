@@ -1,11 +1,11 @@
-source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
 "Getting Started ==========================================================================
-"* Make an environmental variable called HOME that points to the directory
-"   that you will use for placing the _vimrc and vimfiles directory 
-"* 
-
+" * Set an environmental variable for your $HOME directory
+" * If on windows make a _vimrc in the $HOME directory 
+" * If on linux make a .vimrc in the $HOME directory
+" * If placing in a non-gui environment comment everything below
+" plugin-key-mappings
+" * 
+"
 "Appearance ==========================================================================
 if has("gui_running")
     autocmd GUIEnter * simalt ~x "Maximize Gui Size
@@ -15,23 +15,17 @@ if has("gui_running")
 
     "Setting the system font
     "set guifont=Dank_Mono:h12:cANSI:qDRAFT "Set Guifont in regular
-    set guifont=Dank_Mono:h14:cANSI:qDRAFT "Set Guifont in bold
+    set guifont=Dank_Mono:h12:cANSI:qDRAFT "Set Guifont in bold
+
+    "Remove toolbar, menu bar, scrollbars, etc 
+    set guioptions =
+else
+    colorscheme desert
 endif 
-
-"Remove the menu bar 
-set guioptions -=m 
-
-"Remove the toolbar 
-set guioptions -=T
-
-"Remove the right scrollbar
-set guioptions -=R
-
-"Remove the left scrollbar
-set guioptions -=L
 
 "Show the name of the file in the statusline
 set statusline=%t
+
 "Behavior ==========================================================================
 "Press \ev to quick open vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
@@ -81,13 +75,6 @@ map <F1> :cd $HOME<CR>
 "Print location of current file
 map <F2> :echo @%<CR>
 
-"Toggle Syntastic Checking
-map <F3> :SyntasticToggleMode<CR>
-
-"Find lines quickly in the current file
-map <F5> :LeaderfFile<CR>
-map <C-F5> :LeaderfLine<CR>
-
 "Time Stamp Quick Key
 nmap <F8> gg<CR>i<CR><C-R>=strftime("* *%Y-%m-%d %a %I:%M %p* ")<CR>
 nmap <C-F8> a<C-R>=strftime("*%Y-%m-%d %a %I:%M %p* ")<CR>
@@ -99,18 +86,18 @@ nnoremap + 10<C-w>><CR>
 nnoremap - 10<C-w>-<CR>
 nnoremap = 10<C-w>+<CR>
 
-"Easy navigating through windows
-"NOTE:There is an issue with this and c-support so getting rid of it for now
-"nnoremap <C-J> <C-W><C-J>
-"nnoremap <C-K> <C-W><C-K>
-"nnoremap <C-L> <C-W><C-L>
-"nnoremap <C-H> <C-W><C-H>
-
 "Use the arrow keys to easily move tabs
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
 "Plugin Settings==========================================================================
+"Toggle Syntastic Checking
+map <F3> :SyntasticToggleMode<CR>
+
+"Find lines quickly in the current file
+map <F5> :LeaderfFile<CR>
+map <C-F5> :LeaderfLine<CR>
+
 "Pathogen
 call pathogen#infect()
 
