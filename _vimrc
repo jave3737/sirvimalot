@@ -1,11 +1,3 @@
-"Getting Started ==========================================================================
-" * Set an environmental variable for your $HOME directory
-" * If on windows make a _vimrc in the $HOME directory 
-" * If on linux make a .vimrc in the $HOME directory
-" * If placing in a non-gui environment comment everything below
-" plugin-key-mappings
-" * 
-"
 "Appearance ==========================================================================
 if has("gui_running")
     autocmd GUIEnter * simalt ~x "Maximize Gui Size
@@ -97,6 +89,7 @@ map <F3> :SyntasticToggleMode<CR>
 map <F5> :LeaderfFile<CR>
 map <C-F5> :LeaderfLine<CR>
 
+"Quick command to display the c.templates file 
 nnoremap <leader>ct :vsplit $HOME/vimfiles/templates/c.templates<CR>
 
 "Pathogen
