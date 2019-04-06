@@ -76,9 +76,8 @@ map <F1> :cd $HOME<CR>
 map <F2> :echo @%<CR>
 
 "Time Stamp Quick Key
-nmap <F8> gg<CR>i<CR><C-R>=strftime("* *%Y-%m-%d %a %I:%M %p* ")<CR>
-nmap <C-F8> a<C-R>=strftime("*%Y-%m-%d %a %I:%M %p* ")<CR>
-imap <C-F8> <C-R>=strftime("*%Y-%m-%d %a %I:%M %p* ")<CR>
+nmap <F8> a<C-R>=strftime("*%Y-%m-%d %a %I:%M %p* ")<CR>
+imap <F8> <C-R>=strftime("*%Y-%m-%d %a %I:%M %p* ")<CR>
 
 "Change vsplit size
 nnoremap _ 10<C-w><<CR>
