@@ -97,6 +97,8 @@ map <F3> :SyntasticToggleMode<CR>
 map <F5> :LeaderfFile<CR>
 map <C-F5> :LeaderfLine<CR>
 
+nnoremap <leader>ct :vsplit $HOME/vimfiles/templates/c.templates<CR>
+
 "Pathogen
 call pathogen#infect()
 
