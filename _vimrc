@@ -5,9 +5,8 @@ if has("gui_running")
     "Setting the colorscheme
     colorscheme vividchalk
 
-    "Setting the system font
-    "set guifont=Dank_Mono:h12:cANSI:qDRAFT "Set Guifont in regular
-    set guifont=Dank_Mono:h12:cANSI:qDRAFT "Set Guifont in bold
+    "Setting the potential fonts
+    set guifont=Dank_Mono:h12:cANSI:qDRAFT,Consolas:h11:cANSI, 
 
     "Remove toolbar, menu bar, scrollbars, etc 
     set guioptions =
