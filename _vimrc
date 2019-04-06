@@ -90,7 +90,7 @@ map <F5> :LeaderfFile<CR>
 map <C-F5> :LeaderfLine<CR>
 
 "Quick command to display the c.templates file 
-nnoremap <leader>ct :vsplit $HOME/vimfiles/templates/c.templates<CR>
+nnoremap <leader>ctt :vsplit $HOME/vimfiles/templates/c.templates<CR>
 
 "Pathogen
 call pathogen#infect()
