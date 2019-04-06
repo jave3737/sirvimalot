@@ -1,4 +1,4 @@
-#Install Instructions
+# Install Instructions
 * If using Windows add an environmental variable $HOME with the value of the directory that you will refer to as your HOME directory
 * That directory might not be empty so use the following git commands to clone into a non-empty repository
 * git init
