@@ -59,6 +59,8 @@ set ssop-=options
 "do not store folds
 set ssop-=folds
 
+"Fix some weird backspace behavior
+set backspace=2 
 "Key Mappings==========================================================================
 "Change to home directory
 map <F1> :cd $HOME<CR>
@@ -83,6 +85,9 @@ nnoremap <C-Right> :tabnext<CR>
 "Plugin Settings==========================================================================
 "Toggle Syntastic Checking
 map <F3> :SyntasticToggleMode<CR>
+
+"Togggle the NerdTree
+map <F4> :NERDTreeToggle<CR>
 
 "Find lines quickly in the current file
 map <F5> :LeaderfFile<CR>
