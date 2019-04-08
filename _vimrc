@@ -1,3 +1,6 @@
+"Dependencies ==========================================================================
+source $VIMRUNTIME/mswin.vim
+behave mswin 
 "Appearance ==========================================================================
 if has("gui_running")
     autocmd GUIEnter * simalt ~x "Maximize Gui Size
@@ -59,8 +62,6 @@ set ssop-=options
 "do not store folds
 set ssop-=folds
 
-"Fix some weird backspace behavior
-set backspace=2 
 "Key Mappings==========================================================================
 "Change to home directory
 map <F1> :cd $HOME<CR>
