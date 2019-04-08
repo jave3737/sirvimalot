@@ -72,4 +72,8 @@ for ( |?STATEMENT| )
 <CURSOR><SPLIT>
 #endif/* -----  end of ifdef |CONDITION|  ----- */
 == ENDTEMPLATE ==
+
+== Comments.end-of-line-comment == append, nomenu ==
+/**< <CURSOR> */
+== ENDTEMPLATE ==
 == ENDSTYLES ==
