@@ -8,6 +8,10 @@
 * git submodule init 
 * git submodule update
 
+# Running on Linux 
+* Change _vimrc file to .vimrc 
+* Change vimfiles to .vim
+
 # Adding support for python3 to gvim
 * Required for Leaderf, 
 * First type ':version' in Gvim and you should see '-DDYNAMIC_PYTHON3_DLL=\"python35.dll\' this indicates the version of python you will need to download, I will typically go with the 32 bit version of pythonx.x.0
@@ -21,6 +25,8 @@
 # Usage guidelines
 * Saved sessions go into the '~/vimtemp/' 
 * 
+
+
 
 # Useful Commands 
 * 'set titlestring=Hello' Sets the title of the window to Hello
