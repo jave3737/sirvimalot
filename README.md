@@ -1,4 +1,4 @@
-# Install Instructions for Windows
+# Getting Started
 ## Run Git to get necessary repos
 * If using Windows add an environmental variable $HOME with the value of the directory that you will refer to as your HOME directory
 * That directory might not be empty so use the following git commands to clone into a non-empty repository
@@ -10,6 +10,8 @@
 * git submodule update
 ## Python corollary 
 * If you perchance do not have 32-bit Python, go to the [Installing Python section](https://github.com/jave3737/sirvimalot#adding-support-for-python3-to-gvim)
+## Ready to go!
+For bundle instructions see the [README](https://github.com/jave3737/sirvimalot/blob/master/vimfiles/bundle/README.md) in the bundle section of the repo.  
 
 # Running on Linux 
 * Change _vimrc file to .vimrc 
