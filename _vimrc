@@ -62,6 +62,11 @@ set ssop-=options
 "do not store folds
 set ssop-=folds
 
+"Show file options above command line 
+set wildmenu
+
+"Ignore the searching of the following file types
+set wildignore+=*.jpg,*.gif, 
 "Key Mappings==========================================================================
 "Change to home directory
 map <F1> :cd $HOME<CR>
