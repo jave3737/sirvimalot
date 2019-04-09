@@ -18,7 +18,7 @@
 # Adding support for python3 to gvim
 * Required for Leaderf, 
 * First type ':version' in Gvim and you should see '-DDYNAMIC_PYTHON3_DLL=\"python35.dll\' this indicates the version of python you will need to download, I will typically go with the 32 bit version of pythonx.x.0
-* You need to add the path to the python35.dll to the $PATH environmental variable. This might be in a directory like 'C:\Users\Jave\AppData\Local\Programs\Python\Python35-32' 
+* You need to add the path to the python35.dll to the $PATH environmental variable. This might be in a directory like 'C:\Users\Jave\AppData\Local\Programs\Python\Python35-32' __NOTE__: Before running the installer be sure to check off the __add to path__ checkbox, otherwise you'll have to add it manually (womp womp)
 
 # Adding plugins to the repository 
 * Using gitBash or CommandExe go to $HOME/vimfiles/bundle and you have to add the submodule as 'git add submodule /link/to/REPO'
