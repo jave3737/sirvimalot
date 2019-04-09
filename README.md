@@ -31,7 +31,7 @@ git submodule update
 
 # Adding plugins to the repository 
 * Using gitBash or CommandExe go to `$HOME/vimfiles/bundle` and add the submodule as `git add submodule </link/to/REPO>`
-* Commit the changes `git commit -m <submodule. -a` and `git push` 
+* Commit the changes `git commit -m <submodule> -a` and `git push` 
 * Run `git submodule update`
 
 # Usage guidelines
