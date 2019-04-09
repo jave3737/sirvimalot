@@ -28,13 +28,13 @@ For bundle instructions see the [README](https://github.com/jave3737/sirvimalot/
 * Then run 'git submodule update' 
 
 # Usage guidelines
-* Saved sessions go into the '~/vimtemp/' 
+* Saved sessions go into the `~/vimtemp/` 
 * 
 
 
 
 # Useful Commands 
-* 'set titlestring=Hello' Sets the title of the window to Hello
-* 'vs **/*<partial file name><Tab>' This can be used to do a fuzzy file search based on a keyword. Pretty useful when you dont have ctrlP or leaderF
+* `set titlestring=Hell` Sets the title of the window to Hello
+* `vs **/*<partial file name><Tab>` This can be used to do a fuzzy file search based on a keyword. Pretty useful when you dont have ctrlP or leaderF
 *  just testing
 
