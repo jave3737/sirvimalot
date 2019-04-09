@@ -1,4 +1,6 @@
 # Getting Started
+This READ ME has information for all the components needed to recreate this git setup. 
+
 ## 1. Important Paths
 |                     | Windows 	    | Linux 	|
 |---------------------|---------------|---------|
