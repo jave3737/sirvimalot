@@ -11,7 +11,7 @@
 + Navigate to `C:Users\<me>\` folder and run the commands in [git section]((https://github.com/jave3737/sirvimalot#Git-commands-for-sirvimalot-repo))
 ### Linux 
 + The git repo will add the `.vimrc` file and create a `.vim` directory in`/home/<me>`
-  - * NOTE: Hidden files have a '.' in front of them in Linux. In order to see the files/dirs run `ls -a` 
+  - NOTE: Hidden files have a '.' in front of them in Linux. In order to see the files/dirs run `ls -a` 
 + *TODO add how to add HOME to Linux path*
 
 ## 2. Git Commands for sirvimalot repo
