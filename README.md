@@ -1,4 +1,5 @@
 # Install Instructions for Windows
+## Run Git to get necessary repos
 * If using Windows add an environmental variable $HOME with the value of the directory that you will refer to as your HOME directory
 * That directory might not be empty so use the following git commands to clone into a non-empty repository
 * git init
@@ -7,6 +8,8 @@
 * git checkout -t origin/master
 * git submodule init 
 * git submodule update
+## Python corollary 
+* If you perchance do not have 32-bit Python, go to the [Installing Python section](https://github.com/jave3737/sirvimalot#adding-support-for-python3-to-gvim)
 
 # Running on Linux 
 * Change _vimrc file to .vimrc 
