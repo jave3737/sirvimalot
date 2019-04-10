@@ -32,7 +32,7 @@ git submodule update
 * __NOTE__: Before running the installer be sure to check off the __add to path__ checkbox, otherwise you'll have to add it manually (womp womp)
 
 # Adding plugins to the repository 
-* Using gitBash or CommandExe go to `$HOME/vimfiles/bundle` and add the submodule as `git add submodule </link/to/REPO>`
+* Using gitBash or CommandExe go to `$HOME/vimfiles/bundle` and add the submodule as `git submodule add </link/to/REPO>`
 * Commit the changes `git commit -m <submodule> -a` and `git push` 
 * Run `git submodule update`
 
