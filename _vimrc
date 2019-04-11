@@ -67,6 +67,10 @@ set wildmenu
 
 "Ignore the searching of the following file types
 set wildignore+=*.jpg,*.gif, 
+
+"Highlight when searchign 
+set hlsearch
+
 "Key Mappings==========================================================================
 "Change to home directory
 map <F1> :cd $HOME<CR>
@@ -96,8 +100,7 @@ map <F3> :SyntasticToggleMode<CR>
 map <F4> :NERDTreeToggle<CR>
 
 "Find lines quickly in the current file
-map <F5> :LeaderfFile<CR>
-map <C-F5> :LeaderfLine<CR>
+nnoremap <leader>ff :LeaderfLine<CR>
 
 "Quick command to display the c.templates file 
 nnoremap <leader>ctt :vsplit $HOME/vimfiles/templates/c.templates<CR>
