@@ -24,6 +24,7 @@ set statusline=%t
 "Behavior ==========================================================================
 "Press \ev to quick open vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
+nnoremap <leader>evv :vsplit $HOME/_vimcustomrc.vim<cr>
 
 "Set autotoggling for the line numbers  1 l 
 set number relativenumber 
