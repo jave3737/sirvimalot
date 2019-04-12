@@ -9,10 +9,11 @@ if has("gui_running")
     colorscheme vividchalk
 
     "Setting the potential fonts
-    set guifont=Dank_Mono:h12:cANSI:qDRAFT,Consolas:h11:cANSI, 
+    set guifont=Dank_Mono:h12:cANSI:qDRAFT:b,Consolas:h11:cANSI, 
 
     "Remove toolbar, menu bar, scrollbars, etc 
     set guioptions =
+    
 else
     colorscheme desert
 endif 
@@ -24,7 +25,7 @@ set statusline=%t
 "Press \ev to quick open vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
 
-"Set autotoggling for the line numbers 
+"Set autotoggling for the line numbers  1 l 
 set number relativenumber 
 :augroup numbertoggle 
 :  autocmd!
@@ -72,8 +73,6 @@ set wildignore+=*.jpg,*.gif,
 set hlsearch
 
 "Key Mappings==========================================================================
-"Change to home directory
-map <F1> :cd $HOME<CR>
 
 "Print location of current file
 map <F2> :echo @%<CR>
@@ -142,3 +141,8 @@ let g:syntastic_c_check_header = 1
 "Example of how to quiet down syntastic based on certain warmings or messages
 "let g:syntastic_quiet_messages={'regex':'unknown type'}
 "
+"
+
+
+"Load Custom Vimrc==========================================================================
+source $HOME/_vimcustomrc.vim
