@@ -1,27 +1,28 @@
+"Default Settings for Sirvimalot
+"*For your own settings make changes to the _vimcustomrc.vim file
 "Dependencies ==========================================================================
 source $VIMRUNTIME/mswin.vim
 behave mswin 
 "Appearance ==========================================================================
+
 if has("gui_running")
     autocmd GUIEnter * simalt ~x "Maximize Gui Size
 
-    "Setting the colorscheme
-    colorscheme vividchalk
-
     "Setting the potential fonts
-    set guifont=Dank_Mono:h12:cANSI:qDRAFT:b,Consolas:h11:cANSI, 
+    set guifont=Consolas:h11:cANSI, 
 
     "Remove toolbar, menu bar, scrollbars, etc 
     set guioptions =
     
 else
-    colorscheme desert
+    
 endif 
 
 "Show the name of the file in the statusline
 set statusline=%t
 
 "Behavior ==========================================================================
+
 "Press \ev to quick open vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
 nnoremap <leader>evv :vsplit $HOME/_vimcustomrc.vim<cr>
@@ -33,15 +34,6 @@ set number relativenumber
 :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
-
-"Set tab to 4 spaces
-set tabstop=4 
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-
-"Set line numbers to 0 characters
-set textwidth=0 
 
 "Ignore case when searching
 set ignorecase 
@@ -67,9 +59,6 @@ set ssop-=folds
 "Show file options above command line 
 set wildmenu
 
-"Ignore the searching of the following file types
-set wildignore+=*.jpg,*.gif, 
-
 "Highlight when searchign 
 set hlsearch
 
@@ -93,6 +82,7 @@ nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
 "Plugin Settings==========================================================================
+
 "Toggle Syntastic Checking
 map <F3> :SyntasticToggleMode<CR>
 
@@ -141,9 +131,6 @@ let g:syntastic_c_config_file = '.syntastic_c_config_file'
 let g:syntastic_c_check_header = 1 
 "Example of how to quiet down syntastic based on certain warmings or messages
 "let g:syntastic_quiet_messages={'regex':'unknown type'}
-"
-"
-
 
 "Load Custom Vimrc==========================================================================
 source $HOME/_vimcustomrc.vim
