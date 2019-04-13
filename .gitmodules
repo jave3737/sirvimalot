@@ -31,6 +31,3 @@
 [submodule "vimfiles/bundle/gv.vim"]
 	path = vimfiles/bundle/gv.vim
 	url = https://github.com/junegunn/gv.vim.git
-[submodule "vimfiles/bundle/vim-buffergator"]
-	path = vimfiles/bundle/vim-buffergator
-	url = https://github.com/jeetsukumaran/vim-buffergator.git
