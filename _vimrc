@@ -42,9 +42,8 @@ set statusline=%t
 
 "Behavior ==========================================================================
 
-"Press \ev to quick open vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
-nnoremap <leader>evv :vsplit $HOME/_vimcustomrc.vim<cr>
+"Press \ev to quickly open default and custom settings
+nnoremap <leader>ev :vsplit $MYVIMRC <cr> :split $HOME/_vimcustomrc.vim <cr>
 
 "Set autotoggling for the line numbers  1 l 
 set number relativenumber 
@@ -78,13 +77,10 @@ set ssop-=folds
 "Show file options above command line 
 set wildmenu
 
-"Highlight when searchign 
+"Highlight when searching
 set hlsearch
 
 "Key Mappings==========================================================================
-
-"Print location of current file
-map <F2> :echo @%<CR>
 
 "Time Stamp Quick Key
 nmap <F8> a<C-R>=strftime("*%Y-%m-%d %a %I:%M %p* ")<CR>
@@ -100,8 +96,6 @@ nnoremap = 10<C-w>+<CR>
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
-"Plugin Settings==========================================================================
-filetype plugin indent on
 "Toggle Syntastic Checking
 map <F3> :SyntasticToggleMode<CR>
 
@@ -111,19 +105,24 @@ map <F4> :NERDTreeToggle<CR>
 "Find lines quickly in the current file
 nnoremap <leader>ff :LeaderfLine<CR>
 
-"Pathogen
+"Plugin Settings==========================================================================
+
+"
+filetype plugin indent on
+
+"pathogen
 call pathogen#infect()
 
-"GitGutter
+"gitgutter
 set updatetime =100
 :let g:gitgutter_enabled = 1
 
-"Vimwiki
+"vimwiki
 set nocompatible
 syntax on
 let g:vimwiki_list = [{'path':'~/vimwiki','path_html':'~/vimwiki/html/'}]
 
-"Taboo
+"taboo
 set sessionoptions+=tabpages,globals
 
 "syntastic
@@ -147,5 +146,6 @@ let g:UltiSnipsEditSplit='vertical'
 let g:UltiSnipsSnippetDirectories=[$HOME . "/vimfiles/custom_snippets"]
 let g:UltiSnipsUsePythonVersion=3
 let g:UltiSnipsExpandTrigger="<tab>"
+
 "Load Custom Vimrc==========================================================================
 source $HOME/_vimcustomrc.vim
