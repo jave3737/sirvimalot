@@ -101,7 +101,7 @@ nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
 "Plugin Settings==========================================================================
-
+filetype plugin indent on
 "Toggle Syntastic Checking
 map <F3> :SyntasticToggleMode<CR>
 
@@ -120,7 +120,6 @@ set updatetime =100
 
 "Vimwiki
 set nocompatible
-filetype plugin on
 syntax on
 let g:vimwiki_list = [{'path':'~/vimwiki','path_html':'~/vimwiki/html/'}]
 
@@ -145,7 +144,8 @@ let g:syntastic_c_check_header = 1
 
 "ultisnips
 let g:UltiSnipsEditSplit='vertical'
-let g:UltiSnipsSnippetsDir='$HOME/vimfiles/custom_snippets//'
-
+let g:UltiSnipsSnippetDirectories=[$HOME . "/vimfiles/custom_snippets"]
+let g:UltiSnipsUsePythonVersion=3
+let g:UltiSnipsExpandTrigger="<tab>"
 "Load Custom Vimrc==========================================================================
 source $HOME/_vimcustomrc.vim
