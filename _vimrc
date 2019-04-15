@@ -145,7 +145,7 @@ let g:syntastic_c_check_header = 1
 
 "ultisnips
 let g:UltiSnipsEditSplit='vertical'
-let g:UltiSnipsSnippetsDir='$HOME/vimfiles/snippets//'
+let g:UltiSnipsSnippetsDir='$HOME/vimfiles/custom_snippets//'
 
 "Load Custom Vimrc==========================================================================
 source $HOME/_vimcustomrc.vim
