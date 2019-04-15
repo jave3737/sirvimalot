@@ -51,6 +51,18 @@ while($1)
 }/* end while($1) */
 endsnippet
 
+snippet sc
+switch($1)
+{
+	case $2:
+		$3
+	break;
+
+	default:
+	break;
+}/* end switch($1) */
+endsnippet
+
 #Functions========================
 snippet fh
 /*!	@brief
@@ -80,7 +92,7 @@ endsnippet
 
 #Defines==========================
 snippet dd
-#Define $1
+#define $1
 endsnippet
 
 snippet di
@@ -102,4 +114,13 @@ snippet dh
 #define __$1__H
 
 #endif /* end __$1__H
+endsnippet
+
+#Includes============================
+snippet ii
+#include "$1.h" /* $2 */
+endsnippet
+
+snippet is
+#include <$1.h> /* $2 */
 endsnippet
