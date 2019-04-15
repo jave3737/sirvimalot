@@ -1,3 +1,70 @@
-snippet hi "woa"
-asfdasdfa
+#Commenting=======================
+#Comment Block
+snippet c* 
+/**! $1
+*/
+endsnippet 
+
+#Comment Member
+snippet c
+//< $1
+endsnippet
+
+#Statements========================
+snippet if
+if($1)
+{
+	$2
+}/* end if($1) */
+endsnippet
+
+snippet ifelse
+if($1)
+{
+	$2
+}else
+{
+	$3
+}/* end if($1)-else */
+endsnippet 
+
+snippet dowhile
+do /* start do-while($1) */
+{
+	$2
+}while($1)
+endsnippet
+
+snippet while
+while($1)
+{
+	$2
+}/* end while($1) */
+endsnippet
+
+#Functions========================
+snippet func
+$1 $2($3)
+{
+	$4
+}/* end $2($3) */
+endsnippet
+
+#Defines==========================
+snippet def
+#Define $1
+endsnippet
+
+snippet ifdef
+#ifdef($1)
+	$2
+#endif/* end if($1) */
+endsnippet
+
+snippet ifedef
+#ifdef($1)
+	$2
+#else
+	$3
+#endif/* end ifdef($1)-else */
 endsnippet
