@@ -143,5 +143,9 @@ let g:syntastic_c_checkers=["gcc"]
 let g:syntastic_c_config_file = '.syntastic_c_config_file' 
 let g:syntastic_c_check_header = 1 
 
+"ultisnips
+let g:UltiSnipsEditSplit='vertical'
+let g:UltiSnipsSnippetsDir='$HOME/vimfiles/snippets//'
+
 "Load Custom Vimrc==========================================================================
 source $HOME/_vimcustomrc.vim
