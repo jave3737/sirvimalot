@@ -1,22 +1,41 @@
 "Default Settings for Sirvimalot
 "*For your own settings make changes to the _vimcustomrc.vim file
-"Dependencies ==========================================================================
-source $VIMRUNTIME/mswin.vim
-behave mswin 
-"Appearance ==========================================================================
+"GUI ==========================================================================
 
+"Check if it is a terminal or GUI 
 if has("gui_running")
-    autocmd GUIEnter * simalt ~x "Maximize Gui Size
 
-    "Setting the potential fonts
-    set guifont=Consolas:h11:cANSI, 
+    "Linux
+    if has("gui_gtk2") || has("gui_gtk3")
+
+    "Windows 
+    elseif has("gui_win32") 
+
+        "Load some windows behavior stuff
+        source $VIMRUNTIME/mswin.vim
+        behave mswin 
+
+        "Maximize GUI
+        autocmd GUIEnter * simalt ~x "Maximize Gui Size
+
+        "Setting the potential fonts
+        set guifont=Consolas:h11:cANSI, 
+
+    "MAC
+    elseif has("gui_macvim")
+    else
+        echo "Unknown Gui System" 
+    endif 
 
     "Remove toolbar, menu bar, scrollbars, etc 
     set guioptions =
     
 else
-    
+
 endif 
+
+"Use desert as default colorscheme
+colorscheme desert    
 
 "Show the name of the file in the statusline
 set statusline=%t
@@ -71,7 +90,7 @@ map <F2> :echo @%<CR>
 nmap <F8> a<C-R>=strftime("*%Y-%m-%d %a %I:%M %p* ")<CR>
 imap <F8> <C-R>=strftime("*%Y-%m-%d %a %I:%M %p* ")<CR>
 
-"Change vsplit size
+"Change split and vsplit sizes
 nnoremap _ 10<C-w><<CR>
 nnoremap + 10<C-w>><CR>
 nnoremap - 10<C-w>-<CR>
@@ -92,9 +111,6 @@ map <F4> :NERDTreeToggle<CR>
 "Find lines quickly in the current file
 nnoremap <leader>ff :LeaderfLine<CR>
 
-"Quick command to display the c.templates file 
-nnoremap <leader>ctt :vsplit $HOME/vimfiles/templates/c.templates<CR>
-
 "Pathogen
 call pathogen#infect()
 
@@ -112,12 +128,9 @@ let g:vimwiki_list = [{'path':'~/vimwiki','path_html':'~/vimwiki/html/'}]
 set sessionoptions+=tabpages,globals
 
 "syntastic
-"Disabling some of the default statusline messages
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
-"Telling Syntastic that we want to run passive at default and c files as
-"passive checking
 let g:syntastic_mode_map = {
     \ "mode": "passive", 
     \ "active_filetypes": [],
@@ -129,8 +142,6 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_c_checkers=["gcc"] 
 let g:syntastic_c_config_file = '.syntastic_c_config_file' 
 let g:syntastic_c_check_header = 1 
-"Example of how to quiet down syntastic based on certain warmings or messages
-"let g:syntastic_quiet_messages={'regex':'unknown type'}
 
 "Load Custom Vimrc==========================================================================
 source $HOME/_vimcustomrc.vim
