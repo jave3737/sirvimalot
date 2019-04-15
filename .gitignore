@@ -1,0 +1,28 @@
+vimwiki/ 
+vimtemp/
+_viminfo
+.*
+Documents/
+Downloads/
+Desktop/ 
+Pictures/
+Videos/
+AppData/
+Music/
+Contacts/
+ti/
+workspace/
+workspace_v7/
+Draper Work/
+Searches/
+OneDrive/
+IntelGraphicsProfiles/
+STM32Cube/
+STMicroelectronics/
+eclipse/
+ntuser*
+Saved Games/
+Virtual*
+Favorites/
+Links/
+
