@@ -2,7 +2,7 @@
 "*For your own settings make changes to the _vimcustomrc.vim file
 "GUI ==========================================================================
 
-"Check if it is a terminal or GUI 
+"check if it is a terminal or GUI 
 if has("gui_running")
 
     "Linux
@@ -40,12 +40,12 @@ colorscheme desert
 "Show the name of the file in the statusline
 set statusline=%t
 
-"Behavior ==========================================================================
+"behavior ==========================================================================
 
-"Press \ev to quickly open default and custom settings
+"press \ev to quickly open default and custom settings
 nnoremap <leader>ev :vsplit $MYVIMRC <cr> :split $HOME/_vimcustomrc.vim <cr>
 
-"Set autotoggling for the line numbers  1 l 
+"set autotoggling for the line numbers
 set number relativenumber 
 :augroup numbertoggle 
 :  autocmd!
@@ -53,61 +53,51 @@ set number relativenumber
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 
-"Ignore case when searching
+"ignore case when searching
 set ignorecase 
 
-"No wrapping 
+"no wrapping 
 set nowrap 
 
-"Place all backup files in these special directories
+"place all backup files in these special directories
 set directory=$HOME/vimtemp/swapfiles// 
 set backupdir=$HOME/vimtemp/backup//
 set undodir=$HOME/vimtemp/undo//
 
-"How to split
+"how to split
 set splitbelow
 set splitright
 
-"Do not store global and local values in a session
+"do not store global and local values in a session
 set ssop-=options
 
 "do not store folds
 set ssop-=folds
 
-"Show file options above command line 
+"show file options above command line 
 set wildmenu
 
-"Highlight when searching
+"highlight when searching
 set hlsearch
 
-"Key Mappings==========================================================================
+"key mappings==========================================================================
 
-"Time Stamp Quick Key
+"time stamp quick key
 nmap <F8> a<C-R>=strftime("*%Y-%m-%d %a %I:%M %p* ")<CR>
 imap <F8> <C-R>=strftime("*%Y-%m-%d %a %I:%M %p* ")<CR>
 
-"Change split and vsplit sizes
+"change split and vsplit sizes
 nnoremap _ 10<C-w><<CR>
 nnoremap + 10<C-w>><CR>
 nnoremap - 10<C-w>-<CR>
 nnoremap = 10<C-w>+<CR>
 
-"Use the arrow keys to easily move tabs
+"use the arrow keys to easily move tabs
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
-"Toggle Syntastic Checking
-map <F3> :SyntasticToggleMode<CR>
+"plugin settings==========================================================================
 
-"Togggle the NerdTree
-map <F4> :NERDTreeToggle<CR>
-
-"Find lines quickly in the current file
-nnoremap <leader>ff :LeaderfLine<CR>
-
-"Plugin Settings==========================================================================
-
-"
 filetype plugin indent on
 
 "pathogen
@@ -126,9 +116,6 @@ let g:vimwiki_list = [{'path':'~/vimwiki','path_html':'~/vimwiki/html/'}]
 set sessionoptions+=tabpages,globals
 
 "syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
 let g:syntastic_mode_map = {
     \ "mode": "passive", 
     \ "active_filetypes": [],
@@ -140,6 +127,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_c_checkers=["gcc"] 
 let g:syntastic_c_config_file = '.syntastic_c_config_file' 
 let g:syntastic_c_check_header = 1 
+map <F3> :SyntasticToggleMode<CR>
 
 "ultisnips
 let g:UltiSnipsEditSplit='vertical'
@@ -147,5 +135,12 @@ let g:UltiSnipsSnippetDirectories=[$HOME . "/vimfiles/custom_snippets"]
 let g:UltiSnipsUsePythonVersion=3
 let g:UltiSnipsExpandTrigger="<tab>"
 
-"Load Custom Vimrc==========================================================================
+"leaderF
+nnoremap <leader>ff :LeaderfLine<CR>
+
+"nerdtree
+map <F4> :NERDTreeToggle<CR>
+
+"load custom vimrc==========================================================================
+
 source $HOME/_vimcustomrc.vim
