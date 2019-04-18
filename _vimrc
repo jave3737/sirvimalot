@@ -1,7 +1,6 @@
 "Default Settings for Sirvimalot
 "IMPORTANT: DO NOT MODIFY THIS FILE
-"
-"Reference ==========================================================================
+"==========================================================================================
 "defining a scalar string variable
 "let name = "Damian"
 "
@@ -50,7 +49,6 @@
 "calling a function
 ":call Function_name(param_1,param_2)
 "
-"keymappings ==========================================================================
 "open help for keymappings
 ":help key-mapping
 "
@@ -72,7 +70,6 @@
 "display visual mode mappings
 ":vmap
 "
-"Terminal options ==========================================================================
 "show all terminal options
 ":set all
 "
@@ -82,7 +79,6 @@
 "open help for a terminal option
 ":help 'variable' "ex. :help 'tabstop' 
 "
-"Searching and Replace==========================================================
 "replace first occurance on a single line 
 ":s/search/replace
 "
@@ -123,10 +119,25 @@
 "copy file contents to line "replace n with line number 
 ":nr /path/to/file
 "
-"see also 
-"https://www.linux.com/learn/vim-tips-basics-search-and-replace
+"copy a single line to clipboard in normal mode
+"QC
+"
+"copy a selected text to cliboard in visual mode
+"QC
+"
+"paste from cliboard in normal mode
+"QV
 "
 "==========================================================================================
+"fonts
+"https://medium.com/@caulfieldOwen/programming-fonts-a-visual-guide-567fc210d2c6
+"
+"search and replace
+"https://www.linux.com/learn/vim-tips-basics-search-and-replace
+"
+"doxygen tags
+"http://www.doxygen.nl/manual/commands.html
+"
 "==========================================================================================
 
 if has("gui_running")
@@ -164,10 +175,11 @@ set backupdir=$HOME/vimtemp/backup//
 set undodir=$HOME/vimtemp/undo//
 set splitbelow
 set splitright
-set ssop-=options
-set ssop-=folds
+set sessionoptions-=options
+set sessionoptions-=folds
 set hlsearch
 set statusline=%t
+set laststatus=2
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -188,6 +200,8 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <leader>fl :LeaderfLine<CR>
 nnoremap <leader>fm :LeaderfMru<CR>
 nnoremap <leader>n  :NERDTreeToggle<CR>
+nnoremap <C-t> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
+inoremap <C-t>  <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
 "plugin settings==========================================================================
 call pathogen#infect()
 filetype plugin indent on
