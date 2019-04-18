@@ -42,6 +42,7 @@
 "function! Function_name(param_1, param_2)
 "   let param_1 = 1   
 "   let param_2 = 2
+"   let str=a:param_1
 "   echo param_2
 "   :perform_command
 "endfunction
@@ -80,6 +81,51 @@
 "
 "open help for a terminal option
 ":help 'variable' "ex. :help 'tabstop' 
+"
+"Searching and Replace==========================================================
+"replace first occurance on a single line 
+":s/search/replace
+"
+"replace all matching patterns in a file 
+":%s/search/replace/g "the g at the end indicates global(all instances)
+"
+"replace all matching patterns in a file w/ yes or no 
+":%s/search/replace/gc
+"
+"replace within a range (*You can also use visual mode to highlight and then
+"enter the command mode)
+":[range] s/search/replace/g "ex :8,10 s/hello/goodbye/g
+"
+"search a file
+"/pattern
+"
+"search backwards
+"?pattern
+"
+"search a match at the beginning of the line
+"/^pattern "ex /^"open
+"
+"search in case insensitive 
+"/pattern\c
+"
+"search in case sensitive
+"/pattern\C
+"
+"search for next instance of pattern under cursor
+"<S-*>
+"
+"search for previous instance of pattern under cursor
+"<S-#>
+"
+"copy file contents to cursor location
+":r /path/to/file
+"
+"copy file contents to line "replace n with line number 
+":nr /path/to/file
+"
+"see also 
+"https://www.linux.com/learn/vim-tips-basics-search-and-replace
+"
 "==========================================================================================
 "==========================================================================================
 
@@ -88,7 +134,6 @@ if has("gui_running")
     if has("gui_gtk2") || has("gui_gtk3")
 
     elseif has("gui_win32") 
-
         source $VIMRUNTIME/mswin.vim
         behave mswin 
         set guifont=Consolas:h11:cANSI, 
@@ -97,17 +142,12 @@ if has("gui_running")
     else
         echo "Unknown Gui System" 
     endif 
-
-    set guioptions =
     
 else
+
 endif 
 
 colorscheme desert    
-
-"press \ev to quickly open default and custom settings
-nnoremap <leader>ev :vsplit $MYVIMRC <cr> :split $HOME/_vimcustomrc.vim <cr>
-nnoremap <leader>evv :tabnew $MYVIMRC <cr> :split $HOME/_vimcustomrc.vim <cr>
 
 set number relativenumber 
 :augroup numbertoggle 
@@ -116,6 +156,7 @@ set number relativenumber
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 
+set guioptions =
 set ignorecase 
 set nowrap 
 set directory=$HOME/vimtemp/swapfiles// 
@@ -127,55 +168,34 @@ set ssop-=options
 set ssop-=folds
 set hlsearch
 set statusline=%t
-
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set sessionoptions+=tabpages,globals
+set nocompatible
+set updatetime =100
+syntax on
 "key mappings==========================================================================
+nnoremap <leader>ev :vsplit $MYVIMRC <cr> :split $HOME/_vimcustomrc.vim <cr>
+nnoremap <leader>evv :tabnew $MYVIMRC <cr> :split $HOME/_vimcustomrc.vim <cr>
 nnoremap _ 10<C-w><<CR>
 nnoremap + 10<C-w>><CR>
 nnoremap - 10<C-w>-<CR>
 nnoremap = 10<C-w>+<CR>
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
-
+nnoremap <leader>fl :LeaderfLine<CR>
+nnoremap <leader>fm :LeaderfMru<CR>
+nnoremap <leader>n  :NERDTreeToggle<CR>
 "plugin settings==========================================================================
-filetype plugin indent on
-
-"pathogen
 call pathogen#infect()
-
-"gitgutter
-set updatetime =100
-:let g:gitgutter_enabled = 0
-
-"vimwiki
-set nocompatible
-syntax on
+filetype plugin indent on
+let g:gitgutter_enabled = 0
 let g:vimwiki_list = [{'path':'~/vimwiki','path_html':'~/vimwiki/html/'}]
-
-"taboo
-set sessionoptions+=tabpages,globals
-
-"syntastic
-let g:syntastic_mode_map = {
-    \ "mode": "passive", 
-    \ "active_filetypes": [],
-    \ "passive_filetypes": ["c"] }
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_c_checkers=["gcc"] 
-let g:syntastic_c_config_file = '.syntastic_c_config_file' 
-let g:syntastic_c_check_header = 1 
-
-"ultisnips
 let g:UltiSnipsEditSplit='vertical'
 let g:UltiSnipsSnippetDirectories=[$HOME . "/vimfiles/custom_snippets"]
 let g:UltiSnipsUsePythonVersion=3
 let g:UltiSnipsExpandTrigger="<tab>"
-
-
-"leaderF
-nnoremap <leader>ff :LeaderfLine<CR>
-
 "load custom vimrc==========================================================================
 source $HOME/_vimcustomrc.vim
