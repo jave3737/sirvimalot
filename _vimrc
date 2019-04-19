@@ -113,6 +113,15 @@
 "search for previous instance of pattern under cursor
 "<S-#>
 "
+"search for a pattern within a file using vimgrep case insensitive
+":vimgrep /pattern\c/gj path\to\file.txt
+"
+"search for a pattern within a file using vimgrep case sensitive
+":vimgrep /pattern\C/gj path\to\file.txt
+
+"open quicklist to display results from vimgrep
+":copen 
+"
 "copy file contents to cursor location
 ":r /path/to/file
 "
@@ -127,6 +136,8 @@
 "
 "paste from cliboard in normal mode
 "QV
+"
+"
 "
 "==========================================================================================
 "fonts
@@ -202,6 +213,8 @@ nnoremap <leader>fm :LeaderfMru<CR>
 nnoremap <leader>n  :NERDTreeToggle<CR>
 nnoremap <C-t> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
 inoremap <C-t>  <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
+nnoremap <leader>q :copen<CR>
+nnoremap <leader>qq :cclose<CR>
 "plugin settings==========================================================================
 call pathogen#infect()
 filetype plugin indent on
