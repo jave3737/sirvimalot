@@ -149,6 +149,8 @@
 "doxygen tags
 "http://www.doxygen.nl/manual/commands.html
 "
+"searching using grep and vimgrep
+"https://seesparkbox.com/foundry/demystifying_multi_file_searches_in_vim_and_the_command_line
 "==========================================================================================
 
 if has("gui_running")
