@@ -137,8 +137,11 @@
 "paste from cliboard in normal mode
 "QV
 "
-"
-"
+"Getting grep to work in windows
+"If you have git installed you can add the git grep to the $PATH 
+"C:\Program Files\Git\usr\bin
+"And set the following variable 
+"set grepprg=grep\ -nH
 "==========================================================================================
 "fonts
 "https://medium.com/@caulfieldOwen/programming-fonts-a-visual-guide-567fc210d2c6
@@ -200,6 +203,7 @@ set expandtab
 set sessionoptions+=tabpages,globals
 set nocompatible
 set updatetime =100
+set grepprg=grep\ -nH
 syntax on
 "key mappings==========================================================================
 nnoremap <leader>ev :vsplit $MYVIMRC <cr> :split $HOME/_vimcustomrc.vim <cr>
@@ -217,6 +221,8 @@ nnoremap <C-t> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 inoremap <C-t>  <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
 nnoremap <leader>q :copen<CR>
 nnoremap <leader>qq :cclose<CR>
+nnoremap <C-Up> :cnext<CR>
+nnoremap <C-Down> :cprevious<CR>
 "plugin settings==========================================================================
 call pathogen#infect()
 filetype plugin indent on
