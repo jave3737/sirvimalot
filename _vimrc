@@ -118,9 +118,19 @@
 "
 "search for a pattern within a file using vimgrep case sensitive
 ":vimgrep /pattern\C/gj path\to\file.txt
-
+"
+"search for a pattern recursively in a directory
+"** indicates search directory 
+":vimgrep /pattern/gj path\to\directory\**
+"
+"search for a pattern recusively in a directory with specific file type
+":vimgrep /pattern/gj path\to\directory\**\*.txt
+"
 "open quicklist to display results from vimgrep
 ":copen 
+"
+"close quicklist from vimgrep 
+":close
 "
 "copy file contents to cursor location
 ":r /path/to/file
@@ -156,24 +166,10 @@
 "https://seesparkbox.com/foundry/demystifying_multi_file_searches_in_vim_and_the_command_line
 "==========================================================================================
 
-if has("gui_running")
-
-    if has("gui_gtk2") || has("gui_gtk3")
-
-    elseif has("gui_win32") 
-        source $VIMRUNTIME/mswin.vim
-        behave mswin 
-        set guifont=Consolas:h11:cANSI, 
-    elseif has("gui_macvim")
-
-    else
-        echo "Unknown Gui System" 
-    endif 
-    
-else
-
-endif 
-
+source $VIMRUNTIME/mswin.vim
+behave mswin 
+set guifont=Consolas:h14:cANSI, 
+au GUIEnter * simalt ~x
 colorscheme desert    
 
 set number relativenumber 
@@ -183,6 +179,7 @@ set number relativenumber
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 
+set wildmenu
 set guioptions =
 set ignorecase 
 set nowrap 
@@ -223,6 +220,7 @@ nnoremap <leader>q :copen<CR>
 nnoremap <leader>qq :cclose<CR>
 nnoremap <C-Up> :cnext<CR>
 nnoremap <C-Down> :cprevious<CR>
+nnoremap <leader>vl :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <Bar> cw<CR>
 "plugin settings==========================================================================
 call pathogen#infect()
 filetype plugin indent on
