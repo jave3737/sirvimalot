@@ -147,11 +147,16 @@
 "paste from cliboard in normal mode
 "QV
 "
-"Getting grep to work in windows
-"If you have git installed you can add the git grep to the $PATH 
-"C:\Program Files\Git\usr\bin
-"And set the following variable 
+"grep on windows 
+"use the git grep by adding the grep.exe path to the $PATH environmmental
+"variable. It may be in a directory like C:\Program Files\Git\usr\bin
+"Then set the following line in your vimrc
 "set grepprg=grep\ -nH
+"
+"grep options
+"-n display the line numbers (default, refer to grep\ -nH)
+"-H display the full file path (default)
+"-h hide the file path
 "
 "search for a pattern in the current directory using grep
 ":grep -r 'pattern' .
@@ -237,9 +242,10 @@ nnoremap <C-t> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 inoremap <C-t>  <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
 nnoremap <leader>q :copen<CR>
 nnoremap <leader>qq :cclose<CR>
-nnoremap <C-Up> :cnext<CR>
-nnoremap <C-Down> :cprevious<CR>
+nnoremap <C-Down> :cnext<CR>
+nnoremap <C-Up> :cprevious<CR>
 nnoremap <leader>vl :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <Bar> cw<CR>
+nnoremap <leader>gl :execute "grep -nh" . expand("<cword>") . " " .expand("%") <Bar> :copen<CR>
 "plugin settings==========================================================================
 call pathogen#infect()
 filetype plugin indent on
