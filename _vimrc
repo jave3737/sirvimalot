@@ -152,6 +152,25 @@
 "C:\Program Files\Git\usr\bin
 "And set the following variable 
 "set grepprg=grep\ -nH
+"
+"search for a pattern in the current directory using grep
+":grep -r 'pattern' .
+"
+"search for a pttern in the current file using grep
+":grep 'pattern' %
+"
+"search for a patter in a specified file using grep 
+":grep 'pattern' path/to/file.txt
+"
+"pipes a series of commands, in a new tab show the results of the grep find
+"and open the quickfix 
+":tabnew | :grep -R 'pattern' . | :copen
+"
+"search for a pattern that starts and ends with a specific phrase 
+"This will return lines that maybe like 'patternStart is awesome with
+"patternEnd'
+":grep 'patternStart.*patternEnd' path/to/file.txt
+"
 "==========================================================================================
 "fonts
 "https://medium.com/@caulfieldOwen/programming-fonts-a-visual-guide-567fc210d2c6
