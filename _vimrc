@@ -157,6 +157,7 @@
 "-n display the line numbers (default, refer to grep\ -nH)
 "-H display the full file path (default)
 "-h hide the file path
+"-R perform a recursize search
 "
 "search for a pattern in the current directory using grep
 ":grep -r 'pattern' .
@@ -224,7 +225,7 @@ set expandtab
 set sessionoptions+=tabpages,globals
 set nocompatible
 set updatetime =100
-set grepprg=grep\ -nH
+set grepprg=grep\ 
 syntax on
 "key mappings==========================================================================
 "quickly open vimrc
@@ -249,7 +250,7 @@ nnoremap <C-Down> :cnext<CR>
 nnoremap <C-Up> :cprevious<CR>
 "find word under cursor in current file
 nnoremap <leader>vl :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <Bar> cw<CR>
-nnoremap <leader>gl :execute "grep -nh" . expand("<cword>") . " " .expand("%") <Bar> :copen<CR>
+nnoremap <leader>gl :execute "grep -nH " . expand("<cword>") . " " .expand("%") <Bar> :copen<CR>
 "plugin settings==========================================================================
 nnoremap <leader>fl :LeaderfLine<CR>
 nnoremap <leader>fm :LeaderfMru<CR>
