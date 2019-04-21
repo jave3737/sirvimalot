@@ -227,26 +227,33 @@ set updatetime =100
 set grepprg=grep\ -nH
 syntax on
 "key mappings==========================================================================
+"quickly open vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC <cr> :split $HOME/_vimcustomrc.vim <cr>
 nnoremap <leader>evv :tabnew $MYVIMRC <cr> :split $HOME/_vimcustomrc.vim <cr>
+"resize splits
 nnoremap _ 10<C-w><<CR>
 nnoremap + 10<C-w>><CR>
 nnoremap - 10<C-w>-<CR>
 nnoremap = 10<C-w>+<CR>
+"move through tabs
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
-nnoremap <leader>fl :LeaderfLine<CR>
-nnoremap <leader>fm :LeaderfMru<CR>
-nnoremap <leader>n  :NERDTreeToggle<CR>
+"print timestamp
 nnoremap <C-t> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
 inoremap <C-t>  <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
+"open close quickfix menu
 nnoremap <leader>q :copen<CR>
 nnoremap <leader>qq :cclose<CR>
+"navigate quickfix results
 nnoremap <C-Down> :cnext<CR>
 nnoremap <C-Up> :cprevious<CR>
+"find word under cursor in current file
 nnoremap <leader>vl :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <Bar> cw<CR>
 nnoremap <leader>gl :execute "grep -nh" . expand("<cword>") . " " .expand("%") <Bar> :copen<CR>
 "plugin settings==========================================================================
+nnoremap <leader>fl :LeaderfLine<CR>
+nnoremap <leader>fm :LeaderfMru<CR>
+nnoremap <leader>n  :NERDTreeToggle<CR>
 call pathogen#infect()
 filetype plugin indent on
 let g:gitgutter_enabled = 0
