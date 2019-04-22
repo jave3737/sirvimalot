@@ -254,7 +254,6 @@ nnoremap <leader>gl :execute "grep -nH " . expand("<cword>") . " " .expand("%") 
 "plugin settings==========================================================================
 nnoremap <leader>fl :LeaderfLine<CR>
 nnoremap <leader>fm :LeaderfMru<CR>
-nnoremap <leader>n  :NERDTreeToggle<CR>
 call pathogen#infect()
 filetype plugin indent on
 let g:gitgutter_enabled = 0
