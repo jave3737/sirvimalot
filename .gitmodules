@@ -4,27 +4,15 @@
 [submodule "vimfiles/bundle/LeaderF"]
 	path = vimfiles/bundle/LeaderF
 	url = https://github.com/Yggdroot/LeaderF.git
-[submodule "vimfiles/bundle/nerdtree"]
-	path = vimfiles/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
 [submodule "vimfiles/bundle/taboo.vim"]
 	path = vimfiles/bundle/taboo.vim
 	url = https://github.com/gcmt/taboo.vim.git
-[submodule "vimfiles/bundle/vim-fugitive"]
-	path = vimfiles/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vimfiles/bundle/vim-gitgutter"]
-	path = vimfiles/bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
 [submodule "vimfiles/bundle/vim-yankstack"]
 	path = vimfiles/bundle/vim-yankstack
 	url = https://github.com/maxbrunsfeld/vim-yankstack.git
 [submodule "vimfiles/bundle/vimwiki"]
 	path = vimfiles/bundle/vimwiki
 	url = https://github.com/vimwiki/vimwiki.git
-[submodule "vimfiles/bundle/gv.vim"]
-	path = vimfiles/bundle/gv.vim
-	url = https://github.com/junegunn/gv.vim.git
 [submodule "vimfiles/bundle/ultisnips"]
 	path = vimfiles/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
