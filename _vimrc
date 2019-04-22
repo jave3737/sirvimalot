@@ -1,4 +1,4 @@
-"Default Settings for Sirvimalot
+"e>efault Settings for Sirvimalot
 "IMPORTANT: DO NOT MODIFY THIS FILE
 "==========================================================================================
 "defining a scalar string variable
@@ -150,8 +150,10 @@
 "grep on windows 
 "use the git grep by adding the grep.exe path to the $PATH environmmental
 "variable. It may be in a directory like C:\Program Files\Git\usr\bin
+"Or if you have cygwin installed it may be like C:\cygwin64\bin
+"Just make sure that whatever directory you use it has the executable grep.exe
 "Then set the following line in your vimrc
-"set grepprg=grep\ -nH
+"set grepprg=grep\ 
 "
 "grep options
 "-n display the line numbers (default, refer to grep\ -nH)
@@ -176,6 +178,10 @@
 "This will return lines that maybe like 'patternStart is awesome with
 "patternEnd'
 ":grep 'patternStart.*patternEnd' path/to/file.txt
+"
+"search for a pattern recusively in the current directory
+"r = recursive, n = show line numbers, i = case insensitive
+":grep -rnHi 'pattern' .
 "
 "==========================================================================================
 "fonts
