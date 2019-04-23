@@ -19,3 +19,6 @@
 [submodule "vimfiles/bundle/vim-solidity"]
 	path = vimfiles/bundle/vim-solidity
 	url = https://github.com/tomlion/vim-solidity.git
+[submodule "vimfiles/bundle/vim-javascript-syntax"]
+	path = vimfiles/bundle/vim-javascript-syntax
+	url = https://github.com/jelera/vim-javascript-syntax.git

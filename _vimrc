@@ -1,4 +1,7 @@
 "===============================================================================
+"GETTING STARTED
+"===============================================================================
+"===============================================================================
 "VARIABLES
 "===============================================================================
 "defining a scalar string variable
@@ -75,6 +78,41 @@
 "display visual mode mappings
 ":vmap
 "
+"edit config files
+nnoremap <leader>ev  :vsplit $MYVIMRC <cr> 
+nnoremap <leader>evv :vsplit $HOME/_vimcustomrc.vim <cr>
+nnoremap <leader>eg :vsplit $HOME/.gitconfig <cr>
+nnoremap <leader>en :vsplit $HOME/.npmrc <cr>
+
+"resize splits
+nnoremap _ 10<C-w><<CR>
+nnoremap + 10<C-w>><CR>
+nnoremap - 10<C-w>-<CR>
+nnoremap = 10<C-w>+<CR>
+
+"move through tabs
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+
+"print timestamp
+nnoremap <C-t> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
+inoremap <C-t>  <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
+
+"open close quickfix menu
+nnoremap <leader>q :copen<CR>
+nnoremap <leader>qq :cclose<CR>
+
+"navigate quickfix results
+nnoremap <C-Down> :cnext<CR>
+nnoremap <C-Up> :cprevious<CR>
+
+"find word under cursor in current file
+nnoremap <leader>vl :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <Bar> cw<CR>
+nnoremap <leader>gl :execute "grep -nH " . expand("<cword>") . " " .expand("%") <Bar> :copen<CR>
+
+"plugin keymaps
+nnoremap <leader>fl :LeaderfLine<CR>
+nnoremap <leader>fm :LeaderfMru<CR>
 "===============================================================================
 "TERMINAL OPTIONS
 "===============================================================================
@@ -87,6 +125,81 @@
 "open help for a terminal option
 ":help 'variable' "ex. :help 'tabstop' 
 "
+source $VIMRUNTIME/mswin.vim
+behave mswin 
+
+"default font
+set guifont=Consolas:h14:cANSI, 
+
+"maximize the gui at startup
+au GUIEnter * simalt ~x
+
+"default color scheme
+colorscheme desert    
+
+"enable autotoggling 
+set number relativenumber 
+:augroup numbertoggle 
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+
+"enable wild menu
+set wildmenu
+"set wildignore=*.o,*.jpg,*.png,*.make,*.bin,*.pyc,
+
+"remove all gui options
+set guioptions =
+
+"ignore case when searching
+set ignorecase 
+
+"disable wrapping
+set nowrap 
+
+"place swapfiles in specified directory
+set directory=$HOME/vimtemp/swapfiles// 
+set backupdir=$HOME/vimtemp/backup//
+set undodir=$HOME/vimtemp/undo//
+
+"disable the backup stuff
+"set nobackup
+"set noswapfile
+
+"split behavior
+set splitbelow
+set splitright
+
+set sessionoptions-=options
+set sessionoptions-=folds
+
+"highlight when searching
+set hlsearch
+
+"output file name on statusline
+set statusline=%t
+set laststatus=2
+
+"tab = 4 spaces
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+set sessionoptions+=tabpages,globals
+set nocompatible
+set updatetime =100
+
+"disable error sounds
+set noerrorbells
+set novisualbell
+
+"set for externel 
+set grepprg=grep\ 
+
+"turn syntax n
+syntax on
 "===============================================================================
 "SEARCH & REPLACE
 "===============================================================================
@@ -235,93 +348,12 @@
 "
 "searching using grep and vimgrep
 "https://seesparkbox.com/foundry/demystifying_multi_file_searches_in_vim_and_the_command_line
+"
+"vimrc options
+"https://dougblack.io/words/a-good-vimrc.html
 "===============================================================================
-source $VIMRUNTIME/mswin.vim
-behave mswin 
-"default font
-set guifont=Consolas:h14:cANSI, 
-"maximize the gui at startup
-au GUIEnter * simalt ~x
-"default color scheme
-colorscheme desert    
-"enable autotoggling 
-set number relativenumber 
-:augroup numbertoggle 
-:  autocmd!
-:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-:augroup END
-"enable wild menu
-set wildmenu
-"disable compiled files
-"set wildignore=*.o,*.jpg,*.png,*.make,*.bin,*.pyc,
-"remove all gui options
-set guioptions =
-"ignore case when searching
-set ignorecase 
-"disable wrapping
-set nowrap 
-"place swapfiles in specified directory
-set directory=$HOME/vimtemp/swapfiles// 
-set backupdir=$HOME/vimtemp/backup//
-set undodir=$HOME/vimtemp/undo//
-"disable the backup stuff
-"set nobackup
-"set noswapfile
-"split behavior
-set splitbelow
-set splitright
-set sessionoptions-=options
-set sessionoptions-=folds
-"highlight when searching
-set hlsearch
-"output file name on statusline
-set statusline=%t
-set laststatus=2
-"tab = 4 spaces
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set sessionoptions+=tabpages,globals
-set nocompatible
-set updatetime =100
-"disable error sounds
-set noerrorbells
-set novisualbell
-"set for externel 
-set grepprg=grep\ 
-"turn syntax n
-syntax on
-"key mappings==========================================================================
-"quickly open vimrc
-nnoremap <leader>ev  :vsplit $MYVIMRC <cr> 
-nnoremap <leader>evv :vsplit $HOME/_vimcustomrc.vim <cr>
-"open gitconfig
-nnoremap <leader>g :vsplit .gitconfig <cr>
-"resize splits
-nnoremap _ 10<C-w><<CR>
-nnoremap + 10<C-w>><CR>
-nnoremap - 10<C-w>-<CR>
-nnoremap = 10<C-w>+<CR>
-"move through tabs
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
-"print timestamp
-nnoremap <C-t> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
-inoremap <C-t>  <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
-"open close quickfix menu
-nnoremap <leader>q :copen<CR>
-nnoremap <leader>qq :cclose<CR>
-"navigate quickfix results
-nnoremap <C-Down> :cnext<CR>
-nnoremap <C-Up> :cprevious<CR>
-"find word under cursor in current file
-nnoremap <leader>vl :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <Bar> cw<CR>
-nnoremap <leader>gl :execute "grep -nH " . expand("<cword>") . " " .expand("%") <Bar> :copen<CR>
-"plugin settings==========================================================================
-nnoremap <leader>fl :LeaderfLine<CR>
-nnoremap <leader>fm :LeaderfMru<CR>
+"PLUGINS
+"===============================================================================
 call pathogen#infect()
 filetype plugin indent on
 let g:vimwiki_list = [{'path':'~/vimwiki','path_html':'~/vimwiki/html/'}]
@@ -329,5 +361,7 @@ let g:UltiSnipsEditSplit='vertical'
 let g:UltiSnipsSnippetDirectories=[$HOME . "/vimfiles/custom_snippets"]
 let g:UltiSnipsUsePythonVersion=3
 let g:UltiSnipsExpandTrigger="<tab>"
-"load custom vimrc==========================================================================
+"===============================================================================
+"LOAD CUSTOM VIMRC
+"===============================================================================
 source $HOME/_vimcustomrc.vim
