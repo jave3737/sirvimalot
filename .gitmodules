@@ -16,3 +16,6 @@
 [submodule "vimfiles/bundle/ultisnips"]
 	path = vimfiles/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "vimfiles/bundle/vim-solidity"]
+	path = vimfiles/bundle/vim-solidity
+	url = https://github.com/tomlion/vim-solidity.git
