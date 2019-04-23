@@ -47,6 +47,20 @@ snippet cm "comment member"
 //!< $1
 endsnippet
 
+snippet c* "comment line"
+/* $1 */
+endsnippet
+
+snippet cfh "comment file header"
+/*!	@brief
+*	@description
+*	@param
+*	@return
+*	@see
+*	@note
+*/
+endsnippet
+
 snippet cfd "comment file description"
 /*******************************************************************************
 * @file			: $1.c
@@ -106,17 +120,6 @@ for($1)
 {
 	$2
 }/* end for($1) */
-endsnippet
-
-snippet fh "function prototype"
-/*!	@brief
-*	@description
-*	@param
-*	@return
-*	@see
-*	@note
-*/
-$1 $2($3);
 endsnippet
 
 snippet te "typedef enum" 
@@ -203,6 +206,7 @@ $2
 endsnippet
 
 snippet cgitable 
+/* generate table */
 fprintf(cgiOut,"<table>\n");  
 
 	/* table header */
@@ -234,13 +238,22 @@ endsnippet
 
 snippet cgisubmit
 /* generate submit button */ 
-fprintf(cgiOut,"<input name =\"submitReference\" type=\"submit\" value=\"Submit\"/>\n"); 
+fprintf(cgiOut,"<input name=\"submitReference\" type=\"submit\" value=\"Submit\"/>\n"); 
 $1
 endsnippet
 
 snippet cgipar
+/* generate paragraph */ 
 fprintf(cgiOut,"<p>\n"); 
 fprintf(cgiOut,"$1"); fprintf(cgiOut,"\n"); 
 $2
 fprintf(cgiOut,"</p>\n"); 
+endsnippet
+
+snippet cgidrop
+/* generate dropdown list */ 
+fprintf(cgiOut,"<select name=\"options\">\n");
+fprintf(cgiOut,"<option value=\"option_1\">$1</option>\n");
+$2
+fprintf(cgiOut,"</select>\n");
 endsnippet

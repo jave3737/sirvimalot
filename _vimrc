@@ -1,6 +1,6 @@
-"e>efault Settings for Sirvimalot
-"IMPORTANT: DO NOT MODIFY THIS FILE
-"==========================================================================================
+"===============================================================================
+"VARIABLES
+"===============================================================================
 "defining a scalar string variable
 "let name = "Damian"
 "
@@ -35,7 +35,9 @@
 "let var+=expr "numeric add and assign 
 "let var-=expr "numeric subtract and assign 
 "let var.=expr "string concatenate and assign 
-"
+"===============================================================================
+"FUNCTIONS
+"===============================================================================
 "example of defining a function & silently replaces an existing function with
 "the same name. Remember must start with Uppercase
 "function! Function_name(param_1, param_2)
@@ -49,6 +51,9 @@
 "calling a function
 ":call Function_name(param_1,param_2)
 "
+"===============================================================================
+"KEY MAPPINGS
+"===============================================================================
 "open help for keymappings
 ":help key-mapping
 "
@@ -70,6 +75,9 @@
 "display visual mode mappings
 ":vmap
 "
+"===============================================================================
+"TERMINAL OPTIONS
+"===============================================================================
 "show all terminal options
 ":set all
 "
@@ -79,11 +87,15 @@
 "open help for a terminal option
 ":help 'variable' "ex. :help 'tabstop' 
 "
+"===============================================================================
+"SEARCH & REPLACE
+"===============================================================================
 "replace first occurance on a single line 
 ":s/search/replace
 "
 "replace all matching patterns in a file 
-":%s/search/replace/g "the g at the end indicates global(all instances)
+"the g at the end indicates global(all instances)
+":%s/search/replace/g 
 "
 "replace all matching patterns in a file w/ yes or no 
 ":%s/search/replace/gc
@@ -138,15 +150,6 @@
 "copy file contents to line "replace n with line number 
 ":nr /path/to/file
 "
-"copy a single line to clipboard in normal mode
-"QC
-"
-"copy a selected text to cliboard in visual mode
-"QC
-"
-"paste from cliboard in normal mode
-"QV
-"
 "grep on windows 
 "use the git grep by adding the grep.exe path to the $PATH environmmental
 "variable. It may be in a directory like C:\Program Files\Git\usr\bin
@@ -161,29 +164,66 @@
 "-h hide the file path
 "-R perform a recursize search
 "
-"search for a pattern in the current directory using grep
-":grep -r 'pattern' .
-"
 "search for a pttern in the current file using grep
-":grep 'pattern' %
+":!grep 'pattern' %
 "
 "search for a patter in a specified file using grep 
-":grep 'pattern' path/to/file.txt
-"
-"pipes a series of commands, in a new tab show the results of the grep find
-"and open the quickfix 
-":tabnew | :grep -R 'pattern' . | :copen
+":!grep 'pattern' path/to/file.txt
 "
 "search for a pattern that starts and ends with a specific phrase 
 "This will return lines that maybe like 'patternStart is awesome with
 "patternEnd'
-":grep 'patternStart.*patternEnd' path/to/file.txt
+":!grep 'patternStart.*patternEnd' path/to/file.txt
 "
-"search for a pattern recusively in the current directory
-"r = recursive, n = show line numbers, i = case insensitive
-":grep -rnHi 'pattern' .
+"search for a pattern recursively
+":!grep -r -n -H -i 'pattern' path/
+"===============================================================================
+"COPY & PASTE
+"===============================================================================
 "
-"==========================================================================================
+"copy a single line to clipboard in normal mode
+"QC
+"
+"copy a selected text to cliboard in visual mode
+"QC
+"
+"paste from cliboard in normal mode
+"QV
+"
+"===============================================================================
+"EDITING
+"===============================================================================
+"you can use the same format with d(delete), Q(visual mode), etc.
+"change to next word
+"cw
+"
+"change entire line
+"cc
+"
+"change from cursor to end of word
+"ce
+"
+"change to end of line 
+"c$
+"
+"change inside double quotes (basically jumps to the inside of the "" in the
+"line you are on
+"ci"
+"
+"change until next occurance of x
+"cfx
+"
+"===============================================================================
+"NAVIGATING
+"===============================================================================
+"
+"===============================================================================
+"DOXYGEN
+"===============================================================================
+"
+"===============================================================================
+"ONLINE RESOURCES
+"===============================================================================
 "fonts
 "https://medium.com/@caulfieldOwen/programming-fonts-a-visual-guide-567fc210d2c6
 "
@@ -195,35 +235,50 @@
 "
 "searching using grep and vimgrep
 "https://seesparkbox.com/foundry/demystifying_multi_file_searches_in_vim_and_the_command_line
-"==========================================================================================
-
+"===============================================================================
 source $VIMRUNTIME/mswin.vim
 behave mswin 
+"default font
 set guifont=Consolas:h14:cANSI, 
+"maximize the gui at startup
 au GUIEnter * simalt ~x
+"default color scheme
 colorscheme desert    
-
+"enable autotoggling 
 set number relativenumber 
 :augroup numbertoggle 
 :  autocmd!
 :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
-
+"enable wild menu
 set wildmenu
+"disable compiled files
+"set wildignore=*.o,*.jpg,*.png,*.make,*.bin,*.pyc,
+"remove all gui options
 set guioptions =
+"ignore case when searching
 set ignorecase 
+"disable wrapping
 set nowrap 
+"place swapfiles in specified directory
 set directory=$HOME/vimtemp/swapfiles// 
 set backupdir=$HOME/vimtemp/backup//
 set undodir=$HOME/vimtemp/undo//
+"disable the backup stuff
+"set nobackup
+"set noswapfile
+"split behavior
 set splitbelow
 set splitright
 set sessionoptions-=options
 set sessionoptions-=folds
+"highlight when searching
 set hlsearch
+"output file name on statusline
 set statusline=%t
 set laststatus=2
+"tab = 4 spaces
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -231,12 +286,19 @@ set expandtab
 set sessionoptions+=tabpages,globals
 set nocompatible
 set updatetime =100
+"disable error sounds
+set noerrorbells
+set novisualbell
+"set for externel 
 set grepprg=grep\ 
+"turn syntax n
 syntax on
 "key mappings==========================================================================
 "quickly open vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC <cr> :split $HOME/_vimcustomrc.vim <cr>
-nnoremap <leader>evv :tabnew $MYVIMRC <cr> :split $HOME/_vimcustomrc.vim <cr>
+nnoremap <leader>ev  :vsplit $MYVIMRC <cr> 
+nnoremap <leader>evv :vsplit $HOME/_vimcustomrc.vim <cr>
+"open gitconfig
+nnoremap <leader>g :vsplit .gitconfig <cr>
 "resize splits
 nnoremap _ 10<C-w><<CR>
 nnoremap + 10<C-w>><CR>
@@ -262,7 +324,6 @@ nnoremap <leader>fl :LeaderfLine<CR>
 nnoremap <leader>fm :LeaderfMru<CR>
 call pathogen#infect()
 filetype plugin indent on
-let g:gitgutter_enabled = 0
 let g:vimwiki_list = [{'path':'~/vimwiki','path_html':'~/vimwiki/html/'}]
 let g:UltiSnipsEditSplit='vertical'
 let g:UltiSnipsSnippetDirectories=[$HOME . "/vimfiles/custom_snippets"]
