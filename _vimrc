@@ -83,8 +83,9 @@
 nnoremap <leader>ev  :vsplit $MYVIMRC <cr> 
 nnoremap <leader>evv :vsplit $HOME/_vimcustomrc.vim <cr>
 nnoremap <leader>eg :vsplit $HOME/.gitconfig <cr>
+nnoremap <leader>egg :vsplit $HOME/.gitmodules <cr>
+nnoremap <leader>eggg :vsplit $HOME/.git/config <cr>
 nnoremap <leader>en :vsplit $HOME/.npmrc <cr>
-
 "resize splits
 nnoremap _ 10<C-w><<CR>
 nnoremap + 10<C-w>><CR>
@@ -108,8 +109,8 @@ nnoremap <C-Down> :cnext<CR>
 nnoremap <C-Up> :cprevious<CR>
 
 "find word under cursor in current file
-nnoremap <leader>vl :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <Bar> cw<CR>
-nnoremap <leader>gl :execute "grep -nH " . expand("<cword>") . " " .expand("%") <Bar> :copen<CR>
+nnoremap <leader>vl :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <CR>
+nnoremap <leader>gl :execute "grep -nH " . expand("<cword>") . " " .expand("%") <CR>
 
 "plugin keymaps
 nnoremap <leader>fl :LeaderfLine<CR>
