@@ -22,3 +22,6 @@
 [submodule "vimfiles/bundle/vim-javascript-syntax"]
 	path = vimfiles/bundle/vim-javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule "vimfiles/bundle/nerdtree"]
+	path = vimfiles/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
