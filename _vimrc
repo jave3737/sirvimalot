@@ -80,7 +80,7 @@
 "
 "edit config files
 nnoremap <leader>ev  :vsplit $MYVIMRC <cr> 
-nnoremap <leader>evv :vsplit $HOME/_vimcustomrc.vim <cr>
+"nnoremap <leader>evv :vsplit $HOME/_vimcustomrc.vim <cr>
 nnoremap <leader>eg :vsplit $HOME/.gitconfig <cr>
 nnoremap <leader>en :vsplit $HOME/.npmrc <cr>
 
@@ -364,4 +364,4 @@ let g:UltiSnipsExpandTrigger="<tab>"
 "===============================================================================
 "LOAD CUSTOM VIMRC
 "===============================================================================
-source $HOME/_vimcustomrc.vim
+source $HOME/vimusrs/_vimcurrusr.vim
