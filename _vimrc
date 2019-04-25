@@ -81,6 +81,7 @@
 "
 "edit config files
 nnoremap <leader>ev  :vsplit $MYVIMRC <cr> 
+nnoremap <leader>evv :vsplit $HOME/vimusrs/_vimcurrusr.vim <cr>
 nnoremap <leader>sv :source $MYVIMRC <cr>
 nnoremap <leader>eg :vsplit $HOME/.gitconfig <cr>
 nnoremap <leader>egg :vsplit $HOME/.gitmodules <cr>
