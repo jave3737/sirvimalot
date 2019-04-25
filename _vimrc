@@ -80,13 +80,13 @@
 ":vmap
 "
 "edit config files
-nnoremap <leader>ev  :vsplit $MYVIMRC <cr> 
-nnoremap <leader>evv :vsplit $HOME/vimusrs/_vimcurrusr.vim <cr>
-nnoremap <leader>sv :source $MYVIMRC <cr>
-nnoremap <leader>eg :vsplit $HOME/.gitconfig <cr>
-nnoremap <leader>egg :vsplit $HOME/.gitmodules <cr>
-nnoremap <leader>eggg :vsplit $HOME/.git/config <cr>
-nnoremap <leader>en :vsplit $HOME/.npmrc <cr>
+nnoremap <leader>ev     :vsplit $MYVIMRC <cr> 
+nnoremap <leader>evv    :vsplit $HOME/vimusrs/_vimcurrusr.vim <cr>
+nnoremap <leader>sv     :source $MYVIMRC <cr>
+nnoremap <leader>eg     :vsplit $HOME/.gitconfig <cr>
+nnoremap <leader>egg    :vsplit $HOME/.gitmodules <cr>
+nnoremap <leader>eggg   :vsplit $HOME/.git/config <cr>
+nnoremap <leader>en     :vsplit $HOME/.npmrc <cr>
 "resize splits
 nnoremap _ 10<C-w><<CR>
 nnoremap + 10<C-w>><CR>
@@ -94,20 +94,20 @@ nnoremap - 10<C-w>-<CR>
 nnoremap = 10<C-w>+<CR>
 
 "move through tabs
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
+nnoremap <C-Left>   :tabprevious<CR>
+nnoremap <C-Right>  :tabnext<CR>
 
 "print timestamp
 nnoremap <C-t> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
 inoremap <C-t>  <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
 
 "open close quickfix menu
-nnoremap <leader>q :copen<CR>
+nnoremap <leader>q  :copen<CR>
 nnoremap <leader>qq :cclose<CR>
 
 "navigate quickfix results
-nnoremap <C-Down> :cnext<CR>
-nnoremap <C-Up> :cprevious<CR>
+nnoremap <C-Down>   :cnext<CR>
+nnoremap <C-Up>     :cprevious<CR>
 
 "find word under cursor in current file
 nnoremap <leader>vl :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <CR>
@@ -131,14 +131,20 @@ nnoremap <leader>fm :LeaderfMru<CR>
 source $VIMRUNTIME/mswin.vim
 behave mswin 
 
-"default font
-set guifont=Consolas:h14:cANSI, 
-
 "maximize the gui at startup
 au GUIEnter * simalt ~x
 
 "default color scheme
 colorscheme desert    
+
+"set for externel 
+set grepprg=grep\ 
+
+"turn syntax n
+syntax on
+
+"default font
+set guifont=Consolas:h14:cANSI, 
 
 "enable autotoggling 
 set number relativenumber 
@@ -150,7 +156,6 @@ set number relativenumber
 
 "enable wild menu
 set wildmenu
-"set wildignore=*.o,*.jpg,*.png,*.make,*.bin,*.pyc,
 
 "remove all gui options
 set guioptions =
@@ -165,10 +170,6 @@ set nowrap
 set directory=$HOME/vimtemp/swapfiles// 
 set backupdir=$HOME/vimtemp/backup//
 set undodir=$HOME/vimtemp/undo//
-
-"disable the backup stuff
-"set nobackup
-"set noswapfile
 
 "split behavior
 set splitbelow
@@ -198,48 +199,47 @@ set updatetime =100
 set noerrorbells
 set novisualbell
 
-"set for externel 
-set grepprg=grep\ 
-
-"turn syntax n
-syntax on
 "===============================================================================
 "SEARCH & REPLACE
 "===============================================================================
 "replace first occurance on a single line 
 ":s/search/replace
 "
+"replace all occurange on a single line
+":s/search/replace/g
+"
+"replace all occurange on a single line w/ yes or no
+":s/search/replace/gc
+"
 "replace all matching patterns in a file 
-"the g at the end indicates global(all instances)
 ":%s/search/replace/g 
 "
 "replace all matching patterns in a file w/ yes or no 
 ":%s/search/replace/gc
 "
-"replace within a range (*You can also use visual mode to highlight and then
-"enter the command mode)
-":[range] s/search/replace/g "ex :8,10 s/hello/goodbye/g
+"replace within a range "ex :8,10 s/hello/goodbye/g
+":[range] s/search/replace/g 
 "
-"search a file
+"search for pattern in a file
 "/pattern
 "
-"search backwards
+"search for a pattern backwards in a file
 "?pattern
 "
-"search a match at the beginning of the line
-"/^pattern "ex /^"open
+"search for a pattern that at the beginning of a line
+"/^pattern 
 "
-"search in case insensitive 
+"search with case insensitive
 "/pattern\c
 "
-"search in case sensitive
+"search with case sensitive
 "/pattern\C
 "
 "search for next instance of pattern under cursor
-"<S-*>
+"<Shift-*>
 "
 "search for previous instance of pattern under cursor
-"<S-#>
+"<Shift-#>
 "
 "search for a pattern within a file using vimgrep case insensitive
 ":vimgrep /pattern\c/gj path\to\file.txt
@@ -263,7 +263,7 @@ syntax on
 "copy file contents to cursor location
 ":r /path/to/file
 "
-"copy file contents to line "replace n with line number 
+"copy file contents to line 
 ":nr /path/to/file
 "
 "grep on windows 
@@ -274,25 +274,12 @@ syntax on
 "Then set the following line in your vimrc
 "set grepprg=grep\ 
 "
-"grep options
-"-n display the line numbers (default, refer to grep\ -nH)
-"-H display the full file path (default)
-"-h hide the file path
-"-R perform a recursize search
-"
 "search for a pttern in the current file using grep
-":!grep 'pattern' %
+":grep 'pattern' %
 "
-"search for a patter in a specified file using grep 
-":!grep 'pattern' path/to/file.txt
+"search for a pattern in a specified file using grep 
+":grep 'pattern' path/to/file.txt
 "
-"search for a pattern that starts and ends with a specific phrase 
-"This will return lines that maybe like 'patternStart is awesome with
-"patternEnd'
-":!grep 'patternStart.*patternEnd' path/to/file.txt
-"
-"search for a pattern recursively
-":!grep -r -n -H -i 'pattern' path/
 "===============================================================================
 "COPY & PASTE
 "===============================================================================
@@ -306,15 +293,23 @@ syntax on
 "paste from cliboard in normal mode
 "QV
 "
+"cycle back through previous yanks
+"<Alt-p>
+"
+"cycle forward through previous yanks
+"<Alt-P>
+"
 "===============================================================================
-"EDITING
+"EDITING (CHANGE(c),YANK(y),DELETE(d))
 "===============================================================================
-"you can use the same format with d(delete), Q(visual mode), etc.
 "change to next word
 "cw
 "
 "change entire line
 "cc
+"
+"change from cursor to end of line
+"C
 "
 "change from cursor to end of word
 "ce
@@ -322,17 +317,49 @@ syntax on
 "change to end of line 
 "c$
 "
-"change inside double quotes (basically jumps to the inside of the "" in the
-"line you are on
+"change to inside matching quotes
 "ci"
+"
+"change to inside matching parenthesis 
+"ci(
 "
 "change until next occurance of x
 "cfx
 "
+"yank entire line
+"yy
+"
+"yank from a line above without moving cursor
+":-[number]y
+"
+"yank from a line below without moving cursor
+":+[number]y
+"raise lines below cursor to after cursor
+"J
 "===============================================================================
 "NAVIGATING
 "===============================================================================
+"jump to top of the file 
+"gg
 "
+"jump to bottom of the file
+"G
+"
+"jump to line number "ex 330gg 
+"[number]gg
+"
+"
+"===============================================================================
+"SAVING & EXITING
+"===============================================================================
+"save file 
+":w
+"
+"quit tab/window 
+":q 
+"
+"save and quit tab/window
+":x
 "===============================================================================
 "DOXYGEN
 "===============================================================================
