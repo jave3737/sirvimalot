@@ -113,6 +113,13 @@ nnoremap <C-Up>     :cprevious<CR>
 nnoremap <leader>vl :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <CR>
 nnoremap <leader>gl :execute "grep -nH " . expand("<cword>") . " " .expand("%") <CR>
 
+"move through files 5 lines at a time
+noremap J 5j
+vnoremap J 5j
+
+noremap K 5k
+vnoremap K 5k
+
 "plugin keymaps
 nnoremap <leader>fl :LeaderfLine<CR>
 nnoremap <leader>fm :LeaderfMru<CR>
