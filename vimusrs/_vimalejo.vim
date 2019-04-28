@@ -60,11 +60,38 @@ function! Eth_inbox()
     :colorscheme blayu 
 endfunction
 
+function! Eth_lottery() 
+    :let l:project_name = 'eth_lottery'
+    :let g:current_session = $HOME . '\vimtemp\' . l:project_name .'_session.vim'
+    :execute 'source ' . g:current_session
+
+    :set guifont=Dank_Mono:h8:cANSI:qDRAFT
+endfunction
+
+function! Eth_lottery_react() 
+    :let l:project_name = 'eth_lottery_react'
+    :let g:current_session = $HOME . '\vimtemp\' . l:project_name .'_session.vim'
+    :execute 'source ' . g:current_session
+
+    :set guifont=Dank_Mono:h8:cANSI:qDRAFT
+endfunction
+
+function! Butterfly_ballot_react() 
+    :let l:project_name = 'eth_lottery_react'
+    :let g:current_session = $HOME . '\vimtemp\' . l:project_name .'_session.vim'
+    :execute 'source ' . g:current_session
+
+    :set guifont=Dank_Mono:h12:cANSI:qDRAFT
+endfunction
+
 map <F1>    :call Save_session()            <CR>
 map <F2>    :call Airdrop()                 <CR>
 map <F3>    :call Mtb()                     <CR>
 map <F4>    :call Mod_micro_python()        <CR>
 map <F5>    :call Mod_micro_stm()           <CR>
 map <F6>    :call Eth_inbox()               <CR>
+map <F7>    :call Eth_lottery()               <CR>
+map <C-F7>  :call Eth_lottery_react()               <CR>
+map <F8>    :call Butterfly_ballot_react()               <CR>
 
 

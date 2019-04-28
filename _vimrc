@@ -205,7 +205,7 @@ set updatetime =100
 "disable error sounds
 set noerrorbells
 set novisualbell
-
+set belloff=all
 "===============================================================================
 "SEARCH & REPLACE
 "===============================================================================
@@ -341,11 +341,39 @@ set novisualbell
 "
 "yank from a line below without moving cursor
 ":+[number]y
+"
 "raise lines below cursor to after cursor
 "J
 "===============================================================================
 "NAVIGATING
 "===============================================================================
+"move up one line 
+"k
+"move down one line
+"j
+"move right 
+"l
+"move left 
+"h
+"
+"move forward to start of next word
+"w 
+"
+"backwards to previous start of word
+"b
+"
+"forward to next end of word
+"e
+"
+"backwards to end of previous word
+"ge 
+"
+"append at end of current word
+"ea
+"
+"append at the end of the previous word
+"gea 
+"
 "jump to top of the file 
 "gg
 "
@@ -355,6 +383,23 @@ set novisualbell
 "jump to line number "ex 330gg 
 "[number]gg
 "
+"forward to next occurance of [char]
+"f[char] 
+"
+"backwards to previous occurance of [char]
+"F[char]
+"
+"forward to the character before the next occurance of [char]
+"t[char]
+"
+"backwards to the character before the next occuracnce of [char]
+"T[char]
+"
+"repeat the last character search command 
+";
+"
+"reverse the last character search command 
+",
 "
 "===============================================================================
 "SAVING & EXITING
