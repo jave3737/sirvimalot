@@ -154,7 +154,7 @@ set grepprg=grep\
 syntax on
 
 "default font
-set guifont=Consolas:h14:cANSI, 
+set guifont=Consolas:h10:cANSI:b, 
 
 "enable autotoggling 
 set number relativenumber 
