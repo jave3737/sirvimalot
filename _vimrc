@@ -120,6 +120,9 @@ vnoremap J 5j
 noremap K 5k
 vnoremap K 5k
 
+"faster way to escape from from insert mode
+imap jj <Esc>
+
 "plugin keymaps
 nnoremap <leader>fl :LeaderfLine<CR>
 nnoremap <leader>fm :LeaderfMru<CR>
@@ -181,6 +184,7 @@ set undodir=$HOME/vimtemp/undo//
 "split behavior
 set splitbelow
 set splitright
+
 
 set sessionoptions-=options
 set sessionoptions-=folds
@@ -327,9 +331,6 @@ set belloff=all
 "change to inside matching quotes
 "ci"
 "
-"change to inside matching parenthesis 
-"ci(
-"
 "change until next occurance of x
 "cfx
 "
@@ -342,17 +343,18 @@ set belloff=all
 "yank from a line below without moving cursor
 ":+[number]y
 "
-"raise lines below cursor to after cursor
-"J
 "===============================================================================
 "NAVIGATING
 "===============================================================================
 "move up one line 
 "k
+"
 "move down one line
 "j
+"
 "move right 
 "l
+"
 "move left 
 "h
 "
@@ -365,23 +367,29 @@ set belloff=all
 "forward to next end of word
 "e
 "
-"backwards to end of previous word
-"ge 
-"
-"append at end of current word
-"ea
-"
-"append at the end of the previous word
-"gea 
-"
 "jump to top of the file 
 "gg
 "
 "jump to bottom of the file
 "G
 "
+"move down half a page 
+"<C-d>
+"
+"move up half a page
+"<C-u>
+"
+"go forward by paragraph (next blank line)
+"}
+"
+"go backward by paragraph (previous blank line) 
+"{
+"
 "jump to line number "ex 330gg 
 "[number]gg
+"
+"jump to line number 
+":[number]j
 "
 "forward to next occurance of [char]
 "f[char] 
@@ -401,6 +409,11 @@ set belloff=all
 "reverse the last character search command 
 ",
 "
+"jump to insert mode at the beginning of the line
+"I
+"
+"jump to insert mode to the end of the line
+"A
 "===============================================================================
 "SAVING & EXITING
 "===============================================================================
