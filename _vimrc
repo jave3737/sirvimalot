@@ -7,7 +7,7 @@
 "===============================================================================
 "defining a scalar string variable
 "let name = "Damian"
-"
+
 "defining a scalar number variable 
 "let height = 1
 "
@@ -26,7 +26,7 @@
 "l:varname "local to current function
 "a:varname "parameter of current function
 "v:varname "variable that vim predefines
-"
+    
 "pseudovariables
 "&varname "a vim option (local option if defined, otherwise global) 
 "&l:varname "a local vim option
@@ -126,6 +126,10 @@ imap jj <Esc>
 "plugin keymaps
 nnoremap <leader>fl :LeaderfLine<CR>
 nnoremap <leader>fm :LeaderfMru<CR>
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 "===============================================================================
 "TERMINAL OPTIONS
 "===============================================================================
@@ -185,7 +189,6 @@ set undodir=$HOME/vimtemp/undo//
 set splitbelow
 set splitright
 
-
 set sessionoptions-=options
 set sessionoptions-=folds
 
@@ -210,6 +213,12 @@ set updatetime =100
 set noerrorbells
 set novisualbell
 set belloff=all
+
+"enable folding
+set foldmethod=indent
+set foldnestmax=10
+set foldenable
+
 "===============================================================================
 "SEARCH & REPLACE
 "===============================================================================
@@ -389,7 +398,7 @@ set belloff=all
 "[number]gg
 "
 "jump to line number 
-":[number]j
+":[number]
 "
 "forward to next occurance of [char]
 "f[char] 
@@ -414,6 +423,12 @@ set belloff=all
 "
 "jump to insert mode to the end of the line
 "A
+"
+"open a fold
+"zo
+"
+"close a fold 
+"zc
 "===============================================================================
 "SAVING & EXITING
 "===============================================================================
@@ -451,11 +466,12 @@ set belloff=all
 "===============================================================================
 call pathogen#infect()
 filetype plugin indent on
-let g:vimwiki_list = [{'path':'~/vimwiki','path_html':'~/vimwiki/html/'}]
-let g:UltiSnipsEditSplit='vertical'
-let g:UltiSnipsSnippetDirectories=[$HOME . "/vimfiles/custom_snippets"]
-let g:UltiSnipsUsePythonVersion=3
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:vimwiki_list                = [{'path':'~/vimwiki','path_html':'~/vimwiki/html/'}]
+let g:UltiSnipsEditSplit          = 'vertical'
+let g:UltiSnipsSnippetDirectories = [$HOME . "/vimfiles/custom_snippets"]
+let g:UltiSnipsUsePythonVersion   = 3
+let g:UltiSnipsExpandTrigger      = "<tab>"
+
 "===============================================================================
 "LOAD CUSTOM VIMRC
 "===============================================================================
