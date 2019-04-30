@@ -87,11 +87,15 @@ nnoremap <leader>eg     :vsplit $HOME/.gitconfig <cr>
 nnoremap <leader>egg    :vsplit $HOME/.gitmodules <cr>
 nnoremap <leader>eggg   :vsplit $HOME/.git/config <cr>
 nnoremap <leader>en     :vsplit $HOME/.npmrc <cr>
+
 "resize splits
-nnoremap _ 10<C-w><<CR>
-nnoremap + 10<C-w>><CR>
-nnoremap - 10<C-w>-<CR>
-nnoremap = 10<C-w>+<CR>
+nnoremap _ 5<C-w><<CR>
+nnoremap + 5<C-w>><CR>
+nnoremap - 5<C-w>-<CR>
+nnoremap = 5<C-w>+<CR>
+
+"nnoremap == :execute "set lines+=5"<CR>
+"nnoremap == :execute "set lines-=5"<CR>
 
 "move through tabs
 nnoremap <C-Left>   :tabprevious<CR>
@@ -123,12 +127,23 @@ vnoremap K 5k
 "faster way to escape from from insert mode
 imap jj <Esc>
 
-"plugin keymaps
+"remapping the go to end/beginning of line
+nnoremap B ^
+nnoremap E $
+
+"removing functionality from these keys
+nnoremap $ <nop>
+nnoremap ^ <nop>
+
+"highlight last inserted text
+nnoremap gV `[v`]
+
+"leader f
 nnoremap <leader>fl :LeaderfLine<CR>
 nnoremap <leader>fm :LeaderfMru<CR>
-" Start interactive EasyAlign in visual mode (e.g. vipga)
+
+"easy align
 xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 "===============================================================================
 "TERMINAL OPTIONS
@@ -158,7 +173,7 @@ set grepprg=grep\
 syntax on
 
 "default font
-set guifont=Consolas:h10:cANSI:b, 
+set guifont=Consolas:h8:cANSI
 
 "enable autotoggling 
 set number relativenumber 
@@ -217,8 +232,13 @@ set belloff=all
 "enable folding
 set foldmethod=indent
 set foldnestmax=10
-set foldenable
+"set foldenable
 
+"set a cursorline 
+"set cursorline 
+
+"show matching
+set showmatch
 "===============================================================================
 "SEARCH & REPLACE
 "===============================================================================
@@ -440,10 +460,6 @@ set foldenable
 "
 "save and quit tab/window
 ":x
-"===============================================================================
-"DOXYGEN
-"===============================================================================
-"
 "===============================================================================
 "ONLINE RESOURCES
 "===============================================================================
