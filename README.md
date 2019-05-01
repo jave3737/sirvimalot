@@ -156,27 +156,103 @@ git submodule update
 > :r /path/to/file
 * copy file contents to line 
 > :nr /path/to/file
-
-"grep on windows 
-"use the git grep by adding the grep.exe path to the $PATH environmmental
-"variable. It may be in a directory like C:\Program Files\Git\usr\bin
-"Or if you have cygwin installed it may be like C:\cygwin64\bin
-"Just make sure that whatever directory you use it has the executable grep.exe
-"Then set the following line in your vimrc
-"set grepprg=grep\ 
-"
-*search for a pttern in the current file using grep
->:grep 'pattern' %
-
-*search for a pattern in a specified file using grep 
->:grep 'pattern' path/to/file.txt
-
-*fuzzy searching when set path+=** 
->:find file.txt
-
-*fuzzy file searching with wild card(hitting tab also does an autocomplete)
->:find *part_of_file.txt
-
-*fuzzy opening with buffer (allows vim to to open a buffer based on part of a
->name) 
-:b part_of_file_name 
+* search for a pttern in the current file using grep
+> :grep 'pattern' %
+* search for a pattern in a specified file using grep 
+> :grep 'pattern' path/to/file.txt
+* fuzzy searching when set path+=** 
+> :find file.txt
+* fuzzy file searching with wild card(hitting tab also does an autocomplete)
+> :find *part_of_file.txt
+* fuzzy opening with buffer (allows vim to to open a buffer based on part of a name) 
+> :b part_of_file_name 
+# copy & paste
+* copy a single line to clipboard in normal mode
+> QC
+* copy a selected text to cliboard in visual mode
+> QC
+* paste from cliboard in normal mode
+> QV
+* cycle back through previous yanks
+> <Alt-p>
+* cycle forward through previous yanks
+> <Alt-P>
+# editing (change, delete, yank)
+*change to next word
+> cw
+* change entire line
+> cc
+* change from cursor to end of line
+> C
+* change from cursor to end of word
+> ce
+* change to end of line 
+> c$
+* change to inside matching quotes
+> ci"
+* change until next occurance of x
+> cfx
+* yank entire line
+> yy
+* yank from a line above without moving cursor
+> :-[number]y
+* yank from a line below without moving cursor
+> :+[number]y
+# navigating
+*move up one line 
+> k
+* move down one line
+> j
+* move right 
+> l
+* move left 
+> h
+* move forward to start of next word
+> w 
+* backwards to previous start of word
+> b
+* forward to next end of word
+> e
+* jump to top of the file 
+> gg
+* jump to bottom of the file
+> G
+* move down half a page 
+> <C-d>
+* move up half a page
+> <C-u>
+* go forward by paragraph (next blank line)
+> }
+* go backward by paragraph (previous blank line) 
+> {
+* jump to line number "ex 330gg 
+> [number]gg
+* jump to line number 
+> :[number]
+* forward to next occurance of [char]
+> f[char] 
+* backwards to previous occurance of [char]
+> F[char]
+* forward to the character before the next occurance of [char]
+> t[char]
+* backwards to the character before the next occuracnce of [char]
+> T[char]
+* repeat the last character search command 
+> ;
+* reverse the last character search command 
+> ,
+* jump to insert mode at the beginning of the line
+> I
+* jump to insert mode to the end of the line
+> A
+* open a fold
+> zo
+* close a fold 
+> zc
+# saving and exiting 
+* save file 
+> :w
+* quit tab/window 
+> :q 
+* save and quit tab/window
+> :x
