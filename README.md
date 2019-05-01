@@ -79,4 +79,15 @@ git submodule update
 > let var-=expr 
 * string concatenate and assign 
 > let var.=expr 
-## 
+# functions
+* example of defining a function & silently replaces an existing function with the same name
+* functions must start with an uppercase letter
+> function! Function_name(param_1, param_2)
+>    let param_1 = 1   
+>    let param_2 = 2
+>    let str=a:param_1
+>    echo param_2
+>    :perform_command
+> endfunction
+* calling a function
+> :call Function_name(param_1,param_2)
