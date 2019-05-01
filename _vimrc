@@ -199,9 +199,14 @@ set ignorecase
 set nowrap 
 
 "place swapfiles in specified directory
-set directory=$HOME/vimtemp/swapfiles// 
-set backupdir=$HOME/vimtemp/backup//
-set undodir=$HOME/vimtemp/undo//
+"set directory=$HOME/vimtemp/swapfiles// 
+"set backupdir=$HOME/vimtemp/backup//
+"set undodir=$HOME/vimtemp/undo//
+
+"assuming we are version controlling through svn or git
+set nobackup
+set noswapfile
+set noundofile
 
 "split behavior
 set splitbelow
