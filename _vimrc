@@ -14,23 +14,18 @@ nnoremap = 5<C-w>+<CR>
 nnoremap <C-Left>   :tabprevious<CR>
 nnoremap <C-Right>  :tabnext<CR>
 
-"print timestamp
 nnoremap <C-t> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
 inoremap <C-t>  <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
 
-"open close quickfix menu
 nnoremap <leader>q  :copen<CR>
 nnoremap <leader>qq :cclose<CR>
 
-"navigate quickfix results
 nnoremap <C-Down>   :cnext<CR>
 nnoremap <C-Up>     :cprevious<CR>
 
-"find word under cursor in current file
 nnoremap <leader>vl :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <CR>
 nnoremap <leader>gl :execute "grep -nH " . expand("<cword>") . " " .expand("%") <CR>
 
-"navigate around 5 times as fast
 noremap  J 5j
 vnoremap J 5j
 
@@ -43,44 +38,33 @@ vnoremap L 5l
 noremap  H 5h
 vnoremap H 5h
 
-"faster way to escape from from insert mode
 imap jj <Esc>
 
-"remapping the go to end/beginning of line
 nnoremap B ^
 nnoremap E $
 
-"removing functionality from these keys
 nnoremap $ <nop>
 nnoremap ^ <nop>
 
-"highlight last inserted text
 nnoremap gV `[v`]
 
-"leader f
 nnoremap <leader>fl :LeaderfLine<CR>
 nnoremap <leader>fm :LeaderfMru<CR>
 
-"easy align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 source $VIMRUNTIME/mswin.vim
 behave mswin 
 
-"maximize the gui at startup
 au GUIEnter * simalt ~x
 
-"default color scheme
 colorscheme desert    
 
-"set for externel 
 set grepprg=grep\ 
 
-"turn syntax n
 syntax on
 
-"default font
 set guifont=Consolas:h8:cANSI
 
 "enable autotoggling 

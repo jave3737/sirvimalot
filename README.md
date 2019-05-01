@@ -109,6 +109,9 @@ git submodule update
 > set grepprg=grep\ 
 * turn syntax on
 > syntax on
+* default font and size
+> set guifont=Consolas:h8:cANSI
+* enable autotoggling
 # reference
 ## variables
 * defining a scalar string variable
