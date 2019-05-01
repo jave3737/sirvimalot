@@ -186,6 +186,9 @@ set number relativenumber
 "enable wild menu
 set wildmenu
 
+"enable vim to search recursively when using find
+set path+=**
+
 "remove all gui options
 set guioptions =
 
@@ -320,6 +323,15 @@ set showmatch
 "search for a pattern in a specified file using grep 
 ":grep 'pattern' path/to/file.txt
 "
+"fuzzy searching when set path+=** 
+":find file.txt
+"
+"fuzzy file searching with wild card(hitting tab also does an autocomplete)
+":find *part_of_file.txt
+"
+"fuzzy opening with buffer (allows vim to to open a buffer based on part of a
+"name) 
+":b part_of_file_name 
 "===============================================================================
 "COPY & PASTE
 "===============================================================================
@@ -520,7 +532,6 @@ let g:UltiSnipsEditSplit          = 'vertical'
 let g:UltiSnipsSnippetDirectories = [$HOME . "/vimfiles/custom_snippets"]
 let g:UltiSnipsUsePythonVersion   = 3
 let g:UltiSnipsExpandTrigger      = "<tab>"
-
 "===============================================================================
 "LOAD CUSTOM VIMRC
 "===============================================================================
