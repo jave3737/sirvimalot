@@ -70,18 +70,7 @@ nnoremap <leader>fm :LeaderfMru<CR>
 "easy align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-"===============================================================================
-"TERMINAL OPTIONS
-"===============================================================================
-"show all terminal options
-":set all
-"
-"set a vim terminal option
-":set variable=expr "ex. :set tabstop=5
-"
-"open help for a terminal option
-":help 'variable' "ex. :help 'tabstop' 
-"
+
 source $VIMRUNTIME/mswin.vim
 behave mswin 
 

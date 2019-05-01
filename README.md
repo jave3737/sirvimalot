@@ -106,3 +106,77 @@ git submodule update
 > :imap 
 * display visual mode mappings
 > :vmap
+# terminal options
+* show all terminal options
+> :set all
+* set a vim terminal option
+> :set variable=expr "ex. :set tabstop=5
+* open help for a terminal option
+> :help 'variable' "ex. :help 'tabstop' 
+# search and replace
+* replace first occurance on a single line 
+> :s/search/replace
+* replace all occurange on a single line
+> :s/search/replace/g
+* replace all occurange on a single line w/ yes or no
+> :s/search/replace/gc
+* replace all matching patterns in a file 
+> :%s/search/replace/g 
+* replace all matching patterns in a file w/ yes or no 
+> :%s/search/replace/gc
+* replace within a range "ex :8,10 s/hello/goodbye/g
+> :[range] s/search/replace/g 
+* search for pattern in a file
+> /pattern
+* search for a pattern backwards in a file
+> ?pattern
+* search for a pattern that at the beginning of a line
+> /^pattern 
+* search with case insensitive
+> /pattern\c
+* search with case sensitive
+> /pattern\C
+* search for next instance of pattern under cursor
+> <Shift-*>
+* search for previous instance of pattern under cursor
+> <Shift-#>
+* search for a pattern within a file using vimgrep case insensitive
+> :vimgrep /pattern\c/gj path\to\file.txt
+* search for a pattern within a file using vimgrep case sensitive
+> :vimgrep /pattern\C/gj path\to\file.txt
+* search for a pattern recursively in a directory
+>  :vimgrep /pattern/gj path\to\directory\**
+* search for a pattern recusively in a directory with specific file type
+> :vimgrep /pattern/gj path\to\directory\**\*.txt
+* open quicklist to display results from vimgrep
+> :copen 
+* close quicklist from vimgrep 
+> :close
+* copy file contents to cursor location
+> :r /path/to/file
+* copy file contents to line 
+> :nr /path/to/file
+
+"grep on windows 
+"use the git grep by adding the grep.exe path to the $PATH environmmental
+"variable. It may be in a directory like C:\Program Files\Git\usr\bin
+"Or if you have cygwin installed it may be like C:\cygwin64\bin
+"Just make sure that whatever directory you use it has the executable grep.exe
+"Then set the following line in your vimrc
+"set grepprg=grep\ 
+"
+*search for a pttern in the current file using grep
+>:grep 'pattern' %
+
+*search for a pattern in a specified file using grep 
+>:grep 'pattern' path/to/file.txt
+
+*fuzzy searching when set path+=** 
+>:find file.txt
+
+*fuzzy file searching with wild card(hitting tab also does an autocomplete)
+>:find *part_of_file.txt
+
+*fuzzy opening with buffer (allows vim to to open a buffer based on part of a
+>name) 
+:b part_of_file_name 
