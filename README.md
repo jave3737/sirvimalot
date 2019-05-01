@@ -33,6 +33,7 @@ git submodule update
 * Run `git submodule update`
 
 # vimrc settings
+## key mappings
 * edit vimrc in split view
 > nnoremap <leader>ev     :vsplit $MYVIMRC <cr> 
 * edit _vimcurrusr.vim in split view
@@ -65,8 +66,49 @@ git submodule update
 > inoremap <C-t>  <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
 * open quickfix menu
 > nnoremap <leader>q  :copen<CR>
-* 
-nnoremap <leader>qq :cclose<CR>
+* close quickfix menu
+> nnoremap <leader>qq :cclose<CR>
+* using vimgrep to search for the word under the cursor in the current file
+> nnoremap <leader>vl :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <CR>
+* using grep to search for the word under the cursor in the current file
+> nnoremap <leader>gl :execute "grep -nH " . expand("<cword>") . " " .expand("%") <CR>
+* navigate 5 lines at a time
+> noremap  J 5j
+> vnoremap J 5j
+> noremap  K 5k
+> vnoremap K 5k
+> noremap  L 5l
+> vnoremap L 5l
+> noremap  H 5h
+> vnoremap H 5h
+* escape from insert mode without esc key
+> imap jj <Esc>
+* jump to the beginning of the line
+> nnoremap B ^
+* jump to the end of the line
+> nnoremap E $
+* removing functionality from these keys
+> nnoremap $ <nop>
+> nnoremap ^ <nop>
+* highlight the last inserted text
+> nnoremap gV `[v`]
+* leaderf search lines
+> nnoremap <leader>fl :LeaderfLine<CR>
+* leaderf search most recently used files
+> nnoremap <leader>fm :LeaderfMru<CR>
+* map easy align in visual mode
+> xmap ga <Plug>(EasyAlign)
+* map easy align in normal mode
+> nmap ga <Plug>(EasyAlign)
+## terminal settings
+* maximize GUI at startup
+> au GUIEnter * simalt ~x
+* set desert as default colorscheme
+> colorscheme desert    
+* configure for external grep
+> set grepprg=grep\ 
+* turn syntax on
+> syntax on
 # reference
 ## variables
 * defining a scalar string variable
