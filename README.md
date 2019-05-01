@@ -137,9 +137,9 @@ git submodule update
 * search with case sensitive
 > /pattern\C
 * search for next instance of pattern under cursor
-> <Shift-*>
+> <S-*>
 * search for previous instance of pattern under cursor
-> <Shift-#>
+> <S-#>
 * search for a pattern within a file using vimgrep case insensitive
 > :vimgrep /pattern\c/gj path\to\file.txt
 * search for a pattern within a file using vimgrep case sensitive
@@ -199,7 +199,7 @@ git submodule update
 * yank from a line below without moving cursor
 > :+[number]y
 # navigating
-*move up one line 
+* move up one line 
 > k
 * move down one line
 > j
@@ -218,7 +218,7 @@ git submodule update
 * jump to bottom of the file
 > G
 * move down half a page 
-> <C-d>
+> "<C-d>"
 * move up half a page
 > <C-u>
 * go forward by paragraph (next blank line)
