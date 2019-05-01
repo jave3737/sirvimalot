@@ -3,31 +3,6 @@
 "===============================================================================
 "
 "===============================================================================
-"VARIABLES
-"===============================================================================
-"Variable scopes
-"g:varname "global variable
-"s:varname "local variable to script
-"w:varname "local to current editor window
-"t:varname "local to current tab
-"b:varname "local to current buffer
-"l:varname "local to current function
-"a:varname "parameter of current function
-"v:varname "variable that vim predefines
-    
-"pseudovariables
-"&varname "a vim option (local option if defined, otherwise global) 
-"&l:varname "a local vim option
-"&g:varname "a global vim option
-"@varname "a vim register
-"$varname "an environmental variable
-"
-"vimscript operator precedence
-"let var=expr "assigning variable
-"let var+=expr "numeric add and assign 
-"let var-=expr "numeric subtract and assign 
-"let var.=expr "string concatenate and assign 
-"===============================================================================
 "FUNCTIONS
 "===============================================================================
 "example of defining a function & silently replaces an existing function with

@@ -32,8 +32,8 @@ git submodule update
 * Commit the changes `git commit -m <submodule> -a` and `git push` 
 * Run `git submodule update`
 
-# Variables
-## General 
+# variables
+## general 
 * defining a scalar string variable
 > let name = "Damian"
 * defining a scalar number variable 
@@ -42,7 +42,7 @@ git submodule update
 > let interests = [ 'Cinema', 'Literature', 'World Domination', 101 ]
 * defining a dictionary (Can be a mix of scalars, strings, lists, etc)
 > let phone     = { 'cell':5551017346, 'home':5558038728, 'work':'?' }
-## Scopes
+## scopes
 * global variables 
 > g:varname 
 * local variable to script
@@ -59,5 +59,24 @@ git submodule update
 > a:varname 
 * variable that vim predefines
 > v:varname 
-
+## pseudovariables
+* a vim option (local option if defined, otherwise global) 
+> &varname 
+* a local vim option
+> &l:varname 
+* a global vim option
+> &g:varname 
+* a vim register
+> @varname 
+* an environmental variable
+> $varname 
+## operator precedance
+* assigning variable
+> let var=expr 
+* numeric add and assign 
+> let var+=expr 
+* numeric subtract and assign 
+> let var-=expr 
+* string concatenate and assign 
+> let var.=expr 
 ## 
