@@ -67,7 +67,6 @@ syntax on
 
 set guifont=Consolas:h8:cANSI
 
-"enable autotoggling 
 set number relativenumber 
 :augroup numbertoggle 
 :  autocmd!
@@ -75,46 +74,31 @@ set number relativenumber
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 
-"enable wild menu
 set wildmenu
 
-"enable vim to search recursively when using find
 set path+=**
 
-"remove all gui options
 set guioptions =
 
-"ignore case when searching
 set ignorecase 
 
-"disable wrapping
 set nowrap 
 
-"place swapfiles in specified directory
-"set directory=$HOME/vimtemp/swapfiles// 
-"set backupdir=$HOME/vimtemp/backup//
-"set undodir=$HOME/vimtemp/undo//
-
-"assuming we are version controlling through svn or git
 set nobackup
 set noswapfile
 set noundofile
 
-"split behavior
 set splitbelow
 set splitright
 
 set sessionoptions-=options
 set sessionoptions-=folds
 
-"highlight when searching
 set hlsearch
 
-"output file name on statusline
 set statusline=%t
 set laststatus=2
 
-"tab = 4 spaces
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -124,22 +108,11 @@ set sessionoptions+=tabpages,globals
 set nocompatible
 set updatetime =100
 
-"disable error sounds
 set noerrorbells
 set novisualbell
 set belloff=all
 
-"enable folding
-"set foldmethod=indent
-"set foldnestmax=10
-"set foldenable
-
-"set a cursorline 
-"set cursorline 
-
-"show matching
 set showmatch
-"
 call pathogen#infect()
 filetype plugin indent on
 let g:UltiSnipsEditSplit          = 'vertical'
