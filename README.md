@@ -91,3 +91,18 @@ git submodule update
 > endfunction
 * calling a function
 > :call Function_name(param_1,param_2)
+# key mappings
+* open help for keymappings
+> :help key-mapping
+* reference a list of keymappings (Useful for redefining the key mappings)
+> :help keycodes
+* display all the current mappings 
+> :map
+* display all the current mappings with verbose information 
+> :verbose map
+* display normal mode mappings
+> :nmap 
+* display insert mode mappings
+> :imap 
+* display visual mode mappings
+> :vmap
