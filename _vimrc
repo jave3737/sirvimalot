@@ -5,18 +5,6 @@
 "===============================================================================
 "VARIABLES
 "===============================================================================
-"defining a scalar string variable
-"let name = "Damian"
-
-"defining a scalar number variable 
-"let height = 1
-"
-"defining a list 
-"let interests = [ 'Cinema', 'Literature', 'World Domination', 101 ]
-"
-"defining a dictionary (Can be a mix of scalars, strings, lists, etc)
-"let phone     = { 'cell':5551017346, 'home':5558038728, 'work':'?' }
-"
 "Variable scopes
 "g:varname "global variable
 "s:varname "local variable to script
