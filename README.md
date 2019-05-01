@@ -32,6 +32,34 @@ git submodule update
 * Commit the changes `git commit -m <submodule> -a` and `git push` 
 * Run `git submodule update`
 
+# vimrc settings
+* edit vimrc in split view
+> nnoremap <leader>ev     :vsplit $MYVIMRC <cr> 
+* edit _vimcurrusr.vim in split view
+> nnoremap <leader>evv    :vsplit $HOME/vimusrs/_vimcurrusr.vim <cr>
+* resource vimrc file
+> nnoremap <leader>sv     :source $MYVIMRC <cr>
+* edit .gitconfig
+> nnoremap <leader>eg     :vsplit $HOME/.gitconfig <cr>
+* edit .gitmodules
+> nnoremap <leader>egg    :vsplit $HOME/.gitmodules <cr>
+* edit .gitconfig 
+> nnoremap <leader>eggg   :vsplit $HOME/.git/config <cr>
+* edit npm config file
+> nnoremap <leader>en     :vsplit $HOME/.npmrc <cr>
+* increase vsplit size 
+> nnoremap _ 5<C-w><<CR>
+* decrease vsplit size 
+> nnoremap + 5<C-w>><CR>
+* increase split size 
+> nnoremap - 5<C-w>-<CR>
+* decrease split size
+> nnoremap = 5<C-w>+<CR>
+* move to right tabs
+> nnoremap <C-Right>  :tabnext<CR>
+* nmove to left tabs
+> nnoremap <C-Left>   :tabprevious<CR>
+
 # reference
 ## variables
 * defining a scalar string variable

@@ -1,4 +1,3 @@
-"edit config files
 nnoremap <leader>ev     :vsplit $MYVIMRC <cr> 
 nnoremap <leader>evv    :vsplit $HOME/vimusrs/_vimcurrusr.vim <cr>
 nnoremap <leader>sv     :source $MYVIMRC <cr>
@@ -7,16 +6,11 @@ nnoremap <leader>egg    :vsplit $HOME/.gitmodules <cr>
 nnoremap <leader>eggg   :vsplit $HOME/.git/config <cr>
 nnoremap <leader>en     :vsplit $HOME/.npmrc <cr>
 
-"resize splits
 nnoremap _ 5<C-w><<CR>
 nnoremap + 5<C-w>><CR>
 nnoremap - 5<C-w>-<CR>
 nnoremap = 5<C-w>+<CR>
 
-"nnoremap == :execute "set lines+=5"<CR>
-"nnoremap == :execute "set lines-=5"<CR>
-
-"move through tabs
 nnoremap <C-Left>   :tabprevious<CR>
 nnoremap <C-Right>  :tabnext<CR>
 
