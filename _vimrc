@@ -516,7 +516,6 @@ set showmatch
 "===============================================================================
 call pathogen#infect()
 filetype plugin indent on
-let g:vimwiki_list                = [{'path':'~/vimwiki','path_html':'~/vimwiki/html/'}]
 let g:UltiSnipsEditSplit          = 'vertical'
 let g:UltiSnipsSnippetDirectories = [$HOME . "/vimfiles/custom_snippets"]
 let g:UltiSnipsUsePythonVersion   = 3
