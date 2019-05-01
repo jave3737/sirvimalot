@@ -11,10 +11,6 @@ This READ ME has information for all the components needed to recreate this Vim 
 + The git repo will add the `_vimrc` file and `vimfiles` directory to your `C:Users\<me>\` folder.  
 + Add an environmental variable `$HOME` with path of the directory that you will refer to as your HOME directory. *Your `$HOME` directory is the one that vim opens to* 
 + Navigate to `C:Users\<me>\` folder and run the commands in [git section]((https://github.com/jave3737/sirvimalot#Git-commands-for-sirvimalot-repo))
-### Linux 
-+ The git repo will add the `.vimrc` file and create a `.vim` directory in`/home/<me>`
-  - NOTE: Hidden files have a '.' in front of them in Linux. In order to see the files/dirs run `ls -a` 
-+ *TODO add how to add HOME to Linux path*
 
 ## 2. Git Commands for sirvimalot repo
 ```@console
@@ -35,12 +31,4 @@ git submodule update
 * Using gitBash or CommandExe go to `$HOME/vimfiles/bundle` and add the submodule as `git submodule add </link/to/REPO>`
 * Commit the changes `git commit -m <submodule> -a` and `git push` 
 * Run `git submodule update`
-
-# Usage guidelines
-* Saved sessions go into the `~/vimtemp/` 
-
-# Useful Commands 
-* `set titlestring=Hello` Sets the title of the window to Hello
-* `vs **/*<partial file name><Tab>` This can be used to do a fuzzy file search based on a keyword. Pretty useful when you dont have ctrlP or leaderF
-*  just testing
 
