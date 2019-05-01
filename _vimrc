@@ -230,8 +230,8 @@ set novisualbell
 set belloff=all
 
 "enable folding
-set foldmethod=indent
-set foldnestmax=10
+"set foldmethod=indent
+"set foldnestmax=10
 "set foldenable
 
 "set a cursorline 
@@ -477,6 +477,40 @@ set showmatch
 "
 "vimrc options
 "https://dougblack.io/words/a-good-vimrc.html
+"
+"markdown 
+"https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+"===============================================================================
+"MARKDOWN
+"===============================================================================
+"headers
+"# Header1 
+"## Header2 
+"### Header3
+"#### Header4 
+"##### Header5
+"###### Header6
+"
+"text
+"_text_ "text in italics
+"**text** "text in bold
+"**_text_** "text in bold and italics
+"~~text~~ "text with strikethrough
+"
+"list
+"* item1
+"   - subitem1
+"       * subsubitem1
+"
+"links
+"[text](https://...) "text has embedded hyperlink
+"<https://...>       "url
+"
+"blockquotes 
+"> text
+"
+"horizontal rule
+"--- 
 "===============================================================================
 "PLUGINS
 "===============================================================================

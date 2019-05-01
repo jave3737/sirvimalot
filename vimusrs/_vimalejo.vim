@@ -4,6 +4,8 @@ set noswapfile
 set wildignore=*.o,*.jpg,*.png,*.make,*.bin,*.pyc,
 
 let g:current_session = ''
+set guifont=Dank_Mono:h14:cANSI:qDRAFT
+
 function! Save_session()
     execute 'mksession! ' . g:current_session
 endfunction
@@ -13,9 +15,6 @@ function! Airdrop()
     :let g:current_session = $HOME . '\vimtemp\' . l:project_name .'_session.vim'
     :execute 'source ' . g:current_session 
 
-    :set guifont=Dank_Mono:h14:cANSI:qDRAFT
-    :colorscheme fairyfloss
-
     :set textwidth=80
     :set tabstop=4
     :set shiftwidth=4
@@ -23,75 +22,29 @@ function! Airdrop()
     :set expandtab
 endfunction
 
-function! Mtb()
-    :let l:project_name = 'mtb'
-    :let g:current_session = $HOME . '\vimtemp\' . l:project_name .'_session.vim'
-    :execute 'source ' . g:current_session 
-
-    :set guifont=Fira_Code:h14:cANSI:qDRAFT
-    :colorscheme candy 
-    :cd $HOME\Documents\
-endfunction
-
 function! Mod_micro_python()
     :let l:project_name = 'mod_micro_python'
     :let g:current_session = $HOME . '\vimtemp\' . l:project_name .'_session.vim'
     :execute 'source ' . g:current_session
-
-    :set guifont=Monoid:h14:cANSI:qDRAFT
-    :colorscheme oceandeep
 endfunction
 
 function! Mod_micro_stm()
     :let l:project_name = 'mod_micro_stm'
     :let g:current_session = $HOME . '\vimtemp\' . l:project_name .'_session.vim'
     :execute 'source ' . g:current_session
-
-    :set guifont=Consolas:h14:cANSI:qDRAFT
-    :colorscheme inkpot 
 endfunction
 
-function! Eth_inbox() 
-    :let l:project_name = 'eth_inbox'
+function! Mod_micro_fpga()
+    :let l:project_name = 'mod_micro_fpga'
     :let g:current_session = $HOME . '\vimtemp\' . l:project_name .'_session.vim'
     :execute 'source ' . g:current_session
-
-    :set guifont=NanumGothicCoding:h14:cANSI:qDRAFT
-    :colorscheme blayu 
 endfunction
 
-function! Eth_lottery() 
-    :let l:project_name = 'eth_lottery'
-    :let g:current_session = $HOME . '\vimtemp\' . l:project_name .'_session.vim'
-    :execute 'source ' . g:current_session
+map <F1>    :call Save_session()     <CR>
 
-    :set guifont=Dank_Mono:h8:cANSI:qDRAFT
-endfunction
-
-function! Eth_lottery_react() 
-    :let l:project_name = 'eth_lottery_react'
-    :let g:current_session = $HOME . '\vimtemp\' . l:project_name .'_session.vim'
-    :execute 'source ' . g:current_session
-
-    :set guifont=Dank_Mono:h8:cANSI:qDRAFT
-endfunction
-
-function! Butterfly_ballot_react() 
-    :let l:project_name = 'eth_lottery_react'
-    :let g:current_session = $HOME . '\vimtemp\' . l:project_name .'_session.vim'
-    :execute 'source ' . g:current_session
-
-    :set guifont=Dank_Mono:h12:cANSI:qDRAFT
-endfunction
-
-map <F1>    :call Save_session()            <CR>
-map <F2>    :call Airdrop()                 <CR>
-map <F3>    :call Mtb()                     <CR>
-map <F4>    :call Mod_micro_python()        <CR>
-map <F5>    :call Mod_micro_stm()           <CR>
-map <F6>    :call Eth_inbox()               <CR>
-map <F7>    :call Eth_lottery()               <CR>
-map <C-F7>  :call Eth_lottery_react()               <CR>
-map <F8>    :call Butterfly_ballot_react()               <CR>
+map <F2>    :call Airdrop()          <CR>
+map <F4>    :call Mod_micro_python() <CR>
+map <F5>    :call Mod_micro_stm()    <CR>
+map <F5>    :call Mod_micro_fpga()   <CR>
 
 
