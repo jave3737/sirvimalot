@@ -32,8 +32,8 @@ git submodule update
 * Commit the changes `git commit -m <submodule> -a` and `git push` 
 * Run `git submodule update`
 
-# variables
-## general 
+# reference
+## variables
 * defining a scalar string variable
 > let name = "Damian"
 * defining a scalar number variable 
@@ -42,7 +42,6 @@ git submodule update
 > let interests = [ 'Cinema', 'Literature', 'World Domination', 101 ]
 * defining a dictionary (Can be a mix of scalars, strings, lists, etc)
 > let phone     = { 'cell':5551017346, 'home':5558038728, 'work':'?' }
-## scopes
 * global variables 
 > g:varname 
 * local variable to script
@@ -59,7 +58,6 @@ git submodule update
 > a:varname 
 * variable that vim predefines
 > v:varname 
-## pseudovariables
 * a vim option (local option if defined, otherwise global) 
 > &varname 
 * a local vim option
@@ -70,7 +68,6 @@ git submodule update
 > @varname 
 * an environmental variable
 > $varname 
-## operator precedance
 * assigning variable
 > let var=expr 
 * numeric add and assign 
@@ -79,7 +76,7 @@ git submodule update
 > let var-=expr 
 * string concatenate and assign 
 > let var.=expr 
-# functions
+## functions
 * example of defining a function & silently replaces an existing function with the same name
 * functions must start with an uppercase letter
 > function! Function_name(param_1, param_2)
@@ -91,7 +88,7 @@ git submodule update
 > endfunction
 * calling a function
 > :call Function_name(param_1,param_2)
-# key mappings
+## key mappings
 * open help for keymappings
 > :help key-mapping
 * reference a list of keymappings (Useful for redefining the key mappings)
@@ -106,14 +103,14 @@ git submodule update
 > :imap 
 * display visual mode mappings
 > :vmap
-# terminal options
+## terminal options
 * show all terminal options
 > :set all
 * set a vim terminal option
 > :set variable=expr "ex. :set tabstop=5
 * open help for a terminal option
 > :help 'variable' "ex. :help 'tabstop' 
-# search and replace
+## search and replace
 * replace first occurance on a single line 
 > :s/search/replace
 * replace all occurange on a single line
@@ -166,7 +163,7 @@ git submodule update
 > :find *part_of_file.txt
 * fuzzy opening with buffer (allows vim to to open a buffer based on part of a name) 
 > :b part_of_file_name 
-# copy & paste
+## copy & paste
 * copy a single line to clipboard in normal mode
 > QC
 * copy a selected text to cliboard in visual mode
@@ -177,7 +174,7 @@ git submodule update
 > <Alt-p>
 * cycle forward through previous yanks
 > <Alt-P>
-# editing (change, delete, yank)
+## editing (change, delete, yank)
 *change to next word
 > cw
 * change entire line
@@ -198,7 +195,7 @@ git submodule update
 > :-[number]y
 * yank from a line below without moving cursor
 > :+[number]y
-# navigating
+## navigating
 * move up one line 
 > k
 * move down one line
@@ -218,7 +215,7 @@ git submodule update
 * jump to bottom of the file
 > G
 * move down half a page 
-> "<C-d>"
+> <C-d>
 * move up half a page
 > <C-u>
 * go forward by paragraph (next blank line)
@@ -249,7 +246,7 @@ git submodule update
 > zo
 * close a fold 
 > zc
-# saving and exiting 
+## saving and exiting 
 * save file 
 > :w
 * quit tab/window 
