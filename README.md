@@ -59,7 +59,14 @@ git submodule update
 > nnoremap <C-Right>  :tabnext<CR>
 * nmove to left tabs
 > nnoremap <C-Left>   :tabprevious<CR>
-
+* print timestamp in visual mode
+> nnoremap <C-t> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
+* print timestamp in normal mode
+> inoremap <C-t>  <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR> 
+* open quickfix menu
+> nnoremap <leader>q  :copen<CR>
+* 
+nnoremap <leader>qq :cclose<CR>
 # reference
 ## variables
 * defining a scalar string variable
