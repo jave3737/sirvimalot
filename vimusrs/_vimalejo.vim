@@ -1,6 +1,4 @@
 "Custom===================================================================================
-set nobackup
-set noswapfile
 set wildignore=*.o,*.jpg,*.png,*.make,*.bin,*.pyc,
 
 let g:current_session = ''
@@ -14,7 +12,8 @@ function! Airdrop()
     :let l:project_name = 'airdrop'
     :let g:current_session = $HOME . '\vimtemp\' . l:project_name .'_session.vim'
     :execute 'source ' . g:current_session 
-
+    
+    :set titlestring=AIRDROP
     :set textwidth=80
     :set tabstop=4
     :set shiftwidth=4
@@ -41,10 +40,9 @@ function! Mod_micro_fpga()
 endfunction
 
 map <F1>    :call Save_session()     <CR>
-
 map <F2>    :call Airdrop()          <CR>
 map <F4>    :call Mod_micro_python() <CR>
 map <F5>    :call Mod_micro_stm()    <CR>
-map <F5>    :call Mod_micro_fpga()   <CR>
+map <F6>    :call Mod_micro_fpga()   <CR>
 
 
