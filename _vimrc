@@ -37,6 +37,7 @@ set noerrorbells
 set novisualbell
 set belloff=all
 set showmatch
+set ruler
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "KEY MAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -45,8 +46,8 @@ nnoremap <leader>evv :vsplit $HOME/vimusrs/_vimcurrusr.vim <cr>
 nnoremap <leader>sv  :source $MYVIMRC <cr>
 nnoremap <leader>q   :copen<CR>
 nnoremap <leader>qq  :cclose<CR>
-nnoremap <leader>vl  :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <CR>
-nnoremap <leader>gl  :execute "grep -nH " . expand("<cword>") . " " .expand("%") <CR>
+nnoremap <leader>v   :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <CR>
+nnoremap <leader>g   :execute "grep -nH " . expand("<cword>") . " " .expand("%") <CR>
 nnoremap <C-Left>    :tabprevious<CR>
 nnoremap <C-Right>   :tabnext<CR>
 nnoremap <C-t>       a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
@@ -79,15 +80,20 @@ inoremap (           ()<left>
 inoremap [           []<left>
 inoremap {           {}<left>
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"PLUGINS
+"SNIPPETS
+""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap ,ci  :read $HOME/vimfiles/custom_snippets/cpp/if.txt        <CR> f(a
+nnoremap ,cie :read $HOME/vimfiles/custom_snippets/cpp/if_else.txt   <CR> f(a
+nnoremap ,cw  :read $HOME/vimfiles/custom_snippets/cpp/while.txt     <CR> f(a
+nnoremap ,cdw  :read $HOME/vimfiles/custom_snippets/cpp/do_while.txt <CR> 4jf(a
+nnoremap ,cf  :read $HOME/vimfiles/custom_snippets/cpp/for.txt       <CR> f(a
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"PLUGINS 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 call pathogen#infect()
 filetype plugin indent on
-let g:UltiSnipsEditSplit          = 'vertical'
-let g:UltiSnipsSnippetDirectories = [$HOME . "/vimfiles/custom_snippets"]
-let g:UltiSnipsUsePythonVersion   = 3
-let g:UltiSnipsExpandTrigger      = "<tab>"
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"CUSTOM
+"CUSTOM 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 source $HOME/vimusrs/_vimcurrusr.vim
