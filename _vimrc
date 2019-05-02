@@ -11,7 +11,6 @@ syntax on
 "TERMINAL SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""
 set guifont=Dank_Mono:h8:cANSI
-set number relativenumber 
 set wildmenu
 set path+=**
 set guioptions=
@@ -39,55 +38,48 @@ set novisualbell
 set belloff=all
 set showmatch
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"AUTOCOMMANDS
-""""""""""""""""""""""""""""""""""""""""""""""""""
-:augroup numbertoggle 
-:  autocmd!
-:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-:augroup END
-""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEY MAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>ev   :vsplit $MYVIMRC <cr>
-nnoremap <leader>evv  :vsplit $HOME/vimusrs/_vimcurrusr.vim <cr>
-nnoremap <leader>sv   :source $MYVIMRC <cr>
-nnoremap <leader>eg   :vsplit $HOME/.gitconfig <cr>
-nnoremap <leader>egg  :vsplit $HOME/.gitmodules <cr>
-nnoremap <leader>eggg :vsplit $HOME/.git/config <cr>
-nnoremap <leader>en   :vsplit $HOME/.npmrc <cr>
-nnoremap <leader>q    :copen<CR>
-nnoremap <leader>qq   :cclose<CR>
-nnoremap <leader>vl   :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <CR>
-nnoremap <leader>gl   :execute "grep -nH " . expand("<cword>") . " " .expand("%") <CR>
+nnoremap <leader>ev  :vsplit $MYVIMRC <cr>
+nnoremap <leader>evv :vsplit $HOME/vimusrs/_vimcurrusr.vim <cr>
+nnoremap <leader>sv  :source $MYVIMRC <cr>
+nnoremap <leader>q   :copen<CR>
+nnoremap <leader>qq  :cclose<CR>
+nnoremap <leader>vl  :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <CR>
+nnoremap <leader>gl  :execute "grep -nH " . expand("<cword>") . " " .expand("%") <CR>
 nnoremap <leader>l   :LeaderfLine<CR>
 nnoremap <leader>m   :LeaderfMru<CR>
-nnoremap <C-Left>     :tabprevious<CR>
-nnoremap <C-Right>    :tabnext<CR>
-nnoremap <C-t>        a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
-inoremap <C-t>        <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
-nnoremap <C-Down>     :cnext<CR>
-nnoremap <C-Up>       :cprevious<CR>
-nnoremap _            5<C-w><<CR>
-nnoremap +            5<C-w>><CR>
-nnoremap -            5<C-w>-<CR>
-nnoremap =            5<C-w>+<CR>
-noremap  J            5j
-vnoremap J            5j
-noremap  K            5k
-vnoremap K            5k
-noremap  L            5l
-vnoremap L            5l
-noremap  H            5h
-vnoremap H            5h
-imap     jj           <Esc>
-nnoremap B            ^
-nnoremap E            $
-nnoremap $            <nop>
-nnoremap ^            <nop>
-nnoremap gV           `[v`]
-xmap     ga           <Plug>(EasyAlign)
-nmap     ga           <Plug>(EasyAlign)
+nnoremap <C-Left>    :tabprevious<CR>
+nnoremap <C-Right>   :tabnext<CR>
+nnoremap <C-t>       a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+inoremap <C-t>       <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+nnoremap <C-Down>    :cnext<CR>
+nnoremap <C-Up>      :cprevious<CR>
+nnoremap _           5<C-w><<CR>
+nnoremap +           5<C-w>><CR>
+nnoremap -           5<C-w>-<CR>
+nnoremap =           5<C-w>+<CR>
+noremap  J           5j
+vnoremap J           5j
+noremap  K           5k
+vnoremap K           5k
+noremap  L           5l
+vnoremap L           5l
+noremap  H           5h
+vnoremap H           5h
+imap     jj          <Esc>
+nnoremap B           ^
+nnoremap E           $
+nnoremap $           <nop>
+nnoremap ^           <nop>
+nnoremap gV          `[v`]
+xmap     ga          <Plug>(EasyAlign)
+nmap     ga          <Plug>(EasyAlign)
+inoremap "           ""<left>
+inoremap '           ''<left>
+inoremap (           ()<left>
+inoremap [           []<left>
+inoremap {           {}<left>
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "PLUGINS
 """"""""""""""""""""""""""""""""""""""""""""""""""
