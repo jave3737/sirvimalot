@@ -47,8 +47,6 @@ nnoremap <leader>q   :copen<CR>
 nnoremap <leader>qq  :cclose<CR>
 nnoremap <leader>vl  :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <CR>
 nnoremap <leader>gl  :execute "grep -nH " . expand("<cword>") . " " .expand("%") <CR>
-nnoremap <leader>l   :LeaderfLine<CR>
-nnoremap <leader>m   :LeaderfMru<CR>
 nnoremap <C-Left>    :tabprevious<CR>
 nnoremap <C-Right>   :tabnext<CR>
 nnoremap <C-t>       a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
