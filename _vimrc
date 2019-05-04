@@ -92,10 +92,10 @@ inoremap {           {}<left>
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "SNIPPETS 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-inoremap ,csi<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/if_else.txt                 <CR> f(a
-inoremap ,csw<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/while.txt                   <CR> f(a
-inoremap ,csd<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/do_while.txt                <CR> 4jf(a
-inoremap ,csf<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/for.txt                     <CR> f(a
+inoremap ,csi<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/statement_if_else.txt       <CR> f(a
+inoremap ,csw<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/statement_while.txt         <CR> f(a
+inoremap ,csd<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/statement_do_while.txt      <CR> 4jf(a
+inoremap ,csf<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/statement_for.txt           <CR> f(a
 
 inoremap ,ccs<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/comments_section.txt        <CR> 2la
 inoremap ,ccf<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/comments_file_header.txt    <CR>
