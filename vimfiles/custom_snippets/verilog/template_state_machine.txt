@@ -1,0 +1,28 @@
+/* state variable */
+reg [3:0] state; 
+
+/* states */
+localparam state_idle = 0,
+    state_final = 4'hF; 
+
+/* state machine */
+always @(posedge clock_in or negedge reset_in)
+begin
+    if(reset_in == 0)
+    begin
+        state <= state_idle;         
+    end
+    else
+    begin
+        case(state)
+            state_idle: 
+            begin
+
+            end
+            state_final:
+            begin
+
+            end
+        endcase
+    end
+end

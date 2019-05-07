@@ -1,0 +1,15 @@
+/**
+ * @file module_name.v
+ * @author 
+ * @date
+ * @brief
+ * @version
+ * @see
+*/
+module module_name(
+    //inputs 
+    
+    //outputs
+    );
+				
+endmodule

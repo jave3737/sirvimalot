@@ -1,0 +1,49 @@
+`timescale 1ns / 1ps
+/**
+ * @file testbench_name.v
+ * @author 
+ * @date
+ * @brief
+ * @see
+*/
+module testbench_name(
+    );
+
+    /* test bench variables */
+    reg clk;
+    reg rst;
+
+    /* instantiate top level here */
+    
+    /* initialize variables */
+    initial 
+    begin
+        clk = 0;
+        rst = 1;  
+        
+        /* dump simulation results */
+        $dumpfile("testbench_name.vcd");
+        $dumpvars;
+    end
+
+    /* hold reset for 100 timescales */
+    initial
+    begin 
+        #100; 
+        rst = 0;
+    end
+
+    /* run simulation for 1000 timescales */
+    initial
+    begin
+        #1000;
+        $finish; 
+    end
+
+    /* generate testbench clock */
+    always
+    begin
+        #1;
+        clk =!clk;  
+    end
+endmodule

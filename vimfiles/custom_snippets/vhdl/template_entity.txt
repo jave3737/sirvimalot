@@ -1,0 +1,33 @@
+--------------------------------------------------
+-- @file entity_name.vhd
+-- @author
+-- @date
+-- @brief
+-- @version
+-- @see 
+--------------------------------------------------
+library ieee; 
+-- use standard libraries 
+use ieee.numeric_std.all;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+entity entity_name is
+    port (
+    //inputs
+
+    //outputs
+
+    ); 
+
+end entity_name; 
+
+architecture rtl of entity_name is 
+-- signal declarations 
+
+begin
+-- signal assignments
+
+-- process statements
+
+end RTL; 
