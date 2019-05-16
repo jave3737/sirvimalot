@@ -90,24 +90,6 @@ inoremap [           []<left>
 inoremap {           {}<left>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"SNIPPETS
-""""""""""""""""""""""""""""""""""""""""""""""""""
-inoremap ,csi<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/statement_if_else.txt          <CR>
-inoremap ,csw<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/statement_while.txt            <CR>
-inoremap ,csd<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/statement_do_while.txt         <CR>
-inoremap ,csf<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/statement_for.txt              <CR>
-inoremap ,ccs<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/comments_section.txt           <CR>
-inoremap ,ccf<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/comments_file_header.txt       <CR>
-inoremap ,cih<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/include_header.txt             <CR>
-inoremap ,cis<tab> <esc>:read $HOME/vimfiles/custom_snippets/cpp/include_standard_header.txt    <CR>
-
-inoremap ,vtm<tab> <esc>:read $HOME/vimfiles/custom_snippets/verilog/template_module.txt        <CR>
-inoremap ,vts<tab> <esc>:read $HOME/vimfiles/custom_snippets/verilog/template_state_machine.txt <CR>
-inoremap ,vtt<tab> <esc>:read $HOME/vimfiles/custom_snippets/verilog/template_testbench.txt     <CR>
-inoremap ,vsi<tab> <esc>:read $HOME/vimfiles/custom_snippets/verilog/statement_if_else.txt      <CR>
-
-inoremap ,Vte<tab> <esc>:read $HOME/vimfiles/custom_snippets/vhdl/template_entity.txt <CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""
 "PLUGINS 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 call pathogen#infect()
