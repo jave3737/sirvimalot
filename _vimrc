@@ -1,8 +1,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "BEHAVIOR
 """"""""""""""""""""""""""""""""""""""""""""""""""
-source $VIMRUNTIME/mswin.vim
-behave mswin 
+"source $VIMRUNTIME/mswin.vim
+"behave mswin 
 au GUIEnter * simalt ~x
 colorscheme desert    
 set grepprg=grep\ 
@@ -94,6 +94,10 @@ inoremap {           {}<left>
 """"""""""""""""""""""""""""""""""""""""""""""""""
 call pathogen#infect()
 filetype plugin indent on
+let g:UltiSnipsEditSplit          = 'vertical'
+let g:UltiSnipsSnippetDirectories = [$HOME . "/vimfiles/custom_snippets"]
+let g:UltiSnipsUsePythonVersion   = 3
+let g:UltiSnipsExpandTrigger = "<tab>"
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "CUSTOM 
 """"""""""""""""""""""""""""""""""""""""""""""""""

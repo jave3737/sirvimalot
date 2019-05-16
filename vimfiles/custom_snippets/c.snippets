@@ -1,0 +1,220 @@
+snippet cs "comment section"
+/*
+* $1
+*/
+endsnippet 
+
+snippet cm "comment member"
+// $1
+endsnippet
+
+snippet c* "comment line"
+/* $1 */
+endsnippet
+
+snippet cfh "comment file header"
+/*	@brief
+*	@description
+*	@param
+*	@return
+*	@see
+*	@note
+*/
+endsnippet
+
+snippet cfd "comment file description"
+/*******************************************************************************
+* @file			: $1.c
+* @brief		: $2          
+* @author		: $3
+* @date			: 
+* @see			: 
+* @see			: 
+*******************************************************************************/
+endsnippet
+
+snippet si "statement if"
+if($1)
+{
+	$2
+}/* end if($1) */
+endsnippet
+
+snippet sie "statement if-else"
+if($1)
+{
+	$2
+}else
+{
+	$3
+}/* end if($1)-else */
+endsnippet 
+
+snippet sdw "statement do while loop"
+do /* start do-while($1) */
+{
+	$2
+}while($1)
+endsnippet
+
+snippet sw "statement while loop"
+while($1)
+{
+	$2
+}/* end while($1) */
+endsnippet
+
+snippet sc "statement switch"
+switch($1)
+{
+	case $2:
+		$3
+	break;
+
+	default:
+	break;
+}/* end switch($1) */
+endsnippet
+
+snippet sf "statement for loop"
+for($1)
+{
+	$2
+}/* end for($1) */
+endsnippet
+
+snippet te "typedef enum" 
+typedef enum $1_enum
+{
+	$2
+} $1_t;/* end enum $1 */
+endsnippet
+
+snippet ts "typedef struct"
+typedef struct $1_struct
+{
+	$2
+} $1_t;/* end struct $1 */
+endsnippet 
+
+snippet dd "define"
+#define $1
+endsnippet
+
+snippet di "define if"
+#ifdef($1)
+	$2
+#endif/* end if($1) */
+endsnippet
+
+snippet die "define if-else"
+#ifdef($1)
+	$2
+#else
+	$3
+#endif/* end ifdef($1)-else */
+endsnippet
+
+snippet dh "define header guard"
+#ifndef __$1__H
+#define __$1__H
+
+#endif /* end __$1__H
+endsnippet
+
+snippet ii "include header"
+#include "$1.h" /* $2 */
+endsnippet
+
+snippet is "include standard header"
+#include <$1.h> /* $2 */
+endsnippet
+
+snippet c++pf "cpp print to file"
+ofstream $1;  
+$1.open("$1.$2"); 
+$1 << "$3 \n"; 
+$1.close();/* end of $1.$2 file */ 
+endsnippet
+
+#use with cgic library
+snippet cgihtml 
+fprintf(cgiOut,"<HTML>\n");
+$1
+fprintf(cgiOut,"</HTML>\n");
+endsnippet
+
+snippet cgihead
+fprintf(cgiOut,"<HEAD>\n"); 
+$1
+fprintf(cgiOut,"</HEAD>\n");
+endsnippet
+
+snippet cgibody
+fprintf(cgiOut,"<BODY>\n"); 
+$1
+fprintf(cgiOut,"</BODY>\n");
+endsnippet
+
+snippet cgititle "not actually displayed on page but used as page name"
+fprintf(cgiOut,"<TITLE>$1</TITLE>\n"); 
+$2
+endsnippet
+
+snippet cgih1 
+fprintf(cgiOut,"<H1>$1</H1>\n");
+$2
+endsnippet
+
+snippet cgitable 
+/* generate table */
+fprintf(cgiOut,"<table>\n");  
+
+	/* table header */
+	fprintf(cgiOut,"<tr>\n"); 
+		fprintf(cgiOut,"<th> column 1 </th>"); 
+		fprintf(cgiOut,"<th> column 2 </th>"); 
+	fprintf(cgiOut,"</tr>\n"); 
+
+	/* table data */
+	fprintf(cgiOut,"<tr>\n"); 
+		fprintf(cgiOut,"<td> column 1 data </td>"); 
+		fprintf(cgiOut,"<td> column 2 data </td>"); 
+	fprintf(cgiOut,"</tr>\n"); 
+
+fprintf(cgiOut,"</table>\n"); 
+endsnippet
+
+snippet cgilinkcss
+/* link css file */
+fprintf(cgiOut, "<link rel=\"stylesheet\" href=\"path/to/cssfile.css\" type=\"text/css\">\n");
+$1
+endsnippet
+
+snippet cgilinkcgi
+/* link cgi file */
+fprintf(cgiOut, "<form action=\"path/to/cgifile.cgi\" enctype=\"multipart/form-data\" method=\"POST\">\n");
+$1
+endsnippet
+
+snippet cgisubmit
+/* generate submit button */ 
+fprintf(cgiOut,"<input name=\"submitReference\" type=\"submit\" value=\"Submit\"/>\n"); 
+$1
+endsnippet
+
+snippet cgipar
+/* generate paragraph */ 
+fprintf(cgiOut,"<p>\n"); 
+fprintf(cgiOut,"$1"); fprintf(cgiOut,"\n"); 
+$2
+fprintf(cgiOut,"</p>\n"); 
+endsnippet
+
+snippet cgidrop
+/* generate dropdown list */ 
+fprintf(cgiOut,"<select name=\"options\">\n");
+	fprintf(cgiOut,"<option value=\"option_1\">$1</option>\n");
+$2
+fprintf(cgiOut,"</select>\n");
+endsnippet
