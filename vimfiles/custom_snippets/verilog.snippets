@@ -1,0 +1,201 @@
+##################################################
+# TEMPLATE
+##################################################
+snippet tm "template module"
+/**
+* @file $1.v
+* @author 
+* @date
+* @brief
+* @version
+* @see
+*/
+module $1(
+//inputs 
+
+//outputs
+);
+				
+endmodule/* end $1 module */
+endsnippet 
+
+snippet tt "template testbench"
+`timescale 1ns / 1ps
+/**
+ * @file $1.v
+ * @author 
+ * @date
+ * @brief
+ * @see
+*/
+module $1(
+    );
+
+    /* test bench variables */
+    reg clk;
+    reg rst;
+
+    /* instantiate top level here */
+    
+    /* initialize variables */
+    initial 
+    begin
+        clk = 0;
+        rst = 1;  
+        
+        /* dump simulation results */
+        $dumpfile("$1.vcd");
+        $dumpvars;
+    end
+
+    /* hold reset for 100 timescales */
+    initial
+    begin 
+        #100; 
+        rst = 0;
+    end
+
+    /* run simulation for 1000 timescales */
+    initial
+    begin
+        #1000;
+        $finish; 
+    end
+
+    /* generate testbench clock */
+    always
+    begin
+        #1;
+        clk =!clk;  
+    end
+endmodule/* end $1 module */
+endsnippet
+
+snippet ts "template state machine"
+/* state variable */
+reg [3:0] state; 
+
+/* states */
+localparam state_idle = 0,
+		state_final   = 4'hF;
+
+/* state machine */
+always @(posedge clock_in or negedge reset_in)
+	begin
+	if(reset_in == 0)
+	begin
+		state <= state_idle;         
+	end else
+	begin
+		case(state)
+		state_idle: 
+		begin
+		
+		end
+		state_final:
+		begin
+		
+		end
+		endcase
+	end
+end
+endsnippet
+
+snippet tspitx "template for spi transmit"
+/* NOTE!!! some tweaking may be necessary */
+/* uses 16-bit transactions 8 */ 
+/* data changes on rising edge */ 
+/* may consider using a slower clock as the source for more accurate representation */
+
+/* nets & registers */
+reg spi_clk; 
+reg spi_cs; 
+reg spi_mosi; 
+wire spi_miso; 
+
+/* initialize */ 
+initial 
+begin
+
+	spi_clk = 1'b0;
+	spi_cs  = 1'b1; 
+	spi_mosi = 1'b1;
+
+end
+
+/* task use */ 
+initial
+begin
+
+#100;
+spi_tx(16'hdead);
+#100; 
+spi_tx(16'hbeef); 
+
+end
+
+/* task definition */ 
+task spi_tx; 
+	input [15: 0] data; 
+	integer i; 
+	begin
+
+	/* set cs low */
+	repeat(1)@(posedge clk); 
+	cs <= 1'b1;
+
+	for(i = 0; i <= 16; i++)
+	begin
+		
+		/* delay for a single clock cycle */
+		repeat(1)@(posedge clk); 
+			spi_clk <= 1'b1;
+			mosi <= data[15]; 
+			data <= data << 1; 
+
+		/* delay for a single clock cycle */
+		repeat(1)@(posedge clk); 
+			spi_clk <= 1'b0;
+	end
+
+	/* set cs high */
+	repeat(1)@(posedge clk); 
+	cs <= 1'b1; 
+
+	end
+endtask; 
+endsnippet
+
+##################################################
+# STATEMENTS
+##################################################
+snippet si "statement if"
+if($1)
+begin
+	$2
+end/* end if($1) */
+endsnippet
+
+snippet sie "statment if-else"
+if($1)
+begin
+	$2
+end else 
+begin
+	$3
+end/* end if($1)-else */
+endsnippet
+
+snippet sc "statment case"
+case($1)
+	$1:
+	begin
+
+	end
+	default:
+	begin
+
+	end
+endcase/* end case($1) */
+endsnippet
+

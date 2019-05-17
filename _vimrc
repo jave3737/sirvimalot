@@ -1,8 +1,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "BEHAVIOR
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"source $VIMRUNTIME/mswin.vim
-"behave mswin 
+source $VIMRUNTIME/mswin.vim
+behave mswin 
 au GUIEnter * simalt ~x
 colorscheme desert    
 set grepprg=grep\ 
@@ -23,7 +23,7 @@ set splitbelow
 set splitright
 set sessionoptions-=options
 set sessionoptions-=folds
-set hlsearch
+set nohlsearch
 set statusline=%t
 set laststatus=2
 set tabstop=4
