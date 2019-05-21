@@ -83,12 +83,6 @@ nnoremap ^           <nop>
 nnoremap gV          `[v`]
 xmap     ga          <Plug>(EasyAlign)
 nmap     ga          <Plug>(EasyAlign)
-inoremap "           ""<left>
-inoremap '           ''<left>
-inoremap (           ()<left>
-inoremap [           []<left>
-inoremap {           {}<left>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "PLUGINS 
 """"""""""""""""""""""""""""""""""""""""""""""""""
