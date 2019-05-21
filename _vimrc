@@ -53,6 +53,7 @@ set number relativenumber
 nnoremap <leader>ev  :vsplit $MYVIMRC <cr>
 nnoremap <leader>evv :vsplit $HOME/vimusrs/_vimcurrusr.vim <cr>
 nnoremap <leader>sv  :source $MYVIMRC <cr>
+nnoremap <leader>r   :help quickref <cr>
 nnoremap <leader>q   :copen<CR>
 nnoremap <leader>qq  :cclose<CR>
 nnoremap <leader>v   :execute "vimgrep /" . expand("<cword>") . "/gj " .expand("%") <CR>
