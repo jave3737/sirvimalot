@@ -77,10 +77,6 @@ vnoremap L           5l
 noremap  H           5h
 vnoremap H           5h
 imap     jj          <Esc>:w<CR>
-nnoremap B           ^
-nnoremap E           $
-nnoremap $           <nop>
-nnoremap ^           <nop>
 nnoremap gV          `[v`]
 xmap     ga          <Plug>(EasyAlign)
 nmap     ga          <Plug>(EasyAlign)

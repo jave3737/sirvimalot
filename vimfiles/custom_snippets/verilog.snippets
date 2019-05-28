@@ -167,6 +167,19 @@ endtask;
 endsnippet
 
 ##################################################
+# COMMENTS
+##################################################
+snippet cs "comment section"
+/* 
+* $1
+*/
+endsnippet
+
+snippet cl "comment line"
+/* $1 */ 
+endsnippet
+
+##################################################
 # STATEMENTS
 ##################################################
 
@@ -178,7 +191,7 @@ snippet si "statement if"
 if($1)
 begin
 	$2
-end/* end if($1) */
+end
 endsnippet
 
 snippet sie "statment if-else"
@@ -188,7 +201,7 @@ begin
 end else 
 begin
 	$3
-end/* end if($1)-else */
+end
 endsnippet
 
 snippet sc "statment case"
@@ -201,6 +214,6 @@ case($1)
 	begin
 
 	end
-endcase/* end case($1) */
+endcase
 endsnippet
 
