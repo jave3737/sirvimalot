@@ -29,7 +29,8 @@ inoremap < <lt>><left>
 inoremap " ""<left>
 inoremap ' ''<left>
 
-nnoremap <leader>n  :vs $HOME/Documents/bookmarks/bookmarks.yaml <cr>
+nnoremap <leader>bm  :vs $HOME/Documents/bookmarks/bookmarks.yaml <cr>
+
 nnoremap <leader>g  :execute "grep -nHIR " . expand("<cword>") . " " .expand(".") <CR> :copen <CR>
 nnoremap <leader>gl :execute "grep -nH " . expand("<cword>") . " " .expand("%") <CR>
 nnoremap <C-Down>   :cnext<CR>
