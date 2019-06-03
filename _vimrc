@@ -47,8 +47,6 @@ nnoremap <C-Left>    :tabprevious<CR>
 nnoremap <C-Right>   :tabnext<CR>
 nnoremap <C-t>       a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 inoremap <C-t>       <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
-nnoremap <C-Down>    :cnext<CR>
-nnoremap <C-Up>      :cprevious<CR>
 nnoremap _           5<C-w><<CR>
 nnoremap +           5<C-w>><CR>
 nnoremap -           5<C-w>-<CR>
