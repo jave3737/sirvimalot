@@ -62,7 +62,7 @@ filetype plugin indent on
 let g:UltiSnipsEditSplit          = 'vertical'
 let g:UltiSnipsSnippetDirectories = [$HOME . "/vimfiles/custom_snippets"]
 let g:UltiSnipsUsePythonVersion   = 3
-let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsExpandTrigger      = "<tab>"
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "CUSTOM 
 """"""""""""""""""""""""""""""""""""""""""""""""""

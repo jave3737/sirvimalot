@@ -31,3 +31,6 @@
 [submodule "vimfiles/bundle/vim_current_word"]
 	path = vimfiles/bundle/vim_current_word
 	url = https://github.com/dominikduda/vim_current_word.git
+[submodule "vimfiles/bundle/SearchComplete"]
+	path = vimfiles/bundle/SearchComplete
+	url = https://github.com/vim-scripts/SearchComplete.git
