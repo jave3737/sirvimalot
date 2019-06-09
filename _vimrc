@@ -65,8 +65,6 @@ set belloff=all
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "DEFAULT KEYMAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"Edit _vimrc file"
-nnoremap <leader>ev  :vsplit $MYVIMRC <cr>
 "Source _vimrc file"
 nnoremap <leader>sv  :source $MYVIMRC <cr>
 "Move to other tabs"
