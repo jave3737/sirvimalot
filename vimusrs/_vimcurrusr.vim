@@ -1,4 +1,4 @@
-let g:current_user = "default"
+let g:current_user = "ajm"
 
 if g:current_user == "default"
     source $HOME/vimusrs/_vimjennifer.vim
