@@ -1,7 +1,21 @@
-# Getting Started
-This READ ME has information for all the components needed to recreate this Vim setup. 
+# Description 
+This repository provides a complete development environment using Vim. Also provides a rudimentary method for managing various users using the same vim configuration while allowing for custom configurations.
 
+## Current Plugins 
+* [Copy-Cut-Paste](https://github.com/NLKNguyen/copy-cut-paste.vim)
+* [LeaderF](https://github.com/Yggdroot/LeaderF)
+* [NerdTreeToggle](https://github.com/scrooloose/nerdtree)
+* [Taboo](https://github.com/gcmt/taboo.vim)
+* [UltiSnips](https://github.com/sirver/UltiSnips)
+* [Easy-Align](https://github.com/junegunn/vim-easy-align)
+* [Javascript Syntax](https://github.com/jelera/vim-javascript-syntax)
+* [Solidity Syntax](https://github.com/tomlion/vim-solidity)
+* [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)
+* [Current Word](https://github.com/dominikduda/vim_current_word)
+
+# Getting Started
 ## Prerequisites 
+* Download [gVim v8.0](https://www.vim.org/download.php)
 * Download and install 32-bit version of [Python 3.6.0](https://www.python.org/downloads/release/python-360/)
     * When installing make sure to "Add to Path" or you will have to manually add the path of the executable to the environmental variable "path"
 
@@ -29,6 +43,7 @@ git submodule update
 * Create a new directory called `$HOME/custom_snippets`
 * In your user file add the following lines
 > let g:UltiSnipsEditSplit = 'vertical'
+
 > let g:UltiSnipsSnippetDirectories = [$HOME . "/custom_snippets"]
 * Refer to the plugin documentation or the default snippets for examples
 
