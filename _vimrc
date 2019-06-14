@@ -25,8 +25,6 @@ syntax on
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "Enable Wildmenu"
 set wildmenu
-"Enable path for recursive searching"
-set path+=**
 "Clear all gui options"
 set guioptions=
 "Ignore case when pattern searching"

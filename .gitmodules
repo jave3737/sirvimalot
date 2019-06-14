@@ -31,3 +31,6 @@
 [submodule "vimfiles/bundle/vim_current_word"]
 	path = vimfiles/bundle/vim_current_word
 	url = https://github.com/dominikduda/vim_current_word.git
+[submodule "vimfiles/bundle/ack.vim"]
+	path = vimfiles/bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
