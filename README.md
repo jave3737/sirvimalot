@@ -13,6 +13,10 @@ This repository provides a complete development environment using Vim. Also prov
 * [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)
 * [Current Word](https://github.com/dominikduda/vim_current_word)
 
+## Other Tools 
+* [ripgrep](https://github.com/BurntSushi/ripgrep)
+* ctags
+
 # Getting Started
 ## Prerequisites 
 * Download [gVim v8.0](https://www.vim.org/download.php)
@@ -51,3 +55,13 @@ git submodule update
 * Using gitBash or CommandExe go to `$HOME/vimfiles/bundle` and add the submodule as `git submodule add </link/to/REPO>`
 * Commit the changes `git commit -m <submodule> -a` and `git push` 
 * Run `git submodule update`
+
+# Installing ripgrep 
+* download the latest windows binary version for ripgrep [here](https://github.com/BurntSushi/ripgrep/releases)
+* extract the folder 
+* make a new folder in the C: drive, call it 'executables' 
+* add the rg.exe to the 'executables' folder
+* edit your path environmental variable to include the 'executables' directory
+* open the command prompt and type `rg --help` to make sure it is working
+
+# Installing ctags using cygwin 

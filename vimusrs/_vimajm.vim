@@ -1,92 +1,25 @@
-" The Silver Searcher
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"SILVER SURFER CONFIGURATION
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if executable('ag')
-  " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ackprg= 'ag --vimgrep'
 endif
-
-"Set files to ignore"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"GUI SETTINGS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set wildignore=*.o,*.jpg,*.png,*.make,*.bin,*.pyc,*.hex, 
-"Set guifont"
-set guifont=Dank_Mono:h10:cANSI
-"Show the matching bracket"
 set showmatch
-"Display Line Numbers"
 set number
-"Enable path for recursive searching"
-"Easy Align"
-xmap     ga          <Plug>(EasyAlign)
-nmap     ga          <Plug>(EasyAlign)
-"Source _vimrc file"
-nnoremap <leader>sv  :source $MYVIMRC <cr>
-"Move to other tabs"
-nnoremap <C-Left>    :tabprevious<CR>
-nnoremap <C-Right>   :tabnext<CR>
-"Change split sizes"
-nnoremap _           10<C-w><<CR>
-nnoremap +           10<C-w>><CR>
-nnoremap -           10<C-w>-<CR>
-nnoremap =           10<C-w>+<CR>
-"Autocompletes parenthesis"
-inoremap { {}<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap < <lt>><left>
-inoremap " ""<left>
-inoremap ' ''<left>
-"Navigate through a file faster"
-noremap  J           10j
-vnoremap J           10j
-noremap  K           10k
-vnoremap K           10k
-noremap  L           15l
-vnoremap L           15l
-noremap  H           15h
-vnoremap H           15h
-"split windows "
-noremap .      :split<CR>
-noremap >      :vsplit<CR>
-"navigate through tabs quickly"
-noremap <C-h> :tabprevious<CR>
-noremap <C-l> :tabnext<CR>
-"cycle through splits"
-noremap <C-j> <C-w>w
-noremap <C-k> <C-w>W
-"create a new tab quickly"
-nmap     <leader>tn        :tabnew<CR>
-"close the current tab"
-nmap     <leader>tc        :tabclose<CR>
-"Quickly save and exit insert mode"
-imap     jj         <Esc>:w<CR>
-"Timestamp quick key"
-nnoremap <C-t>       a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
-inoremap <C-t>       <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
-"Cycle through results from grep/vimgrep"
-nnoremap <C-Down>   :cnext<CR>
-nnoremap <C-Up>     :cprevious<CR>
-"Quicly Open quickref"
-nnoremap <leader>r   :help quickref <cr>
-"Leaderf"
-nnoremap <leader>j  :LeaderfLine <CR>
-"Search for the word under the cursor"
-nnoremap <leader>s :execute "Ack " . expand("<cWORD>") . " " . expand("%") <CR>
-nnoremap <leader>a :execute "Ack " . expand("<cword>") . " " . expand("%") <CR> 
-"Search for a word under the cursor recursively"
-nnoremap <leader>sr :execute "Ack " . expand("<cWORD>") . " " . expand(".") <CR> 
-nnoremap <leader>ar :execute "Ack " . expand("<cword>") . " " . expand(".") <CR> 
-"open quicklist"
-nnoremap <leader>q :copen <CR>
-"close quicklist"
-nnoremap <leader>qq :cclose <CR>
-"Quickly open bookmarks file"
-nnoremap <leader>bm :vs $HOME/Documents/bookmarks/bookmarks.yaml <cr>
-"toggle between relativenumber vs normal"
-map <F1> :set relativenumber!<CR>
-map <F2> :call Toggle_recursive()<CR>
-"Ultisnips Settings"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"PLUGIN SETTINGS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:UltiSnipsEditSplit          = 'vertical'
 let g:UltiSnipsSnippetDirectories = [$HOME . "/custom_snippets"]
-"Find a pattern in a file and print the results to a seperate window"
+let g:vim_current_word#highlight_current_word = 0
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"FUNCTIONS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! Find_in_file_and_print(string,number_of_lines)
     :redir @a
     :silent execute "g/" . a:string . "/z#." . a:number_of_lines . "| echo'==============='"
@@ -94,7 +27,7 @@ function! Find_in_file_and_print(string,number_of_lines)
     :new
     :put! a
 endfunction
-"This helps turning off the recursive searching"
+"set recursive searching"
 let ToggleRecursive = 0
 function! Toggle_recursive()
     if g:ToggleRecursive == 1
@@ -107,5 +40,139 @@ function! Toggle_recursive()
         echo "Recursive Find On"
     endif
 endfunction
-
-
+"change font size"
+let g:fs = 10
+let g:ft = "Dank_Mono"
+let g:fstring = g:ft . ":h" . g:fs . ":cANSI"
+function! Reset_font_size()
+    let g:fstring = g:ft . ":h" . g:fs . ":cANSI"
+    :silent execute "set guifont=" . g:fstring
+endfunction
+call Reset_font_size()
+function! Increase_font_size()
+    let g:fs = g:fs + 1
+    call Reset_font_size()
+endfunction
+function! Decrease_font_size()
+    let g:fs = g:fs - 1
+    call Reset_font_size()
+endfunction
+function! What_is_current_font()
+    echo g:fstring
+endfunction
+"split in different directions"
+function! Split_left()
+    :set nosplitright
+    :silent execute ":vs"
+endfunction
+function! Split_right()
+    :set splitright
+    :silent execute ":vs"
+endfunction
+function! Split_up()
+    :set nosplitbelow
+    :silent execute ":sp"
+endfunction
+function! Split_down()
+    :set splitbelow
+    :silent execute ":sp"
+endfunction
+"close a split in different directions"
+function! Close_left()
+    :call feedkeys("\<C-w>h:q\<CR>")
+endfunction
+function! Close_right()
+    :call feedkeys("\<C-w>l:q\<CR>")
+endfunction
+function! Close_up()
+    :call feedkeys("\<C-w>k:q\<CR>")
+endfunction
+function! Close_down()
+    :call feedkeys("\<C-w>j:q\<CR>")
+endfunction
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"KEYMAPPINGS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"easy align"
+xmap     ga          <Plug>(EasyAlign)
+nmap     ga          <Plug>(EasyAlign)
+"source vimrc"
+nnoremap <leader>sv  :source $MYVIMRC <cr>
+"change split sizes quickly"
+nnoremap _         20<C-w><<CR>
+nnoremap +         20<C-w>><CR>
+nnoremap -         20<C-w>-<CR>
+nnoremap =         20<C-w>+<CR>
+"bracket autocomplete"
+inoremap {         {}<left>
+inoremap (         ()<left>
+inoremap [         []<left>
+inoremap <         <lt>><left>
+inoremap "         ""<left>
+inoremap '         ''<left>
+"move around faster"
+noremap  J         10j
+vnoremap J         10j
+noremap  K         10k
+vnoremap K         10k
+noremap  L         15l
+vnoremap L         15l
+noremap  H         15h
+vnoremap H         15h
+"split in different directions"
+noremap ,      :call Split_up()<CR>
+noremap .      :call Split_down()<CR>
+noremap >      :call Split_right()<CR>
+noremap <      :call Split_left()<CR>
+"close splits"
+nnoremap <C-Left>  :call Close_left()<CR>
+nnoremap <C-Right> :call Close_right()<CR>
+nnoremap <C-Up>    :call Close_up()<CR>
+nnoremap <C-Down>  :call Close_down()<CR>
+"navigate through splits"
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j 
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+"quickly leave insert mode"
+imap jj <ESC>
+"leader f"
+nnoremap <leader>f :Leaderf file <CR>
+nnoremap <leader>d :Leaderf line <CR>
+nnoremap <leader>s :Leaderf bufTag<CR>
+nnoremap <leader>a :Leaderf rg<CR>
+"function keys"
+map <F1>  :set  relativenumber!<CR>
+map <F2>  :call Toggle_recursive()<CR>
+map <F3>  :UltiSnipsEdit<CR>
+map <F4>  :NERDTreeToggle<CR>
+map <F5>  :UndotreeToggle<CR>
+map <F6>  :set  hlsearch!<CR>
+map <F7> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+map <F11> :call Decrease_font_size()<CR>
+map <F12> :call Increase_font_size()<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"DEPRECATED STUFF
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"other useful stuff i dont want at the moment "
+""nnoremap <leader>j  :LeaderfLine <CR>
+""nnoremap <leader>s :execute "Ack -Q " . expand("<cWORD>") . " " . expand("%") <CR>
+""nnoremap <leader>a :execute "Ack " . expand("<cword>") . " " . expand("%") <CR> 
+""nnoremap <leader>sr :execute "Ack " . expand("<cWORD>") . " " . expand(".") <CR> 
+""nnoremap <leader>ar :execute "Ack " . expand("<cword>") . " " . expand(".") <CR> 
+""nmap     <leader>tn        :tabnew<CR>
+""nmap     <leader>tc        :tabclose<CR>
+""noremap <C-h> :tabprevious<CR>
+""noremap <C-l> :tabnext<CR>
+""noremap <C-j> <C-w>w
+""noremap <C-k> <C-w>W
+""nnoremap <leader>r   :help quickref <cr>
+""nnoremap <leader>q :copen <CR>
+""nnoremap <leader>qq :cclose <CR>
+""nnoremap <leader>m :Leaderf --fullScreen mru <CR>
+"""moving to other grep search"
+""nnoremap <C-Down>   :cnext<CR>
+""nnoremap <C-Up>     :cprevious<CR>
+"""time stamp key"
+""nnoremap <C-t>       a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+""inoremap <C-t>       <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
