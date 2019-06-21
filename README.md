@@ -12,10 +12,12 @@ This repository provides a complete development environment using Vim. Also prov
 * [Solidity Syntax](https://github.com/tomlion/vim-solidity)
 * [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)
 * [Current Word](https://github.com/dominikduda/vim_current_word)
+* [undotree](https://github.com/mbbill/undotree)
+* [indentLine](https://github.com/Yggdroot/indentLine)
 
 ## Other Tools 
 * [ripgrep](https://github.com/BurntSushi/ripgrep)
-* ctags
+* ctags via cygwin 
 
 # Getting Started
 ## Prerequisites 
@@ -47,7 +49,6 @@ git submodule update
 * Create a new directory called `$HOME/custom_snippets`
 * In your user file add the following lines
 > let g:UltiSnipsEditSplit = 'vertical'
-
 > let g:UltiSnipsSnippetDirectories = [$HOME . "/custom_snippets"]
 * Refer to the plugin documentation or the default snippets for examples
 
@@ -61,7 +62,12 @@ git submodule update
 * extract the folder 
 * make a new folder in the C: drive, call it 'executables' 
 * add the rg.exe to the 'executables' folder
-* edit your path environmental variable to include the 'executables' directory
+* edit your $PATH environmental variable to include the 'executables' directory
 * open the command prompt and type `rg --help` to make sure it is working
 
 # Installing ctags using cygwin 
+* download the cygwin setup [here](https://www.cygwin.com/)
+* search for `ctags` 
+* install ctags 
+* edit your $PATH environmental variable to include the directory where all the cygwin .bin files are 
+* open the command prompt and type `ctags` to make sure that it is properly installed 

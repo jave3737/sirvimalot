@@ -1,22 +1,33 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"SILVER SURFER CONFIGURATION
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-  let g:ackprg= 'ag --vimgrep'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Search Tools
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if executable('rg')
+    set grepprg=rg\ --vimgrep
+elseif executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "GUI SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set wildignore=*.o,*.jpg,*.png,*.make,*.bin,*.pyc,*.hex, 
+""set wildignore=*.o,*.jpg,*.png,*.make,*.bin,*.pyc,
 set showmatch
 set number
+set tags=tags;/
+set complete+=kspell
+""set spell
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "PLUGIN SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:UltiSnipsEditSplit          = 'vertical'
 let g:UltiSnipsSnippetDirectories = [$HOME . "/custom_snippets"]
 let g:vim_current_word#highlight_current_word = 0
+let g:Lf_ShowRelativePath = 0
+let g:Lf_WindowHeight = 0.1
+let g:Lf_DefaultMode = 'NameOnly'
+let g:Lf_WildIgnore = {
+            \ 'dir': ['.svn','.git','.hg'],
+            \ 'file': ['*.d','*.bin','*.a','*.hex','*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+\}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "FUNCTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -97,7 +108,7 @@ endfunction
 xmap     ga          <Plug>(EasyAlign)
 nmap     ga          <Plug>(EasyAlign)
 "source vimrc"
-nnoremap <leader>sv  :source $MYVIMRC <cr>
+""nnoremap <leader>sv  :source $MYVIMRC <cr>
 "change split sizes quickly"
 nnoremap _         20<C-w><<CR>
 nnoremap +         20<C-w>><CR>
@@ -141,19 +152,21 @@ nnoremap <leader>f :Leaderf file <CR>
 nnoremap <leader>d :Leaderf line <CR>
 nnoremap <leader>s :Leaderf bufTag<CR>
 nnoremap <leader>a :Leaderf rg<CR>
+nnoremap <leader>c :LeaderfLineCword<CR>
+nnoremap <leader>x :LeaderfTagCword<CR>
 "function keys"
 map <F1>  :set  relativenumber!<CR>
-map <F2>  :call Toggle_recursive()<CR>
-map <F3>  :UltiSnipsEdit<CR>
-map <F4>  :NERDTreeToggle<CR>
-map <F5>  :UndotreeToggle<CR>
-map <F6>  :set  hlsearch!<CR>
-map <F7> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+map <F2>  :UltiSnipsEdit<CR>
+map <F3>  :NERDTreeToggle<CR>
+map <F4>  :UndotreeToggle<CR>
+map <F5>  :set  hlsearch!<CR>
+map <F6> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 map <F11> :call Decrease_font_size()<CR>
 map <F12> :call Increase_font_size()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "DEPRECATED STUFF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""map <F2>  :call Toggle_recursive()<CR>
 "other useful stuff i dont want at the moment "
 ""nnoremap <leader>j  :LeaderfLine <CR>
 ""nnoremap <leader>s :execute "Ack -Q " . expand("<cWORD>") . " " . expand("%") <CR>
@@ -176,3 +189,7 @@ map <F12> :call Increase_font_size()<CR>
 """time stamp key"
 ""nnoremap <C-t>       a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 ""inoremap <C-t>       <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+""if executable('ag')
+""  set grepprg=ag\ --nogroup\ --nocolor
+""  let g:ackprg= 'ag --vimgrep'
+""endif
