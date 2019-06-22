@@ -14,6 +14,7 @@ This repository provides a complete development environment using Vim. Also prov
 * [Current Word](https://github.com/dominikduda/vim_current_word)
 * [undotree](https://github.com/mbbill/undotree)
 * [indentLine](https://github.com/Yggdroot/indentLine)
+* [gutentags](https://github.com/ludovicchabant/vim-gutentags/blob/master/doc/gutentags.txt)
 
 ## Other Tools 
 * [ripgrep](https://github.com/BurntSushi/ripgrep)

@@ -24,10 +24,6 @@ let g:vim_current_word#highlight_current_word = 0
 let g:Lf_ShowRelativePath = 0
 let g:Lf_WindowHeight = 0.1
 let g:Lf_DefaultMode = 'NameOnly'
-let g:Lf_WildIgnore = {
-            \ 'dir': ['.svn','.git','.hg'],
-            \ 'file': ['*.d','*.bin','*.a','*.hex','*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
-\}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "FUNCTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -146,7 +142,7 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 "quickly leave insert mode"
-imap jj <ESC>
+imap jj <ESC>l
 "leader f"
 nnoremap <leader>f :Leaderf file <CR>
 nnoremap <leader>d :Leaderf line <CR>
