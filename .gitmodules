@@ -34,3 +34,6 @@
 [submodule "vimfiles/bundle/vim-gutentags"]
 	path = vimfiles/bundle/vim-gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags.git
+[submodule "vimfiles/bundle/jedi-vim"]
+	path = vimfiles/bundle/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git
