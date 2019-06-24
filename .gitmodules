@@ -13,24 +13,12 @@
 [submodule "vimfiles/bundle/ultisnips"]
 	path = vimfiles/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
-[submodule "vimfiles/bundle/vim-javascript-syntax"]
-	path = vimfiles/bundle/vim-javascript-syntax
-	url = https://github.com/jelera/vim-javascript-syntax.git
 [submodule "vimfiles/bundle/nerdtree"]
 	path = vimfiles/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "vimfiles/bundle/vim-easy-align"]
 	path = vimfiles/bundle/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
-[submodule "vimfiles/bundle/undotree"]
-	path = vimfiles/bundle/undotree
-	url = https://github.com/mbbill/undotree.git
-[submodule "vimfiles/bundle/indentLine"]
-	path = vimfiles/bundle/indentLine
-	url = https://github.com/Yggdroot/indentLine.git
 [submodule "vimfiles/bundle/vim-gutentags"]
 	path = vimfiles/bundle/vim-gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags.git
-[submodule "vimfiles/bundle/jedi-vim"]
-	path = vimfiles/bundle/jedi-vim
-	url = https://github.com/davidhalter/jedi-vim.git
