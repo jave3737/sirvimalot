@@ -1,19 +1,14 @@
 # Description 
 This repository provides a complete development environment using Vim. Also provides a rudimentary method for managing various users using the same vim configuration while allowing for custom configurations.
 
-## Current Plugins 
+## Base Plugins 
 * [Copy-Cut-Paste](https://github.com/NLKNguyen/copy-cut-paste.vim)
 * [LeaderF](https://github.com/Yggdroot/LeaderF)
 * [NerdTreeToggle](https://github.com/scrooloose/nerdtree)
 * [Taboo](https://github.com/gcmt/taboo.vim)
 * [UltiSnips](https://github.com/sirver/UltiSnips)
 * [Easy-Align](https://github.com/junegunn/vim-easy-align)
-* [Javascript Syntax](https://github.com/jelera/vim-javascript-syntax)
-* [Solidity Syntax](https://github.com/tomlion/vim-solidity)
 * [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)
-* [Current Word](https://github.com/dominikduda/vim_current_word)
-* [undotree](https://github.com/mbbill/undotree)
-* [indentLine](https://github.com/Yggdroot/indentLine)
 * [gutentags](https://github.com/ludovicchabant/vim-gutentags/blob/master/doc/gutentags.txt)
 
 ## Other Tools 
@@ -24,6 +19,7 @@ This repository provides a complete development environment using Vim. Also prov
 ## Prerequisites 
 * Download [gVim v8.0](https://www.vim.org/download.php)
 * Download and install 32-bit version of [Python 3.6.0](https://www.python.org/downloads/release/python-360/)
+    * Or whatever version of python is required by gVim. If you type `:version` you should see something along the lines of `--DDYNAMIC_PYTHON3_DLL="\python36.dll\"` so you will need that version of python
     * When installing make sure to "Add to Path" or you will have to manually add the path of the executable to the environmental variable "path"
 
 ## Windows Configuration
@@ -72,3 +68,5 @@ git submodule update
 * install ctags 
 * edit your $PATH environmental variable to include the directory where all the cygwin .bin files are 
 * open the command prompt and type `ctags` to make sure that it is properly installed 
+
+# Installing ctags using exuberant ctags 

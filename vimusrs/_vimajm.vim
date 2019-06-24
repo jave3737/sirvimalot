@@ -9,7 +9,6 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "GUI SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""set wildignore=*.o,*.jpg,*.png,*.make,*.bin,*.pyc,
 set showmatch
 set number
 set tags=tags;/
@@ -18,9 +17,6 @@ set complete+=kspell
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "PLUGIN SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:UltiSnipsEditSplit          = 'vertical'
-let g:UltiSnipsSnippetDirectories = [$HOME . "/custom_snippets"]
-let g:vim_current_word#highlight_current_word = 0
 let g:Lf_ShowRelativePath = 0
 let g:Lf_WindowHeight = 0.1
 let g:Lf_DefaultMode = 'NameOnly'
@@ -154,7 +150,6 @@ nnoremap <leader>x :LeaderfTagCword<CR>
 map <F1>  :set  relativenumber!<CR>
 map <F2>  :UltiSnipsEdit<CR>
 map <F3>  :NERDTreeToggle<CR>
-map <F4>  :UndotreeToggle<CR>
 map <F5>  :set  hlsearch!<CR>
 map <F6> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 map <F11> :call Decrease_font_size()<CR>
@@ -189,3 +184,7 @@ map <F12> :call Increase_font_size()<CR>
 ""  set grepprg=ag\ --nogroup\ --nocolor
 ""  let g:ackprg= 'ag --vimgrep'
 ""endif
+""let g:UltiSnipsEditSplit          = 'vertical'
+""let g:UltiSnipsSnippetDirectories = [$HOME . "/custom_snippets"]
+""let g:vim_current_word#highlight_current_word = 0
+""set wildignore=*.o,*.jpg,*.png,*.make,*.bin,*.pyc,

@@ -10,9 +10,6 @@
 [submodule "vimfiles/bundle/vim-yankstack"]
 	path = vimfiles/bundle/vim-yankstack
 	url = https://github.com/maxbrunsfeld/vim-yankstack.git
-[submodule "vimfiles/bundle/ultisnips"]
-	path = vimfiles/bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
 [submodule "vimfiles/bundle/nerdtree"]
 	path = vimfiles/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
