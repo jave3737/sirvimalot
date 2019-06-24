@@ -13,56 +13,22 @@ set showmatch
 set number
 set tags=tags;/
 set complete+=kspell
-""set spell
+set guifont=Dank_Mono:h10:cANSI
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "PLUGIN SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:Lf_ShowRelativePath = 0
 let g:Lf_WindowHeight = 0.1
 let g:Lf_DefaultMode = 'NameOnly'
+let g:Lf_RgConfig = [
+            \ "--glob=*.c",
+            \ "--glob=*.cpp",
+            \ "--glob=*.h",
+            \ "--glob=*.txt"
+            \ ]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "FUNCTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! Find_in_file_and_print(string,number_of_lines)
-    :redir @a
-    :silent execute "g/" . a:string . "/z#." . a:number_of_lines . "| echo'==============='"
-    :redir END
-    :new
-    :put! a
-endfunction
-"set recursive searching"
-let ToggleRecursive = 0
-function! Toggle_recursive()
-    if g:ToggleRecursive == 1
-        let g:ToggleRecursive = 0
-        set path-=**
-        echo "Recursive Find Off"
-    elseif g:ToggleRecursive == 0
-        let g:ToggleRecursive = 1
-        set path+=**
-        echo "Recursive Find On"
-    endif
-endfunction
-"change font size"
-let g:fs = 10
-let g:ft = "Dank_Mono"
-let g:fstring = g:ft . ":h" . g:fs . ":cANSI"
-function! Reset_font_size()
-    let g:fstring = g:ft . ":h" . g:fs . ":cANSI"
-    :silent execute "set guifont=" . g:fstring
-endfunction
-call Reset_font_size()
-function! Increase_font_size()
-    let g:fs = g:fs + 1
-    call Reset_font_size()
-endfunction
-function! Decrease_font_size()
-    let g:fs = g:fs - 1
-    call Reset_font_size()
-endfunction
-function! What_is_current_font()
-    echo g:fstring
-endfunction
 "split in different directions"
 function! Split_left()
     :set nosplitright
@@ -79,19 +45,6 @@ endfunction
 function! Split_down()
     :set splitbelow
     :silent execute ":sp"
-endfunction
-"close a split in different directions"
-function! Close_left()
-    :call feedkeys("\<C-w>h:q\<CR>")
-endfunction
-function! Close_right()
-    :call feedkeys("\<C-w>l:q\<CR>")
-endfunction
-function! Close_up()
-    :call feedkeys("\<C-w>k:q\<CR>")
-endfunction
-function! Close_down()
-    :call feedkeys("\<C-w>j:q\<CR>")
 endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS
@@ -127,11 +80,6 @@ noremap ,      :call Split_up()<CR>
 noremap .      :call Split_down()<CR>
 noremap >      :call Split_right()<CR>
 noremap <      :call Split_left()<CR>
-"close splits"
-nnoremap <C-Left>  :call Close_left()<CR>
-nnoremap <C-Right> :call Close_right()<CR>
-nnoremap <C-Up>    :call Close_up()<CR>
-nnoremap <C-Down>  :call Close_down()<CR>
 "navigate through splits"
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j 
@@ -147,13 +95,11 @@ nnoremap <leader>a :Leaderf rg<CR>
 nnoremap <leader>c :LeaderfLineCword<CR>
 nnoremap <leader>x :LeaderfTagCword<CR>
 "function keys"
-map <F1>  :set  relativenumber!<CR>
-map <F2>  :UltiSnipsEdit<CR>
-map <F3>  :NERDTreeToggle<CR>
-map <F5>  :set  hlsearch!<CR>
+map <F1>  :NERDTreeToggle<CR>
+map <F2>  :set  relativenumber!<CR>
+map <F3>  :set  hlsearch!<CR>
+
 map <F6> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
-map <F11> :call Decrease_font_size()<CR>
-map <F12> :call Increase_font_size()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "DEPRECATED STUFF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -188,3 +134,63 @@ map <F12> :call Increase_font_size()<CR>
 ""let g:UltiSnipsSnippetDirectories = [$HOME . "/custom_snippets"]
 ""let g:vim_current_word#highlight_current_word = 0
 ""set wildignore=*.o,*.jpg,*.png,*.make,*.bin,*.pyc,
+""map <F2>  :UltiSnipsEdit<CR>
+""set spell
+""function! Find_in_file_and_print(string,number_of_lines)
+""    :redir @a
+""    :silent execute "g/" . a:string . "/z#." . a:number_of_lines . "| echo'==============='"
+""    :redir END
+""    :new
+""    :put! a
+""endfunction
+"""close a split in different directions"
+""function! Close_left()
+""    :call feedkeys("\<C-w>h:q\<CR>")
+""endfunction
+""function! Close_right()
+""    :call feedkeys("\<C-w>l:q\<CR>")
+""endfunction
+""function! Close_up()
+""    :call feedkeys("\<C-w>k:q\<CR>")
+""endfunction
+""function! Close_down()
+""    :call feedkeys("\<C-w>j:q\<CR>")
+""endfunction
+"close splits"
+""nnoremap <C-Left>  :call Close_left()<CR>
+""nnoremap <C-Right> :call Close_right()<CR>
+""nnoremap <C-Up>    :call Close_up()<CR>
+""nnoremap <C-Down>  :call Close_down()<CR>
+"""set recursive searching"
+""let ToggleRecursive = 0
+""function! Toggle_recursive()
+""    if g:ToggleRecursive == 1
+""        let g:ToggleRecursive = 0
+""        set path-=**
+""        echo "Recursive Find Off"
+""    elseif g:ToggleRecursive == 0
+""        let g:ToggleRecursive = 1
+""        set path+=**
+""        echo "Recursive Find On"
+""    endif
+""endfunction
+"""change font size"
+""let g:fs = 10
+""let g:ft = "Dank_Mono"
+""let g:fstring = g:ft . ":h" . g:fs . ":cANSI"
+""function! Reset_font_size()
+""    let g:fstring = g:ft . ":h" . g:fs . ":cANSI"
+""    :silent execute "set guifont=" . g:fstring
+""endfunction
+""call Reset_font_size()
+""function! Increase_font_size()
+""    let g:fs = g:fs + 1
+""    call Reset_font_size()
+""endfunction
+""function! Decrease_font_size()
+""    let g:fs = g:fs - 1
+""    call Reset_font_size()
+""endfunction
+""function! What_is_current_font()
+""    echo g:fstring
+""endfunction
