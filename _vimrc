@@ -1,9 +1,9 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE WINDOWS BEHAVIOR
 """"""""""""""""""""""""""""""""""""""""""""""""""
-source $VIMRUNTIME/mswin.vim
-behave mswin 
-au GUIEnter * simalt ~x
+""source $VIMRUNTIME/mswin.vim
+""behave mswin 
+""au GUIEnter * simalt ~x
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "SET COLORSCHEME

@@ -6,7 +6,6 @@ This repository provides a complete development environment using Vim. Also prov
 * [LeaderF](https://github.com/Yggdroot/LeaderF)
 * [NerdTreeToggle](https://github.com/scrooloose/nerdtree)
 * [Taboo](https://github.com/gcmt/taboo.vim)
-* [UltiSnips](https://github.com/sirver/UltiSnips)
 * [Easy-Align](https://github.com/junegunn/vim-easy-align)
 * [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)
 * [gutentags](https://github.com/ludovicchabant/vim-gutentags/blob/master/doc/gutentags.txt)

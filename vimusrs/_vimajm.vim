@@ -1,4 +1,4 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Search Tools
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if executable('rg')
@@ -13,7 +13,7 @@ set showmatch
 set number
 set tags=tags;/
 set complete+=kspell
-set guifont=Dank_Mono:h10:cANSI
+set guifont=Dank_Mono:h12:cANSI
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "PLUGIN SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -66,20 +66,11 @@ inoremap [         []<left>
 inoremap <         <lt>><left>
 inoremap "         ""<left>
 inoremap '         ''<left>
-"move around faster"
-noremap  J         10j
-vnoremap J         10j
-noremap  K         10k
-vnoremap K         10k
-noremap  L         15l
-vnoremap L         15l
-noremap  H         15h
-vnoremap H         15h
 "split in different directions"
-noremap ,      :call Split_up()<CR>
-noremap .      :call Split_down()<CR>
-noremap >      :call Split_right()<CR>
-noremap <      :call Split_left()<CR>
+noremap J :call Split_down()<CR>
+noremap K :call Split_up()<CR>
+noremap L :call Split_right()<CR>
+noremap H :call Split_left()<CR>
 "navigate through splits"
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j 
@@ -87,6 +78,10 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 "quickly leave insert mode"
 imap jj <ESC>l
+"quit and save the current split"
+noremap q :wq<CR>
+"force quit the current split"
+noremap qq :q!<CR>
 "leader f"
 nnoremap <leader>f :Leaderf file <CR>
 nnoremap <leader>d :Leaderf line <CR>
@@ -100,6 +95,7 @@ map <F2>  :set  relativenumber!<CR>
 map <F3>  :set  hlsearch!<CR>
 
 map <F6> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "DEPRECATED STUFF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -194,3 +190,17 @@ map <F6> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 ""function! What_is_current_font()
 ""    echo g:fstring
 ""endfunction
+"move around faster"
+""noremap  J         10j
+""vnoremap J         10j
+""noremap  K         10k
+""vnoremap K         10k
+""noremap  L         15l
+""vnoremap L         15l
+""noremap  H         15h
+""vnoremap H         15h
+""noremap ,      :call Split_up()<CR>
+""noremap .      :call Split_down()<CR>
+""noremap >      :call Split_right()<CR>
+""noremap <      :call Split_left()<CR>
+""noremap <SPACE> :wa<CR>
