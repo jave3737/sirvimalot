@@ -14,6 +14,7 @@ set number
 set tags=tags;/
 set complete+=kspell
 set guifont=Dank_Mono:h12:cANSI
+set foldmethod=syntax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "PLUGIN SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -24,7 +25,10 @@ let g:Lf_RgConfig = [
             \ "--glob=*.c",
             \ "--glob=*.cpp",
             \ "--glob=*.h",
-            \ "--glob=*.txt"
+            \ "--glob=*.txt",
+            \ "--glob=*.tcl",
+            \ "--glob=*.v",
+            \ "--glob=*.vhd"
             \ ]
 let g:UltiSnipsEditSplit          = 'vertical'
 let g:UltiSnipsSnippetDirectories = [$HOME . "/custom_snippets"]
@@ -92,9 +96,9 @@ noremap <C-l> <C-w>l
 "quickly leave insert mode"
 imap jj <ESC>l
 "quit and save the current split"
-noremap q :wq<CR>
-"force quit the current split"
-noremap qq :q!<CR>
+noremap q :w<CR>
+noremap qq :q<CR>
+noremap qqq :q!<CR>
 "leader f"
 nnoremap <leader>f :Leaderf file <CR>
 nnoremap <leader>d :Leaderf line <CR>
@@ -103,10 +107,17 @@ nnoremap <leader>a :Leaderf rg<CR>
 nnoremap <leader>c :LeaderfLineCword<CR>
 nnoremap <leader>x :LeaderfTagCword<CR>
 "function keys"
-map <F1>  :TagbarToggle<CR>
-map <F2>  :NERDTreeToggle<CR>
-map <F3>  :UndotreeToggle<CR>
+map <F1>  :vsplit $HOME/vimusrs/_vimajm.vim<CR>
+map <F2>  :TagbarToggle<CR>
+map <F3>  :NERDTreeToggle<CR>
+map <F4>  :UndotreeToggle<CR>
+map <F5>  :UltiSnipsEdit<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"ABBREVIATIONS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ab sl std_logic;
+ab slv std_logic_vector
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "DEPRECATED STUFF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
