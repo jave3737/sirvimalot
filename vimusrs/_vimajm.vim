@@ -1,4 +1,4 @@
-    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Search Tools
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if executable('rg')
@@ -26,6 +26,19 @@ let g:Lf_RgConfig = [
             \ "--glob=*.h",
             \ "--glob=*.txt"
             \ ]
+let g:UltiSnipsEditSplit          = 'vertical'
+let g:UltiSnipsSnippetDirectories = [$HOME . "/custom_snippets"]
+let g:tagbar_left = 1
+let g:tagbar_compact = 1
+let g:tagbar_width = 30
+let g:tagbar_autoclose = 0
+let g:tagbar_silent = 1
+let g:NERDTreeWinSize = 20
+let g:undotree_SplitWidth = 20
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+let g:vim_current_word#highlight_current_word = 0
+let g:vim_current_word#highlight_twins = 1
+let g:peekaboo_window = 'vert bo 100new'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "FUNCTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -90,11 +103,9 @@ nnoremap <leader>a :Leaderf rg<CR>
 nnoremap <leader>c :LeaderfLineCword<CR>
 nnoremap <leader>x :LeaderfTagCword<CR>
 "function keys"
-map <F1>  :NERDTreeToggle<CR>
-map <F2>  :set  relativenumber!<CR>
-map <F3>  :set  hlsearch!<CR>
-
-map <F6> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+map <F1>  :TagbarToggle<CR>
+map <F2>  :NERDTreeToggle<CR>
+map <F3>  :UndotreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "DEPRECATED STUFF
@@ -126,8 +137,6 @@ map <F6> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 ""  set grepprg=ag\ --nogroup\ --nocolor
 ""  let g:ackprg= 'ag --vimgrep'
 ""endif
-""let g:UltiSnipsEditSplit          = 'vertical'
-""let g:UltiSnipsSnippetDirectories = [$HOME . "/custom_snippets"]
 ""let g:vim_current_word#highlight_current_word = 0
 ""set wildignore=*.o,*.jpg,*.png,*.make,*.bin,*.pyc,
 ""map <F2>  :UltiSnipsEdit<CR>
@@ -204,3 +213,7 @@ map <F6> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 ""noremap >      :call Split_right()<CR>
 ""noremap <      :call Split_left()<CR>
 ""noremap <SPACE> :wa<CR>
+""map <F2>  :set  relativenumber!<CR>
+""map <F3>  :set  hlsearch!<CR>
+""
+""map <F6> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
