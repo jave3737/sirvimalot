@@ -10,28 +10,13 @@ This repository provides a complete development environment using Vim. Also prov
 * [gutentags](https://github.com/ludovicchabant/vim-gutentags/blob/master/doc/gutentags.txt)
 
 ## Additional Recommended Plugins
-### Version Control 
-* [gv](https://github.com/junegunn/gv.vim)
-* [vim-fugitive](https://github.com/tpope/vim-fugitive)
 * [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
-* [undotree](https://github.com/mbbill/undotree)
-
-### Faster Navigation
 * [quick-scope](https://github.com/unblevable/quick-scope)
-* [tagbar](https://github.com/majutsushi/tagbar)
-
-### Code Completion
-* [jedi_-vim](https://github.com/davidhalter/jedi-vim)
+* [golden-ratio](https://github.com/roman/golden-ratio)
 * [ultisnips](https://github.com/sirver/UltiSnips)
-
-### Aesthetics 
 * [lightline](https://github.com/itchyny/lightline.vim)
 * [indentLine](https://github.com/Yggdroot/indentLine)
 * [vim-easy-align](https://github.com/junegunn/vim-easy-align)
-* [vim___current_word](https://github.com/dominikduda/vim_current_word)
-
-### Other
-* [vim-peekaboo](https://github.com/junegunn/vim-peekaboo)
 
 ## Other Tools 
 * [ripgrep](https://github.com/BurntSushi/ripgrep)
@@ -68,7 +53,7 @@ git submodule update
 * Create a new directory called `$HOME/custom_snippets`
 * In your user file add the following lines
 > let g:UltiSnipsEditSplit = 'vertical'
-> let g:UltiSnipsSnippetDirectories = [$HOME . "/custom_snippets"]
+> let g:UltiSnipsSnippetDirectories = [$HOME . "/custom\_snippets"]
 * Refer to the plugin documentation or the default snippets for examples
 
 # Adding New Plugins
@@ -91,4 +76,3 @@ git submodule update
 * edit your $PATH environmental variable to include the directory where all the cygwin .bin files are 
 * open the command prompt and type `ctags` to make sure that it is properly installed 
 
-# Installing ctags using exuberant ctags 

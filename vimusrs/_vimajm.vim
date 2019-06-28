@@ -1,3 +1,7 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"ABBREVIATIONS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ab ajm Alejandro J. Miranda
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Search Tools
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -14,7 +18,10 @@ set number
 set tags=tags;/
 set complete+=kspell
 set guifont=Dank_Mono:h12:cANSI
-set foldmethod=syntax
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+colorscheme vividchalk
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "PLUGIN SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -22,10 +29,15 @@ let g:Lf_ShowRelativePath = 0
 let g:Lf_WindowHeight = 0.1
 let g:Lf_DefaultMode = 'NameOnly'
 let g:Lf_RgConfig = [
+            \ "--glob=Makefile",
+            \ "--glob=makefile",
+            \ "--glob=CMakeLists.txt",
+            \ "--glob=*.yaml",
             \ "--glob=*.c",
             \ "--glob=*.cpp",
             \ "--glob=*.h",
             \ "--glob=*.txt",
+            \ "--glob=*.md",
             \ "--glob=*.tcl",
             \ "--glob=*.v",
             \ "--glob=*.vhd"
@@ -41,8 +53,6 @@ let g:NERDTreeWinSize = 20
 let g:undotree_SplitWidth = 20
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 let g:vim_current_word#highlight_current_word = 0
-let g:vim_current_word#highlight_twins = 1
-let g:peekaboo_window = 'vert bo 100new'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "FUNCTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -69,8 +79,6 @@ endfunction
 "easy align"
 xmap     ga          <Plug>(EasyAlign)
 nmap     ga          <Plug>(EasyAlign)
-"source vimrc"
-""nnoremap <leader>sv  :source $MYVIMRC <cr>
 "change split sizes quickly"
 nnoremap _         20<C-w><<CR>
 nnoremap +         20<C-w>><CR>
@@ -97,27 +105,17 @@ noremap <C-l> <C-w>l
 imap jj <ESC>l
 "quit and save the current split"
 noremap q :w<CR>
-noremap qq :q<CR>
-noremap qqq :q!<CR>
 "leader f"
 nnoremap <leader>f :Leaderf file <CR>
 nnoremap <leader>d :Leaderf line <CR>
 nnoremap <leader>s :Leaderf bufTag<CR>
 nnoremap <leader>a :Leaderf rg<CR>
-nnoremap <leader>c :LeaderfLineCword<CR>
-nnoremap <leader>x :LeaderfTagCword<CR>
 "function keys"
 map <F1>  :vsplit $HOME/vimusrs/_vimajm.vim<CR>
 map <F2>  :TagbarToggle<CR>
 map <F3>  :NERDTreeToggle<CR>
 map <F4>  :UndotreeToggle<CR>
 map <F5>  :UltiSnipsEdit<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ABBREVIATIONS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-ab sl std_logic;
-ab slv std_logic_vector
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "DEPRECATED STUFF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -144,7 +142,7 @@ ab slv std_logic_vector
 """time stamp key"
 ""nnoremap <C-t>       a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 ""inoremap <C-t>       <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
-""if executable('ag')
+""if executable('ag') 
 ""  set grepprg=ag\ --nogroup\ --nocolor
 ""  let g:ackprg= 'ag --vimgrep'
 ""endif
@@ -228,3 +226,5 @@ ab slv std_logic_vector
 ""map <F3>  :set  hlsearch!<CR>
 ""
 ""map <F6> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+"source vimrc"
+""nnoremap <leader>sv  :source $MYVIMRC <cr>
