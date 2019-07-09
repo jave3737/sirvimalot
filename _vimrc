@@ -63,16 +63,16 @@ set belloff=all
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "DEFAULT KEYMAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"Source _vimrc file"
-nnoremap <leader>sv  :source $MYVIMRC <cr>
-"Move to other tabs"
-nnoremap <C-Left>    :tabprevious<CR>
-nnoremap <C-Right>   :tabnext<CR>
-"Change split sizes"
-nnoremap _           5<C-w><<CR>
-nnoremap +           5<C-w>><CR>
-nnoremap -           5<C-w>-<CR>
-nnoremap =           5<C-w>+<CR>
+""Source _vimrc file"
+"nnoremap <leader>sv  :source $MYVIMRC <cr>
+""Move to other tabs"
+"nnoremap <C-Left>    :tabprevious<CR>
+"nnoremap <C-Right>   :tabnext<CR>
+""Change split sizes"
+"nnoremap _           5<C-w><<CR>
+"nnoremap +           5<C-w>><CR>
+"nnoremap -           5<C-w>-<CR>
+"nnoremap =           5<C-w>+<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE PLUGINS 

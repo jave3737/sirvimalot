@@ -1,7 +1,3 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ABBREVIATIONS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-ab ajm Alejandro J. Miranda
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Search Tools
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -16,7 +12,6 @@ endif
 set showmatch
 set number
 set tags=tags;/
-set complete+=kspell
 set guifont=Dank_Mono:h12:cANSI
 set tabstop=4
 set shiftwidth=4
@@ -43,79 +38,35 @@ let g:Lf_RgConfig = [
             \ "--glob=*.vhd"
             \ ]
 let g:UltiSnipsEditSplit          = 'vertical'
-let g:UltiSnipsSnippetDirectories = [$HOME . "/custom_snippets"]
+let g:UltiSnipsSnippetDirectories = [$HOME . "/Documents/custom_snippets"]
+let g:NERDTreeWinSize = 20
 let g:tagbar_left = 1
 let g:tagbar_compact = 1
-let g:tagbar_width = 30
-let g:tagbar_autoclose = 0
-let g:tagbar_silent = 1
-let g:NERDTreeWinSize = 20
-let g:undotree_SplitWidth = 20
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-let g:vim_current_word#highlight_current_word = 0
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"FUNCTIONS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"split in different directions"
-function! Split_left()
-    :set nosplitright
-    :silent execute ":vs"
-endfunction
-function! Split_right()
-    :set splitright
-    :silent execute ":vs"
-endfunction
-function! Split_up()
-    :set nosplitbelow
-    :silent execute ":sp"
-endfunction
-function! Split_down()
-    :set splitbelow
-    :silent execute ":sp"
-endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "easy align"
 xmap     ga          <Plug>(EasyAlign)
 nmap     ga          <Plug>(EasyAlign)
-"change split sizes quickly"
-nnoremap _         20<C-w><<CR>
-nnoremap +         20<C-w>><CR>
-nnoremap -         20<C-w>-<CR>
-nnoremap =         20<C-w>+<CR>
-"bracket autocomplete"
-inoremap {         {}<left>
-inoremap (         ()<left>
-inoremap [         []<left>
-inoremap <         <lt>><left>
-inoremap "         ""<left>
-inoremap '         ''<left>
-"split in different directions"
-noremap J :call Split_down()<CR>
-noremap K :call Split_up()<CR>
-noremap L :call Split_right()<CR>
-noremap H :call Split_left()<CR>
-"navigate through splits"
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j 
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-"quickly leave insert mode"
-imap jj <ESC>l
-"quit and save the current split"
-noremap q :w<CR>
+"restore scrolling" 
+nnoremap <C-E> 10<C-E>
+nnoremap <C-Y> 10<C-Y>
+nnoremap <C-F> <C-F>
 "leader f"
+nnoremap <leader>r :help quickref <CR>
 nnoremap <leader>f :Leaderf file <CR>
 nnoremap <leader>d :Leaderf line <CR>
 nnoremap <leader>s :Leaderf bufTag<CR>
 nnoremap <leader>a :Leaderf rg<CR>
 "function keys"
 map <F1>  :vsplit $HOME/vimusrs/_vimajm.vim<CR>
-map <F2>  :TagbarToggle<CR>
-map <F3>  :NERDTreeToggle<CR>
-map <F4>  :UndotreeToggle<CR>
-map <F5>  :UltiSnipsEdit<CR>
+map <F2>  :NERDTreeToggle<CR>
+map <F3>  :UltiSnipsEdit<CR>
+map <F4>  :TagbarToggle<CR>
+map <F5>  :GoldenRatioToggle<CR>
+map <F6> :set relativenumber!<CR>
+map <F7> :set hlsearch!<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "DEPRECATED STUFF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -228,3 +179,58 @@ map <F5>  :UltiSnipsEdit<CR>
 ""map <F6> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 "source vimrc"
 ""nnoremap <leader>sv  :source $MYVIMRC <cr>
+""map <F2>  :TagbarToggle<CR>
+""map <F4>  :UndotreeToggle<CR>
+"change split sizes quickly"
+""nnoremap _         20<C-w><<CR>
+""nnoremap +         20<C-w>><CR>
+""nnoremap -         20<C-w>-<CR>
+""nnoremap =         20<C-w>+<CR>
+""let g:tagbar_left = 1
+""let g:tagbar_compact = 1
+""let g:tagbar_width = 30
+""let g:tagbar_autoclose = 0
+""let g:tagbar_silent = 1
+""let g:undotree_SplitWidth = 20
+"let g:vim_current_word#highlight_current_word = 0
+""set complete+=kspell
+"bracket autocomplete"
+""inoremap {         {}<left>
+""inoremap (         ()<left>
+""inoremap [         []<left>
+""inoremap <         <lt>><left>
+""inoremap "         ""<left>
+""inoremap '         ''<left>
+"split in different directions"
+"noremap J :call Split_down()<CR>
+"noremap K :call Split_up()<CR>
+"noremap L :call Split_right()<CR>
+"noremap H :call Split_left()<CR>
+"quickly leave insert mode"
+"imap jj <ESC>l
+""quit and save the current split"
+"noremap q :w<CR>
+""split in different directions"
+"function! Split_left()
+"    :set nosplitright
+"    :silent execute ":vs"
+"endfunction
+"function! Split_right()
+"    :set splitright
+"    :silent execute ":vs"
+"endfunction
+"function! Split_up()
+"    :set nosplitbelow
+"    :silent execute ":sp"
+"endfunction
+"function! Split_down()
+"    :set splitbelow
+"    :silent execute ":sp"
+"endfunction
+""move to left or right splits"
+"noremap H <C-w>h
+"noremap L <C-w>l
+"noremap J <C-D>
+"noremap K <C-U>
+"inoremap jj <ESC>
+"inoremap kk <C-P>
