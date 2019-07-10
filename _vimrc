@@ -83,31 +83,6 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <C-F> <C-F>
-nnoremap <C-B> <C-B>
-nnoremap <C-E> 5<C-E> 
-nnoremap <C-Y> 5<C-Y>
-nnoremap zh 5zh
-nnoremap zl 5zl
-inoremap <C-E> <C-E>
-inoremap <C-Y> <C-Y>
-nnoremap <C-A> <C-A>
-nnoremap <C-X> <C-X>
-nnoremap <leader>q :help quickref<CR>
-inoremap <C-F> <ESC>gUiw`]a
-nnoremap <C-W>t :tabnew %<CR><C-O>
-nnoremap <leader><leader> :b#<CR>
-nnoremap <C-H> :cp<CR>
-nnoremap <C-L> :cn<CR>
-nnoremap <C-J> :cclose<CR>
-nnoremap <C-K> :copen<CR>
-if executable('rg')
-    nnoremap <leader>g :grep <cword><CR>
-elseif executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-else 
-    set grepprg=grep\ 
-endif
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "FUNCTIONS {{{
