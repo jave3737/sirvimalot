@@ -45,6 +45,13 @@ let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"AUTO COMMMANDS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd VimEnter * bad $HOME/Documents/bookmarks/bookmarks.yaml
+autocmd VimEnter * bad $HOME/vimusrs/_vimajm.vim
+autocmd VimEnter * bad $HOME/.gitconfig
+autocmd VimEnter * bad $HOME/vimfiles/pythonx/custom_snippet_helpers.py
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 xmap ga <Plug>(EasyAlign)
