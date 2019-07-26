@@ -1,9 +1,6 @@
 [submodule "vimfiles/bundle/copy-cut-paste.vim"]
 	path = vimfiles/bundle/copy-cut-paste.vim
 	url = https://github.com/NLKNguyen/copy-cut-paste.vim.git
-[submodule "vimfiles/bundle/LeaderF"]
-	path = vimfiles/bundle/LeaderF
-	url = https://github.com/Yggdroot/LeaderF.git
 [submodule "vimfiles/bundle/taboo.vim"]
 	path = vimfiles/bundle/taboo.vim
 	url = https://github.com/gcmt/taboo.vim.git

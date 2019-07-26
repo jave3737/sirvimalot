@@ -4,22 +4,24 @@
 source $VIMRUNTIME/mswin.vim
 behave mswin 
 au GUIEnter * simalt ~x
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "SET COLORSCHEME
 """"""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme desert    
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE GREP
 """"""""""""""""""""""""""""""""""""""""""""""""""
-set grepprg=grep\ 
-
+if executable('rg')
+    set grepprg=rg\ --vimgrep
+elseif executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+else 
+    set grepprg=grep\ 
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE SYNTAX
 """"""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "STANDARD TERMINAL OPTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -37,7 +39,6 @@ set noundofile
 "How we want to split windows"
 set splitbelow
 set splitright
-""
 set sessionoptions-=options
 set sessionoptions-=folds
 "Do not highlight when searching"
@@ -50,7 +51,6 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-""
 set sessionoptions+=tabpages,globals
 "Do not try to behave like old vim"
 set nocompatible
@@ -59,28 +59,24 @@ set updatetime=100
 set noerrorbells
 set novisualbell
 set belloff=all
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"DEFAULT KEYMAPPINGS
-""""""""""""""""""""""""""""""""""""""""""""""""""
-""Source _vimrc file"
-"nnoremap <leader>sv  :source $MYVIMRC <cr>
-""Move to other tabs"
-"nnoremap <C-Left>    :tabprevious<CR>
-"nnoremap <C-Right>   :tabnext<CR>
-""Change split sizes"
-"nnoremap _           5<C-w><<CR>
-"nnoremap +           5<C-w>><CR>
-"nnoremap -           5<C-w>-<CR>
-"nnoremap =           5<C-w>+<CR>
-
+"set line numbers
+set number
+"set path for tag file
+set tags=tags;/
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE PLUGINS 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 call pathogen#infect()
 filetype plugin indent on
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "SOURCE THE CUSTOM USER FILE 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-source $HOME/vimusrs/_vimcurrusr.vim
+if filereadable('_vimcurrusr.vim')
+    source $HOME/vimusrs/_vimcurrusr.vim
+endif
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"SOURCE THE PLUGIN SETTINGS USER FILE
+""""""""""""""""""""""""""""""""""""""""""""""""""
+if filereadable('_vimpluginsettings.vim')
+    source $HOME/_vimpluginsettings.vim
+endif
