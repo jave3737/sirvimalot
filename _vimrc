@@ -63,20 +63,21 @@ set belloff=all
 set number
 "set path for tag file
 set tags=tags;/
+"set the default font
+set guifont=Dank_Mono:h12:cANSI:qDRAFT,Consolas:h12:cANSI:qDRAFT
+"set the default file format to unix
+set ff=unix
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE PLUGINS 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 call pathogen#infect()
 filetype plugin indent on
+if filereadable('_vimplugsettings.vim')
+    source $HOME/_vimplugsettings.vim
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "SOURCE THE CUSTOM USER FILE 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 if filereadable('_vimcurrusr.vim')
     source $HOME/vimusrs/_vimcurrusr.vim
-endif
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"SOURCE THE PLUGIN SETTINGS USER FILE
-""""""""""""""""""""""""""""""""""""""""""""""""""
-if filereadable('_vimpluginsettings.vim')
-    source $HOME/_vimpluginsettings.vim
 endif
