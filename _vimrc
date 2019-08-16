@@ -3,7 +3,6 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
 source $VIMRUNTIME/mswin.vim
 behave mswin 
-au GUIEnter * simalt ~x
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "SET COLORSCHEME
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -51,6 +50,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+set textwidth=80
 set sessionoptions+=tabpages,globals
 "Do not try to behave like old vim"
 set nocompatible
@@ -64,20 +64,37 @@ set number
 "set path for tag file
 set tags=tags;/
 "set the default font
-set guifont=Dank_Mono:h12:cANSI:qDRAFT,Consolas:h12:cANSI:qDRAFT
+set guifont=Dank_Mono:h14:cANSI:qDRAFT,Consolas:h12:cANSI:qDRAFT
 "set the default file format to unix
-set ff=unix
+set ffs=dos,unix
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"KEYMAPPINGS
+""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <C-F> <C-F>
+nnoremap <C-B> <C-B>
+nnoremap <C-E> <C-E> 
+nnoremap <C-Y> <C-Y>
+inoremap <C-E> <C-E>
+inoremap <C-Y> <C-Y>
+nnoremap <C-A> <C-A>
+nnoremap <C-X> <C-X>
+inoremap <C-F> <ESC>gUiw`]a
+nnoremap <leader>q :help quickref<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE PLUGINS 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 call pathogen#infect()
 filetype plugin indent on
-if filereadable('_vimplugsettings.vim')
-    source $HOME/_vimplugsettings.vim
+if filereadable(expand("$HOME/_vimpluginsettings.vim"))
+    source $HOME/_vimpluginsettings.vim
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "SOURCE THE CUSTOM USER FILE 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-if filereadable('_vimcurrusr.vim')
+if filereadable(expand("$HOME/vimusrs/_vimcurrusr.vim"))
     source $HOME/vimusrs/_vimcurrusr.vim
 endif
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"MAXIMIZE THE WINDOW
+""""""""""""""""""""""""""""""""""""""""""""""""""
+au GUIEnter * simalt ~x

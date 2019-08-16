@@ -3,7 +3,6 @@ This repository provides a complete development environment using Vim. Also prov
 
 ## Base Plugins 
 * [Copy-Cut-Paste](https://github.com/NLKNguyen/copy-cut-paste.vim)
-* [LeaderF](https://github.com/Yggdroot/LeaderF)
 * [NerdTreeToggle](https://github.com/scrooloose/nerdtree)
 * [Taboo](https://github.com/gcmt/taboo.vim)
 * [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)
@@ -17,6 +16,12 @@ This repository provides a complete development environment using Vim. Also prov
 * [lightline](https://github.com/itchyny/lightline.vim)
 * [indentLine](https://github.com/Yggdroot/indentLine)
 * [vim-easy-align](https://github.com/junegunn/vim-easy-align)
+* [LeaderF](https://github.com/Yggdroot/LeaderF)
+* [jedi-vim](https://github.com/davidhalter/jedi-vim)
+* [goyo](https://github.com/junegunn/goyo.vim)
+* [gv](https://github.com/junegunn/gv.vim)
+* [VimCalc3](https://github.com/fedorenchik/VimCalc3)
+* [vim-fugitive](https://github.com/tpope/vim-fugitive)
 
 ## Other Tools 
 * [ripgrep](https://github.com/BurntSushi/ripgrep)
@@ -76,3 +81,6 @@ git submodule update
 * edit your $PATH environmental variable to include the directory where all the cygwin .bin files are 
 * open the command prompt and type `ctags` to make sure that it is properly installed 
 
+# Installing python3.6 packages 
+* downloading python should also install pip3.6 
+* `pip3.6 --proxy https://username:password@address.com:port install <python_package>`
