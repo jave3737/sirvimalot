@@ -64,9 +64,10 @@ set number
 "set path for tag file
 set tags=tags;/
 "set the default font
-set guifont=Dank_Mono:h14:cANSI:qDRAFT,Consolas:h12:cANSI:qDRAFT
-"set the default file format to unix
-set ffs=dos,unix
+set guifont=Dank_Mono:h12:cANSI:qDRAFT,Consolas:h12:cANSI:qDRAFT
+"enable ligatures
+set renderoptions=type:directx
+set encoding=utf-8
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -78,7 +79,6 @@ inoremap <C-E> <C-E>
 inoremap <C-Y> <C-Y>
 nnoremap <C-A> <C-A>
 nnoremap <C-X> <C-X>
-inoremap <C-F> <ESC>gUiw`]a
 nnoremap <leader>q :help quickref<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE PLUGINS 

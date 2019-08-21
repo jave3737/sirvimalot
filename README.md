@@ -8,20 +8,25 @@ This repository provides a complete development environment using Vim. Also prov
 * [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)
 * [gutentags](https://github.com/ludovicchabant/vim-gutentags/blob/master/doc/gutentags.txt)
 
-## Additional Recommended Plugins
-* [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
-* [quick-scope](https://github.com/unblevable/quick-scope)
-* [golden-ratio](https://github.com/roman/golden-ratio)
-* [ultisnips](https://github.com/sirver/UltiSnips)
-* [lightline](https://github.com/itchyny/lightline.vim)
-* [indentLine](https://github.com/Yggdroot/indentLine)
-* [vim-easy-align](https://github.com/junegunn/vim-easy-align)
+## Other Recommended Plugins
 * [LeaderF](https://github.com/Yggdroot/LeaderF)
-* [jedi-vim](https://github.com/davidhalter/jedi-vim)
+* [VimCalc3](https://github.com/fedorenchik/VimCalc3)
+* [golden-ratio](https://github.com/roman/golden-ratio)
 * [goyo](https://github.com/junegunn/goyo.vim)
 * [gv](https://github.com/junegunn/gv.vim)
-* [VimCalc3](https://github.com/fedorenchik/VimCalc3)
+* [indentLine](https://github.com/Yggdroot/indentLine)
+* [jedi-vim](https://github.com/davidhalter/jedi-vim)
+* [lightline](https://github.com/itchyny/lightline.vim)
+* [quick-scope](https://github.com/unblevable/quick-scope)
+* [ultisnips](https://github.com/sirver/UltiSnips)
+* [vim-easy-align](https://github.com/junegunn/vim-easy-align)
 * [vim-fugitive](https://github.com/tpope/vim-fugitive)
+* [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+* [falcon](https://github.com/fenetikm/falcon)
+* [gruvbox](https://github.com/morhetz/gruvbox)
+* [iceberg](https://github.com/cocopon/iceberg.vim)
+* [bargreybars](https://github.com/dreadnaut/vim-bargreybars)
+* [vim-surround](https://github.com/tpope/vim-surround)
 
 ## Other Tools 
 * [ripgrep](https://github.com/BurntSushi/ripgrep)
@@ -33,6 +38,17 @@ This repository provides a complete development environment using Vim. Also prov
 * Download and install 32-bit version of [Python 3.6.0](https://www.python.org/downloads/release/python-360/)
     * Or whatever version of python is required by gVim. If you type `:version` you should see something along the lines of `--DDYNAMIC_PYTHON3_DLL="\python36.dll\"` so you will need that version of python
     * When installing make sure to "Add to Path" or you will have to manually add the path of the executable to the environmental variable "path"
+* Download the latest windows binary version for ripgrep [here](https://github.com/BurntSushi/ripgrep/releases)
+    * extract the folder 
+    * make a new folder in the C: drive, call it 'executables' 
+    * add the rg.exe to the 'executables' folder
+    * edit your $PATH environmental variable to include the 'executables' directory
+    * open the command prompt and type `rg --help` to make sure it is working
+* Download the cygwin setup [here](https://www.cygwin.com/)
+    * search for `ctags` 
+    * install ctags 
+    * edit your $PATH environmental variable to include the directory where all the cygwin .bin files are 
+    * open the command prompt and type `ctags` to make sure that it is properly installed 
 
 ## Windows Configuration
 * Add an environmental variable `$HOME` with path of the directory that you will refer to as your HOME directory.
@@ -48,38 +64,6 @@ git checkout -t origin/master
 git submodule init 
 git submodule update
 ```
-
-## Adding a New User File
-* Create a new .vim file in the `$HOME/vimusrs/` directory. This is the file where you will make changes to your keymappings, gui settings, colorschemes, etc. 
-* Modify `$HOME/vimusrs/_vimcurrusr.vim` and link in the file you just created.  
-
-## Adding a Custom Snippets Directory 
-* Using the UltiSnips plugin one is able to create a collection of snippets 
-* Create a new directory called `$HOME/custom_snippets`
-* In your user file add the following lines
-> let g:UltiSnipsEditSplit = 'vertical'
-> let g:UltiSnipsSnippetDirectories = [$HOME . "/custom\_snippets"]
-* Refer to the plugin documentation or the default snippets for examples
-
-# Adding New Plugins
-* Using gitBash or CommandExe go to `$HOME/vimfiles/bundle` and add the submodule as `git submodule add </link/to/REPO>`
-* Commit the changes `git commit -m <submodule> -a` and `git push` 
-* Run `git submodule update`
-
-# Installing ripgrep 
-* download the latest windows binary version for ripgrep [here](https://github.com/BurntSushi/ripgrep/releases)
-* extract the folder 
-* make a new folder in the C: drive, call it 'executables' 
-* add the rg.exe to the 'executables' folder
-* edit your $PATH environmental variable to include the 'executables' directory
-* open the command prompt and type `rg --help` to make sure it is working
-
-# Installing ctags using cygwin 
-* download the cygwin setup [here](https://www.cygwin.com/)
-* search for `ctags` 
-* install ctags 
-* edit your $PATH environmental variable to include the directory where all the cygwin .bin files are 
-* open the command prompt and type `ctags` to make sure that it is properly installed 
 
 # Installing python3.6 packages 
 * downloading python should also install pip3.6 
