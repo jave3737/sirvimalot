@@ -1,37 +1,6 @@
 # Description 
 This repository provides a complete development environment using Vim. Also provides a rudimentary method for managing various users using the same vim configuration while allowing for custom configurations.
 
-## Base Plugins 
-* [Copy-Cut-Paste](https://github.com/NLKNguyen/copy-cut-paste.vim)
-* [NerdTreeToggle](https://github.com/scrooloose/nerdtree)
-* [Taboo](https://github.com/gcmt/taboo.vim)
-* [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)
-* [gutentags](https://github.com/ludovicchabant/vim-gutentags/blob/master/doc/gutentags.txt)
-
-## Other Recommended Plugins
-* [LeaderF](https://github.com/Yggdroot/LeaderF)
-* [VimCalc3](https://github.com/fedorenchik/VimCalc3)
-* [golden-ratio](https://github.com/roman/golden-ratio)
-* [goyo](https://github.com/junegunn/goyo.vim)
-* [gv](https://github.com/junegunn/gv.vim)
-* [indentLine](https://github.com/Yggdroot/indentLine)
-* [jedi-vim](https://github.com/davidhalter/jedi-vim)
-* [lightline](https://github.com/itchyny/lightline.vim)
-* [quick-scope](https://github.com/unblevable/quick-scope)
-* [ultisnips](https://github.com/sirver/UltiSnips)
-* [vim-easy-align](https://github.com/junegunn/vim-easy-align)
-* [vim-fugitive](https://github.com/tpope/vim-fugitive)
-* [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
-* [falcon](https://github.com/fenetikm/falcon)
-* [gruvbox](https://github.com/morhetz/gruvbox)
-* [iceberg](https://github.com/cocopon/iceberg.vim)
-* [bargreybars](https://github.com/dreadnaut/vim-bargreybars)
-* [vim-surround](https://github.com/tpope/vim-surround)
-
-## Other Tools 
-* [ripgrep](https://github.com/BurntSushi/ripgrep)
-* ctags via cygwin 
-
 # Getting Started
 ## Prerequisites 
 * Download [gVim v8.0](https://www.vim.org/download.php)
@@ -64,6 +33,34 @@ git checkout -t origin/master
 git submodule init 
 git submodule update
 ```
+
+# Base and Recommended Plugins
+| Plugins                                                                                    | Description | Comments |
+| ----                                                                                       | ----        | ----     |
+| [Copy-Cut-Paste](https://github.com/NLKNguyen/copy-cut-paste.vim)                          |             |          |
+| [NerdTree](https://github.com/scrooloose/nerdtree)                                         |             |          |
+| [Taboo](https://github.com/gcmt/taboo.vim)                                                 |             |          |
+| [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)                                 |             |          |
+| [gutentags](https://github.com/ludovicchabant/vim-gutentags/blob/master/doc/gutentags.txt) |             |          |
+| [LeaderF](https://github.com/Yggdroot/LeaderF)                                             |             |          |
+| [VimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |             |          |
+| [golden-ratio](https://github.com/roman/golden-ratio)                                      |             |          |
+| [goyo](https://github.com/junegunn/goyo.vim)                                               |             |          |
+| [gv](https://github.com/junegunn/gv.vim)                                                   |             |          |
+| [indentLine](https://github.com/Yggdroot/indentLine)                                       |             |          |
+| [jedi-vim](https://github.com/davidhalter/jedi-vim)                                        |             |          |
+| [lightline](https://github.com/itchyny/lightline.vim)                                      |             |          |
+| [quick-scope](https://github.com/unblevable/quick-scope)                                   |             |          |
+| [ultisnips](https://github.com/sirver/UltiSnips)                                           |             |          |
+| [vim-easy-align](https://github.com/junegunn/vim-easy-align)                               |             |          |
+| [vim-fugitive](https://github.com/tpope/vim-fugitive)                                      |             |          |
+| [vim-gitgutter](https://github.com/airblade/vim-gitgutter)                                 |             |          |
+| [falcon](https://github.com/fenetikm/falcon)                                               |             |          |
+| [gruvbox](https://github.com/morhetz/gruvbox)                                              |             |          |
+| [iceberg](https://github.com/cocopon/iceberg.vim)                                          |             |          |
+| [bargreybars](https://github.com/dreadnaut/vim-bargreybars)                                |             |          |
+| [vim-surround](https://github.com/tpope/vim-surround)                                      |             |          |
+
 
 # Installing python3.6 packages 
 * downloading python should also install pip3.6 

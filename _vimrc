@@ -30,11 +30,12 @@ set wildmenu
 set guioptions=
 "Ignore case when pattern searching"
 set ignorecase 
+set smartcase
+set nowrapscan
 "Do not generate backup files of any sort"
 set nowrap 
 set nobackup
 set noswapfile
-set noundofile
 "How we want to split windows"
 set splitbelow
 set splitright
@@ -73,13 +74,19 @@ set encoding=utf-8
 """"""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-F> <C-F>
 nnoremap <C-B> <C-B>
-nnoremap <C-E> <C-E> 
-nnoremap <C-Y> <C-Y>
+nnoremap <C-E> 5<C-E> 
+nnoremap <C-Y> 5<C-Y>
+nnoremap zh 20zh
+nnoremap zl 20zl
 inoremap <C-E> <C-E>
 inoremap <C-Y> <C-Y>
 nnoremap <C-A> <C-A>
 nnoremap <C-X> <C-X>
 nnoremap <leader>q :help quickref<CR>
+nnoremap <up> :cnext <CR>
+nnoremap <down> :cprevious <CR>
+nnoremap <left> :tabprevious <CR>
+nnoremap <right> :tabnext <CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE PLUGINS 
 """"""""""""""""""""""""""""""""""""""""""""""""""
