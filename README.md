@@ -49,7 +49,7 @@ git submodule update
 | colorscheme | [blaquemagick](https://github.com/xero/blaquemagick.vim)                                   |       |
 | colorscheme | [farenheit](https://github.com/fcpg/vim-fahrenheit)                                        |       |
 | colorscheme | [hemisu](https://github.com/noahfrederick/vim-hemisu)                                      |       |
-| colorscheme | [256noir](https://github.com/andreasvc/vim-256noir.git)                                    |       |
+| colorscheme | [256noir](https://github.com/andreasvc/vim-256noir.git)                                    | Y     |
 | completion  | [jedi-vim](https://github.com/davidhalter/jedi-vim)                                        |       |
 | completion  | [ultisnips](https://github.com/sirver/UltiSnips)                                           |       |
 | editing     | [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)                                 | Y     |
