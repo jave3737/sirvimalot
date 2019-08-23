@@ -69,7 +69,7 @@ git submodule update
 # cheatsheet
 | type        | command      | descrition                                              |
 | ----        | ----         | ----                                                    |
-| commandline | <C-R>"       | paste a yanked line into the commandline                |
+| commandline | \<C-R\>"       | paste a yanked line into the commandline                |
 | editing     | :g/^$/d      | delete all blank lines                                  |
 | editing     | :n,ms/^/char | within lines n,m add char to the beggining of each line |
 
