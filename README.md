@@ -34,44 +34,53 @@ git submodule update
 ```
 
 # Base and Recommended Plugins
-| type        | plugin                                                                                    | Base? | 
-| ----        | ----                                                                                       | ----  | 
-| aesthetics  | [goyo](https://github.com/junegunn/goyo.vim)                                               |       | 
-| aesthetics  | [indentLine](https://github.com/Yggdroot/indentLine)                                       |       | 
-| aesthetics  | [lightline](https://github.com/itchyny/lightline.vim)                                      |       | 
-| colorscheme | [falcon](https://github.com/fenetikm/falcon)                                               |       | 
-| colorscheme | [gruvbox](https://github.com/morhetz/gruvbox)                                              |       | 
-| colorscheme | [iceberg](https://github.com/cocopon/iceberg.vim)                                          |       | 
-| colorscheme | [bargreybars](https://github.com/dreadnaut/vim-bargreybars)                                |       | 
-| colorscheme | [dracula](https://github.com/dracula/dracula-theme)                                        |       | 
-| colorscheme | [seoul256](https://github.com/junegunn/seoul256.vim)                                       |       | 
-| colorscheme | [apprentice](https://github.com/romainl/Apprentice)                                        |       | 
-| colorscheme | [blaquemagick](https://github.com/xero/blaquemagick.vim)                                   |       | 
-| colorscheme | [farenheit](https://github.com/fcpg/vim-fahrenheit)                                        |       | 
-| colorscheme | [hemisu](https://github.com/noahfrederick/vim-hemisu)                                      |       | 
-| completion  | [jedi-vim](https://github.com/davidhalter/jedi-vim)                                        |       | 
-| completion  | [ultisnips](https://github.com/sirver/UltiSnips)                                           |       | 
-| editing     | [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)                                 | Y     | 
-| editing     | [vim-easy-align](https://github.com/junegunn/vim-easy-align)                               |       | 
-| editing     | [vim-surround](https://github.com/tpope/vim-surround)                                      |       | 
-| editing     | [Copy-Cut-Paste](https://github.com/NLKNguyen/copy-cut-paste.vim)                          |       | 
-| git         | [gv](https://github.com/junegunn/gv.vim)                                                   |       | 
-| git         | [vim-fugitive](https://github.com/tpope/vim-fugitive)                                      |       | 
-| git         | [vim-gitgutter](https://github.com/airblade/vim-gitgutter)                                 |       | 
-| interface   | [Taboo](https://github.com/gcmt/taboo.vim)                                                 | Y     | 
-| navigation  | [LeaderF](https://github.com/Yggdroot/LeaderF)                                             |       | 
-| navigation  | [NerdTree](https://github.com/scrooloose/nerdtree)                                         | Y     | 
-| navigation  | [golden-ratio](https://github.com/roman/golden-ratio)                                      |       | 
-| navigation  | [gutentags](https://github.com/ludovicchabant/vim-gutentags/blob/master/doc/gutentags.txt) | Y     | 
-| navigation  | [quick-scope](https://github.com/unblevable/quick-scope)                                   |       | 
-| utility     | [VimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |       | 
+| type        | plugin                                                                                     | Base? |
+| ----        | ----                                                                                       | ----  |
+| aesthetics  | [goyo](https://github.com/junegunn/goyo.vim)                                               |       |
+| aesthetics  | [indentLine](https://github.com/Yggdroot/indentLine)                                       |       |
+| aesthetics  | [lightline](https://github.com/itchyny/lightline.vim)                                      |       |
+| colorscheme | [falcon](https://github.com/fenetikm/falcon)                                               |       |
+| colorscheme | [gruvbox](https://github.com/morhetz/gruvbox)                                              |       |
+| colorscheme | [iceberg](https://github.com/cocopon/iceberg.vim)                                          |       |
+| colorscheme | [bargreybars](https://github.com/dreadnaut/vim-bargreybars)                                |       |
+| colorscheme | [dracula](https://github.com/dracula/dracula-theme)                                        |       |
+| colorscheme | [seoul256](https://github.com/junegunn/seoul256.vim)                                       |       |
+| colorscheme | [apprentice](https://github.com/romainl/Apprentice)                                        |       |
+| colorscheme | [blaquemagick](https://github.com/xero/blaquemagick.vim)                                   |       |
+| colorscheme | [farenheit](https://github.com/fcpg/vim-fahrenheit)                                        |       |
+| colorscheme | [hemisu](https://github.com/noahfrederick/vim-hemisu)                                      |       |
+| colorscheme | [256noir](https://github.com/andreasvc/vim-256noir.git)                                    |       |
+| completion  | [jedi-vim](https://github.com/davidhalter/jedi-vim)                                        |       |
+| completion  | [ultisnips](https://github.com/sirver/UltiSnips)                                           |       |
+| editing     | [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)                                 | Y     |
+| editing     | [vim-easy-align](https://github.com/junegunn/vim-easy-align)                               |       |
+| editing     | [vim-surround](https://github.com/tpope/vim-surround)                                      |       |
+| editing     | [Copy-Cut-Paste](https://github.com/NLKNguyen/copy-cut-paste.vim)                          |       |
+| git         | [gv](https://github.com/junegunn/gv.vim)                                                   |       |
+| git         | [vim-fugitive](https://github.com/tpope/vim-fugitive)                                      |       |
+| git         | [vim-gitgutter](https://github.com/airblade/vim-gitgutter)                                 |       |
+| interface   | [Taboo](https://github.com/gcmt/taboo.vim)                                                 | Y     |
+| navigation  | [LeaderF](https://github.com/Yggdroot/LeaderF)                                             |       |
+| navigation  | [NerdTree](https://github.com/scrooloose/nerdtree)                                         | Y     |
+| navigation  | [golden-ratio](https://github.com/roman/golden-ratio)                                      |       |
+| navigation  | [gutentags](https://github.com/ludovicchabant/vim-gutentags/blob/master/doc/gutentags.txt) | Y     |
+| navigation  | [quick-scope](https://github.com/unblevable/quick-scope)                                   |       |
+| utility     | [VimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |       |
 
 # cheatsheet
-| type        | command      | descrition                                              |
-| ----        | ----         | ----                                                    |
-| commandline | \<C-R\>"       | paste a yanked line into the commandline                |
-| editing     | :g/^$/d      | delete all blank lines                                  |
-| editing     | :n,ms/^/char | within lines n,m add char to the beggining of each line |
+| type        | command                | descrition                                                                |
+| ----        | ----                   | ----                                                                      |
+| commandline | \<C-R\>"               | paste a yanked line into the commandline                                  |
+| editing     | :g/^$/d                | delete all blank lines                                                    |
+| editing     | :n,ms/^/char           | within lines n,m add char to the beggining of each line                   |
+| editing     | :n,ms/^.\{x\}//        | within lines n,m remove x number of char from the begginning of each line |
+| editing     | :n,md                  | delete lines within range n,m                                             |
+| editing     | gUU                    | change all letters on line to uppercase                                   |
+| editing     | guu                    | change all letters on line to lowercase                                   |
+| editing     | :g/pattern/s/old/new/g | apply a substition to only lines that match pattern                       |
+| editing | v:/pattern/s/old/new/g | apply a substition to only lines that do not match pattern |
+
+
 
 # Installing python3.6 packages 
 * downloading python should also install pip3.6 

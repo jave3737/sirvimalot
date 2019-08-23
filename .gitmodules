@@ -13,3 +13,6 @@
 [submodule "vimfiles/bundle/vim-gutentags"]
 	path = vimfiles/bundle/vim-gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags.git
+[submodule "vimfiles/bundle/vim-256noir"]
+	path = vimfiles/bundle/vim-256noir
+	url = https://github.com/andreasvc/vim-256noir.git
