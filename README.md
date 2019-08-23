@@ -1,9 +1,9 @@
 # Description 
 This repository provides a complete development environment using Vim. Also provides a rudimentary method for managing various users using the same vim configuration while allowing for custom configurations.
 
-# Getting Started
-## Prerequisites 
+# Installation
 * Download [gVim v8.0](https://www.vim.org/download.php)
+    * Add an environmental variable `$HOME` with path of the directory that you will refer to as your HOME directory.
 * Download and install 32-bit version of [Python 3.6.0](https://www.python.org/downloads/release/python-360/)
     * Or whatever version of python is required by gVim. If you type `:version` you should see something along the lines of `--DDYNAMIC_PYTHON3_DLL="\python36.dll\"` so you will need that version of python
     * When installing make sure to "Add to Path" or you will have to manually add the path of the executable to the environmental variable "path"
@@ -18,9 +18,8 @@ This repository provides a complete development environment using Vim. Also prov
     * install ctags 
     * edit your $PATH environmental variable to include the directory where all the cygwin .bin files are 
     * open the command prompt and type `ctags` to make sure that it is properly installed 
-
-## Windows Configuration
-* Add an environmental variable `$HOME` with path of the directory that you will refer to as your HOME directory.
+* I recommend Dank Mono as an appropriate programming font, you can purchase it
+  [here](https://dank.sh/)
 
 ## Cloning the Repository
 * Change to your $HOME directory and run the following git commands
@@ -35,32 +34,44 @@ git submodule update
 ```
 
 # Base and Recommended Plugins
-| Plugins                                                                                    | Description | Comments |
-| ----                                                                                       | ----        | ----     |
-| [Copy-Cut-Paste](https://github.com/NLKNguyen/copy-cut-paste.vim)                          |             |          |
-| [NerdTree](https://github.com/scrooloose/nerdtree)                                         |             |          |
-| [Taboo](https://github.com/gcmt/taboo.vim)                                                 |             |          |
-| [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)                                 |             |          |
-| [gutentags](https://github.com/ludovicchabant/vim-gutentags/blob/master/doc/gutentags.txt) |             |          |
-| [LeaderF](https://github.com/Yggdroot/LeaderF)                                             |             |          |
-| [VimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |             |          |
-| [golden-ratio](https://github.com/roman/golden-ratio)                                      |             |          |
-| [goyo](https://github.com/junegunn/goyo.vim)                                               |             |          |
-| [gv](https://github.com/junegunn/gv.vim)                                                   |             |          |
-| [indentLine](https://github.com/Yggdroot/indentLine)                                       |             |          |
-| [jedi-vim](https://github.com/davidhalter/jedi-vim)                                        |             |          |
-| [lightline](https://github.com/itchyny/lightline.vim)                                      |             |          |
-| [quick-scope](https://github.com/unblevable/quick-scope)                                   |             |          |
-| [ultisnips](https://github.com/sirver/UltiSnips)                                           |             |          |
-| [vim-easy-align](https://github.com/junegunn/vim-easy-align)                               |             |          |
-| [vim-fugitive](https://github.com/tpope/vim-fugitive)                                      |             |          |
-| [vim-gitgutter](https://github.com/airblade/vim-gitgutter)                                 |             |          |
-| [falcon](https://github.com/fenetikm/falcon)                                               |             |          |
-| [gruvbox](https://github.com/morhetz/gruvbox)                                              |             |          |
-| [iceberg](https://github.com/cocopon/iceberg.vim)                                          |             |          |
-| [bargreybars](https://github.com/dreadnaut/vim-bargreybars)                                |             |          |
-| [vim-surround](https://github.com/tpope/vim-surround)                                      |             |          |
+| type        | plugin                                                                                    | Base? | 
+| ----        | ----                                                                                       | ----  | 
+| aesthetics  | [goyo](https://github.com/junegunn/goyo.vim)                                               |       | 
+| aesthetics  | [indentLine](https://github.com/Yggdroot/indentLine)                                       |       | 
+| aesthetics  | [lightline](https://github.com/itchyny/lightline.vim)                                      |       | 
+| colorscheme | [falcon](https://github.com/fenetikm/falcon)                                               |       | 
+| colorscheme | [gruvbox](https://github.com/morhetz/gruvbox)                                              |       | 
+| colorscheme | [iceberg](https://github.com/cocopon/iceberg.vim)                                          |       | 
+| colorscheme | [bargreybars](https://github.com/dreadnaut/vim-bargreybars)                                |       | 
+| colorscheme | [dracula](https://github.com/dracula/dracula-theme)                                        |       | 
+| colorscheme | [seoul256](https://github.com/junegunn/seoul256.vim)                                       |       | 
+| colorscheme | [apprentice](https://github.com/romainl/Apprentice)                                        |       | 
+| colorscheme | [blaquemagick](https://github.com/xero/blaquemagick.vim)                                   |       | 
+| colorscheme | [farenheit](https://github.com/fcpg/vim-fahrenheit)                                        |       | 
+| colorscheme | [hemisu](https://github.com/noahfrederick/vim-hemisu)                                      |       | 
+| completion  | [jedi-vim](https://github.com/davidhalter/jedi-vim)                                        |       | 
+| completion  | [ultisnips](https://github.com/sirver/UltiSnips)                                           |       | 
+| editing     | [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)                                 | Y     | 
+| editing     | [vim-easy-align](https://github.com/junegunn/vim-easy-align)                               |       | 
+| editing     | [vim-surround](https://github.com/tpope/vim-surround)                                      |       | 
+| editing     | [Copy-Cut-Paste](https://github.com/NLKNguyen/copy-cut-paste.vim)                          |       | 
+| git         | [gv](https://github.com/junegunn/gv.vim)                                                   |       | 
+| git         | [vim-fugitive](https://github.com/tpope/vim-fugitive)                                      |       | 
+| git         | [vim-gitgutter](https://github.com/airblade/vim-gitgutter)                                 |       | 
+| interface   | [Taboo](https://github.com/gcmt/taboo.vim)                                                 | Y     | 
+| navigation  | [LeaderF](https://github.com/Yggdroot/LeaderF)                                             |       | 
+| navigation  | [NerdTree](https://github.com/scrooloose/nerdtree)                                         | Y     | 
+| navigation  | [golden-ratio](https://github.com/roman/golden-ratio)                                      |       | 
+| navigation  | [gutentags](https://github.com/ludovicchabant/vim-gutentags/blob/master/doc/gutentags.txt) | Y     | 
+| navigation  | [quick-scope](https://github.com/unblevable/quick-scope)                                   |       | 
+| utility     | [VimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |       | 
 
+# cheatsheet
+| type        | command      | descrition                                              |
+| ----        | ----         | ----                                                    |
+| commandline | <C-R>"       | paste a yanked line into the commandline                |
+| editing     | :g/^$/d      | delete all blank lines                                  |
+| editing     | :n,ms/^/char | within lines n,m add char to the beggining of each line |
 
 # Installing python3.6 packages 
 * downloading python should also install pip3.6 
