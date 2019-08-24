@@ -65,7 +65,7 @@ set number
 "set path for tag file
 set tags=tags;/
 "set the default font
-set guifont=Dank_Mono:h14:cANSI:qDRAFT,Consolas:h12:cANSI:qDRAFT
+set guifont=Dank_Mono:h16:cANSI:qDRAFT,Consolas:h12:cANSI:qDRAFT
 "enable ligatures
 set renderoptions=type:directx
 set encoding=utf-8

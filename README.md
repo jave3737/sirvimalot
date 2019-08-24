@@ -1,7 +1,7 @@
-# Description 
+# description
 This repository provides a complete development environment using Vim. Also provides a rudimentary method for managing various users using the same vim configuration while allowing for custom configurations.
 
-# Installation
+# installation
 * Download [gVim v8.0](https://www.vim.org/download.php)
     * Add an environmental variable `$HOME` with path of the directory that you will refer to as your HOME directory.
 * Download and install 32-bit version of [Python 3.6.0](https://www.python.org/downloads/release/python-360/)
@@ -20,8 +20,9 @@ This repository provides a complete development environment using Vim. Also prov
     * open the command prompt and type `ctags` to make sure that it is properly installed 
 * I recommend Dank Mono as an appropriate programming font, you can purchase it
   [here](https://dank.sh/)
+* I recommend using 256\_noir, the theme is minimal and I have configured it to completely hide comments, this helps with readability. 
 
-## Cloning the Repository
+## clone the repository
 * Change to your $HOME directory and run the following git commands
 
 ```@console
@@ -33,22 +34,12 @@ git submodule init
 git submodule update
 ```
 
-# Base and Recommended Plugins
+# recommended plugins
 | type        | plugin                                                                                     | Base? |
 | ----        | ----                                                                                       | ----  |
 | aesthetics  | [goyo](https://github.com/junegunn/goyo.vim)                                               |       |
 | aesthetics  | [indentLine](https://github.com/Yggdroot/indentLine)                                       |       |
 | aesthetics  | [lightline](https://github.com/itchyny/lightline.vim)                                      |       |
-| colorscheme | [falcon](https://github.com/fenetikm/falcon)                                               |       |
-| colorscheme | [gruvbox](https://github.com/morhetz/gruvbox)                                              |       |
-| colorscheme | [iceberg](https://github.com/cocopon/iceberg.vim)                                          |       |
-| colorscheme | [bargreybars](https://github.com/dreadnaut/vim-bargreybars)                                |       |
-| colorscheme | [dracula](https://github.com/dracula/dracula-theme)                                        |       |
-| colorscheme | [seoul256](https://github.com/junegunn/seoul256.vim)                                       |       |
-| colorscheme | [apprentice](https://github.com/romainl/Apprentice)                                        |       |
-| colorscheme | [blaquemagick](https://github.com/xero/blaquemagick.vim)                                   |       |
-| colorscheme | [farenheit](https://github.com/fcpg/vim-fahrenheit)                                        |       |
-| colorscheme | [hemisu](https://github.com/noahfrederick/vim-hemisu)                                      |       |
 | colorscheme | [256noir](https://github.com/andreasvc/vim-256noir.git)                                    | Y     |
 | completion  | [jedi-vim](https://github.com/davidhalter/jedi-vim)                                        |       |
 | completion  | [ultisnips](https://github.com/sirver/UltiSnips)                                           |       |
@@ -82,8 +73,6 @@ git submodule update
 | gitgutter   | [c                     | go to last previously edited location                                     |
 | gitgutter   | ]c                     | go to next edited location                                                |
 
-
-
-# Installing python3.6 packages 
+# installing python3.6 packages
 * downloading python should also install pip3.6 
 * `pip3.6 --proxy https://username:password@address.com:port install <python_package>`
