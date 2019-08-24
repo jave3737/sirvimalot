@@ -78,7 +78,9 @@ git submodule update
 | editing     | gUU                    | change all letters on line to uppercase                                   |
 | editing     | guu                    | change all letters on line to lowercase                                   |
 | editing     | :g/pattern/s/old/new/g | apply a substition to only lines that match pattern                       |
-| editing | v:/pattern/s/old/new/g | apply a substition to only lines that do not match pattern |
+| editing     | v:/pattern/s/old/new/g | apply a substition to only lines that do not match pattern                |
+| gitgutter   | [c                     | go to last previously edited location                                     |
+| gitgutter   | ]c                     | go to next edited location                                                |
 
 
 
