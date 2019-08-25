@@ -16,3 +16,6 @@
 [submodule "vimfiles/bundle/vim-256noir"]
 	path = vimfiles/bundle/vim-256noir
 	url = https://github.com/andreasvc/vim-256noir.git
+[submodule "vimfiles/bundle/xterm-color-table.vim"]
+	path = vimfiles/bundle/xterm-color-table.vim
+	url = https://github.com/guns/xterm-color-table.vim.git

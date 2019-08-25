@@ -46,17 +46,18 @@ git submodule update
 | editing     | [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)                                 | Y     |
 | editing     | [vim-easy-align](https://github.com/junegunn/vim-easy-align)                               |       |
 | editing     | [vim-surround](https://github.com/tpope/vim-surround)                                      |       |
-| editing     | [Copy-Cut-Paste](https://github.com/NLKNguyen/copy-cut-paste.vim)                          |       |
+| editing     | [copy-cut-paste](https://github.com/NLKNguyen/copy-cut-paste.vim)                          |       |
 | git         | [gv](https://github.com/junegunn/gv.vim)                                                   |       |
 | git         | [vim-fugitive](https://github.com/tpope/vim-fugitive)                                      |       |
 | git         | [vim-gitgutter](https://github.com/airblade/vim-gitgutter)                                 |       |
-| interface   | [Taboo](https://github.com/gcmt/taboo.vim)                                                 | Y     |
-| navigation  | [LeaderF](https://github.com/Yggdroot/LeaderF)                                             |       |
-| navigation  | [NerdTree](https://github.com/scrooloose/nerdtree)                                         | Y     |
+| interface   | [taboo](https://github.com/gcmt/taboo.vim)                                                 | Y     |
+| navigation  | [leaderf](https://github.com/Yggdroot/LeaderF)                                             |       |
+| navigation  | [nerdtree](https://github.com/scrooloose/nerdtree)                                         | Y     |
 | navigation  | [golden-ratio](https://github.com/roman/golden-ratio)                                      |       |
 | navigation  | [gutentags](https://github.com/ludovicchabant/vim-gutentags/blob/master/doc/gutentags.txt) | Y     |
 | navigation  | [quick-scope](https://github.com/unblevable/quick-scope)                                   |       |
-| utility     | [VimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |       |
+| utility     | [vimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |       |
+| aesthetics  | [xterm-color-table](https://github.com/guns/xterm-color-table.vim)                         | Y     |
 
 # cheatsheet
 | type        | command                | descrition                                                                |
@@ -69,7 +70,7 @@ git submodule update
 | editing     | gUU                    | change all letters on line to uppercase                                   |
 | editing     | guu                    | change all letters on line to lowercase                                   |
 | editing     | :g/pattern/s/old/new/g | apply a substition to only lines that match pattern                       |
-| editing     | v:/pattern/s/old/new/g | apply a substition to only lines that do not match pattern                |
+| editing     | :v/pattern/s/old/new/g | apply a substition to only lines that do not match pattern                |
 | gitgutter   | [c                     | go to last previously edited location                                     |
 | gitgutter   | ]c                     | go to next edited location                                                |
 
