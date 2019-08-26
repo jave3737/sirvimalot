@@ -57,22 +57,32 @@ git submodule update
 | navigation  | [gutentags](https://github.com/ludovicchabant/vim-gutentags/blob/master/doc/gutentags.txt) | Y     |
 | navigation  | [quick-scope](https://github.com/unblevable/quick-scope)                                   |       |
 | utility     | [vimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |       |
+| utility     | [vim-peekaboo](https://github.com/junegunn/vim-peekaboo)                                   |       |
 | aesthetics  | [xterm-color-table](https://github.com/guns/xterm-color-table.vim)                         | Y     |
 
 # cheatsheet
-| type        | command                | descrition                                                                |
-| ----        | ----                   | ----                                                                      |
-| commandline | \<C-R\>"               | paste a yanked line into the commandline                                  |
-| editing     | :g/^$/d                | delete all blank lines                                                    |
-| editing     | :n,ms/^/char           | within lines n,m add char to the beggining of each line                   |
-| editing     | :n,ms/^.\{x\}//        | within lines n,m remove x number of char from the begginning of each line |
-| editing     | :n,md                  | delete lines within range n,m                                             |
-| editing     | gUU                    | change all letters on line to uppercase                                   |
-| editing     | guu                    | change all letters on line to lowercase                                   |
-| editing     | :g/pattern/s/old/new/g | apply a substition to only lines that match pattern                       |
-| editing     | :v/pattern/s/old/new/g | apply a substition to only lines that do not match pattern                |
-| gitgutter   | [c                     | go to last previously edited location                                     |
-| gitgutter   | ]c                     | go to next edited location                                                |
+| type        | command                           | descrition                                                                                                                |
+| ----        | ----                              | ----                                                                                                                      |
+| commandline | \<C-R\>"                          | paste a yanked line into the commandline                                                                                  |
+| editing     | :g/^$/d                           | delete all blank lines                                                                                                    |
+| editing     | :g/pattern/s/old/new/g            | apply a substition to only lines that match pattern                                                                       |
+| editing     | :n,md                             | delete lines within range n,m                                                                                             |
+| editing     | :n,ms/^.\{x\}//                   | within lines n,m remove x number of char from the begginning of each line                                                 |
+| editing     | :n,ms/^/char                      | within lines n,m add char to the beggining of each line                                                                   |
+| editing     | :n,msort                          | within lines n,m sort the lines in alphabetical order                                                                     |
+| editing     | :v/pattern/s/old/new/g            | apply a substition to only lines that do not match pattern                                                                |
+| editing     | gUU                               | change all letters on line to uppercase                                                                                   |
+| editing     | guu                               | change all letters on line to lowercase                                                                                   |
+| gitgutter   | [c                                | go to last previously edited location                                                                                     |
+| gitgutter   | ]c                                | go to next edited location                                                                                                |
+| navigation  | :b#                               | switch to the previous buffer last edited in                                                                              |
+| registers   | "Kyy                              | append to register k                                                                                                      |
+| registers   | "\*p                              | paste from clipboard register                                                                                             |
+| registers   | "\*yy                             | copy to clipboard register                                                                                                |
+| registers   | "kp                               | paste from register k                                                                                                     |
+| registers   | "kyy                              | copy current line to register k                                                                                           |
+| registers   | :reg                              | to access all currently defined registers                                                                                 |
+| searching   | :!rg --vimgrep --type="c" pattern | using ripgrep, only search for the pattern within c-related files. Type `rg --type-list` to see globs that make up a type |
 
 # installing python3.6 packages
 * downloading python should also install pip3.6 

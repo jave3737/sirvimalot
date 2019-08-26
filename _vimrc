@@ -83,10 +83,14 @@ inoremap <C-Y> <C-Y>
 nnoremap <C-A> <C-A>
 nnoremap <C-X> <C-X>
 nnoremap <leader>q :help quickref<CR>
-nnoremap <up> :cnext <CR>
-nnoremap <down> :cprevious <CR>
+nnoremap <down> :cnext <CR>
+nnoremap <up> :cprevious <CR>
 nnoremap <left> :tabprevious <CR>
 nnoremap <right> :tabnext <CR>
+nnoremap <C-right> <C-W>l
+nnoremap <C-left> <C-W>h
+nnoremap <C-up> <C-W>k
+nnoremap <C-down> <C-W>j
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE PLUGINS 
 """"""""""""""""""""""""""""""""""""""""""""""""""
