@@ -40,25 +40,26 @@ git submodule update
 | aesthetics  | [goyo](https://github.com/junegunn/goyo.vim)                                               |       |
 | aesthetics  | [indentLine](https://github.com/Yggdroot/indentLine)                                       |       |
 | aesthetics  | [lightline](https://github.com/itchyny/lightline.vim)                                      |       |
+| aesthetics  | [xterm-color-table](https://github.com/guns/xterm-color-table.vim)                         | Y     |
 | colorscheme | [256noir](https://github.com/andreasvc/vim-256noir.git)                                    | Y     |
 | completion  | [jedi-vim](https://github.com/davidhalter/jedi-vim)                                        |       |
 | completion  | [ultisnips](https://github.com/sirver/UltiSnips)                                           |       |
 | editing     | [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)                                 | Y     |
+| editing     | [copy-cut-paste](https://github.com/NLKNguyen/copy-cut-paste.vim)                          | Y     |
 | editing     | [vim-easy-align](https://github.com/junegunn/vim-easy-align)                               |       |
 | editing     | [vim-surround](https://github.com/tpope/vim-surround)                                      |       |
-| editing     | [copy-cut-paste](https://github.com/NLKNguyen/copy-cut-paste.vim)                          |       |
 | git         | [gv](https://github.com/junegunn/gv.vim)                                                   |       |
 | git         | [vim-fugitive](https://github.com/tpope/vim-fugitive)                                      |       |
 | git         | [vim-gitgutter](https://github.com/airblade/vim-gitgutter)                                 |       |
 | interface   | [taboo](https://github.com/gcmt/taboo.vim)                                                 | Y     |
-| navigation  | [leaderf](https://github.com/Yggdroot/LeaderF)                                             |       |
-| navigation  | [nerdtree](https://github.com/scrooloose/nerdtree)                                         | Y     |
 | navigation  | [golden-ratio](https://github.com/roman/golden-ratio)                                      |       |
 | navigation  | [gutentags](https://github.com/ludovicchabant/vim-gutentags/blob/master/doc/gutentags.txt) | Y     |
+| navigation  | [leaderf](https://github.com/Yggdroot/LeaderF)                                             |       |
+| navigation  | [nerdtree](https://github.com/scrooloose/nerdtree)                                         | Y     |
 | navigation  | [quick-scope](https://github.com/unblevable/quick-scope)                                   |       |
-| utility     | [vimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |       |
+| syntax      | [syntaxattr](https://github.com/vim-scripts/SyntaxAttr.vim.git)                            | Y     |
 | utility     | [vim-peekaboo](https://github.com/junegunn/vim-peekaboo)                                   |       |
-| aesthetics  | [xterm-color-table](https://github.com/guns/xterm-color-table.vim)                         | Y     |
+| utility     | [vimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |       |
 
 # cheatsheet
 | type        | command                           | descrition                                                                                                                |
