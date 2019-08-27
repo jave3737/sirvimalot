@@ -85,6 +85,33 @@ git submodule update
 | registers   | :reg                              | to access all currently defined registers                                                                                 |
 | searching   | :!rg --vimgrep --type="c" pattern | using ripgrep, only search for the pattern within c-related files. Type `rg --type-list` to see globs that make up a type |
 
+# colorscheme reference
+* type `:help highlight` for extensive information
+* type `:xTermColorTable` for a color reference
+* type `:call SyntaxAtrr()` to get information about the group the cursor is currently on
+* use the following snippet to create a colorscheme
+```vimscript
+set background=dark
+highlight clear
+if exists("syntax_on")
+    syntax reset
+endif
+let g:colors_name="colorscheme_base"
+highlight Normal gui=NONE guibg=#000000 guifg=#ffffff
+```
+| group        | description                    | examples                  |
+| ----         | ----                           |                           |
+| Normal       | normal text                    |                           |
+| Statement    |                                |                           |
+| LineNr       | line numbers                   |                           |
+| CursorLineNr | line number of the cursor line |                           |
+| Comment      | comments                       |                           |
+| String       | strings                        | "hello", 'world'          |
+| Type         | data types                     | int, uint16_t, void, char |
+| PreProc      | preprocessor                   |                           |
+| Identifier   |                                |                           |
+| Special      | brackets, parenthesis          | [], ()                    |
+
 # installing python3.6 packages
 * downloading python should also install pip3.6 
 * `pip3.6 --proxy https://username:password@address.com:port install <python_package>`
