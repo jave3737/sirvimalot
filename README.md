@@ -33,7 +33,6 @@ git checkout -t origin/master
 git submodule init 
 git submodule update
 ```
-
 # recommended plugins
 | type        | plugin                                                                                     | Base? |
 | ----        | ----                                                                                       | ----  |
@@ -62,30 +61,40 @@ git submodule update
 | utility     | [vimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |       |
 
 # cheatsheet
-| type        | command                           | descrition                                                                                                                |
-| ----        | ----                              | ----                                                                                                                      |
-| commandline | \<C-R\>"                          | paste a yanked line into the commandline                                                                                  |
-| editing     | :g/^$/d                           | delete all blank lines                                                                                                    |
-| editing     | :g/pattern/s/old/new/g            | apply a substition to only lines that match pattern                                                                       |
-| editing     | :n,md                             | delete lines within range n,m                                                                                             |
-| editing     | :n,ms/^.\{x\}//                   | within lines n,m remove x number of char from the begginning of each line                                                 |
-| editing     | :n,ms/^/char                      | within lines n,m add char to the beggining of each line                                                                   |
-| editing     | :n,msort                          | within lines n,m sort the lines in alphabetical order                                                                     |
-| editing     | :v/pattern/s/old/new/g            | apply a substition to only lines that do not match pattern                                                                |
-| editing     | gUU                               | change all letters on line to uppercase                                                                                   |
-| editing     | guu                               | change all letters on line to lowercase                                                                                   |
-| gitgutter   | [c                                | go to last previously edited location                                                                                     |
-| gitgutter   | ]c                                | go to next edited location                                                                                                |
-| navigation  | :b#                               | switch to the previous buffer last edited in                                                                              |
-| registers   | "Kyy                              | append to register k                                                                                                      |
-| registers   | "\*p                              | paste from clipboard register                                                                                             |
-| registers   | "\*yy                             | copy to clipboard register                                                                                                |
-| registers   | "kp                               | paste from register k                                                                                                     |
-| registers   | "kyy                              | copy current line to register k                                                                                           |
-| registers   | :reg                              | to access all currently defined registers                                                                                 |
-| searching   | :!rg --vimgrep --type="c" pattern | using ripgrep, only search for the pattern within c-related files. Type `rg --type-list` to see globs that make up a type |
+| type        | command                           | descrition                                                                                                                                                       |
+| ----        | ----                              | ----                                                                                                                                                             |
+| aesthetics  | :set guifont=\*                   | opens a window to easily select and change font sizes                                                                                                            |
+| commandline | \<C-R\>"                          | paste a yanked line into the commandline                                                                                                                         |
+| commandline | q:                                | show the commandline history                                                                                                                                     |
+| editing     | :g/^$/d                           | delete all blank lines                                                                                                                                           |
+| editing     | :g/pattern/s/old/new/g            | apply a substition to only lines that match pattern                                                                                                              |
+| editing     | :n,md                             | delete lines within range n,m                                                                                                                                    |
+| editing     | :n,ms/^.\{x\}//                   | within lines n,m remove x number of char from the begginning of each line                                                                                        |
+| editing     | :n,ms/^/char                      | within lines n,m add char to the beggining of each line                                                                                                          |
+| editing     | :n,msort                          | within lines n,m sort the lines in alphabetical order                                                                                                            |
+| editing     | :s/\\/\//g                        | swap all the \\ to \/ on the current line                                                                                                                        |
+| editing     | :v/pattern/s/old/new/g            | apply a substition to only lines that do not match pattern                                                                                                       |
+| editing     | gUU                               | change all letters on line to uppercase                                                                                                                          |
+| editing     | guu                               | change all letters on line to lowercase                                                                                                                          |
+| gitgutter   | [c                                | go to last previously edited location                                                                                                                            |
+| gitgutter   | ]c                                | go to next edited location                                                                                                                                       |
+| navigation  | :b#                               | switch to the previous buffer last edited in                                                                                                                     |
+| navigation  | gD                                | goto global declaration of the identifier under the cursor                                                                                                       |
+| navigation  | gd                                | goto local declaration of the identifier under the cursor                                                                                                        |
+| registers   | "Kyy                              | append to register k                                                                                                                                             |
+| registers   | "\*p                              | paste from clipboard register                                                                                                                                    |
+| registers   | "\*yy                             | copy to clipboard register                                                                                                                                       |
+| registers   | "kp                               | paste from register k                                                                                                                                            |
+| registers   | "kyy                              | copy current line to register k                                                                                                                                  |
+| registers   | :reg                              | to access all currently defined registers                                                                                                                        |
+| searching   | :!rg --vimgrep --type="c" pattern | using ripgrep, only search for the pattern within c-related files. Type `rg --type-list` to see globs that make up a type                                        |
+| searching   | g/pattern/next\_command           | show a list of all matching patterns, you can then chain them to isolate even further or run a command right after(i.e g/pattern/g/subpattern)                   |
+| searching   | v/pattern/next\_command           | show a list of all matching patterns, you can then chain them to isolate even further or run a command right after(i.e v/pattern/v/subpattern)                   |
+| utility     | \<C-G\>g                          | show current file name (with path) and cursor position                                                                                                           |
+| utility     | ga                                | show ascii value of character under cursor in decimal, hex, and octal                                                                                            |
 
 # colorscheme reference
+* type `:highlight` for a list of highlight groups
 * type `:help highlight` for extensive information
 * type `:xTermColorTable` for a color reference
 * type `:call SyntaxAtrr()` to get information about the group the cursor is currently on
@@ -99,20 +108,6 @@ endif
 let g:colors_name="colorscheme_base"
 highlight Normal gui=NONE guibg=#000000 guifg=#ffffff
 ```
-
-| group        | description                    | examples                  |
-| ----         | ----                           | ----                          |
-| Normal       | normal text                    |                           |
-| Statement    |                                |                           |
-| LineNr       | line numbers                   |                           |
-| CursorLineNr | line number of the cursor line |                           |
-| Comment      | comments                       |                           |
-| String       | strings                        | "hello", 'world'          |
-| Type         | data types                     | int, uint16_t, void, char |
-| PreProc      | preprocessor                   |                           |
-| Identifier   |                                |                           |
-| Special      | brackets, parenthesis          | [], ()                    |
-
 # installing python3.6 packages
 * downloading python should also install pip3.6 
 * `pip3.6 --proxy https://username:password@address.com:port install <python_package>`

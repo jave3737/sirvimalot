@@ -91,6 +91,7 @@ nnoremap <C-right> <C-W>l
 nnoremap <C-left> <C-W>h
 nnoremap <C-up> <C-W>k
 nnoremap <C-down> <C-W>j
+inoremap <C-F> <ESC>gUiw`]a
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE PLUGINS 
 """"""""""""""""""""""""""""""""""""""""""""""""""
