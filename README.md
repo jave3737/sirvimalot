@@ -99,6 +99,7 @@ endif
 let g:colors_name="colorscheme_base"
 highlight Normal gui=NONE guibg=#000000 guifg=#ffffff
 ```
+
 | group        | description                    | examples                  |
 | ----         | ----                           |                           |
 | Normal       | normal text                    |                           |
