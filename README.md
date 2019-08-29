@@ -61,6 +61,7 @@ git submodule update
 | utility     | [vimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |       |
 
 # cheatsheet
+| type                  | command                           | descrition                                                                                                                                     |
 | ----                  | ----                              | ----                                                                                                                                           |
 | aesthetics            | :set guifont=\*                   | opens a window to easily select and change font sizes                                                                                          |
 | commandline           | \<C-R\>"                          | paste a yanked line into the commandline                                                                                                       |
@@ -102,7 +103,6 @@ git submodule update
 | searching, ctags      | :tags tag\_name                   | search for the specified tag                                                                                                                   |
 | searching, ctags      | :tselect tag\_name                | search for the specified tag and show a selectable list for jumping. Good when there are many functions/variables with the same name           |
 | searching, grep       | :!rg --vimgrep pattern %          | search for the pattern in the current file                                                                                                     |
-| type                  | command                           | descrition                                                                                                                                     |
 | utility               | g\<C-G\>                          | show current file name (with path) and cursor position                                                                                         |
 | utility               | ga                                | show ascii value of character under cursor in decimal, hex, and octal                                                                          |
 
