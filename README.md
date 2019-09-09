@@ -56,6 +56,7 @@ git submodule update
 | navigation  | [leaderf](https://github.com/Yggdroot/LeaderF)                                             |       |
 | navigation  | [nerdtree](https://github.com/scrooloose/nerdtree)                                         | Y     |
 | navigation  | [quick-scope](https://github.com/unblevable/quick-scope)                                   |       |
+| navigation  | [tagbar](https://github.com/majutsushi/tagbar/blob/master/doc/tagbar.txt)                  |       |
 | syntax      | [syntaxattr](https://github.com/vim-scripts/SyntaxAttr.vim.git)                            | Y     |
 | utility     | [vim-peekaboo](https://github.com/junegunn/vim-peekaboo)                                   |       |
 | utility     | [vimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |       |
