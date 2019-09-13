@@ -33,6 +33,7 @@ git checkout -t origin/master
 git submodule init 
 git submodule update
 ```
+
 # recommended plugins
 | type        | plugin                                                                                     | Base? |
 | ----        | ----                                                                                       | ----  |
@@ -61,50 +62,55 @@ git submodule update
 | utility     | [vimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |       |
 
 # cheatsheet
-| type                  | command                           | descrition                                                                                                                                     |
-| ----                  | ----                              | ----                                                                                                                                           |
-| aesthetics            | :set guifont=\*                   | opens a window to easily select and change font sizes                                                                                          |
-| commandline           | \<C-R\>"                          | paste a yanked line into the commandline                                                                                                       |
-| commandline           | q:                                | show the commandline history                                                                                                                   |
-| editing               | :g/^$/d                           | delete all blank lines                                                                                                                         |
-| editing               | :g/pattern/s/old/new/g            | apply a substition to only lines that match pattern                                                                                            |
-| editing               | :n,md                             | delete lines within range n,m                                                                                                                  |
-| editing               | :n,ms/^.\{x\}//                   | within lines n,m remove x number of char from the begginning of each line                                                                      |
-| editing               | :n,ms/^/char                      | within lines n,m add char to the beggining of each line                                                                                        |
-| editing               | :n,msort                          | within lines n,m sort the lines in alphabetical order                                                                                          |
-| editing               | :s/\\/\//g                        | swap all the \\ to \/ on the current line                                                                                                      |
-| editing               | :v/pattern/s/old/new/g            | apply a substition to only lines that do not match pattern                                                                                     |
-| editing               | gUU                               | change all letters on line to uppercase                                                                                                        |
-| editing               | guu                               | change all letters on line to lowercase                                                                                                        |
-| editing, formatting   | \<visual\>gq                      | reformat a section to adhere to the proper number of characters to a line                                                                      |
-| editing, formatting   | gqq                               | reformat a line to adhere to the proper number of characters to a line                                                                         |
-| navigation            | :b#                               | switch to the previous buffer last edited in                                                                                                   |
-| navigation            | gD                                | goto global declaration of the identifier under the cursor                                                                                     |
-| navigation            | gd                                | goto local declaration of the identifier under the cursor                                                                                      |
-| navigation, gitgutter | [c                                | go to last previously edited location                                                                                                          |
-| navigation, gitgutter | ]c                                | go to next edited location                                                                                                                     |
-| navigation, scrolling | \<C-B\>                           | move the screen backward one whole page                                                                                                        |
-| navigation, scrolling | \<C-D\>                           | move the screen forward half a page                                                                                                            |
-| navigation, scrolling | \<C-E\>                           | keep the cursor in the same location while scrolling the screen upwards                                                                        |
-| navigation, scrolling | \<C-F\>                           | move the screen forward one whole page                                                                                                         |
-| navigation, scrolling | \<C-U\>                           | move the screen backwards half a page                                                                                                          |
-| navigation, scrolling | \<C-Y\>                           | keep the cursor in the same location while scrolling the screen downwards                                                                      |
-| navigation, scrolling | zh                                | keep the cursor in the same location while scrolling the screen to the right                                                                   |
-| navigation, scrolling | zl                                | keep the cursor in the same location while scrolling the screen to the left                                                                    |
-| registers             | "Kyy                              | append to register k                                                                                                                           |
-| registers             | "\*p                              | paste from clipboard register                                                                                                                  |
-| registers             | "\*yy                             | copy to clipboard register                                                                                                                     |
-| registers             | "kp                               | paste from register k                                                                                                                          |
-| registers             | "kyy                              | copy current line to register k                                                                                                                |
-| registers             | :reg                              | to access all currently defined registers                                                                                                      |
-| searching             | :!rg --vimgrep --type="c" pattern | using ripgrep, only search for the pattern within c-related files. Type `rg --type-list` to see globs that make up a type                      |
-| searching             | g/pattern/next\_command           | show a list of all matching patterns, you can then chain them to isolate even further or run a command right after(i.e g/pattern/g/subpattern) |
-| searching             | v/pattern/next\_command           | show a list of all matching patterns, you can then chain them to isolate even further or run a command right after(i.e v/pattern/v/subpattern) |
-| searching, ctags      | :tags tag\_name                   | search for the specified tag                                                                                                                   |
-| searching, ctags      | :tselect tag\_name                | search for the specified tag and show a selectable list for jumping. Good when there are many functions/variables with the same name           |
-| searching, grep       | :!rg --vimgrep pattern %          | search for the pattern in the current file                                                                                                     |
-| utility               | g\<C-G\>                          | show current file name (with path) and cursor position                                                                                         |
-| utility               | ga                                | show ascii value of character under cursor in decimal, hex, and octal                                                                          |
+| type                     | command                           | variant                         | descrition                                                                                                                                     |
+| ----                     | ----                              | ----                            | ----                                                                                                                                           |
+| aesthetics               | :set guifont=\*                   |                                 | opens a window to easily select and change font sizes                                                                                          |
+| commandline              | \<C-R\>"                          |                                 | paste a yanked line into the commandline                                                                                                       |
+| commandline              | q:                                |                                 | show the commandline history                                                                                                                   |
+| editing | bd | | delete everything from the left of the cursor to the beginning of the current word the cursor is on | 
+| editing                  | :g/^$/d                           |                                 | delete all blank lines                                                                                                                         |
+| editing                  | :g/pattern/s/old/new/g            |                                 | apply a substition to only lines that match pattern                                                                                            |
+| editing                  | :n,md                             |                                 | delete lines within range n,m                                                                                                                  |
+| editing                  | :n,ms/^.\{x\}//                   |                                 | within lines n,m remove x number of char from the begginning of each line                                                                      |
+| editing                  | :n,ms/^/char                      |                                 | within lines n,m add char to the beggining of each line                                                                                        |
+| editing                  | :n,msort                          |                                 | within lines n,m sort the lines in alphabetical order                                                                                          |
+| editing                  | :s/\\/\//g                        |                                 | swap all the \\ to \/ on the current line                                                                                                      |
+| editing                  | :v/pattern/s/old/new/g            |                                 | apply a substition to only lines that do not match pattern                                                                                     |
+| editing                  | gUU                               |                                 | change all letters on line to uppercase                                                                                                        |
+| editing                  | guu                               |                                 | change all letters on line to lowercase                                                                                                        |
+| editing, autocompletion  | \<insert\>\<C-P\>                 | \<insert\>\<C-N\>               | cycle through tags for keyword autocompletion using P as previous and N as next.                                                               |
+| editing, autocompletion  | \<insert\>\<C-X\>\<C-L\>\<C-P\>   | \<insert\>\<C-X\>\<C-L\>\<C-N\> | cycle through full line autocompletion using P as previous and N as next                                                                       |
+| editing, formatting      | gqq                               | \<visual\>gq                    | reformat a line to adhere to the proper number of characters to a line                                                                         |
+| navigation               | \%                                | v\%                              | jump/highlight to matching bracket                                                                                                             |
+| navigation, buffer       | :b#                               |                                 | switch to the previous buffer last edited in                                                                                                   |
+| navigation, declarations | gD                                |                                 | goto global declaration of the identifier under the cursor                                                                                     |
+| navigation, declarations | gd                                |                                 | goto local declaration of the identifier under the cursor                                                                                      |
+| navigation, gitgutter    | [c                                |                                 | go to last previously edited location                                                                                                          |
+| navigation, gitgutter    | ]c                                |                                 | go to next edited location                                                                                                                     |
+| navigation, scrolling    | \<C-B\>                           |                                 | move the screen backward one whole page                                                                                                        |
+| navigation, scrolling    | \<C-D\>                           |                                 | move the screen forward half a page                                                                                                            |
+| navigation, scrolling    | \<C-E\>                           |                                 | keep the cursor in the same location while scrolling the screen upwards                                                                        |
+| navigation, scrolling    | \<C-F\>                           |                                 | move the screen forward one whole page                                                                                                         |
+| navigation, scrolling    | \<C-U\>                           |                                 | move the screen backwards half a page                                                                                                          |
+| navigation, scrolling    | \<C-Y\>                           |                                 | keep the cursor in the same location while scrolling the screen downwards                                                                      |
+| navigation, scrolling    | zh                                |                                 | keep the cursor in the same location while scrolling the screen to the right                                                                   |
+| navigation, scrolling    | zl                                |                                 | keep the cursor in the same location while scrolling the screen to the left                                                                    |
+| registers                | "Kyy                              |                                 | append to register k                                                                                                                           |
+| registers                | "\*p                              |                                 | paste from clipboard register                                                                                                                  |
+| registers                | "\*yy                             |                                 | copy to clipboard register                                                                                                                     |
+| registers                | "kp                               |                                 | paste from register k                                                                                                                          |
+| registers                | "kyy                              |                                 | copy current line to register k                                                                                                                |
+| registers                | :reg                              |                                 | to access all currently defined registers                                                                                                      |
+| searching                | g/pattern/next\_command           |                                 | show a list of all matching patterns, you can then chain them to isolate even further or run a command right after(i.e g/pattern/g/subpattern) |
+| searching                | v/pattern/next\_command           |                                 | show a list of all matching patterns, you can then chain them to isolate even further or run a command right after(i.e v/pattern/v/subpattern) |
+| searching, ctags         | :pclose                           |                                 | close the preview window                                                                                                                       |
+| searching, ctags         | :tags tag\_name                   |                                 | search for the specified tag                                                                                                                   |
+| searching, ctags         | :tselect tag\_name                |                                 | search for the specified tag and show a selectable list for jumping. Good when there are many functions/variables with the same name           |
+| searching, ctags         | \<C-W\>}                          |                                 | show the tag under the cursor in a preview window                                                                                              |
+| searching, ripgrep       | :!rg --vimgrep --type="c" pattern |                                 | using ripgrep, only search for the pattern within c-related files. Type `rg --type-list` to see globs that make up a type                      |
+| searching, ripgrep       | :!rg --vimgrep pattern %          |                                 | search for the pattern in the current file                                                                                                     |
+| utility                  | g\<C-G\>                          |                                 | show current file name (with path) and cursor position                                                                                         |
+| utility                  | ga                                |                                 | show ascii value of character under cursor in decimal, hex, and octal                                                                          |
 
 # colorscheme reference
 * type `:highlight` for a list of highlight groups
@@ -121,6 +127,13 @@ endif
 let g:colors_name="colorscheme_base"
 highlight Normal gui=NONE guibg=#000000 guifg=#ffffff
 ```
+
+# web references 
+| site                                                                                                             | description |
+| ----                                                                                                             | ----        |
+| [Making Vim Pretty With Custom Colors](https://andrewradev.com/2011/08/06/making-vim-pretty-with-custom-colors/) |             |
+| [The Power of G](https://vim.fandom.com/wiki/Power_of_g)                                                         |             |
+
 # installing python3.6 packages
 * downloading python should also install pip3.6 
 * `pip3.6 --proxy https://username:password@address.com:port install <python_package>`
