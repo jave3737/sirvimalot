@@ -24,51 +24,39 @@ syntax on
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "STANDARD TERMINAL OPTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"Enable Wildmenu"
 set wildmenu
-"Clear all gui options"
 set guioptions=
-"Ignore case when pattern searching"
 set ignorecase 
 set smartcase
 set nowrapscan
-"Do not generate backup files of any sort"
 set nowrap 
 set nobackup
 set noswapfile
-"How we want to split windows"
 set splitbelow
 set splitright
 set sessionoptions-=options
 set sessionoptions-=folds
-"Do not highlight when searching"
 set nohlsearch
-"Only set the file name in the status line"
 set statusline=%t
 set laststatus=2
-"Set one tab to equal four spaces"
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 set textwidth=0
 set sessionoptions+=tabpages,globals
-"Do not try to behave like old vim"
 set nocompatible
 set updatetime=100
-"Disable error sounds"
 set noerrorbells
 set novisualbell
-set belloff=all
-"set line numbers
 set number
-"set path for tag file
 set tags=tags;/
-"set the default font
-set guifont=Dank_Mono:h16:cANSI:qDRAFT,Consolas:h12:cANSI:qDRAFT
-"enable ligatures
-set renderoptions=type:directx
 set encoding=utf-8
+if has("gui_running")
+    set guifont=Dank_Mono:h16:cANSI:qDRAFT,Consolas:h12:cANSI:qDRAFT
+    set belloff=all
+    set renderoptions=type:directx
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -95,7 +83,7 @@ inoremap <C-F> <ESC>gUiw`]a
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE PLUGINS 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-call pathogen#infect()
+silent! call pathogen#infect()
 filetype plugin indent on
 if filereadable(expand("$HOME/_vimpluginsettings.vim"))
     source $HOME/_vimpluginsettings.vim
@@ -109,4 +97,6 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "MAXIMIZE THE WINDOW
 """"""""""""""""""""""""""""""""""""""""""""""""""
-au GUIEnter * simalt ~x
+if has("gui_running")
+    au GUIEnter * simalt ~x
+endif
