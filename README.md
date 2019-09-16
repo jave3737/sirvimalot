@@ -96,6 +96,7 @@ git submodule update
 | navigation, scrolling    | \<C-Y\>                           |                                 | keep the cursor in the same location while scrolling the screen downwards                                                                      |
 | navigation, scrolling    | zh                                |                                 | keep the cursor in the same location while scrolling the screen to the right                                                                   |
 | navigation, scrolling    | zl                                |                                 | keep the cursor in the same location while scrolling the screen to the left                                                                    |
+| navigation, explore | :Explore | :Sexplore, :Vexplore | explore the file system, split to explore, or vertical split to explore|
 | registers                | "Kyy                              |                                 | append to register k                                                                                                                           |
 | registers                | "\*p                              |                                 | paste from clipboard register                                                                                                                  |
 | registers                | "\*yy                             |                                 | copy to clipboard register                                                                                                                     |
@@ -134,6 +135,7 @@ highlight Normal gui=NONE guibg=#000000 guifg=#ffffff
 | ----                                                                                                             | ----        |
 | [Making Vim Pretty With Custom Colors](https://andrewradev.com/2011/08/06/making-vim-pretty-with-custom-colors/) |             |
 | [The Power of G](https://vim.fandom.com/wiki/Power_of_g)                                                         |             |
+| [Installing Ctags](https://superuser.com/questions/66367/is-it-possible-to-install-ctags-without-root-privs#66370) | | 
 
 # installing python3.6 packages
 * downloading python should also install pip3.6 
