@@ -99,11 +99,11 @@ function! ToggleComments()
     endif
 endfunction
 
-function! FindAirdropFiles()
+function! FindFiles()
     :tabnew
     :execute (":r !find . -type f -name *.c -or -name *.h -or -name *.cpp -or 
-                \-name *.hpp")
-    :w airdrop_files_list.txt
+                \-name *.hpp -or -name *.txt")
+    :w files.txt
 endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "other settings
