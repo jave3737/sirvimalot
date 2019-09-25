@@ -114,11 +114,38 @@ git submodule update
 | utility                  | g\<C-G\>                          |                                 | show current file name (with path) and cursor position                                                                                         |
 | utility                  | ga                                |                                 | show ascii value of character under cursor in decimal, hex, and octal                                                                          |
 
-# colorscheme reference
-* type `:highlight` for a list of highlight groups
-* type `:help highlight` for extensive information
-* type `:xTermColorTable` for a color reference
-* type `:call SyntaxAtrr()` to get information about the group the cursor is currently on
+# frequently asked questions
+
+## i need to compile vim from the source code on my linux machine
+* download the vim source [here](https://github.com/vim/vim)
+* there is a `compile_vim.sh` script that I wrote up that is pretty useful 
+```
+unzip vim-master.zip
+cd vim-master 
+cp $HOME/vimrc_examples/compile_vim.sh .
+chmod 777 compile_vim.sh
+./compile_vim.sh
+```
+* you should ensure that `$HOME/bin` is a valid path 
+* if you are having problems opening the right vim you can try to add the following alias to your vimrc
+```
+alias vim='~/bin/vim'
+```
+
+## my terminal isnt showing vim colorscheme correctly
+* try to add the following line to your .bashrc
+```
+export TERM=xterm-256color
+```
+
+## how do I make my own colorscheme or edited one
+* use some of the following handly commands to get the information you need
+| command            | description                                                    |
+| ----               | ----                                                           |
+| :highlight         | list of highlight groups                                       |
+| :help highlight    | for extensive information                                      |
+| :xTermColorTable   | color reference                                                |
+| :call SyntaxAttr() | get information on the syntax group the cursor is currently on |
 * use the following snippet to create a colorscheme
 ```vimscript
 set background=dark
@@ -130,13 +157,13 @@ let g:colors_name="colorscheme_base"
 highlight Normal gui=NONE guibg=#000000 guifg=#ffffff
 ```
 
-# web references 
-| site                                                                                                             | description |
-| ----                                                                                                             | ----        |
-| [Making Vim Pretty With Custom Colors](https://andrewradev.com/2011/08/06/making-vim-pretty-with-custom-colors/) |             |
-| [The Power of G](https://vim.fandom.com/wiki/Power_of_g)                                                         |             |
-| [Installing Ctags](https://superuser.com/questions/66367/is-it-possible-to-install-ctags-without-root-privs#66370) | | 
-
-# installing python3.6 packages
+## how do I install python3.6 packages that might be used by certain vim plugins
 * downloading python should also install pip3.6 
 * `pip3.6 --proxy https://username:password@address.com:port install <python_package>`
+
+## what are some good web references for learning more 
+| site                                                                                                               | description |
+| ----                                                                                                               | ----        |
+| [Making Vim Pretty With Custom Colors](https://andrewradev.com/2011/08/06/making-vim-pretty-with-custom-colors/)   |             |
+| [The Power of G](https://vim.fandom.com/wiki/Power_of_g)                                                           |             |
+| [Installing Ctags](https://superuser.com/questions/66367/is-it-possible-to-install-ctags-without-root-privs#66370) |             |
