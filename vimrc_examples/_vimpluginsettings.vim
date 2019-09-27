@@ -1,16 +1,12 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set cursorline
 set colorcolumn=81
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"SUPERTAB
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+set cursorline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ULTISNIPS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:UltiSnipsSnippetDirectories = [$HOME . "/custom_snippets"]
+let g:UltiSnipsSnippetDirectories = [$HOME . "/Documents/custom_snippets"]
 let g:UltiSnipsEditSplit          = 'vertical'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "QUICKSCOPE
@@ -19,11 +15,11 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "INDENTLINES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:indentLine_char = '●'
+let g:indentLine_char = '●'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "LEADERF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:Lf_ShortcutF=''
+let g:Lf_ShortcutF=''
 let g:Lf_ShortcutB=''
 let g:Lf_WindowHeight = 0.2
 let g:Lf_MruMaxFiles=10
@@ -50,10 +46,6 @@ let g:NERDTreeShowLineNumbers=1
 let g:NERDTreeDirArrowExpandable = '→'
 let g:NERDTreeDirArrowCollapsible = '↓'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"NERDCOMMENTER
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:NERDSpaceDelims = 1
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "TAGBAR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tagbar_left=1
@@ -61,8 +53,6 @@ let g:tagbar_width=30
 let g:tagbar_compact=1
 let g:tagbar_show_linenumbers=1
 let g:tagbar_sort=0
-let g:tagbar_iconchars = ['→','↓']
-let g:tagbar_autoshowtag = 2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "UNDOTREE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -82,53 +72,22 @@ let g:peekaboo_compact=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:loaded_golden_ratio = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"DOGE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-augroup filetypedetect
-    au! BufRead,BufNewFile *.c setfiletype cpp 
-augroup END
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "COLORSCHEME SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd ColorScheme * let g:default_comment_fgd = 
-            \synIDattr(hlID('Comment'),'fg#')
-augroup shades_of_purple_custom
-    au!
-    autocmd ColorScheme shades_of_purple let g:shades_of_purple = 1
-    autocmd ColorScheme shades_of_purple let g:lightline = 
-                \{'colorscheme':'shades_of_purple'}
-augroup end
+autocmd ColorScheme * let g:default_comment_fgd = synIDattr(hlID('Comment'),'fg#')
+autocmd ColorScheme * highlight QuickScopePrimary      guifg=GreenYellow gui=bold ctermfg=Green
+autocmd ColorScheme * highlight QuickScopeSecondary    guifg=DarkOrange  gui=bold ctermfg=Red
 augroup noir_customization
     au!
-    autocmd ColorScheme 256_noir highlight QuickScopePrimary 
-                \guifg=GreenYellow gui=bold ctermfg=Green
-    autocmd ColorScheme 256_noir highlight QuickScopeSecondary    
-                \guifg=DarkOrange gui=bold ctermfg=Red
-    autocmd ColorScheme 256_noir highlight Number                 
-                \guifg=#bcbcbc ctermfg=7
-    autocmd ColorScheme 256_noir highlight CursorLineNr           
-                \gui=italic guifg=#ff0000 ctermbg=DarkRed ctermfg=LightGray
-    autocmd ColorScheme 256_noir highlight LineNr                 
-                \guifg=#585858 ctermfg=DarkGray
-    autocmd ColorScheme 256_noir highlight SpecialKey             
-                \guifg=#ff0000 guibg=#000000
-    autocmd ColorScheme 256_noir highlight CursorLine             
-                \guibg=#1c1c1c
-    autocmd ColorScheme 256_noir highlight Search                 
-                \guibg=#5f0000
-    autocmd ColorScheme 256_noir highlight ColorColumn 
-                \guibg=#5f0000 ctermbg=DarkRed
-    autocmd ColorScheme 256_noir highlight Comment 
-                \ctermfg=8
-augroup end
-augroup fahrenheit_custom
-    au! 
-    autocmd ColorScheme fahrenheit highlight QuickScopePrimary      
-                \guifg=GreenYellow gui=bold ctermfg=Green
-    autocmd ColorScheme fahrenheit highlight QuickScopeSecondary    
-                \guifg=DarkOrange  gui=bold ctermfg=Red
-    autocmd ColorScheme fahrenheit highlight ColorColumn 
-                \guibg=#5f0000 ctermbg=DarkRed
+    autocmd ColorScheme 256_noir highlight Number                 guifg=#bcbcbc ctermfg=7
+    autocmd ColorScheme 256_noir highlight CursorLineNr           gui=italic        guifg=#ff0000 ctermbg=DarkRed ctermfg=LightGray
+    autocmd ColorScheme 256_noir highlight LineNr                 guifg=#585858 ctermfg=DarkGray
+    autocmd ColorScheme 256_noir highlight SpecialKey             guifg=#ff0000     guibg=#000000
+    autocmd ColorScheme 256_noir highlight CursorLine             guibg=#1c1c1c
+    autocmd ColorScheme 256_noir highlight LightlineLeft_active_0 guibg=#ff0000     guifg=#ffffff
+    autocmd ColorScheme 256_noir highlight Search                 guibg=#5f0000
+    autocmd ColorScheme 256_noir highlight ColorColumn guibg=#5f0000 ctermbg=DarkRed
+    autocmd ColorScheme 256_noir highlight Comment ctermfg=8
 augroup end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "FUNCTIONS
@@ -140,15 +99,12 @@ function! FindFiles()
     :w files.txt
 endfunction
 function! GenerateNewCscope()
-    :!find . -type f -name *.c -or -name *.h -or -name *.cpp -or -name *.hpp > 
-                \cscope.files
+    :!find . -type f -name *.c -or -name *.h -or -name *.cpp -or -name *.hpp > cscope.files
     :!cscope -b -i cscope.files -f cscope.out
     :cs add cscope.out
 endfunction
-autocmd ColorScheme * let g:default_comment_fgd = 
-            \synIDattr(synIDtrans(hlID("Comment")),"fg")
-autocmd ColorScheme * let g:default_normal_bgd = 
-            \synIDattr(synIDtrans(hlID("Normal")),"bg")
+autocmd ColorScheme * let g:default_comment_fgd = synIDattr(synIDtrans(hlID("Comment")),"fg")
+autocmd ColorScheme * let g:default_normal_bgd = synIDattr(synIDtrans(hlID("Normal")),"bg")
 function! ToggleComments()
     let comment_fgd = synIDattr(synIDtrans(hlID("Comment")),"fg")
     let normal_bgd = synIDattr(synIDtrans(hlID("Normal")),"bg")
@@ -160,54 +116,24 @@ function! ToggleComments()
         execute ("highlight Todo ctermfg=" . normal_bgd)
     endif
 endfunction
-function! SwapBackslash()
-    :s/\\/\//g
-endfunction
-function! SwapForwardslash()
-    :s/\//\\/g
-endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEY MAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if executable('rg')
-    " general patterns 
-    nnoremap <leader>g :execute(":grep! " . expand('<cword>') . " %" )<CR>
-    nnoremap <leader>G :execute(":grep! " . expand('<cWORD>') . " %" )<CR>
-    " systemverilog, verilog, vhdl 
-    nnoremap <leader>gv :execute(":grep! --type=sv --type=verilog --type=vhdl " 
-                \. expand('<cword>') )<CR>
-    nnoremap <leader>Gv :execute(":grep! --type=sv --type=verilog --type=vhdl " 
-                \. expand('<cWORD>') )<CR>
-    " c, c++
-    nnoremap <leader>gc :execute(":grep! --type=c --type=cpp " 
-                \. expand('<cword>') )<CR>
-    nnoremap <leader>Gc :execute(":grep! --type=c --type=cpp " 
-                \. expand('<cWORD>') )<CR>
-    " modelsim related files
-    nnoremap <leader>gm :execute(":grep! --glob=*.{do,tcl} " 
-                \. expand('<cword>') )<CR>
-elseif executable('ag')
-else 
-    nnoremap <leader>g :execute(":grep! -in " . expand('<cword>') . " %" )<CR>
-    nnoremap <leader>G :execute(":grep! -in " . expand('<cWORD>') . " %" )<CR>
-    nnoremap <leader>gc :execute(":grep! -rin --include \*.h --include \*.c "
-                \. expand('<cword>') . " .")<CR>
-    nnoremap <leader>Gc :execute(":grep! -rin --include \*.h --include \*.c " 
-                \expand('<cWORD>') . " .")<CR>
-endif
+nnoremap <leader>g :execute(":grep! -rin --include \*.h --include \*.c " . expand('<cword>') . " .")<CR>
+nnoremap <leader>gg :execute(":grep! -rin --include \*.h --include \*.c " . expand('<cWORD>') . " .")<CR>
 nnoremap <leader>sv :source $MYVIMRC <CR>
 nnoremap <space> :b# <CR>
 nnoremap <up> :copen <CR>
 nnoremap <down> :cclose<CR>
 nnoremap <left> :cprevious <CR>
 nnoremap <right> :cnext <CR>
-nnoremap <leader>t :TagbarOpenAutoClose<CR>
-nnoremap <leader>u :UndotreeToggle<CR>
-nnoremap <leader>n :NERDTreeToggle<CR>
-nnoremap <leader>s :LeaderfBufTag<CR>
-nnoremap <leader>a :call ToggleComments()<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"AUTOCOMMAND
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd VimEnter * bad $HOME/_vimpluginsettings.vim
+autocmd VimEnter * bad $HOME/.vimrc
+autocmd VimEnter * bad $HOME/_vimrc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "COLORSCHEME
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme fahrenheit
-"colorscheme 256_noir
+colorscheme 256_noir
