@@ -140,7 +140,6 @@ export TERM=xterm-256color
 ```
 
 ## how do I make my own colorscheme or edited one
-* use some of the following handly commands to get the information you need
 | command            | description                                                    |
 | ----               | ----                                                           |
 | :highlight         | list of highlight groups                                       |
