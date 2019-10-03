@@ -61,10 +61,6 @@ endif
 if $TERM == "xterm-256color"
     set t_Co=256
 endif
-if has("persistent_undo")
-    set undodir=$HOME."/undodir"
-    set undofile
-endif
 if has("gui_running")
     set belloff=all
 endif
