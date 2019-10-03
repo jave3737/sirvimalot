@@ -58,17 +58,15 @@ if has('cscope')
         set cscopequickfix=s-,c-,d-,i-,t-,e-
     endif
 endif
-if has("gui_running")
-    set guifont=Dank_Mono:h16:cANSI:qDRAFT,Consolas:h12:cANSI:qDRAFT
-    set belloff=all
-    set renderoptions=type:directx
-endif
 if $TERM == "xterm-256color"
     set t_Co=256
 endif
 if has("persistent_undo")
-    set undodir=$HOME."/.undodir"
+    set undodir=$HOME."/undodir"
     set undofile
+endif
+if has("gui_running")
+    set belloff=all
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS 

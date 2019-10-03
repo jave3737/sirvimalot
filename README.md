@@ -65,58 +65,58 @@ git submodule update
 | utility     | [vimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |
 
 # cheatsheet
-| type                     | related plugin | command                             | variant                         | description                                                                                                                                                   |
-| ----                     | ----           | ----                                | ----                            | ----                                                                                                                                                          |
-| aesthetics               |                | :set guifont=\*                     |                                 | change font when using gui vim                                                                                                                                |
-| commandline              |                | \<C-D\>                             |                                 | when typing a command this will list all possible options                                                                                                     |
-| commandline              |                | \<C-R\>"                            |                                 | paste a yanked line into the commandline                                                                                                                      |
-| commandline              |                | q:                                  |                                 | show the commandline history                                                                                                                                  |
-| commandline              |                | :r! <command> | | run the command and print the contents into the cusor location of the current buffer |
-| configuration            |                | :set                                |                                 | list all the settings currently configured                                                                                                                    |
-| editing                  |                | :digraphs                           |                                 | shows the possible digraphs you could use in utf-8                                                                                                            |
-| editing                  |                | :g/^$/d                             |                                 | delete all blank lines                                                                                                                                        |
-| editing                  |                | :g/pattern/s/old/new/g              |                                 | apply a substition to only lines that match pattern                                                                                                           |
-| editing                  |                | :n,md                               |                                 | delete lines within range n,m                                                                                                                                 |
-| editing                  |                | :n,ms/^.\{x\}//                     |                                 | within lines n,m remove x number of char from the begginning of each line                                                                                     |
-| editing                  |                | :n,ms/^/char                        |                                 | within lines n,m add char to the beggining of each line                                                                                                       |
-| editing                  |                | :n,msort                            | \<visual\>sort                  | within lines n,m sort the lines in alphabetical order                                                                                                         |
-| editing                  |                | :s/\\/\//g                          |                                 | swap all the \\ to \/ on the current line                                                                                                                     |
-| editing                  |                | :v/pattern/s/old/new/g              |                                 | apply a substition to only lines that do not match pattern                                                                                                    |
-| editing                  |                | \<insert\>\<C-K\>                   |                                 | insert a digraph                                                                                                                                              |
-| editing                  |                | \<insert\>\<C-U\>                   | \<insert\>\<C-W\>               | delete the (current line/up to previous word)                                                                                                                 |
-| editing                  |                | gUU                                 | guu                             | change all letters on line to (uppercase/lowercase)                                                                                                           |
-| editing                  | nerdcomplete   | \<leader\>cA                        |                                 | go the end of the line and append a comment                                                                                                                   |
-| editing                  | nerdcomplete   | \<leader\>cc                        |                                 | comment the current line                                                                                                                                      |
-| editing                  | nerdcomplete   | \<leader\>ci                        |\<visual\>\<leader\>ci                                 | toggle comment state of the current line | 
-| editing, autocompletion  |                | \<insert\>\<C-P\>                   | \<insert\>\<C-N\>               | cycle through keyword completion to (previous/next) matches                                                                                                   |
-| editing, autocompletion  |                | \<insert\>\<C-X\>\<C-L\>\<C-P\>     | \<insert\>\<C-X\>\<C-L\>\<C-N\> | cycle through full line completion to (previous/next) matches                                                                                                 |
-| editing, completion      |                | \<insert\>\<C-P\>\<C-Y\>            | \<insert\>\<C-P\>\<C-N\>        | after cycling through completion options (accept/deny) current completion                                                                                     |
-| editing, formatting      |                | gqq                                 | \<visual\>gq                    | reformat a (line/visual block) to adhere to the proper number of characters to a line                                                                         |
-| editing, omnicompletion  |                | \<insert\>\<C-X\>\<C-O\>\<C-P\>     | \<insert\>\<C-X\>\<C-O\>\<C-N\> | cycle through omnicompletion to (previous/next) matches                                                                                                       |
-| git                      | gitgutter      | \<leader\>hs                        | \<leader\>hu                    | (stage/unstage) the hunk where the cursor is                                                                                                                  |
-| navigation               |                | \%                                  | v\%                             | (jump/highlight) to matching bracket                                                                                                                          |
-| navigation               |                | gf                                  |                                 | jump to the file path under the cursor | 
-| navigation,              | gitgutter      | [c                                  | ]c                              | jump to (previously/next) edited hunk of code                                                                                                                 |
-| navigation, buffer       |                | :b#                                 |                                 | switch to the previous buffer last edited in                                                                                                                  |
-| navigation, declarations |                | gD                                  | gd                              | goto (global/local) declaration of the identifier under the cursor                                                                                            |
-| navigation, explore      |                | :Explore                            | :Sexplore, :Vexplore            | Explore the filesystem in (full/split/vertical) windows                                                                                                       |
-| navigation, scrolling    |                | \<C-D\>                             | \<C-U\>                         | move the screen (forward/backward) half a page                                                                                                                |
-| navigation, scrolling    |                | \<C-E\>                             | \<C-Y\>                         | keep the cursor in the same location while scrolling the screen (upwards/downwards)                                                                           |
-| navigation, scrolling    |                | \<C-F\>                             | \<C-B\>                         | move the screen (forward/backward) one whole page                                                                                                             |
-| navigation, scrolling    |                | zh                                  | zl                              | keep the cursor in the same location while scrolling the screen to the (right/left)                                                                           |
-| registers                |                | "Kyy                                |                                 | append to register k                                                                                                                                          |
-| registers                |                | "\*p                                | "\*yy                           | (paste/copy) (from/to) clipboard register                                                                                                                     |
-| registers                |                | "kp                                 | "kyy                            | (paste/copy current line) (from/to) register k                                                                                                                |
-| registers                |                | :reg                                |                                 | to access all currently defined registers                                                                                                                     |
-| searching                |                | g/pattern/next\_command             | v/pattern/next\_command         | show a list of all (matching/non-matching) patterns, you can then chain them to isolate even further or run a command right after(i.e g/pattern/g/subpattern) |
-| searching, ctags         |                | :pclose                             |                                 | close the preview window                                                                                                                                      |
-| searching, ctags         |                | :tags tag\_name                     |                                 | search for the specified tag                                                                                                                                  |
-| searching, ctags         |                | :tselect tag\_name                  |                                 | search for the specified tag and show a selectable list for jumping. Good when there are many functions/variables with the same name                          |
-| searching, ctags         |                | \<C-W\>}                            |                                 | show the tag under the cursor in a preview window                                                                                                             |
-| searching, grep          |                | :grep -rin --include \*.c pattern . | :grep -in \%                    | search for the pattern recursively in the current directory, search for the pattern in the current file                                                       |
-| searching, ripgrep       |                | :!rg --vimgrep --type="c" pattern   | :!rg --vimgrep pattern %        | only search for pattern in c-related files (reculsively/current file), type `rg --type-list` for a full listing                                                                                         |
-| utility                  |                | g\<C-G\>                            |                                 | show current file name (with path) and cursor position                                                                                                        |
-| utility                  |                | ga                                  |                                 | show ascii value of character under cursor in decimal, hex, and octal                                                                                         |
+| type                     | related plugin | command                             | variant                         | description                                                                                                                                                   |   |
+| ----                     | ----           | ----                                | ----                            | ----                                                                                                                                                          |   |
+| aesthetics               |                | :set guifont=\*                     |                                 | change font when using gui vim                                                                                                                                |   |
+| commandline              |                | \<C-D\>                             |                                 | when typing a command this will list all possible options                                                                                                     |   |
+| commandline              |                | \<C-R\>"                            |                                 | paste a yanked line into the commandline                                                                                                                      |   |
+| commandline              |                | q:                                  |                                 | show the commandline history                                                                                                                                  |   |
+| commandline              |                | :r! <command>                       |                                 | run the command and print the contents into the cusor location of the current buffer                                                                          |   |
+| configuration            |                | :set                                |                                 | list all the settings currently configured                                                                                                                    |   |
+| editing                  |                | :digraphs                           |                                 | shows the possible digraphs you could use in utf-8                                                                                                            |   |
+| editing                  |                | :g/^$/d                             |                                 | delete all blank lines                                                                                                                                        |   |
+| editing                  |                | :g/pattern/s/old/new/g              |                                 | apply a substition to only lines that match pattern                                                                                                           |   |
+| editing                  |                | :n,md                               |                                 | delete lines within range n,m                                                                                                                                 |   |
+| editing                  |                | :n,ms/^.\{x\}//                     |                                 | within lines n,m remove x number of char from the begginning of each line                                                                                     |   |
+| editing                  |                | :n,ms/^/char                        |                                 | within lines n,m add char to the beggining of each line                                                                                                       |   |
+| editing                  |                | :n,msort                            | \<visual\>sort                  | within lines n,m sort the lines in alphabetical order                                                                                                         |   |
+| editing                  |                | :s/\\/\//g                          |                                 | swap all the \\ to \/ on the current line                                                                                                                     |   |
+| editing                  |                | :v/pattern/s/old/new/g              |                                 | apply a substition to only lines that do not match pattern                                                                                                    |   |
+| editing                  |                | \<insert\>\<C-K\>                   |                                 | insert a digraph                                                                                                                                              |   |
+| editing                  |                | \<insert\>\<C-U\>                   | \<insert\>\<C-W\>               | delete the (current line/up to previous word)                                                                                                                 |   |
+| editing                  |                | gUU                                 | guu                             | change all letters on line to (uppercase/lowercase)                                                                                                           |   |
+| editing                  | nerdcomplete   | \<leader\>cA                        |                                 | go the end of the line and append a comment                                                                                                                   |   |
+| editing                  | nerdcomplete   | \<leader\>cc                        |                                 | comment the current line                                                                                                                                      |   |
+| editing                  | nerdcomplete   | \<leader\>ci                        | \<visual\>\<leader\>ci          | toggle comment state of the current line                                                                                                                      |   |
+| editing, autocompletion  |                | \<insert\>\<C-P\>                   | \<insert\>\<C-N\>               | cycle through keyword completion to (previous/next) matches                                                                                                   |   |
+| editing, autocompletion  |                | \<insert\>\<C-X\>\<C-L\>\<C-P\>     | \<insert\>\<C-X\>\<C-L\>\<C-N\> | cycle through full line completion to (previous/next) matches                                                                                                 |   |
+| editing, completion      |                | \<insert\>\<C-P\>\<C-Y\>            | \<insert\>\<C-P\>\<C-N\>        | after cycling through completion options (accept/deny) current completion                                                                                     |   |
+| editing, formatting      |                | gqq                                 | \<visual\>gq                    | reformat a (line/visual block) to adhere to the proper number of characters to a line                                                                         |   |
+| editing, omnicompletion  |                | \<insert\>\<C-X\>\<C-O\>\<C-P\>     | \<insert\>\<C-X\>\<C-O\>\<C-N\> | cycle through omnicompletion to (previous/next) matches                                                                                                       |   |
+| git                      | gitgutter      | \<leader\>hs                        | \<leader\>hu                    | (stage/unstage) the hunk where the cursor is                                                                                                                  |   |
+| navigation               |                | \%                                  | v\%                             | (jump/highlight) to matching bracket                                                                                                                          |   |
+| navigation               |                | gf                                  |                                 | jump to the file path under the cursor                                                                                                                        |   |
+| navigation,              | gitgutter      | [c                                  | ]c                              | jump to (previously/next) edited hunk of code                                                                                                                 |   |
+| navigation, buffer       |                | :b#                                 |                                 | switch to the previous buffer last edited in                                                                                                                  |   |
+| navigation, declarations |                | gD                                  | gd                              | goto (global/local) declaration of the identifier under the cursor                                                                                            |   |
+| navigation, explore      |                | :Explore                            | :Sexplore, :Vexplore            | Explore the filesystem in (full/split/vertical) windows                                                                                                       |   |
+| navigation, scrolling    |                | \<C-D\>                             | \<C-U\>                         | move the screen (forward/backward) half a page                                                                                                                |   |
+| navigation, scrolling    |                | \<C-E\>                             | \<C-Y\>                         | keep the cursor in the same location while scrolling the screen (upwards/downwards)                                                                           |   |
+| navigation, scrolling    |                | \<C-F\>                             | \<C-B\>                         | move the screen (forward/backward) one whole page                                                                                                             |   |
+| navigation, scrolling    |                | zh                                  | zl                              | keep the cursor in the same location while scrolling the screen to the (right/left)                                                                           |   |
+| registers                |                | "Kyy                                |                                 | append to register k                                                                                                                                          |   |
+| registers                |                | "\*p                                | "\*yy                           | (paste/copy) (from/to) clipboard register                                                                                                                     |   |
+| registers                |                | "kp                                 | "kyy                            | (paste/copy current line) (from/to) register k                                                                                                                |   |
+| registers                |                | :reg                                |                                 | to access all currently defined registers                                                                                                                     |   |
+| searching                |                | g/pattern/next\_command             | v/pattern/next\_command         | show a list of all (matching/non-matching) patterns, you can then chain them to isolate even further or run a command right after(i.e g/pattern/g/subpattern) |   |
+| searching, ctags         |                | :pclose                             |                                 | close the preview window                                                                                                                                      |   |
+| searching, ctags         |                | :tags tag\_name                     |                                 | search for the specified tag                                                                                                                                  |   |
+| searching, ctags         |                | :tselect tag\_name                  |                                 | search for the specified tag and show a selectable list for jumping. Good when there are many functions/variables with the same name                          |   |
+| searching, ctags         |                | \<C-W\>}                            |                                 | show the tag under the cursor in a preview window                                                                                                             |   |
+| searching, grep          |                | :grep -rin --include \*.c pattern . | :grep -in \%                    | search for the pattern recursively in the current directory, search for the pattern in the current file                                                       |   |
+| searching, ripgrep       |                | :!rg --vimgrep --type="c" pattern   | :!rg --vimgrep pattern %        | only search for pattern in c-related files (reculsively/current file), type `rg --type-list` for a full listing                                               |   |
+| utility                  |                | g\<C-G\>                            |                                 | show current file name (with path) and cursor position                                                                                                        |   |
+| utility                  |                | ga                                  |                                 | show ascii value of character under cursor in decimal, hex, and octal                                                                                         |   |
 
 # frequently asked questions
 
@@ -150,6 +150,7 @@ export TERM=xterm-256color
 | :help highlight    | for extensive information                                      |
 | :xTermColorTable   | color reference                                                |
 | :call SyntaxAttr() | get information on the syntax group the cursor is currently on |
+
 * use the following snippet to create a colorscheme
 ```vimscript
 set background=dark
@@ -182,9 +183,59 @@ let g:plugin_global_variable = 1
 ```
 * they can either be a number or a set of strings, you will have to refer to the plugins documentation
 
+## how do i make vim portable on a flashdrive (windows only) 
+* tested with vim version 8.1, python 3.6.0
+* start with an empty flashdrive `F:\`
+* make the following directories 
+```
+F:\executables 
+F:\python
+F:\vim
+```
+* if you have vim installed on your windows machine go to `C:\Program Files (x86)\Vim\vim81` and copy that to `F:\vim`
+* then git clone the sirvimalot repository into the `F:\vim` directory using the process specified earlier in the readme
+* make this file `F:\vim\vimrc` and fill it with the following contents 
+```vimscript 
+let $HOME=$VIM
+let $PATH=$VIM . '\..\executables\;C;\cygwin64\bin'
+```
+* you can then add as many directories as you would like into the path variable seperated by commas
+* visit the [winPython](http://winpython.github.io/#releases) page for recent releases or [here](https://sourceforge.net/projects/winpython/files/WinPython_3.6/3.6.0.1/WinPython-32bit-3.6.0.1Zero.exe/download) for the exact release that I used
+* install it into the `F:\python` directory and use the following line in your vimrc to specify the location of the python dll
+```vimscript
+set pythonthreedll=$HOME./../python/WinPython-32bit-3.6.0.1Zero/python-3.6.0/python36.dll
+```
+* this will allow you to use plugins that require python such as ultisnips, leaderf 
+* you can then download the exuberant ctags executable and ripgrep executable and place them in the `F:\executables` directory 
+* vim should be able to identify if they exist or not, you can use `:echo executable("rg")` to verify 
+* this should allow you to use plugins that use external tools such as gutentags or leaderf
+* in the end your flashdrive contents should match below 
+```
+- executables/
+    - rg.exe 
+    - ctags.exe
+- python/
+    - WinPython-32bit-3.6.0.1Zero/
+        - python-3.6.0/
+            - python36.dll
+- vim/ 
+    - custom_snippets/
+    - vim81/
+    - vimfiles/
+    - vimrc_examples/
+    - vimusrs/
+    - _vimrc
+    - _vimpluginsettings
+    - README.md
+    - vimrc
+    - .vimrc
+```
+
 ## web references
-| site                                                                                                               | description |
-| ----                                                                                                               | ----        |
-| [Making Vim Pretty With Custom Colors](https://andrewradev.com/2011/08/06/making-vim-pretty-with-custom-colors/)   |             |
-| [The Power of G](https://vim.fandom.com/wiki/Power_of_g)                                                           |             |
-| [Installing Ctags](https://superuser.com/questions/66367/is-it-possible-to-install-ctags-without-root-privs#66370) |             |
+| site                                                                                                               | description |   |   |
+| ----                                                                                                               | ----        |   |   |
+| [Making Vim Pretty With Custom Colors](https://andrewradev.com/2011/08/06/making-vim-pretty-with-custom-colors/)   |             |   |   |
+| [The Power of G](https://vim.fandom.com/wiki/Power_of_g)                                                           |             |   |   |
+| [Installing Ctags](https://superuser.com/questions/66367/is-it-possible-to-install-ctags-without-root-privs#66370) |             |   |   |
+| [Making Vim Portable](https://stackoverflow.com/questions/4600009/making-vim-portable)                             |             |   |   |
+| [Vim Regex](http://www.vimregex.com/)                                                                              |             |   |   |
