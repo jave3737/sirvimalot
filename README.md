@@ -232,10 +232,11 @@ set pythonthreedll=$HOME./../python/WinPython-32bit-3.6.0.1Zero/python-3.6.0/pyt
 ```
 
 ## web references
-| site                                                                                                               | description |   |   |
-| ----                                                                                                               | ----        |   |   |
-| [Making Vim Pretty With Custom Colors](https://andrewradev.com/2011/08/06/making-vim-pretty-with-custom-colors/)   |             |   |   |
-| [The Power of G](https://vim.fandom.com/wiki/Power_of_g)                                                           |             |   |   |
-| [Installing Ctags](https://superuser.com/questions/66367/is-it-possible-to-install-ctags-without-root-privs#66370) |             |   |   |
-| [Making Vim Portable](https://stackoverflow.com/questions/4600009/making-vim-portable)                             |             |   |   |
-| [Vim Regex](http://www.vimregex.com/)                                                                              |             |   |   |
+
+| site       |       description |   
+| ----                                                                                                               | ----   |   
+| [Making Vim Pretty With Custom Colors](https://andrewradev.com/2011/08/06/making-vim-pretty-with-custom-colors/)   |             
+| [The Power of G](https://vim.fandom.com/wiki/Power_of_g)                                                           |             
+| [Installing Ctags](https://superuser.com/questions/66367/is-it-possible-to-install-ctags-without-root-privs#66370) |             
+| [Making Vim Portable](https://stackoverflow.com/questions/4600009/making-vim-portable)                             |             
+| [Vim Regex](http://www.vimregex.com/)                                                                              |             
