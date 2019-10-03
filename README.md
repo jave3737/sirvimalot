@@ -197,7 +197,7 @@ F:\vim
 * make this file `F:\vim\vimrc` and fill it with the following contents 
 ```vimscript 
 let $HOME=$VIM
-let $PATH=$VIM . '\..\executables\;C;\cygwin64\bin'
+let $PATH=$VIM . '\..\executables\;C:\cygwin64\bin'
 ```
 * you can then add as many directories as you would like into the path variable seperated by commas
 * visit the [winPython](http://winpython.github.io/#releases) page for recent releases or [here](https://sourceforge.net/projects/winpython/files/WinPython_3.6/3.6.0.1/WinPython-32bit-3.6.0.1Zero.exe/download) for the exact release that I used
