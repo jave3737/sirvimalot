@@ -1,5 +1,6 @@
 # installation
 * download [gVim v8.0](https://www.vim.org/download.php)
+
     * add an environmental variable `$HOME` with path of the directory that you will refer to as your HOME directory.
 * download and install 32-bit version of [Python 3.6.0](https://www.python.org/downloads/release/python-360/)
     * or whatever version of python is required by gVim. If you type `:version` you should see something along the lines of `--DDYNAMIC_PYTHON3_DLL="\python36.dll\"` so you will need that version of python
@@ -37,13 +38,27 @@ git submodule update
 # recommended plugins
 | type        | plugin                                                                                     |
 | ----        | ----                                                                                       |
+| aesthetics  | [bargreybars](https://github.com/dreadnaut/vim-bargreybars)                                |
 | aesthetics  | [goyo](https://github.com/junegunn/goyo.vim)                                               |
 | aesthetics  | [indentLine](https://github.com/Yggdroot/indentLine)                                       |
 | aesthetics  | [lightline](https://github.com/itchyny/lightline.vim)                                      |
 | aesthetics  | [xterm-color-table](https://github.com/guns/xterm-color-table.vim)                         |
 | colorscheme | [256noir](https://github.com/andreasvc/vim-256noir.git)                                    |
+| colorscheme | [apprentice](https://github.com/romainl/Apprentice)                                        |
+| colorscheme | [fahrenheit](https://github.com/fcpg/vim-fahrenheit)                                       |
+| colorscheme | [falcon](https://github.com/fenetikm/falcon)                                               |
+| colorscheme | [hemisu](https://github.com/noahfrederick/vim-hemisu)                                      |
+| colorscheme | [iceberg](https://github.com/cocopon/iceberg.vim)                                          |
+| colorscheme | [monokai-tasty](https://github.com/patstockwell/vim-monokai-tasty)                         |
+| colorscheme | [onedark](https://github.com/joshdick/onedark.vim)                                         |
+| colorscheme | [seoul256](https://github.com/junegunn/seoul256.vim)                                       |
+| colorscheme | [spacedust](https://github.com/hallski/spacedust-theme)                                    |
+| colorscheme | [srcery](https://github.com/srcery-colors/srcery-vim)                                      |
+| colorscheme | [tender](https://github.com/jacoborus/tender.vim)                                          |
+| colorscheme | [vividchalk](https://github.com/tpope/vim-vividchalk)                                      |
+| completion  | [doge](https://github.com/kkoomen/vim-doge)                                                |
 | completion  | [jedi-vim](https://github.com/davidhalter/jedi-vim)                                        |
-| completion  | [supertab](https://github.com/ervandrew/supertab)                                          |
+| completion  | [supertab](https://github.com/ervandew/supertab)                                           |
 | completion  | [ultisnips](https://github.com/sirver/UltiSnips)                                           |
 | editing     | [YankStack](https://github.com/maxbrunsfeld/vim-yankstack)                                 |
 | editing     | [copy-cut-paste](https://github.com/NLKNguyen/copy-cut-paste.vim)                          |
@@ -53,14 +68,18 @@ git submodule update
 | git         | [gv](https://github.com/junegunn/gv.vim)                                                   |
 | git         | [vim-fugitive](https://github.com/tpope/vim-fugitive)                                      |
 | git         | [vim-gitgutter](https://github.com/airblade/vim-gitgutter)                                 |
+| git         | [agit](https://github.com/cohama/agit.vim)                                                 |
 | interface   | [taboo](https://github.com/gcmt/taboo.vim)                                                 |
+| navigation  | [ctrlp](https://github.com/ctrlpvim/ctrlp.vim)                                             |
 | navigation  | [golden-ratio](https://github.com/roman/golden-ratio)                                      |
 | navigation  | [gutentags](https://github.com/ludovicchabant/vim-gutentags/blob/master/doc/gutentags.txt) |
 | navigation  | [leaderf](https://github.com/Yggdroot/LeaderF)                                             |
 | navigation  | [nerdtree](https://github.com/scrooloose/nerdtree)                                         |
 | navigation  | [quick-scope](https://github.com/unblevable/quick-scope)                                   |
 | navigation  | [tagbar](https://github.com/majutsushi/tagbar/blob/master/doc/tagbar.txt)                  |
+| syntax      | [polyglot](https://github.com/sheerun/vim-polyglot)                                        |
 | syntax      | [syntaxattr](https://github.com/vim-scripts/SyntaxAttr.vim.git)                            |
+| utility     | [undotree](https://github.com/mbbill/undotree)                                             |
 | utility     | [vim-peekaboo](https://github.com/junegunn/vim-peekaboo)                                   |
 | utility     | [vimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |
 
@@ -197,14 +216,12 @@ F:\vim
 * make this file `F:\vim\vimrc` and fill it with the following contents 
 ```vimscript 
 let $HOME=$VIM
-let $PATH=$VIM . '\..\executables\;C;\cygwin64\bin'
+let $PATH=$VIM . '\..\executables\;C:\cygwin64\bin;' . $VIM . `\..\python\`
 ```
-* you can then add as many directories as you would like into the path variable seperated by commas
-* visit the [winPython](http://winpython.github.io/#releases) page for recent releases or [here](https://sourceforge.net/projects/winpython/files/WinPython_3.6/3.6.0.1/WinPython-32bit-3.6.0.1Zero.exe/download) for the exact release that I used
-* install it into the `F:\python` directory and use the following line in your vimrc to specify the location of the python dll
-```vimscript
-set pythonthreedll=$HOME./../python/WinPython-32bit-3.6.0.1Zero/python-3.6.0/python36.dll
-```
+* we are adding the executables directory and the location of the python dll to the vim $PATH
+    * you can then add as many directories as you would like 
+* visit the python 3.6.0 page [here](https://www.python.org/ftp/python/3.6.0/python-3.6.0-embed-win32.zip) and select `Windows x86 embeddable zip file` and download the zip 
+* unzip it into the `F:\python` directory 
 * this will allow you to use plugins that require python such as ultisnips, leaderf 
 * you can then download the exuberant ctags executable and ripgrep executable and place them in the `F:\executables` directory 
 * vim should be able to identify if they exist or not, you can use `:echo executable("rg")` to verify 
@@ -215,9 +232,7 @@ set pythonthreedll=$HOME./../python/WinPython-32bit-3.6.0.1Zero/python-3.6.0/pyt
     - rg.exe 
     - ctags.exe
 - python/
-    - WinPython-32bit-3.6.0.1Zero/
-        - python-3.6.0/
-            - python36.dll
+    - python36.dll
 - vim/ 
     - custom_snippets/
     - vim81/
@@ -239,4 +254,5 @@ set pythonthreedll=$HOME./../python/WinPython-32bit-3.6.0.1Zero/python-3.6.0/pyt
 | [The Power of G](https://vim.fandom.com/wiki/Power_of_g)                                                           |             |
 | [Installing Ctags](https://superuser.com/questions/66367/is-it-possible-to-install-ctags-without-root-privs#66370) |             |
 | [Making Vim Portable](https://stackoverflow.com/questions/4600009/making-vim-portable)                             |             |
-| [Vim Regex](http://www.vimregex.com/)                                                                              |             
+| [Vim Regex](http://www.vimregex.com/)                                                                              |             |
+| [Vim Terminal Colors](http://www.robmeerman.co.uk/unix/256colours)                                                 |             |

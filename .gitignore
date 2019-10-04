@@ -1,0 +1,12 @@
+vim81
+vimrc
+vimwiki
+undodir
+vimfiles/bundle
+.LfCache
+.cache
+vimfiles/pythonx/__pycache__
+tags.*
+_viminfo
+_vimpluginsettings.vim
+custom_snippets
