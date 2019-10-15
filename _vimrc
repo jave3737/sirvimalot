@@ -89,7 +89,7 @@ nnoremap <right> :cnext<CR>
 nnoremap <up> :copen<CR>
 nnoremap zh 20zh
 nnoremap zl 20zl
-nnoremap <space> <C-W>
+nnoremap <leader><leader> <C-W>
 nnoremap <leader>q :help quickref<CR>
 nnoremap <leader>f :LeaderfFile<CR>
 nnoremap <leader>s :LeaderfBufTag<CR>
@@ -126,54 +126,6 @@ endif
 autocmd VimEnter * bad $HOME/_vimrc
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"{{{ COLORSCHEME SETTINGS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd ColorScheme * let g:default_comment_fgd = 
-            \synIDattr(hlID('Comment'),'fg#')
-autocmd ColorScheme * let g:default_comment_fgd = 
-            \synIDattr(synIDtrans(hlID("Comment")),"fg")
-autocmd ColorScheme * let g:default_normal_bgd = 
-            \synIDattr(synIDtrans(hlID("Normal")),"bg")
-augroup shades_of_purple 
-    au!
-    autocmd ColorScheme shades_of_purple let g:shades_of_purple = 1
-    autocmd ColorScheme shades_of_purple let g:lightline = 
-                \{'colorscheme':'shades_of_purple'}
-augroup end 
-augroup noir 
-    au!
-    autocmd ColorScheme 256_noir highlight QuickScopePrimary 
-                \guifg=GreenYellow gui=bold ctermfg=Green
-    autocmd ColorScheme 256_noir highlight QuickScopeSecondary    
-                \guifg=DarkOrange gui=bold ctermfg=Red
-    autocmd ColorScheme 256_noir highlight Number                 
-                \guifg=#bcbcbc ctermfg=7
-    autocmd ColorScheme 256_noir highlight CursorLineNr           
-                \gui=italic guifg=#ff0000 ctermbg=DarkRed ctermfg=LightGray
-    autocmd ColorScheme 256_noir highlight LineNr                 
-                \guifg=#585858 ctermfg=DarkGray
-    autocmd ColorScheme 256_noir highlight SpecialKey             
-                \guifg=#ff0000 guibg=#000000
-    autocmd ColorScheme 256_noir highlight CursorLine             
-                \guibg=#1c1c1c
-    autocmd ColorScheme 256_noir highlight Search                 
-                \guibg=#5f0000
-    autocmd ColorScheme 256_noir highlight ColorColumn 
-                \guibg=#5f0000 ctermbg=DarkRed
-    autocmd ColorScheme 256_noir highlight Comment 
-                \ctermfg=8
-augroup end 
-augroup fahrenheit 
-    au! 
-    autocmd ColorScheme fahrenheit highlight QuickScopePrimary      
-                \guifg=GreenYellow gui=bold ctermfg=Green
-    autocmd ColorScheme fahrenheit highlight QuickScopeSecondary    
-                \guifg=DarkOrange  gui=bold ctermfg=Red
-    autocmd ColorScheme fahrenheit highlight ColorColumn 
-                \guibg=#5f0000 ctermbg=DarkRed
-augroup end 
-"}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{ FUNCTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! FindFiles() 
@@ -197,6 +149,17 @@ function! ToggleComments()
     else 
         execute ("highlight Comment ctermfg=" . normal_bgd)
         execute ("highlight Todo ctermfg=" . normal_bgd)
+    endif
+endfunction 
+function! ToggleGuiComments() 
+    let comment_fgd = synIDattr(synIDtrans(hlID("Comment")),"fg#")
+    let normal_bgd = synIDattr(synIDtrans(hlID("Normal")),"bg#")
+    if comment_fgd == normal_bgd
+        execute ("highlight Comment guifg=" . g:default_gui_comment_fgd)
+        execute ("highlight Todo guifg=" . g:default_gui_comment_fgd)
+    else 
+        execute ("highlight Comment guifg=" . normal_bgd)
+        execute ("highlight Todo guifg=" . normal_bgd)
     endif
 endfunction 
 function! SwapBackslash() 
@@ -245,6 +208,56 @@ let g:netrw_winsize = 25
 let g:netrw_winsize=30
 let g:VCalc_WindowPosition = 'left'
 let g:VCalc_Win_Size = 30
+"}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"{{{ COLORSCHEME SETTINGS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd ColorScheme * let g:default_gui_comment_fgd = 
+            \synIDattr(hlID('Comment'),'fg#')
+autocmd ColorScheme * let g:default_gui_normal_fgd = 
+            \synIDattr(hlID('Normal'),'bg#')
+autocmd ColorScheme * let g:default_comment_fgd = 
+            \synIDattr(synIDtrans(hlID("Comment")),"fg")
+autocmd ColorScheme * let g:default_normal_bgd = 
+            \synIDattr(synIDtrans(hlID("Normal")),"bg")
+augroup shades_of_purple 
+    au!
+    autocmd ColorScheme shades_of_purple let g:shades_of_purple = 1
+    autocmd ColorScheme shades_of_purple let g:lightline = 
+                \{'colorscheme':'shades_of_purple'}
+augroup end 
+augroup noir 
+    au!
+    autocmd ColorScheme 256_noir highlight QuickScopePrimary 
+                \guifg=GreenYellow gui=bold ctermfg=Green
+    autocmd ColorScheme 256_noir highlight QuickScopeSecondary    
+                \guifg=DarkOrange gui=bold ctermfg=Red
+    autocmd ColorScheme 256_noir highlight Number                 
+                \guifg=#bcbcbc ctermfg=7
+    autocmd ColorScheme 256_noir highlight CursorLineNr           
+                \gui=italic guifg=#ff0000 ctermbg=DarkRed ctermfg=LightGray
+    autocmd ColorScheme 256_noir highlight LineNr                 
+                \guifg=#585858 ctermfg=DarkGray
+    autocmd ColorScheme 256_noir highlight SpecialKey             
+                \guifg=#ff0000 guibg=#000000
+    autocmd ColorScheme 256_noir highlight CursorLine             
+                \guibg=#1c1c1c
+    autocmd ColorScheme 256_noir highlight Search                 
+                \guibg=#5f0000
+    autocmd ColorScheme 256_noir highlight ColorColumn 
+                \guibg=#5f0000 ctermbg=DarkRed
+    autocmd ColorScheme 256_noir highlight Comment 
+                \ctermfg=8
+augroup end 
+augroup fahrenheit 
+    au! 
+    autocmd ColorScheme fahrenheit highlight QuickScopePrimary      
+                \guifg=GreenYellow gui=bold ctermfg=Green
+    autocmd ColorScheme fahrenheit highlight QuickScopeSecondary    
+                \guifg=DarkOrange  gui=bold ctermfg=Red
+    autocmd ColorScheme fahrenheit highlight ColorColumn 
+                \guibg=#5f0000 ctermbg=DarkRed
+augroup end 
 colorscheme fahrenheit
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
