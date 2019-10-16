@@ -245,7 +245,7 @@ let $PATH=$VIM . '\..\executables\;C:\cygwin64\bin;' . $VIM . `\..\python\`
     - vimrc
     - .vimrc
 ```
-* next we need to install pip and setuptools 
+* next we need to install pip and setuptools (check [this](https://michlstechblog.info/blog/python-install-python-with-pip-on-windows-by-the-embeddable-zip-file/) link out )
 * download the latest version of get-pip [here](https://bootstrap.pypa.io/get-pip.py) and install it 
    * use the proxy field if necessary 
 ```
