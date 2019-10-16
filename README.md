@@ -245,7 +245,47 @@ let $PATH=$VIM . '\..\executables\;C:\cygwin64\bin;' . $VIM . `\..\python\`
     - vimrc
     - .vimrc
 ```
-
+* next we need to install pip and setuptools 
+* download the latest version of get-pip [here](https://bootstrap.pypa.io/get-pip.py) and install it 
+   * use the proxy field if necessary 
+```
+F:\python\python.exe get-pip.py --proxy="http://proxy:address"  
+```
+* enter the python interpreter `F:\python\python.exe` 
+   * type the following commands to see the specified paths and you should see something like the following 
+```
+>>> import sys
+>>> print(sys.path)
+['F:\\python\\python36.zip', 'F:\\python', 'F:\\python\\\n']
+>>> 
+```
+* add the following paths to the `python36._pth` file 
+```
+.
+.\DLLs
+.\lib
+.\lib\plat-win
+.\lib\site-packages
+```
+* run the set of import commands again and you should see the new paths added in
+```
+>>> import sys
+>>> import pip 
+>>> print(sys.path)
+['F:\\python\\python36.zip', 'F:\\python', 'F:\\python\\DLLs', 'F:\\python\\lib', 'F:\\python\\lib\\plat-win', 'F:\\python\\lib\\site-packages', 'F:\\python\\\n']
+>>>
+```
+* now you can install python packages to the embeddable python for usage with vim
+```
+F:\python>python.exe -m pip --proxy="http://proxy:port" install jedi
+```
+* run the interpreter once again to check if your package was properly installed 
+```
+>>> import sys 
+>>> import pip 
+>>> import jedi 
+>>>
+```
 ## web references
 
 | site                                                                                                               | description |
