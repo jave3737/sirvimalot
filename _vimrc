@@ -39,6 +39,8 @@ set encoding=utf-8
 set foldmethod=marker
 set cursorline
 set colorcolumn=81 
+set pythonthreehome=$HOME/../python3/python-3.6.0/
+set pythonthreedll=$HOME/../python3/python-3.6.0/python36.dll
 if $TERM == "xterm-256color"
     set t_Co=256
 endif
@@ -89,7 +91,7 @@ nnoremap <right> :cnext<CR>
 nnoremap <up> :copen<CR>
 nnoremap zh 20zh
 nnoremap zl 20zl
-nnoremap <leader><leader> <C-W>
+nnoremap <space> <C-W>
 nnoremap <leader>q :help quickref<CR>
 nnoremap <leader>f :LeaderfFile<CR>
 nnoremap <leader>s :LeaderfBufTag<CR>
@@ -97,71 +99,23 @@ nnoremap <leader>d :LeaderfLine<CR>
 nnoremap <leader>a :Leaderf rg<CR>
 nnoremap <leader>r :NERDTreeToggle<CR>
 if executable('rg')
-    " general patterns 
     nnoremap <leader>g :execute(":grep! " . expand('<cword>') . " %" )<CR>
     nnoremap <leader>G :execute(":grep! " . expand('<cWORD>') . " %" )<CR>
-    " systemverilog, verilog, vhdl 
-    nnoremap <leader>gv :execute(":grep! --type=sv --type=verilog --type=vhdl " 
-                \. expand('<cword>') )<CR>
-    " c, c++
-    nnoremap <leader>gc :execute(":grep! --type=c --type=cpp " 
-                \. expand('<cword>') )<CR>
-    " modelsim related files
-    nnoremap <leader>gm :execute(":grep! --glob=*.{do,tcl} " 
-                \. expand('<cword>') )<CR>
-    "python
-    nnoremap <leader>gp :execute(":grep! --type=py "
-                \. expand('<cword>') )<CR>
 elseif executable('ag')
 else 
     nnoremap <leader>g :execute(":grep! -in " . expand('<cword>') . " %" )<CR>
     nnoremap <leader>G :execute(":grep! -in " . expand('<cWORD>') . " %" )<CR>
-    nnoremap <leader>gc :execute(":grep! -rin --include \*.h --include \*.c "
-                \. expand('<cword>') . " .")<CR>
 endif
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{ QUICK ACCESS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd VimEnter * bad $HOME/_vimrc
+autocmd VimEnter * bad $HOME/.vimrc
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{ FUNCTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! FindFiles() 
-    :tabnew
-    :execute (":r !find . -type f -name *.c -or -name *.h -or -name *.cpp -or 
-                \-name *.hpp -or -name *.txt")
-    :w files.txt
-endfunction 
-function! GenerateNewCscope() 
-    :!find . -type f -name *.c -or -name *.h -or -name *.cpp -or -name *.hpp > 
-                \cscope.files
-    :!cscope -b -i cscope.files -f cscope.out
-    :cs add cscope.out
-endfunction 
-function! ToggleComments() 
-    let comment_fgd = synIDattr(synIDtrans(hlID("Comment")),"fg")
-    let normal_bgd = synIDattr(synIDtrans(hlID("Normal")),"bg")
-    if comment_fgd == normal_bgd
-        execute ("highlight Comment ctermfg=" . g:default_comment_fgd)
-        execute ("highlight Todo ctermfg=" . g:default_comment_fgd)
-    else 
-        execute ("highlight Comment ctermfg=" . normal_bgd)
-        execute ("highlight Todo ctermfg=" . normal_bgd)
-    endif
-endfunction 
-function! ToggleGuiComments() 
-    let comment_fgd = synIDattr(synIDtrans(hlID("Comment")),"fg#")
-    let normal_bgd = synIDattr(synIDtrans(hlID("Normal")),"bg#")
-    if comment_fgd == normal_bgd
-        execute ("highlight Comment guifg=" . g:default_gui_comment_fgd)
-        execute ("highlight Todo guifg=" . g:default_gui_comment_fgd)
-    else 
-        execute ("highlight Comment guifg=" . normal_bgd)
-        execute ("highlight Todo guifg=" . normal_bgd)
-    endif
-endfunction 
 function! SwapBackslash() 
     :s/\\/\//g
 endfunction 
@@ -212,43 +166,6 @@ let g:VCalc_Win_Size = 30
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{ COLORSCHEME SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd ColorScheme * let g:default_gui_comment_fgd = 
-            \synIDattr(hlID('Comment'),'fg#')
-autocmd ColorScheme * let g:default_gui_normal_fgd = 
-            \synIDattr(hlID('Normal'),'bg#')
-autocmd ColorScheme * let g:default_comment_fgd = 
-            \synIDattr(synIDtrans(hlID("Comment")),"fg")
-autocmd ColorScheme * let g:default_normal_bgd = 
-            \synIDattr(synIDtrans(hlID("Normal")),"bg")
-augroup shades_of_purple 
-    au!
-    autocmd ColorScheme shades_of_purple let g:shades_of_purple = 1
-    autocmd ColorScheme shades_of_purple let g:lightline = 
-                \{'colorscheme':'shades_of_purple'}
-augroup end 
-augroup noir 
-    au!
-    autocmd ColorScheme 256_noir highlight QuickScopePrimary 
-                \guifg=GreenYellow gui=bold ctermfg=Green
-    autocmd ColorScheme 256_noir highlight QuickScopeSecondary    
-                \guifg=DarkOrange gui=bold ctermfg=Red
-    autocmd ColorScheme 256_noir highlight Number                 
-                \guifg=#bcbcbc ctermfg=7
-    autocmd ColorScheme 256_noir highlight CursorLineNr           
-                \gui=italic guifg=#ff0000 ctermbg=DarkRed ctermfg=LightGray
-    autocmd ColorScheme 256_noir highlight LineNr                 
-                \guifg=#585858 ctermfg=DarkGray
-    autocmd ColorScheme 256_noir highlight SpecialKey             
-                \guifg=#ff0000 guibg=#000000
-    autocmd ColorScheme 256_noir highlight CursorLine             
-                \guibg=#1c1c1c
-    autocmd ColorScheme 256_noir highlight Search                 
-                \guibg=#5f0000
-    autocmd ColorScheme 256_noir highlight ColorColumn 
-                \guibg=#5f0000 ctermbg=DarkRed
-    autocmd ColorScheme 256_noir highlight Comment 
-                \ctermfg=8
-augroup end 
 augroup fahrenheit 
     au! 
     autocmd ColorScheme fahrenheit highlight QuickScopePrimary      
