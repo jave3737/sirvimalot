@@ -8,3 +8,8 @@
 !.gitignore
 !_vimrc 
 !.vimrc 
+!README.md
+
+# ignore these directories 
+**/
+**/
