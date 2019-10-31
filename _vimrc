@@ -39,8 +39,9 @@ set encoding=utf-8
 set foldmethod=marker
 set cursorline
 set colorcolumn=81 
-set pythonthreehome=$HOME/../python3/python-3.6.0/
-set pythonthreedll=$HOME/../python3/python-3.6.0/python36.dll
+set completeopt-=preview
+set pythonthreehome=$HOME/python3/python-3.6.0/
+set pythonthreedll=$HOME/python3/python-3.6.0/python36.dll
 if $TERM == "xterm-256color"
     set t_Co=256
 endif
@@ -51,11 +52,11 @@ if has('cscope')
     endif
 endif 
 if has("gui_running") 
-    set guifont=Dank_Mono:h15:cANSI:qDRAFT,Consolas:h15:cANSI:qDRAFT
+    set guifont=Dank_Mono:h18:cANSI:qDRAFT,Consolas:h15:cANSI:qDRAFT
     set belloff=all
 endif 
 if has("persistent_undo") 
-    set undodir=$HOME.\undodir
+    set undodir=$HOME/undodir
     set undofile
 endif 
 if executable('rg') 
@@ -65,9 +66,9 @@ elseif executable('ag')
 else 
     set grepprg=grep\ 
 endif
-augroup filetypedetect
-    au! BufRead,BufNewFile *.c setfiletype cpp 
-augroup END
+"augroup filetypedetect
+"    au! BufRead,BufNewFile *.c setfiletype cpp 
+"augroup END
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{ KEYMAPPINGS 
@@ -77,34 +78,31 @@ inoremap <C-F> <ESC>gUiw`]a
 inoremap <C-Y> <C-Y>
 nnoremap <C-A> <C-A>
 nnoremap <C-B> <C-B>
-nnoremap <C-E> 5<C-E> 
 nnoremap <C-F> <C-F>
 nnoremap <C-X> <C-X>
+nnoremap <C-E> 5<C-E> 
 nnoremap <C-Y> 5<C-Y>
-nnoremap <C-down> :lclose<CR>
-nnoremap <C-left> :lprevious<CR>
-nnoremap <C-right> :lnext<CR>
-nnoremap <C-up> :lopen<CR>
-nnoremap <down> :cclose<CR>
-nnoremap <left> :cprevious<CR>
-nnoremap <right> :cnext<CR>
-nnoremap <up> :copen<CR>
 nnoremap zh 20zh
 nnoremap zl 20zl
-nnoremap <space> <C-W>
-nnoremap <leader>q :help quickref<CR>
-nnoremap <leader>f :LeaderfFile<CR>
-nnoremap <leader>s :LeaderfBufTag<CR>
-nnoremap <leader>d :LeaderfLine<CR>
-nnoremap <leader>a :Leaderf rg<CR>
-nnoremap <leader>r :NERDTreeToggle<CR>
+nnoremap <C-H> :cprevious<CR>
+nnoremap <C-L> :cnext<CR>
+nnoremap <C-J> :cclose<CR>
+nnoremap <C-K> :copen<CR>
+nmap <space> <C-W>
+nnoremap <leader><leader>f :LeaderfFile<CR>
+nnoremap <leader><leader>d :LeaderfBufTag<CR>
+nnoremap <leader><leader>s :NERDTreeToggle<CR>
+nnoremap <leader><leader>a :set relativenumber!<CR>
 if executable('rg')
-    nnoremap <leader>g :execute(":grep! " . expand('<cword>') . " %" )<CR>
-    nnoremap <leader>G :execute(":grep! " . expand('<cWORD>') . " %" )<CR>
+    nnoremap <leader><leader>g :execute(":grep! " . expand('<cword>'))<CR>
+    nnoremap <leader><leader>v :execute(":grep! -type=c " 
+                \. expand('<cword>'))<CR>
 elseif executable('ag')
 else 
-    nnoremap <leader>g :execute(":grep! -in " . expand('<cword>') . " %" )<CR>
-    nnoremap <leader>G :execute(":grep! -in " . expand('<cWORD>') . " %" )<CR>
+    nnoremap <leader><leader>g :execute(":grep! -rin " . expand('<cword>') 
+                \. " ." )<CR>
+    nnoremap <leader><leader>v :execute(":grep! -rin --include \*.h --include
+                \\*.c " . expand('<cword>') . " ." )<CR>
 endif
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -148,6 +146,10 @@ let g:Lf_RgConfig = [
             \]
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_DefaultMode='NameOnly'
+let g:Lf_ShortcutF=''
+let g:Lf_ShortcutB=''
+let g:Lf_Ctags=$HOME . '/executables/ctags.exe'
+let g:Lf_HideHelp=1
 let g:NERDTreeShowLineNumbers=1
 let g:NERDTreeShowHidden=1
 let g:NERDTreeWinSize=30
@@ -162,6 +164,9 @@ let g:netrw_winsize = 25
 let g:netrw_winsize=30
 let g:VCalc_WindowPosition = 'left'
 let g:VCalc_Win_Size = 30
+let g:git_messenger_git_command=$HOME . '/PortableGit/bin/git.exe'
+let g:gitgutter_git_executable=$HOME . '/PortableGit/bin/git.exe'
+let g:gutentags_ctags_executable=$HOME . '/executables/ctags.exe'
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{ COLORSCHEME SETTINGS

@@ -1,12 +1,10 @@
-vim81
-vimrc
-vimwiki
-undodir
-vimfiles/bundle
-.LfCache
-.cache
-vimfiles/pythonx/__pycache__
-tags.*
-_viminfo
-_vimpluginsettings.vim
-custom_snippets
+# ignore everything 
+* 
+
+# search through subdirectories 
+!*/
+
+# except all of the following 
+!.gitignore
+!_vimrc 
+!.vimrc 
