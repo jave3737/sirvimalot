@@ -83,7 +83,7 @@ git submodule update
 | utility     | [vim-peekaboo](https://github.com/junegunn/vim-peekaboo)                                   |
 | utility     | [vimCalc3](https://github.com/fedorenchik/VimCalc3)                                        |
 
-# cheatsheet
+# vim cheatsheet
 | type                     | related plugin | command                             | variant                         | description                                                                                                                                                   |   
 | ----                     | ----           | ----                                | ----                            | ----                                                                                                                                                          |   
 | aesthetics               |                | :set guifont=\*                     |                                 | change font when using gui vim                                                                                                                                |   
@@ -161,138 +161,7 @@ alias vim='~/bin/vim'
 export TERM=xterm-256color
 ```
 
-## how do I make my own colorscheme or edited one
-* use some of the following handly commands to get the information you need
-| command            | description                                                    |
-| ----               | ----                                                           |
-| :highlight         | list of highlight groups                                       |
-| :help highlight    | for extensive information                                      |
-| :xTermColorTable   | color reference                                                |
-| :call SyntaxAttr() | get information on the syntax group the cursor is currently on |
-
-* use the following snippet to create a colorscheme
-```vimscript
-set background=dark
-highlight clear
-if exists("syntax_on")
-    syntax reset
-endif
-let g:colors_name="colorscheme_base"
-highlight Normal gui=NONE guibg=#000000 guifg=#ffffff
-```
-
 ## how do I install python3.6 packages that might be used by certain vim plugins
 * downloading python should also install pip3.6 
 * `pip3.6 --proxy https://username:password@address.com:port install <python_package>`
 
-## how do I make a keymapping to execute a command using the word under the cursor
-* the following command is an example that forms a grep command and expands just word under the cursor
-```vimscript
-    nnoremap <leader>g :execute(":grep! -rin --include \*.h --include \*.c " .  expand('<cword>') . " .")<CR>
-```
-* the following command is an example that forms a grep command and expands a full WORD under the cursor
-```vimscript
-    nnoremap <leader>gg :execute(":grep! -rin --include \*.h --include \*.c " .  expand('<cWORD>') . " .")<CR>
-```
-
-## how do i set a global variable for a plugin  
-* lots of plugins use global variables that are set in your .vimrc file. they are set like somehting like this
-```vimscript
-let g:plugin_global_variable = 1
-```
-* they can either be a number or a set of strings, you will have to refer to the plugins documentation
-
-## how do i make vim portable on a flashdrive (windows only) 
-* tested with vim version 8.1, python 3.6.0
-* start with an empty flashdrive `F:\`
-* make the following directories 
-```
-F:\executables 
-F:\python
-F:\vim
-```
-* if you have vim installed on your windows machine go to `C:\Program Files (x86)\Vim\vim81` and copy that to `F:\vim`
-* then git clone the sirvimalot repository into the `F:\vim` directory using the process specified earlier in the readme
-* make this file `F:\vim\vimrc` and fill it with the following contents 
-```vimscript 
-let $HOME=$VIM
-let $PATH=$VIM . '\..\executables\;C:\cygwin64\bin;' . $VIM . `\..\python\`
-```
-* we are adding the executables directory and the location of the python dll to the vim $PATH
-    * you can then add as many directories as you would like 
-* visit the python 3.6.0 page [here](https://www.python.org/ftp/python/3.6.0/python-3.6.0-embed-win32.zip) and select `Windows x86 embeddable zip file` and download the zip 
-* unzip it into the `F:\python` directory 
-* this will allow you to use plugins that require python such as ultisnips, leaderf 
-* you can then download the exuberant ctags executable and ripgrep executable and place them in the `F:\executables` directory 
-* vim should be able to identify if they exist or not, you can use `:echo executable("rg")` to verify 
-* this should allow you to use plugins that use external tools such as gutentags or leaderf
-* in the end your flashdrive contents should match below 
-```
-- executables/
-    - rg.exe 
-    - ctags.exe
-- python/
-    - python36.dll
-- vim/ 
-    - custom_snippets/
-    - vim81/
-    - vimfiles/
-    - vimrc_examples/
-    - vimusrs/
-    - _vimrc
-    - _vimpluginsettings
-    - README.md
-    - vimrc
-    - .vimrc
-```
-* next we need to install pip and setuptools (check [this](https://michlstechblog.info/blog/python-install-python-with-pip-on-windows-by-the-embeddable-zip-file/) link out )
-* download the latest version of get-pip [here](https://bootstrap.pypa.io/get-pip.py) and install it 
-   * use the proxy field if necessary 
-```
-F:\python\python.exe get-pip.py --proxy="http://proxy:address"  
-```
-* enter the python interpreter `F:\python\python.exe` 
-   * type the following commands to see the specified paths and you should see something like the following 
-```
->>> import sys
->>> print(sys.path)
-['F:\\python\\python36.zip', 'F:\\python', 'F:\\python\\\n']
->>> 
-```
-* add the following paths to the `python36._pth` file 
-```
-.
-.\DLLs
-.\lib
-.\lib\plat-win
-.\lib\site-packages
-```
-* run the set of import commands again and you should see the new paths added in
-```
->>> import sys
->>> import pip 
->>> print(sys.path)
-['F:\\python\\python36.zip', 'F:\\python', 'F:\\python\\DLLs', 'F:\\python\\lib', 'F:\\python\\lib\\plat-win', 'F:\\python\\lib\\site-packages', 'F:\\python\\\n']
->>>
-```
-* now you can install python packages to the embeddable python for usage with vim
-```
-F:\python>python.exe -m pip --proxy="http://proxy:port" install jedi
-```
-* run the interpreter once again to check if your package was properly installed 
-```
->>> import sys 
->>> import pip 
->>> import jedi 
->>>
-```
-## web references
-
-| site                                                                                                               | description |
-| ----                                                                                                               | ----        |
-| [Making Vim Pretty With Custom Colors](https://andrewradev.com/2011/08/06/making-vim-pretty-with-custom-colors/)   |             |
-| [The Power of G](https://vim.fandom.com/wiki/Power_of_g)                                                           |             |
-| [Installing Ctags](https://superuser.com/questions/66367/is-it-possible-to-install-ctags-without-root-privs#66370) |             |
-| [Making Vim Portable](https://stackoverflow.com/questions/4600009/making-vim-portable)                             |             |
-| [Vim Regex](http://www.vimregex.com/)                                                                              |             |
-| [Vim Terminal Colors](http://www.robmeerman.co.uk/unix/256colours)                                                 |             |
