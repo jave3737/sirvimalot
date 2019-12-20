@@ -72,7 +72,7 @@ if $TERM == "xterm-256color"
     set t_Co=256
 endif
 if has("gui_running")
-    set guifont=Dank_Mono:h12:cANSI:qDRAFT,Consolas:h14:cANSI:qDRAFT
+    set guifont=Dank_Mono:h10:cANSI:qDRAFT,Consolas:h14:cANSI:qDRAFT
     set belloff=all
 endif
 if has("persistent_undo")
@@ -87,14 +87,20 @@ nnoremap <C-F> <C-F>
 nnoremap <C-B> <C-B>
 nnoremap <C-E> 5<C-E> 
 nnoremap <C-Y> 5<C-Y>
-nnoremap zh 20zh
-nnoremap zl 20zl
+nnoremap zh 5zh
+nnoremap zl 5zl
 inoremap <C-E> <C-E>
 inoremap <C-Y> <C-Y>
 nnoremap <C-A> <C-A>
 nnoremap <C-X> <C-X>
 nnoremap <leader>q :help quickref<CR>
 inoremap <C-F> <ESC>gUiw`]a
+nnoremap <C-W>t :tabnew %<CR><C-O>
+nnoremap <leader><leader> :b#<CR>
+nnoremap <C-H> :cp<CR>
+nnoremap <C-L> :cn<CR>
+nnoremap <C-J> :cclose<CR>
+nnoremap <C-K> :copen<CR>
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "FUNCTIONS {{{
