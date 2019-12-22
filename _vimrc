@@ -101,6 +101,13 @@ nnoremap <C-H> :cp<CR>
 nnoremap <C-L> :cn<CR>
 nnoremap <C-J> :cclose<CR>
 nnoremap <C-K> :copen<CR>
+if executable('rg')
+    nnoremap <leader>g :grep <cword><CR>
+elseif executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+else 
+    set grepprg=grep\ 
+endif
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "FUNCTIONS {{{

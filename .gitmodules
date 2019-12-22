@@ -1,0 +1,72 @@
+[submodule "vimfiles/bundle/agit.vim"]
+	path = vimfiles/bundle/agit.vim
+	url = https://github.com/cohama/agit.vim.git
+[submodule "vimfiles/bundle/indentLine"]
+	path = vimfiles/bundle/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
+[submodule "vimfiles/bundle/lightline.vim"]
+	path = vimfiles/bundle/lightline.vim
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule "vimfiles/bundle/tagbar"]
+	path = vimfiles/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "vimfiles/bundle/VimCalc3"]
+	path = vimfiles/bundle/VimCalc3
+	url = https://github.com/fedorenchik/VimCalc3.git
+[submodule "vimfiles/bundle/vim-fugitive"]
+	path = vimfiles/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vimfiles/bundle/vim-peekaboo"]
+	path = vimfiles/bundle/vim-peekaboo
+	url = https://github.com/junegunn/vim-peekaboo.git
+[submodule "vimfiles/bundle/vim-yankstack"]
+	path = vimfiles/bundle/vim-yankstack
+	url = https://github.com/maxbrunsfeld/vim-yankstack.git
+[submodule "vimfiles/bundle/conflict-marker.vim"]
+	path = vimfiles/bundle/conflict-marker.vim
+	url = https://github.com/rhysd/conflict-marker.vim.git
+[submodule "vimfiles/bundle/git-messenger.vim"]
+	path = vimfiles/bundle/git-messenger.vim
+	url = https://github.com/rhysd/git-messenger.vim.git
+[submodule "vimfiles/bundle/nerdtree"]
+	path = vimfiles/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vimfiles/bundle/undotree"]
+	path = vimfiles/bundle/undotree
+	url = https://github.com/mbbill/undotree.git
+[submodule "vimfiles/bundle/vim-easy-align"]
+	path = vimfiles/bundle/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
+[submodule "vimfiles/bundle/vim-gitgutter"]
+	path = vimfiles/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "vimfiles/bundle/vim-polyglot"]
+	path = vimfiles/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "vimfiles/bundle/xterm-color-table.vim"]
+	path = vimfiles/bundle/xterm-color-table.vim
+	url = https://github.com/guns/xterm-color-table.vim.git
+[submodule "vimfiles/bundle/ex-cref"]
+	path = vimfiles/bundle/ex-cref
+	url = https://github.com/exvim/ex-cref.git
+[submodule "vimfiles/bundle/gv.vim"]
+	path = vimfiles/bundle/gv.vim
+	url = https://github.com/junegunn/gv.vim.git
+[submodule "vimfiles/bundle/LeaderF"]
+	path = vimfiles/bundle/LeaderF
+	url = https://github.com/Yggdroot/LeaderF.git
+[submodule "vimfiles/bundle/quick-scope"]
+	path = vimfiles/bundle/quick-scope
+	url = https://github.com/vim-scripts/quick-scope.git
+[submodule "vimfiles/bundle/vim-bargreybars"]
+	path = vimfiles/bundle/vim-bargreybars
+	url = https://github.com/dreadnaut/vim-bargreybars.git
+[submodule "vimfiles/bundle/vim-fahrenheit"]
+	path = vimfiles/bundle/vim-fahrenheit
+	url = https://github.com/fcpg/vim-fahrenheit.git
+[submodule "vimfiles/bundle/vim-gutentags"]
+	path = vimfiles/bundle/vim-gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags.git
+[submodule "vimfiles/bundle/vim-signature"]
+	path = vimfiles/bundle/vim-signature
+	url = https://github.com/kshenoy/vim-signature.git
