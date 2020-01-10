@@ -1,76 +1,78 @@
 "  GLOBAL VARIABLES
 "  ===========================================
-
-"  Airdrop
-"  ----------------------------------
-let g:current_airdrop_repo = '12-yaml-editing'
-let g:airdrop_session      = 'vimtemp\airdrop_session.vim'
-
-"  Modular Microfluidics
-"  ----------------------------------
-let g:modmicro_stm32_ctrl  = 'stm32_ctrl'
-let g:modmicro_python      = 'python_stm32_console'
-
-"  EC544 Final Project 
-"  ----------------------------------
-let g:ec544_voting_session  = 'vimtemp\ec544_session.vim'
-
 " TOOLBAR
 set guioptions=m
 
-            
+" Remap left arrow key and right array key to switch between tabs
+nnoremap <LEFT> :tabprevious<CR>
+nnoremap <RIGHT> :tabnext<CR>
+" Remap keys to switch between tabs
+nnoremap <C-J> <C-W><C-J> 
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+
+" LIGHT LINE
+" Cool custom one
+let g:lightline_themes = [ 'powerline', 'wombat', 'jellybeans', 
+                            \ 'solarized dark', 
+                            \ 'seoul256', 'one', 'landscape']
+let g:lightline = {
+      \ 'colorscheme': g:lightline_themes[5],
+      \ }
+
+let g:lightline = {'active':{'left':[['mode','paste'],['gitbranch','readonly','filename','modified']]},'component_function':{'gitbranch':'fugitive#head'},}
+" QUICK SCOPE 
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" TAGBAR
+" Open tag bar on the left side of screen
+let g:tagbar_left = 1
+
+set colorcolumn=80
 
 " Function to set themes for different sessions
 function! Default_env()
-    :set guifont:Dank_Mono:h14:cANSI:qDRAFT
+    :set guifont:Consolas:h14:cANSI:qDRAFT
     :cd $HOME
-    :colorscheme desert 
+    :colorscheme fahrenheit
+    ":colorscheme oceandeep 
 endfunction
 
-" Set prettyness for Airdrop
-function! Airdrop()
-    :set guifont=Dank_Mono:h14:cANSI:qDRAFT
-    :colorscheme desert 
-    :set textwidth=80
-    :execute 'cd '. $AIRDROP_GIT . '\' . g:current_airdrop_repo
-    :execute 'source ' . $HOME . '\'. g:airdrop_session  
-    :set titlestring=Airdrop
-    :set tabstop=4
-    :set shiftwidth=4
-    :set softtabstop=4
-    :set expandtab
-endfunction
+" CURRENT WORD
+" Underline the word my cursor is over, but don't highlight it
+let g:vim_current_word#highlight_current_word = 0
 
-" Set prettyness for ModMicro
-function! ModMicro()
-    :set guifont=Dank_Mono:h14:cANSI:qDRAFT
-    :colorscheme oceandeep
-    :set textwidth=80
-    :execute 'cd '. $MODMICRO_GIT . '\' . g:modmicro_stm32_ctrl 
-    :set titlestring='ModularMicrofluidics'
-    :set tabstop=4
-    :set shiftwidth=4
-    :set softtabstop=4
-    :set expandtab
-endfunction
+" Loop back around after hitting end of file
+" during a search
+set wrapscan
 
-" Set prettyness for ModMicro
-function! EC544()
-    :set guifont=Dank_Mono:h14:cANSI:qDRAFT
-    :colorscheme fairyfloss 
-    :set textwidth=80
-    :execute 'cd '. $DOCS . '\Grad School\classes\ec544\'
-    :execute 'source ' . $HOME . '\'. g:ec544_voting_session
-    :set titlestring='EC544'
-    :set tabstop=4
-    :set shiftwidth=4
-    :set softtabstop=4
-    :set expandtab
-endfunction
+"setting up relative numbers:w
+set number relativenumber 
+:augroup numbertoggle 
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
 
+" :b _ + <tab> automatically open path vimrc
 
-" Map certain functions to certain keys
-map <F1> :call Airdrop() <CR>
-map <F2> :call ModMicro() <CR>
-map <F3> :call EC544()    <CR>
+"autocmd VimEnter * bad $HOME/_vimrc
+"autocmd VimEnter * bad $HOME/vimusrs/_vimjennifer.vim
+
+"Navigate through a file faster"
+noremap  J           5j
+vnoremap J           5j
+noremap  K           5k
+vnoremap K           5k
+noremap  L           5l
+vnoremap L           5l
+noremap  H           5h
+vnoremap H           5h
+
+"Quickly save and exit insert mode"
+imap     jj         <Esc>:w<CR>
+call Default_env()
 
