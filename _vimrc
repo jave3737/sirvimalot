@@ -72,7 +72,7 @@ if $TERM == "xterm-256color"
     set t_Co=256
 endif
 if has("gui_running")
-    set guifont=Dank_Mono:h10:cANSI:qDRAFT,Consolas:h14:cANSI:qDRAFT
+    set guifont=Dank_Mono:h14:cANSI:qDRAFT,Consolas:h14:cANSI:qDRAFT
     set belloff=all
 endif
 if has("persistent_undo")
@@ -146,4 +146,5 @@ if has("gui_running")
     au GUIEnter * simalt ~x
 endif
 "}}}
+cd $VIM_ROOT
 
