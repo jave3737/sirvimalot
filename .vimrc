@@ -60,8 +60,8 @@ set foldmethod=marker
 set cursorline
 set colorcolumn=81
 set completeopt-=preview
-"set pythonthreehome$HOME/python3/python-3.6.0/
-"set pythonthreedll/$HOME/python3/python-3.6.0/python36.dll
+"set pythonthreehome=$HOME/python3/python-3.6.0/
+"set pythonthreedll=$HOME/python3/python-3.6.0/python36.dll
 if has('cscope')
     set cscopetag cscopeverbose
     if has('quickfix')
@@ -97,21 +97,6 @@ packloadall
 silent! helptags ALL
 if filereadable(expand("$HOME/_vimpluginsettings.vim"))
     source $HOME/_vimpluginsettings.vim
-endif
-"}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"QUICK ACCESS {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd VimEnter * bad $HOME/_vimpluginsettings.vim
-autocmd VimEnter * bad $HOME/.vimrc
-autocmd VimEnter * bad $HOME/_vimrc
-autocmd VimEnter * bad $HOME/README.md
-"}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"SOURCE THE CUSTOM USER FILE {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if filereadable(expand("$HOME/vimusrs/_vimcurrusr.vim"))
-    source $HOME/vimusrs/_vimcurrusr.vim
 endif
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
