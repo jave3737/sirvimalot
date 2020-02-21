@@ -95,8 +95,8 @@ silent! call pathogen#infect()
 filetype plugin indent on
 packloadall
 silent! helptags ALL
-if filereadable(expand("$HOME/_vimpluginsettings.vim"))
-    source $HOME/_vimpluginsettings.vim
+if filereadable(expand("$HOME/my_plugins.vim"))
+    source $HOME/my_plugins.vim
 endif
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
