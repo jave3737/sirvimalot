@@ -1,8 +1,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE WINDOWS BEHAVIOR {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-source $VIMRUNTIME/mswin.vim
-behave mswin 
+"source $VIMRUNTIME/mswin.vim
+"behave mswin 
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "SET COLORSCHEME {{{
@@ -83,6 +83,25 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <C-F> <C-F>
+nnoremap <C-B> <C-B>
+inoremap <C-E> <C-E>
+inoremap <C-Y> <C-Y>
+nnoremap <C-A> <C-A>
+nnoremap <C-X> <C-X>
+nnoremap <leader><leader> :b#<CR>
+nnoremap <C-H> :cp<CR>
+nnoremap <C-L> :cn<CR>
+nnoremap <C-J> :cclose<CR>
+nnoremap <C-K> :copen<CR>
+nnoremap <C-E> 5<C-E> 
+nnoremap <C-Y> 5<C-Y>
+nnoremap <C-W>. 10<C-W>+
+nnoremap <C-w>, 10<C-W>-
+nnoremap <C-W>< 10<C-W><
+nnoremap <C-W>> 10<C-W>>
+nnoremap <C-W>; :tabprevious<CR>
+nnoremap <C-W>' :tabnext<CR>
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "FUNCTIONS {{{
