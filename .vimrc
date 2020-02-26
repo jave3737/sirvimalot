@@ -112,13 +112,28 @@ nnoremap <C-W>' :tabnext<CR>
 "ENABLE PLUGINS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged/')
-Plug 'Yggdroot/indentLine'
+Plug 'NLKNguyen/copy-cut-paste.vim'
 Plug 'Yggdroot/LeaderF'
-Plug 'guns/xterm-color-table.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter' 
+Plug 'cohama/agit.vim'
 Plug 'fcpg/vim-fahrenheit'
-Plug 'junegunn/vim-easy-align'
+Plug 'fcpg/vim-fahrenheit'
+Plug 'fedorenchik/VimCalc3'
+Plug 'gcmt/taboo.vim'
+Plug 'guns/xterm-color-table.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'junegunn/gv.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/fzf.vim'
+Plug 'mbbill/undotree'
+Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive'
+Plug 'unblevable/quick-scope'
 call plug#end()
+source ~/.fzf/plugin/fzf.vim
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "MAXIMIZE THE WINDOW {{{
