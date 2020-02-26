@@ -96,6 +96,7 @@ nnoremap <C-J> :cclose<CR>
 nnoremap <C-K> :copen<CR>
 nnoremap <C-E> 5<C-E> 
 nnoremap <C-Y> 5<C-Y>
+map <space> <C-W>
 nnoremap <C-W>. 10<C-W>+
 nnoremap <C-w>, 10<C-W>-
 nnoremap <C-W>< 10<C-W><
@@ -110,13 +111,14 @@ nnoremap <C-W>' :tabnext<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE PLUGINS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-silent! call pathogen#infect()
-filetype plugin indent on
-packloadall
-silent! helptags ALL
-if filereadable(expand("$HOME/my_plugins.vim"))
-    source $HOME/my_plugins.vim
-endif
+call plug#begin('~/.vim/plugged/')
+Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/LeaderF'
+Plug 'guns/xterm-color-table.vim'
+Plug 'fcpg/vim-fahrenheit'
+Plug 'junegunn/vim-easy-align'
+Plug 'itchyny/lightline.vim'
+call plug#end()
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "MAXIMIZE THE WINDOW {{{
