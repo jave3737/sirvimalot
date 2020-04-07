@@ -111,10 +111,12 @@ nnoremap <C-W>' :tabnext<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "CUSTOM {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let b:thisdir=expand("%:p:h")
-let b:vim=b:thisdir."/.custom.vim"
-if filereadable(b:vim)
-    execute "source ".b:vim
+silent! call pathogen#infect()
+filetype plugin indent on
+packloadall
+silent! helptags ALL
+if filereadable(expand("$HOME/.custom.vim"))
+    source $HOME/.custom.vim
 endif
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
