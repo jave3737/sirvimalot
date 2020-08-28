@@ -60,8 +60,8 @@ set foldmethod=marker
 set cursorline
 set colorcolumn=81
 set completeopt-=preview
-set pythonthreehome=$HOME/python3/python-3.6.0/
-set pythonthreedll=$HOME/python3/python-3.6.0/python36.dll
+set pythonthreehome=$HOME/python38/python-3.8.0/
+set pythonthreedll=$HOME/python38/python-3.8.0/python38.dll
 if has('cscope')
     set cscopetag cscopeverbose
     if has('quickfix')
@@ -85,10 +85,10 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-F> <C-F>
 nnoremap <C-B> <C-B>
-nnoremap <C-E> 5<C-E> 
-nnoremap <C-Y> 5<C-Y>
-nnoremap zh 5zh
-nnoremap zl 5zl
+nnoremap <C-E> 15<C-E> 
+nnoremap <C-Y> 15<C-Y>
+nnoremap H 15zh
+nnoremap L 15zl
 inoremap <C-E> <C-E>
 inoremap <C-Y> <C-Y>
 nnoremap <C-A> <C-A>
@@ -127,10 +127,10 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "QUICK ACCESS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd VimEnter * bad $HOME/_vimpluginsettings.vim
-autocmd VimEnter * bad $HOME/.vimrc
-autocmd VimEnter * bad $HOME/_vimrc
-autocmd VimEnter * bad $HOME/README.md
+"autocmd VimEnter * bad $HOME/_vimpluginsettings.vim
+"autocmd VimEnter * bad $HOME/.vimrc
+"autocmd VimEnter * bad $HOME/_vimrc
+"autocmd VimEnter * bad $HOME/README.md
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "SOURCE THE CUSTOM USER FILE {{{
