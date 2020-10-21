@@ -66,7 +66,7 @@ let g:tagbar_ctags_bin=$HOME . '/executables/ctags.exe'
 let g:peekaboo_window='vert bo 100new'
 let g:Lf_WorkingDirectoryMode='Ac'
 let g:fugitive_gitlab_domains = ['https://gitlab.draper.com']
-let g:gitlab_api_keys = {'https://gitlab.draper.com':'vCxa7BayZKsUtqYxbjKA'}
+let g:gitlab_api_keys = {'https://gitlab.draper.com':''}
 let g:VCalc_Win_Size = 30
 let g:VCalc_WindowPosition = 'left'
 let g:notes_suffix = '.txt'
@@ -120,39 +120,34 @@ let g:which_key_map.v = { 'name' : 'vim settings'}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "PLUGIN KEYMAPPINGS {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" retain some normal vim settings
 inoremap <C-E> <C-E>
 inoremap <C-Y> <C-Y>
-map <space> <C-W>
-nmap <leader>0 <Plug>BuffetSwitch(10)
-nmap <leader>1 <Plug>BuffetSwitch(1)
-nmap <leader>2 <Plug>BuffetSwitch(2)
-nmap <leader>3 <Plug>BuffetSwitch(3)
-nmap <leader>4 <Plug>BuffetSwitch(4)
-nmap <leader>5 <Plug>BuffetSwitch(5)
-nmap <leader>6 <Plug>BuffetSwitch(6)
-nmap <leader>7 <Plug>BuffetSwitch(7)
-nmap <leader>8 <Plug>BuffetSwitch(8)
-nmap <leader>9 <Plug>BuffetSwitch(9)
-nmap <leader>sf <Plug>(FerretAck)
-nmap <leader>sd <Plug>(FerretAckWord)
 nnoremap <C-A> <C-A>
 nnoremap <C-B> <C-B>
 nnoremap <C-E> 15<C-E> 
+nnoremap <C-Y> 15<C-Y>
 nnoremap <C-F> <C-F>
+nnoremap <C-B> <C-B>
+nnoremap <C-X> <C-X>
+nnoremap H 15zh
+nnoremap L 15zl
+" faster navigation in the quickfix window
 nnoremap <C-H> :cp<CR>
 nnoremap <C-J> :cclose<CR>
 nnoremap <C-K> :copen<CR>
 nnoremap <C-L> :cn<CR>
+" move around tabs faster
 nnoremap <C-W>' :tabnext<CR>
 nnoremap <C-W>; :tabprevious<CR>
 nnoremap <C-W>t :tabnew % <CR> <C-O>
 nnoremap <C-W>t :tabnew %<CR><C-O>
-nnoremap <C-X> <C-X>
-nnoremap <C-Y> 15<C-Y>
+" move between buffers quickly
 nnoremap <S-Tab> :bp<cr>
 nnoremap <Tab> :bn<cr>
 nnoremap <leader><S-Tab> :Bw!<cr>
 nnoremap <leader><Tab> :Bw<cr>
+" leader settings
 nnoremap <leader>fd :LeaderfLine<CR>
 nnoremap <leader>ff :LeaderfFile<CR>
 nnoremap <leader>fs :LeaderfMru<cr>
@@ -164,11 +159,11 @@ nnoremap <leader>vf :e $VIM\_vimrc<cr>
 nnoremap <leader>vd :e $VIM\_vimpluginsettings.vim<cr>
 nnoremap <leader>wf :set number!<cr>
 nnoremap <leader>wd :set ignorecase!<cr>
+nmap <leader>sf <Plug>(FerretAck)
+nmap <leader>sd <Plug>(FerretAckWord)
+" which key settings which creates the menu when hitting the leader key
 nnoremap <silent> <leader> :WhichKey '\'<CR>
 vnoremap <silent> <leader> :WhichKey '\'<CR>
-nnoremap H 15zh
-nnoremap L 15zl
-"nnoremap <leader>n :let @" = expand("%:t")<CR>
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "COLORSCHEME SETTINGS{{{
