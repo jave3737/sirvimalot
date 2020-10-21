@@ -1,5 +1,7 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"PLUGINS{{{
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source $VIM\fzf\plugin\fzf.vim
-"{{{
 call plug#begin('~/.vim/plugged')
 Plug 'cocopon/iceberg.vim'
 Plug 'camspiers/lens.vim'
@@ -33,14 +35,24 @@ Plug 'unblevable/quick-scope'
 Plug 'wincent/ferret'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+Plug 'liuchengxu/vim-which-key' 
+Plug 'AndrewRadev/bufferize.vim'
+Plug 'AndrewRadev/linediff.vim'
+Plug 'kshenoy/vim-signature'
 call plug#end()
 "}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"PLUGIN SETTINGS{{{
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:no_csv_maps=1
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 let g:Lf_WindowHeight = 0.2
 let g:Lf_UseCache = 0
 let g:Lf_UseVersionControlTool=0
 let g:Lf_DefaultMode='NameOnly'
 let g:Lf_HideHelp=1
+let g:Lf_ShortcutF=''
+let g:Lf_ShortcutB=''
 let g:NERDTreeShowLineNumbers=1
 let g:NERDTreeShowHidden=1
 let g:NERDTreeWinSize=30
@@ -84,23 +96,34 @@ let g:lightline = {'active':{
 let g:lightline = {
             \ 'enable': { 'tabline': 0},
             \ }
-nnoremap <silent> <Up> :call animate#window_delta_height(10)<CR>
-nnoremap <silent> <Down> :call animate#window_delta_height(-10)<CR>
-nnoremap <silent> <Left> :call animate#window_delta_width(10)<CR>
-nnoremap <silent> <Right> :call animate#window_delta_width(-10)<CR>
-set diffexpr=
+let g:FerretMap = 0
+call which_key#register('\', "g:which_key_map")
+let g:which_key_use_floating_win = 1
+let g:which_key_map = {}
+let g:which_key_map.0 = 'which_key_ignore'
+let g:which_key_map.1 = 'which_key_ignore'
+let g:which_key_map.2 = 'which_key_ignore'
+let g:which_key_map.3 = 'which_key_ignore'
+let g:which_key_map.4 = 'which_key_ignore'
+let g:which_key_map.5 = 'which_key_ignore'
+let g:which_key_map.6 = 'which_key_ignore'
+let g:which_key_map.7 = 'which_key_ignore'
+let g:which_key_map.8 = 'which_key_ignore'
+let g:which_key_map.9 = 'which_key_ignore'
+let g:which_key_use_floating_win = 1
+let g:which_key_map.f = { 'name' : 'leaderf'}
+let g:which_key_map.d = { 'name' : 'fzf'}
+let g:which_key_map.w = { 'name' : 'window settings'}
+let g:which_key_map.s = { 'name' : 'ferret'}
+let g:which_key_map.v = { 'name' : 'vim settings'}
+"}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"PLUGIN KEYMAPPINGS {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+inoremap <C-E> <C-E>
+inoremap <C-Y> <C-Y>
 map <space> <C-W>
-nnoremap <leader>f :LeaderfFile<CR>
-nnoremap <leader>d :LeaderfLine<CR>
-nnoremap <leader>s :LeaderfMru<cr>
-nnoremap <C-W>t :tabnew % <CR> <C-O>
-nnoremap <C-W>; :tabprevious<CR>
-nnoremap <C-W>' :tabnext<CR>
-nnoremap <leader>n :let @" = expand("%:t")<CR>
-nnoremap <Tab> :bn<cr>
-nnoremap <S-Tab> :bp<cr>
-nnoremap <leader><Tab> :Bw<cr>
-nnoremap <leader><S-Tab> :Bw!<cr>
+nmap <leader>0 <Plug>BuffetSwitch(10)
 nmap <leader>1 <Plug>BuffetSwitch(1)
 nmap <leader>2 <Plug>BuffetSwitch(2)
 nmap <leader>3 <Plug>BuffetSwitch(3)
@@ -110,7 +133,46 @@ nmap <leader>6 <Plug>BuffetSwitch(6)
 nmap <leader>7 <Plug>BuffetSwitch(7)
 nmap <leader>8 <Plug>BuffetSwitch(8)
 nmap <leader>9 <Plug>BuffetSwitch(9)
-nmap <leader>0 <Plug>BuffetSwitch(10)
+nmap <leader>sf <Plug>(FerretAck)
+nmap <leader>sd <Plug>(FerretAckWord)
+nnoremap <C-A> <C-A>
+nnoremap <C-B> <C-B>
+nnoremap <C-E> 15<C-E> 
+nnoremap <C-F> <C-F>
+nnoremap <C-H> :cp<CR>
+nnoremap <C-J> :cclose<CR>
+nnoremap <C-K> :copen<CR>
+nnoremap <C-L> :cn<CR>
+nnoremap <C-W>' :tabnext<CR>
+nnoremap <C-W>; :tabprevious<CR>
+nnoremap <C-W>t :tabnew % <CR> <C-O>
+nnoremap <C-W>t :tabnew %<CR><C-O>
+nnoremap <C-X> <C-X>
+nnoremap <C-Y> 15<C-Y>
+nnoremap <S-Tab> :bp<cr>
+nnoremap <Tab> :bn<cr>
+nnoremap <leader><S-Tab> :Bw!<cr>
+nnoremap <leader><Tab> :Bw<cr>
+nnoremap <leader>fd :LeaderfLine<CR>
+nnoremap <leader>ff :LeaderfFile<CR>
+nnoremap <leader>fs :LeaderfMru<cr>
+nnoremap <leader>df :Files<cr>
+nnoremap <leader>dd :BLines<cr>
+nnoremap <leader>ds :Commits<cr>
+nnoremap <leader>da :Marks<cr>
+nnoremap <leader>vf :e $VIM\_vimrc<cr>
+nnoremap <leader>vd :e $VIM\_vimpluginsettings.vim<cr>
+nnoremap <leader>wf :set number!<cr>
+nnoremap <leader>wd :set ignorecase!<cr>
+nnoremap <silent> <leader> :WhichKey '\'<CR>
+vnoremap <silent> <leader> :WhichKey '\'<CR>
+nnoremap H 15zh
+nnoremap L 15zl
+"nnoremap <leader>n :let @" = expand("%:t")<CR>
+"}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"COLORSCHEME SETTINGS{{{
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! g:BuffetSetCustomColors()
   hi! BuffetCurrentBuffer cterm=NONE ctermbg=5 ctermfg=8 guibg=#5faf87 guifg=#000000
   hi! BuffetTab cterm=NONE ctermbg=5 ctermfg=8 guibg=#ff8787 guifg=#000000
@@ -123,3 +185,4 @@ augroup fahrenheit_custom
     autocmd ColorScheme fahrenheit highlight ColorColumn guibg=#5f0000 ctermbg=DarkRed
 augroup end
 colorscheme fahrenheit
+"}}}

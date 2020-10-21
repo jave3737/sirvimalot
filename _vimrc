@@ -28,6 +28,7 @@ syntax on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "STANDARD TERMINAL OPTIONS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set diffexpr=
 set nocompatible
 set wildmenu
 set guioptions=
@@ -53,7 +54,7 @@ set sessionoptions+=tabpages,globals
 set updatetime=100
 set noerrorbells
 set novisualbell
-set number
+set nonumber
 set tags=./tags,tags;$HOME
 set encoding=utf-8
 set foldmethod=marker 
@@ -72,7 +73,7 @@ if $TERM == "xterm-256color"
     set t_Co=256
 endif
 if has("gui_running")
-    set guifont=Dank_Mono:h14:cANSI:qDRAFT,Consolas:h14:cANSI:qDRAFT
+    set guifont=Dank_Mono:h14:cANSI:qDRAFT,Consolas:h18:cANSI:qDRAFT
     set belloff=all
 endif
 if has("persistent_undo")
@@ -81,37 +82,11 @@ if has("persistent_undo")
 endif
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"KEYMAPPINGS {{{
+"ESSENTIAL KEYMAPPINGS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <C-F> <C-F>
-nnoremap <C-B> <C-B>
-nnoremap <C-E> 15<C-E> 
-nnoremap <C-Y> 15<C-Y>
-nnoremap H 15zh
-nnoremap L 15zl
-inoremap <C-E> <C-E>
-inoremap <C-Y> <C-Y>
-nnoremap <C-A> <C-A>
-nnoremap <C-X> <C-X>
+map <space> <C-W>
 nnoremap <leader>q :help quickref<CR>
-inoremap <C-F> <ESC>gUiw`]a
-nnoremap <C-W>t :tabnew %<CR><C-O>
 nnoremap <leader><leader> :b#<CR>
-nnoremap <C-H> :cp<CR>
-nnoremap <C-L> :cn<CR>
-nnoremap <C-J> :cclose<CR>
-nnoremap <C-K> :copen<CR>
-if executable('rg')
-    nnoremap <leader>g :grep <cword><CR>
-elseif executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-else 
-    set grepprg=grep\ 
-endif
-"}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"FUNCTIONS {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE PLUGINS {{{
@@ -122,21 +97,6 @@ packloadall
 silent! helptags ALL
 if filereadable(expand("$HOME/_vimpluginsettings.vim"))
     source $HOME/_vimpluginsettings.vim
-endif
-"}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"QUICK ACCESS {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"autocmd VimEnter * bad $HOME/_vimpluginsettings.vim
-"autocmd VimEnter * bad $HOME/.vimrc
-"autocmd VimEnter * bad $HOME/_vimrc
-"autocmd VimEnter * bad $HOME/README.md
-"}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"SOURCE THE CUSTOM USER FILE {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if filereadable(expand("$HOME/vimusrs/_vimcurrusr.vim"))
-    source $HOME/vimusrs/_vimcurrusr.vim
 endif
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
