@@ -1,0 +1,12 @@
+# ignore everything 
+* 
+
+# search through subdirectories 
+!*/
+
+# except all of the following 
+!.gitignore
+!_vimrc 
+!.vimrc 
+!README.md
+!vim_custom_ex/**
