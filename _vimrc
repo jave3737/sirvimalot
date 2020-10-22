@@ -85,8 +85,13 @@ endif
 "ESSENTIAL KEYMAPPINGS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <space> <C-W>
-nnoremap <leader>q :help quickref<CR>
+nnoremap <leader>qq :help quickref<CR>
 nnoremap <leader><leader> :b#<CR>
+inoremap <C-BS> <C-W>
+inoremap <C-Del> <c-o>de
+inoremap <C-S> <c-o>:w<cr>
+inoremap <C-H> <C-left>
+inoremap <C-L> <C-right>
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE PLUGINS {{{
@@ -107,3 +112,4 @@ if has("gui_running")
 endif
 "}}}
 cd $VIM_ROOT
+
