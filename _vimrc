@@ -87,6 +87,7 @@ endif
 map <space> <C-W>
 nnoremap <leader>qq :help quickref<CR>
 nnoremap <leader><leader> :b#<CR>
+nnoremap <C-S> :w<cr>
 inoremap <C-BS> <C-W>
 inoremap <C-Del> <c-o>de
 inoremap <C-S> <c-o>:w<cr>
