@@ -1,8 +1,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE WINDOWS BEHAVIOR {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-source $VIMRUNTIME/mswin.vim
-behave mswin 
+"source $VIMRUNTIME/mswin.vim
+"behave mswin 
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "SET COLORSCHEME {{{
@@ -87,12 +87,27 @@ endif
 map <space> <C-W>
 nnoremap <leader>qq :help quickref<CR>
 nnoremap <leader><leader> :b#<CR>
+" faster navigation in the quickfix window
+nnoremap <C-H> :cp<CR>
+nnoremap <C-J> :cclose<CR>
+nnoremap <C-K> :bo copen<CR>
+nnoremap <C-L> :cn<CR>
+"windows behavior
 nnoremap <C-S> :w<cr>
 inoremap <C-BS> <C-W>
 inoremap <C-Del> <c-o>de
 inoremap <C-S> <c-o>:w<cr>
 inoremap <C-H> <C-left>
 inoremap <C-L> <C-right>
+" move around tabs faster
+nnoremap <C-W>' :tabnext<CR>
+nnoremap <C-W>; :tabprevious<CR>
+nnoremap <C-W>t :tabnew %<CR><C-O>
+"shift the screen
+nnoremap H 15zh
+nnoremap L 15zl
+nnoremap <C-E> 5<C-E> 
+nnoremap <C-Y> 5<C-Y>
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE PLUGINS {{{
