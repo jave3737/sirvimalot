@@ -106,13 +106,87 @@ nnoremap <C-Y> 5<C-Y>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE PLUGINS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-silent! call pathogen#infect()
 filetype plugin indent on
 packloadall
 silent! helptags ALL
+call plug#begin('~/.vim/plugged')
+Plug 'Yggdroot/LeaderF'
+Plug 'airblade/vim-gitgutter'
+Plug 'cocopon/iceberg.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/gv.vim'
+Plug 'markonm/traces.vim'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'unblevable/quick-scope'
+Plug 'wincent/ferret'
+Plug 'liuchengxu/vim-which-key' 
+call plug#end()
+let g:FerretMap = 0
+call which_key#register('\', "g:which_key_map")
+let g:which_key_use_floating_win = 1
+let g:which_key_map = {}
+let g:which_key_map.0 = 'which_key_ignore'
+let g:which_key_map.1 = 'which_key_ignore'
+let g:which_key_map.2 = 'which_key_ignore'
+let g:which_key_map.3 = 'which_key_ignore'
+let g:which_key_map.4 = 'which_key_ignore'
+let g:which_key_map.5 = 'which_key_ignore'
+let g:which_key_map.6 = 'which_key_ignore'
+let g:which_key_map.7 = 'which_key_ignore'
+let g:which_key_map.8 = 'which_key_ignore'
+let g:which_key_map.9 = 'which_key_ignore'
+let g:which_key_use_floating_win = 1
+let g:which_key_map.f = { 'name' : 'leaderf'}
+let g:which_key_map.w = { 'name' : 'window settings'}
+let g:which_key_map.s = { 'name' : 'ferret'}
+let g:which_key_map.v = { 'name' : 'vim settings'}
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+let g:Lf_WindowHeight = 0.2
+let g:Lf_UseCache = 0
+let g:Lf_UseVersionControlTool=0
+let g:Lf_DefaultMode='NameOnly'
+let g:Lf_HideHelp=1
+let g:Lf_ShortcutF=''
+let g:Lf_ShortcutB=''
+let g:Lf_WorkingDirectoryMode='Ac'
+let g:Lf_RootMarkers = ['.git','.root']
+let g:Lf_ShowDevIcons=0
+let g:NERDTreeShowLineNumbers=1
+let g:NERDTreeShowHidden=1
+let g:NERDTreeWinSize=30
+let g:NERDTreeMinimalUI=1
+nnoremap <leader>fd :LeaderfLine<CR>
+nnoremap <leader>ff :LeaderfFile<CR>
+nnoremap <leader>fs :LeaderfMru<cr>
+nnoremap <leader>wf :set number!<cr>
+nnoremap <leader>wd :set ignorecase!<cr>
+nmap <leader>sf <Plug>(FerretAck)
+nmap <leader>sd <Plug>(FerretAckWord)
+nnoremap <leader>vf :e $VIM\_vimrc<cr>
+nnoremap <leader>vd :e $VIM\_vimpluginsettings.vim<cr>
+" which key settings which creates the menu when hitting the leader key
+nnoremap <silent> <leader> :WhichKey '\'<CR>
+vnoremap <silent> <leader> :WhichKey '\'<CR>
+"}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"ENABLE ADDITIONAL PLUGINS{{{
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if filereadable(expand("$HOME/_vimpluginsettings.vim"))
     source $HOME/_vimpluginsettings.vim
 endif
+"}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"CONFIGURE COLORSCHEME{{{
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" colorscheme settings
+augroup iceberg_custom
+    au!
+    autocmd ColorScheme iceberg highlight QuickScopePrimary guifg=GreenYellow gui=bold ctermfg=Green
+    autocmd ColorScheme iceberg highlight QuickScopeSecondary guifg=DarkOrange gui=bold ctermfg=Red
+    autocmd ColorScheme iceberg highlight ColorColumn guibg=#5f0000 ctermbg=DarkRed
+augroup end
+colorscheme iceberg
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "MAXIMIZE THE WINDOW {{{
