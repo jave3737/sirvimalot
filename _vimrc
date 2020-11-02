@@ -76,12 +76,13 @@ if has("persistent_undo")
 endif
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ENABLE PLUGINS {{{
+"INSTALL PLUGINS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on
 packloadall
 silent! helptags ALL
 call plug#begin('~/.vim/plugged')
+Plug 'junegunn/goyo.vim'
 Plug 'AndrewRadev/bufferize.vim'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'Yggdroot/LeaderF'
@@ -116,7 +117,12 @@ Plug 'unblevable/quick-scope'
 Plug 'wincent/ferret'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
+"}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"CONFIGURE PLUGINS {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:FerretMap = 0
 call which_key#register('\', "g:which_key_map")
 let g:which_key_use_floating_win = 1
@@ -138,6 +144,9 @@ let g:which_key_map.w = { 'name' : 'window settings'}
 let g:which_key_map.s = { 'name' : 'ferret'}
 let g:which_key_map.v = { 'name' : 'vim settings'}
 let g:which_key_map.n = { 'name' : 'nerdtree'}
+let g:which_key_map.g = { 'name' : 'git'}
+let g:which_key_map.q = { 'name' : 'help'}
+let g:which_key_map.r = { 'name' : 'notes'}
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 let g:Lf_WindowHeight = 0.2
 let g:Lf_UseCache = 0
@@ -178,88 +187,69 @@ let g:lightline = {
             \ }
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ESSENTIAL KEYMAPPINGS {{{
+"KEYMAPPINGS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <space> <C-W>
-nnoremap <leader>qq :help quickref<CR>
-nnoremap <leader><leader> :b#<CR>
-" faster navigation in the quickfix window
 nnoremap <C-H> :cp<CR>
 nnoremap <C-J> :cclose<CR>
 nnoremap <C-K> :bo copen<CR>
 nnoremap <C-L> :cn<CR>
-"windows behavior
 nnoremap <C-S> :w<cr>
 inoremap <C-BS> <C-W>
 inoremap <C-Del> <c-o>de
 inoremap <C-S> <c-o>:w<cr>
 inoremap <C-H> <C-left>
 inoremap <C-L> <C-right>
-" move around tabs faster
+map <space> <C-W>
 nnoremap <C-W>' :tabnext<CR>
 nnoremap <C-W>; :tabprevious<CR>
 nnoremap <C-W>t :tabnew %<CR><C-O>
-"shift the screen
 nnoremap H 15zh
 nnoremap L 15zl
 nnoremap <C-E> 5<C-E> 
 nnoremap <C-Y> 5<C-Y>
-" move between buffers quickly
 nnoremap <S-Tab> :bp<cr>
 nnoremap <Tab> :bn<cr>
 nnoremap <leader><S-Tab> :Bw!<cr>
 nnoremap <leader><Tab> :Bw<cr>
-" git gutter 
+nnoremap <S-Tab> :bp<cr>
+nnoremap <Tab> :bn<cr>
+nnoremap <leader><S-Tab> :Bw!<cr>
+nnoremap <leader><Tab> :Bw<cr>
 nmap [c <Plug>(GitGutterPrevHunk)
 nmap ]c <Plug>(GitGutterNextHunk)
-" leader settings
-nnoremap <leader>df :Files<cr>
-nnoremap <leader>dd :BLines<cr>
-nnoremap <leader>ds :Commits<cr>
-nnoremap <leader>da :Marks<cr>
-nnoremap <leader>gf :Gfetch<cr>
-nnoremap <leader>gd :Gpull<cr>
-nnoremap <leader>gs :MerginalToggle<cr>
-nnoremap <leader>ga <Plug>(git-messenger)
-nnoremap <leader>gc :Agit<cr>
-nnoremap <leader>gv :GV<cr>
-nmap <leader>gr <Plug>(GitGutterPreviewHunk)
+nnoremap <silent> <leader> :WhichKey '\'<CR>
+vnoremap <silent> <leader> :WhichKey '\'<CR>
 nmap <leader>ge <Plug>(GitGutterStageHunk)
+nmap <leader>ge <Plug>(GitGutterStageHunk)
+nmap <leader>gr <Plug>(GitGutterPreviewHunk)
+nmap <leader>gr <Plug>(GitGutterPreviewHunk)
 nmap <leader>gw <Plug>(GitGutterUndoHunk)
+nmap <leader>gw <Plug>(GitGutterUndoHunk)
+nmap <leader>sd <Plug>(FerretAckWord)
+nmap <leader>sf <Plug>(FerretAck)
+nnoremap <leader><leader> :b#<CR>
+nnoremap <leader>da :Marks<cr>
+nnoremap <leader>dd :BLines<cr>
+nnoremap <leader>df :Files<cr>
+nnoremap <leader>ds :Commits<cr>
 nnoremap <leader>fd :LeaderfLine<CR>
 nnoremap <leader>ff :LeaderfFile<CR>
 nnoremap <leader>fs :LeaderfMru<cr>
-nnoremap <leader>wf :set number!<cr>
-nnoremap <leader>wd :set ignorecase!<cr>
-nmap <leader>sf <Plug>(FerretAck)
-nmap <leader>sd <Plug>(FerretAckWord)
-nnoremap <leader>vf :e $VIM\_vimrc<cr>
-nnoremap <leader>vd :e $VIM\_vimpluginsettings.vim<cr>
-nnoremap <leader>nf :NERDTreeToggle<cr>
-" which key settings which creates the menu when hitting the leader key
-nnoremap <silent> <leader> :WhichKey '\'<CR>
-vnoremap <silent> <leader> :WhichKey '\'<CR>
-nnoremap <S-Tab> :bp<cr>
-nnoremap <Tab> :bn<cr>
-nnoremap <leader><S-Tab> :Bw!<cr>
-nnoremap <leader><Tab> :Bw<cr>
-" git gutter 
-nmap [c <Plug>(GitGutterPrevHunk)
-nmap ]c <Plug>(GitGutterNextHunk)
-" leader settings
-nnoremap <leader>df :Files<cr>
-nnoremap <leader>dd :BLines<cr>
-nnoremap <leader>ds :Commits<cr>
-nnoremap <leader>da :Marks<cr>
-nnoremap <leader>gf :Gfetch<cr>
-nnoremap <leader>gd :Gpull<cr>
-nnoremap <leader>gs :MerginalToggle<cr>
 nnoremap <leader>ga <Plug>(git-messenger)
 nnoremap <leader>gc :Agit<cr>
+nnoremap <leader>gd :Gpull<cr>
+nnoremap <leader>gf :Gfetch<cr>
+nnoremap <leader>gs :MerginalToggle<cr>
 nnoremap <leader>gv :GV<cr>
-nmap <leader>gr <Plug>(GitGutterPreviewHunk)
-nmap <leader>ge <Plug>(GitGutterStageHunk)
-nmap <leader>gw <Plug>(GitGutterUndoHunk)
+nnoremap <leader>nf :NERDTreeToggle<cr>
+nnoremap <leader>qq :help quickref<CR>
+nnoremap <leader>vd :e $VIM\_vimpluginsettings.vim<cr>
+nnoremap <leader>vf :e $VIM\_vimrc<cr>
+nnoremap <leader>wd :set ignorecase!<cr>
+nnoremap <leader>wf :set number!<cr>
+nnoremap <leader>wg :set guifont=*<cr>
+nnoremap <leader>rf :Note todo<cr>
+nnoremap <leader>rd :ShowTaggedNotes<cr>
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE ADDITIONAL PLUGINS{{{
