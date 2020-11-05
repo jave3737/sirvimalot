@@ -235,6 +235,9 @@ nnoremap <leader>ds :Commits<cr>
 nnoremap <leader>fd :LeaderfLine<CR>
 nnoremap <leader>ff :LeaderfFile<CR>
 nnoremap <leader>fs :LeaderfMru<cr>
+nnoremap <leader>fr :Leaderf rg<cr>
+nnoremap <leader>frf :LeaderfRgInteractive<cr>
+nnoremap <leader>fc :LeaderfColorscheme<cr>
 nnoremap <leader>ga <Plug>(git-messenger)
 nnoremap <leader>gc :Agit<cr>
 nnoremap <leader>gd :Gpull<cr>
@@ -248,6 +251,7 @@ nnoremap <leader>vf :e $VIM\_vimrc<cr>
 nnoremap <leader>wd :set ignorecase!<cr>
 nnoremap <leader>wf :set number!<cr>
 nnoremap <leader>wg :set guifont=*<cr>
+nnoremap <leader>ww :set wrap!<cr>
 nnoremap <leader>rf :Note todo<cr>
 nnoremap <leader>rd :ShowTaggedNotes<cr>
 "}}}
