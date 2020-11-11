@@ -80,6 +80,8 @@ filetype plugin indent on
 packloadall
 silent! helptags ALL
 call plug#begin('~/.vim/plugged')
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'wadackel/vim-dogrun'
 Plug 'junegunn/goyo.vim'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'Yggdroot/LeaderF'
@@ -191,11 +193,10 @@ nnoremap <C-K> :bo copen<CR>
 nnoremap <C-L> :cn<CR>
 nnoremap <C-S> :w<cr>
 inoremap <C-BS> <C-W>
-inoremap <C-H> <C-W>
 inoremap <C-Del> <c-o>de
 inoremap <C-S> <c-o>:w<cr>
-"inoremap <C-H> <C-left>
-"inoremap <C-L> <C-right>
+inoremap <C-H> <C-left>
+inoremap <C-L> <C-right>
 map <space> <C-W>
 nnoremap <C-W>' :tabnext<CR>
 nnoremap <C-W>; :tabprevious<CR>
