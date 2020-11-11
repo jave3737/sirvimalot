@@ -81,7 +81,6 @@ packloadall
 silent! helptags ALL
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/goyo.vim'
-Plug 'AndrewRadev/bufferize.vim'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'Yggdroot/LeaderF'
 Plug 'Yggdroot/indentLine'
@@ -171,18 +170,17 @@ let g:lens#disabled_filenames = ['nerdtree']
 let g:asyncrun_status = "stopped"
 let g:lightline = {'active':{
             \'left':[['mode','paste'],
-            \['gitbranch','readonly','filename','modified','asyncstatus','ctags']]},
+            \['gitbranch','readonly','filename','modified','asyncstatus']]},
             \'component_function':{
                 \'gitbranch':'fugitive#head',
                 \},
             \'component':{
                 \'asyncstatus':'%{g:asyncrun_status}',
-                \'ctags':'%{gutentags#statusline()}',
                 \}
     \}
-let g:lightline = {
-            \ 'enable': { 'tabline': 0},
-            \ }
+"let g:lightline = {
+"            \ 'enable': { 'tabline': 0},
+"            \ }
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS {{{
@@ -193,10 +191,11 @@ nnoremap <C-K> :bo copen<CR>
 nnoremap <C-L> :cn<CR>
 nnoremap <C-S> :w<cr>
 inoremap <C-BS> <C-W>
+inoremap <C-H> <C-W>
 inoremap <C-Del> <c-o>de
 inoremap <C-S> <c-o>:w<cr>
-inoremap <C-H> <C-left>
-inoremap <C-L> <C-right>
+"inoremap <C-H> <C-left>
+"inoremap <C-L> <C-right>
 map <space> <C-W>
 nnoremap <C-W>' :tabnext<CR>
 nnoremap <C-W>; :tabprevious<CR>
@@ -256,19 +255,14 @@ nnoremap <leader>rd :ShowTaggedNotes<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE ADDITIONAL PLUGINS{{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if filereadable(expand("$HOME/_vimpluginsettings.vim"))
-    source $HOME/_vimpluginsettings.vim
+if filereadable(expand("$HOME/.extra.vim"))
+    source $HOME/.extra.vim
 endif
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "CONFIGURE COLORSCHEME{{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " colorscheme settings
-function! g:BuffetSetCustomColors()
-  hi! BuffetCurrentBuffer cterm=NONE ctermbg=5 ctermfg=8 guibg=#5faf87 guifg=#000000
-  hi! BuffetTab cterm=NONE ctermbg=5 ctermfg=8 guibg=#ff8787 guifg=#000000
-  hi! BuffetActiveBuffer cterm=NONE ctermbg=5 ctermfg=8 guibg=#000000 guifg=#ff8787
-endfunction
 augroup iceberg_custom
     au!
     autocmd ColorScheme iceberg highlight QuickScopePrimary guifg=GreenYellow gui=bold ctermfg=Green
