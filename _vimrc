@@ -55,8 +55,6 @@ set foldmethod=marker
 set cursorline
 set colorcolumn=81
 set completeopt-=preview
-set pythonthreehome=$HOME/python38/python-3.8.0/
-set pythonthreedll=$HOME/python38/python-3.8.0/python38.dll
 if has('cscope')
     set cscopetag cscopeverbose
     if has('quickfix')
@@ -279,4 +277,3 @@ if has("gui_running")
     au GUIEnter * simalt ~x
 endif
 "}}}
-cd $VIM_ROOT
