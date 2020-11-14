@@ -180,9 +180,6 @@ let g:lightline = {'active':{
                 \'asyncstatus':'%{g:asyncrun_status}',
                 \}
     \}
-"let g:lightline = {
-"            \ 'enable': { 'tabline': 0},
-"            \ }
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS {{{
@@ -252,6 +249,7 @@ nnoremap <leader>wg :set guifont=*<cr>
 nnoremap <leader>ww :set wrap!<cr>
 nnoremap <leader>rf :Note todo<cr>
 nnoremap <leader>rd :ShowTaggedNotes<cr>
+set backspace=indent,eol,start
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE ADDITIONAL PLUGINS{{{
@@ -270,7 +268,13 @@ augroup iceberg_custom
     autocmd ColorScheme iceberg highlight QuickScopeSecondary guifg=DarkOrange gui=bold ctermfg=Red
     autocmd ColorScheme iceberg highlight ColorColumn guibg=#5f0000 ctermbg=DarkRed
 augroup end
-colorscheme iceberg
+augroup dogrun_custom
+    au!
+    autocmd ColorScheme dogrun highlight QuickScopePrimary guifg=GreenYellow gui=bold ctermfg=Green
+    autocmd ColorScheme dogrun highlight QuickScopeSecondary guifg=DarkOrange gui=bold ctermfg=Red
+    autocmd ColorScheme dogrun highlight ColorColumn guibg=#5f0000 ctermbg=DarkRed
+augroup end
+colorscheme dogrun
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "MAXIMIZE THE WINDOW {{{
