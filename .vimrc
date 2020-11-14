@@ -241,8 +241,9 @@ nnoremap <leader>gs :MerginalToggle<cr>
 nnoremap <leader>gv :GV<cr>
 nnoremap <leader>nf :NERDTreeToggle<cr>
 nnoremap <leader>qq :help quickref<CR>
-nnoremap <leader>vd :e $VIM\_vimpluginsettings.vim<cr>
-nnoremap <leader>vf :e $VIM\_vimrc<cr>
+nnoremap <leader>vd :e $HOME/sirvimalot/.vimrc<cr>
+nnoremap <leader>vf :e $HOME/sirvimalot/\_vimrc<cr>
+nnoremap <leader>vr :e $HOME/.extra.vim<cr>
 nnoremap <leader>wd :set ignorecase!<cr>
 nnoremap <leader>wf :set number!<cr>
 nnoremap <leader>wg :set guifont=*<cr>
