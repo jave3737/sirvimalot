@@ -239,6 +239,8 @@ nnoremap <leader>gd :Gpull<cr>
 nnoremap <leader>gf :Gfetch<cr>
 nnoremap <leader>gs :MerginalToggle<cr>
 nnoremap <leader>gv :GV<cr>
+nnoremap <leader>gx :0Glog<cr>
+nnoremap <leader>gz :Gvdiffsplit HEAD~1<cr>
 nnoremap <leader>nf :NERDTreeToggle<cr>
 nnoremap <leader>qq :help quickref<CR>
 nnoremap <leader>vd :e $HOME/sirvimalot/.vimrc<cr>
