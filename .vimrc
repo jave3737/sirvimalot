@@ -117,6 +117,10 @@ Plug 'wincent/ferret'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 call plug#end()
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -180,6 +184,10 @@ let g:lightline = {'active':{
                 \'asyncstatus':'%{g:asyncrun_status}',
                 \}
     \}
+set hidden
+let g:LanguageClient_serverCommands = {
+\ 'rust': ['rust-analyzer'],
+\ }
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS {{{
@@ -253,6 +261,10 @@ nnoremap <leader>ww :set wrap!<cr>
 nnoremap <leader>rf :Note todo<cr>
 nnoremap <leader>rd :ShowTaggedNotes<cr>
 set backspace=indent,eol,start
+nmap <F5> <Plug>(lcn-menu)
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE ADDITIONAL PLUGINS{{{
