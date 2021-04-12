@@ -55,6 +55,7 @@ set foldmethod=marker
 set cursorline
 set colorcolumn=81
 set completeopt-=preview
+set backspace=indent,eol,start
 if has('cscope')
     set cscopetag cscopeverbose
     if has('quickfix')
@@ -82,14 +83,10 @@ silent! helptags ALL
 call plug#begin('~/.vim/plugged')
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'wadackel/vim-dogrun'
-Plug 'junegunn/goyo.vim'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'Yggdroot/LeaderF'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
-Plug 'bagrat/vim-buffet'
-Plug 'camspiers/animate.vim'
-Plug 'camspiers/lens.vim'
 Plug 'cocopon/iceberg.vim'
 Plug 'cohama/agit.vim'
 Plug 'derekmcloughlin/gvimfullscreen_win32'
@@ -122,7 +119,6 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "CONFIGURE PLUGINS {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:FerretMap = 0
 call which_key#register('\', "g:which_key_map")
 let g:which_key_use_floating_win = 1
 let g:which_key_map = {}
@@ -137,16 +133,8 @@ let g:which_key_map.7 = 'which_key_ignore'
 let g:which_key_map.8 = 'which_key_ignore'
 let g:which_key_map.9 = 'which_key_ignore'
 let g:which_key_use_floating_win = 1
-let g:which_key_map.f = { 'name' : 'leaderf'}
-let g:which_key_map.d = { 'name' : 'fzf'}
-let g:which_key_map.w = { 'name' : 'window settings'}
-let g:which_key_map.s = { 'name' : 'ferret'}
-let g:which_key_map.v = { 'name' : 'vim settings'}
-let g:which_key_map.n = { 'name' : 'nerdtree'}
-let g:which_key_map.g = { 'name' : 'git'}
-let g:which_key_map.q = { 'name' : 'help'}
-let g:which_key_map.r = { 'name' : 'notes'}
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+let g:FerretMap = 0
 let g:Lf_WindowHeight = 0.2
 let g:Lf_UseCache = 0
 let g:Lf_UseVersionControlTool=0
@@ -167,9 +155,7 @@ let g:VCalc_Win_Size = 30
 let g:VCalc_WindowPosition = 'left'
 let g:notes_suffix = '.txt'
 let g:notes_directories=['$HOME/notes']
-let g:buffet_show_index=1
-let g:lens#disabled_filenames = ['nerdtree']
-let g:asyncrun_status = "stopped"
+let g:asyncrun_status = "done"
 let g:lightline = {'active':{
             \'left':[['mode','paste'],
             \['gitbranch','readonly','filename','modified','asyncstatus']]},
@@ -198,61 +184,101 @@ map <space> <C-W>
 nnoremap <C-W>' :tabnext<CR>
 nnoremap <C-W>; :tabprevious<CR>
 nnoremap <C-W>t :tabnew %<CR><C-O>
-nnoremap H 15zh
-nnoremap L 15zl
-nnoremap <C-E> 5<C-E> 
-nnoremap <C-Y> 5<C-Y>
-nnoremap <S-Tab> :bp<cr>
-nnoremap <Tab> :bn<cr>
-nnoremap <leader><S-Tab> :Bw!<cr>
-nnoremap <leader><Tab> :Bw<cr>
-nnoremap <S-Tab> :bp<cr>
-nnoremap <Tab> :bn<cr>
-nnoremap <leader><S-Tab> :Bw!<cr>
-nnoremap <leader><Tab> :Bw<cr>
+nnoremap H 5zh
+nnoremap L 5zl
+nnoremap J <C-E>
+nnoremap K <C-Y>
 nmap [c <Plug>(GitGutterPrevHunk)
 nmap ]c <Plug>(GitGutterNextHunk)
+"leader 
 nnoremap <silent> <leader> :WhichKey '\'<CR>
 vnoremap <silent> <leader> :WhichKey '\'<CR>
-nmap <leader>ge <Plug>(GitGutterStageHunk)
-nmap <leader>ge <Plug>(GitGutterStageHunk)
-nmap <leader>gr <Plug>(GitGutterPreviewHunk)
-nmap <leader>gr <Plug>(GitGutterPreviewHunk)
-nmap <leader>gw <Plug>(GitGutterUndoHunk)
-nmap <leader>gw <Plug>(GitGutterUndoHunk)
+nnoremap <leader><leader> :b#<CR>
+let g:which_key_map.s = {
+            \ 'name' : 'ferret',
+            \ 'd' : 'search word under cursor',
+            \ 'f' : 'start search',
+            \ }
 nmap <leader>sd <Plug>(FerretAckWord)
 nmap <leader>sf <Plug>(FerretAck)
-nnoremap <leader><leader> :b#<CR>
+let g:which_key_map.d = {
+            \ 'name' : 'fzf',
+            \ 'a' : 'search marks',
+            \ 'd' : 'search lines',
+            \ 'f' : 'search files',
+            \ 's' : 'search commits',
+            \ }
 nnoremap <leader>da :Marks<cr>
 nnoremap <leader>dd :BLines<cr>
 nnoremap <leader>df :Files<cr>
 nnoremap <leader>ds :Commits<cr>
+let g:which_key_map.f = {
+            \ 'name' : 'leaderf',
+            \ 'f' : 'search files',
+            \ 'd' : 'search lines',
+            \ 's' : 'most recently used',
+            \ 'r' : 'ripgrep search',
+            \ 'c' : 'search colorscheme',
+            \ 'h' : 'search history',
+            \ 'b' : 'search buffer',
+            \ }
 nnoremap <leader>fd :LeaderfLine<CR>
 nnoremap <leader>ff :LeaderfFile<CR>
 nnoremap <leader>fs :LeaderfMru<cr>
 nnoremap <leader>fr :Leaderf rg<cr>
-nnoremap <leader>frf :LeaderfRgInteractive<cr>
 nnoremap <leader>fc :LeaderfColorscheme<cr>
+nnoremap <leader>fh :LeaderfHistoryCmd<cr>
+nnoremap <leader>fb :LeaderfBuffer<cr>
+let g:which_key_map.g = {
+            \ 'name' : 'git',
+            \ 'a' : 'line commit message',
+            \ 'f' : 'fetch',
+            \ 's' : 'toggle branch list',
+            \ 'v' : 'show tree',
+            \ 'x' : 'current file history',
+            \ 'z' : 'diff w/last commit',
+            \ 'd' : 'diff file w/current head',
+            \ 'j' : 'diff file w/master',
+            \ 'k' : 'diff file w/develop',
+            \ 'e' : 'stage hunk',
+            \ 'r' : 'preview hunk',
+            \ 'u' : 'undo hunk',
+            \ }
 nnoremap <leader>ga <Plug>(git-messenger)
 nnoremap <leader>gc :Agit<cr>
-nnoremap <leader>gd :Gpull<cr>
 nnoremap <leader>gf :Gfetch<cr>
 nnoremap <leader>gs :MerginalToggle<cr>
 nnoremap <leader>gv :GV<cr>
 nnoremap <leader>gx :0Glog<cr>
 nnoremap <leader>gz :Gvdiffsplit HEAD~1<cr>
+nnoremap <leader>gb :Git blame<cr>
+nnoremap <leader>gd :Gdiffsplit<cr>
+nnoremap <leader>gj :Gdiffsplit master<cr>
+nnoremap <leader>gk :Gdiffsplit develop<cr>
+nmap <leader>ge <Plug>(GitGutterStageHunk)
+nmap <leader>gr <Plug>(GitGutterPreviewHunk)
+nmap <leader>gw <Plug>(GitGutterUndoHunk)
+let g:which_key_map.n = {
+            \ 'name' : 'nerdtree',
+            \ 'f' : 'toggle tree',
+            \ }
 nnoremap <leader>nf :NERDTreeToggle<cr>
+let g:which_key_map.q = {
+            \ 'name' : 'help',
+            \ 'q' : 'quick reference',
+            \ }
 nnoremap <leader>qq :help quickref<CR>
-nnoremap <leader>vd :e $HOME/sirvimalot/.vimrc<cr>
-nnoremap <leader>vf :e $HOME/sirvimalot/\_vimrc<cr>
-nnoremap <leader>vr :e $HOME/.extra.vim<cr>
+let g:which_key_map.w = {
+            \ 'name' : 'settings',
+            \ 'd' : 'toggle ignorecase',
+            \ 'f' : 'toggle line numbers',
+            \ 'g' : 'open font menu',
+            \ 'w' : 'toggle wrap',
+            \ }
 nnoremap <leader>wd :set ignorecase!<cr>
 nnoremap <leader>wf :set number!<cr>
 nnoremap <leader>wg :set guifont=*<cr>
 nnoremap <leader>ww :set wrap!<cr>
-nnoremap <leader>rf :Note todo<cr>
-nnoremap <leader>rd :ShowTaggedNotes<cr>
-set backspace=indent,eol,start
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE ADDITIONAL PLUGINS{{{
@@ -265,12 +291,6 @@ endif
 "CONFIGURE COLORSCHEME{{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " colorscheme settings
-augroup iceberg_custom
-    au!
-    autocmd ColorScheme iceberg highlight QuickScopePrimary guifg=GreenYellow gui=bold ctermfg=Green
-    autocmd ColorScheme iceberg highlight QuickScopeSecondary guifg=DarkOrange gui=bold ctermfg=Red
-    autocmd ColorScheme iceberg highlight ColorColumn guibg=#5f0000 ctermbg=DarkRed
-augroup end
 augroup dogrun_custom
     au!
     autocmd ColorScheme dogrun highlight QuickScopePrimary guifg=GreenYellow gui=bold ctermfg=Green
