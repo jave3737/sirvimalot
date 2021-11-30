@@ -152,6 +152,8 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>d :GFiles<CR>
 nnoremap <leader>s :BLines<CR>
+nnoremap <leader>a :History:<CR>
+
 nnoremap <leader><leader> :b#<CR>
 map <space> <C-W>
 nnoremap <C-H> :cp<CR>
