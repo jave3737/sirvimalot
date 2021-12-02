@@ -98,7 +98,8 @@ set completeopt+=noselect
 set omnifunc=LanguageClient#complete
 set signcolumn=yes
 let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#completion_delay = 2
+let g:mucomplete#reopen_immediately = 0
+let g:mucomplete#completion_delay = 100 
 
 "fzf
 source $HOME/fzf/plugin/fzf.vim
@@ -134,7 +135,7 @@ let g:startify_lists = [
 
 " sessions
 let g:session_autoload = 'no'
-let g:session_autosave = 'no'
+let g:session_autosave = 'yes'
 let g:session_directory =$HOME . '/sessions'
 
 " quick-scope
@@ -154,7 +155,6 @@ nnoremap <leader>d :GFiles<CR>
 nnoremap <leader>s :BLines<CR>
 nnoremap <leader>a :History:<CR>
 
-nnoremap <leader><leader> :b#<CR>
 map <space> <C-W>
 nnoremap <C-H> :cp<CR>
 nnoremap <C-L> :cn<CR>
@@ -162,6 +162,13 @@ nnoremap <C-K> :copen<CR>
 nnoremap <C-J> :cclose<CR>
 nnoremap <C-W>; :tabnext<CR>
 nnoremap <C-W>, :tabprevious<CR>
+
+"some compatibility with general editing keybindings
+inoremap <C-S> <C-O>:w<CR>
+inoremap <C-backspace> <C-W>
+inoremap <C-left> <C-O>B
+inoremap <C-right> <C-O>W
+inoremap <C-Del> <C-O>dW
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "COLORSCHEME {{{
