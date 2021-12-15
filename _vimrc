@@ -57,7 +57,7 @@ set cursorline
 set colorcolumn=81
 set completeopt-=preview
 set backspace=indent,eol,start
-set packpath+=$HOME/vim_for_rust_dev/vimfiles/
+set switchbuf+=uselast
 if has('cscope')
     set cscopetag cscopeverbose
     if has('quickfix')
@@ -68,7 +68,7 @@ if $TERM == "xterm-256color"
     set t_Co=256
 endif
 if has("gui_running")
-    set guifont=Consolas:h18:cANSI:qDRAFT
+    set guifont=Cartograph_CF:h18:cANSI:qDRAFT,Consolas:h18:cANSI:qDRAFT
     set belloff=all
 endif
 if has("persistent_undo")
@@ -87,20 +87,6 @@ silent! helptags ALL
 let g:notes_suffix='.txt'
 let g:notes_directories=['$HOME/notes']
 
-"languageclient
-let g:LanguageClient_serverCommands = {
-    \'rust': ['rust-analyzer'],
-    \}
-
-"mucomplete
-set completeopt+=menuone
-set completeopt+=noselect
-set omnifunc=LanguageClient#complete
-set signcolumn=yes
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#reopen_immediately = 0
-let g:mucomplete#completion_delay = 100 
-
 "fzf
 source $HOME/fzf/plugin/fzf.vim
 let g:fzf_layout = { 'down': '40%' }
@@ -109,18 +95,15 @@ set hidden
 "ferret
 let g:FerretMap = 0
 
-"snipmate
-let g:snipMate = { 'snippet_version' : 1 }
-
 "startify
-
 let g:startify_custom_header = [
-    \ '   ___           _        _     _          __           _   ',
-    \ '  / _ \___  _ __| |_ __ _| |__ | | ___    /__\_   _ ___| |_ ',
-    \ ' / /_)/ _ \| ''__| __/ _` | ''_ \| |/ _ \  / \// | | / __| __|',
-    \ '/ ___/ (_) | |  | || (_| | |_) | |  __/ / _  \ |_| \__ \ |_ ',
-    \ '\/    \___/|_|   \__\__,_|_.__/|_|\___| \/ \_/\__,_|___/\__|',
-    \]
+            \ '      _          _ _                            _     _ ',
+            \ '     | |        | | |                          | |   | |',
+            \ '     | |__   ___| | | ___   __      _____  _ __| | __| |',
+            \ '     | ''_ \ / _ \ | |/ _ \  \ \ /\ / / _ \| ''__| |/ _` |',
+            \ '     | | | |  __/ | | (_) |  \ V  V / (_) | |  | | (_| |',
+            \ '     |_| |_|\___|_|_|\___/    \_/\_/ \___/|_|  |_|\__,_|',
+            \]
 
 let g:startify_bookmarks = [
     \ '$HOME/_vimrc',
@@ -145,15 +128,11 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader>r <Plug>(lcn-menu)
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>d :GFiles<CR>
 nnoremap <leader>s :BLines<CR>
 nnoremap <leader>a :History:<CR>
+nnoremap <leader>q :vertical help quickref<CR>
 
 map <space> <C-W>
 nnoremap <C-H> :cp<CR>
