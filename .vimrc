@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "SET COLORSCHEME {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme desert    
+colorscheme desert
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE GREP {{{
@@ -10,8 +10,8 @@ if executable('rg')
     set grepprg=rg\ --vimgrep
 elseif executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
-else 
-    set grepprg=grep\ 
+else
+    set grepprg=grep\
 endif
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -26,10 +26,10 @@ set diffexpr=
 set nocompatible
 set wildmenu
 set guioptions=
-set ignorecase 
+set ignorecase
 set smartcase
 set nowrapscan
-set nowrap 
+set nowrap
 set nobackup
 set noswapfile
 set splitbelow
@@ -51,7 +51,7 @@ set novisualbell
 set nonumber
 set tags=./tags,tags;$HOME
 set encoding=utf-8
-set foldmethod=marker 
+set foldmethod=marker
 set cursorline
 set colorcolumn=81
 set completeopt-=preview
@@ -81,79 +81,31 @@ filetype plugin indent on
 packloadall
 silent! helptags ALL
 call plug#begin('~/.vim/plugged')
-Plug 'ghifarit53/tokyonight-vim'
-Plug 'wadackel/vim-dogrun'
-Plug 'AndrewRadev/linediff.vim'
-Plug 'Yggdroot/LeaderF'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
-Plug 'cocopon/iceberg.vim'
-Plug 'cohama/agit.vim'
-Plug 'derekmcloughlin/gvimfullscreen_win32'
-Plug 'dreadnaut/vim-bargreybars'
 Plug 'fcpg/vim-fahrenheit'
-Plug 'fedorenchik/VimCalc3'
-Plug 'guns/xterm-color-table.vim'
 Plug 'idanarye/vim-merginal'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/vim-peekaboo'
-Plug 'kshenoy/vim-signature'
-Plug 'liuchengxu/vim-which-key' 
 Plug 'markonm/traces.vim'
-Plug 'preservim/nerdtree'
-Plug 'rhysd/git-messenger.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'unblevable/quick-scope'
 Plug 'wincent/ferret'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+    \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
+    \ } 
 call plug#end()
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "CONFIGURE PLUGINS {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-silent! call which_key#register('\', "g:which_key_map")
-let g:which_key_use_floating_win = 1
-let g:which_key_map = {}
-let g:which_key_map.0 = 'which_key_ignore'
-let g:which_key_map.1 = 'which_key_ignore'
-let g:which_key_map.2 = 'which_key_ignore'
-let g:which_key_map.3 = 'which_key_ignore'
-let g:which_key_map.4 = 'which_key_ignore'
-let g:which_key_map.5 = 'which_key_ignore'
-let g:which_key_map.6 = 'which_key_ignore'
-let g:which_key_map.7 = 'which_key_ignore'
-let g:which_key_map.8 = 'which_key_ignore'
-let g:which_key_map.9 = 'which_key_ignore'
-let g:which_key_use_floating_win = 1
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 let g:FerretMap = 0
-let g:Lf_WindowHeight = 0.2
-let g:Lf_UseCache = 0
-let g:Lf_UseVersionControlTool=0
-let g:Lf_DefaultMode='NameOnly'
-let g:Lf_HideHelp=1
-let g:Lf_ShortcutF=''
-let g:Lf_ShortcutB=''
-let g:Lf_WorkingDirectoryMode='ac'
-let g:Lf_JumpToExistingWindow=0
-let g:Lf_RootMarkers = ['.git','.root']
-let g:Lf_ShowDevIcons=0
-let g:NERDTreeShowLineNumbers=1
-let g:NERDTreeShowHidden=1
-let g:NERDTreeWinSize=30
-let g:NERDTreeMinimalUI=1
-let g:no_csv_maps=1
-let g:peekaboo_window='vert bo 100new'
-let g:VCalc_Win_Size = 30
-let g:VCalc_WindowPosition = 'left'
 let g:notes_suffix = '.txt'
 let g:notes_directories=['$HOME/notes']
 let g:asyncrun_status = "done"
@@ -161,12 +113,15 @@ let g:lightline = {'active':{
             \'left':[['mode','paste'],
             \['gitbranch','readonly','filename','modified','asyncstatus']]},
             \'component_function':{
-                \'gitbranch':'fugitive#head',
-                \},
+            \'gitbranch':'fugitive#head',
+            \},
             \'component':{
-                \'asyncstatus':'%{g:asyncrun_status}',
-                \}
-    \}
+            \'asyncstatus':'%{g:asyncrun_status}',
+            \}
+            \}
+let g:LanguageClient_serverCommands = {
+            \ 'rust': ['rust-analyzer'],
+            \ }
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS {{{
@@ -199,16 +154,13 @@ endif
 "CONFIGURE COLORSCHEME{{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " colorscheme settings
-augroup dogrun_custom
+augroup fahrenheit_custom
     au!
-    autocmd ColorScheme dogrun highlight QuickScopePrimary guifg=GreenYellow gui=bold ctermfg=Green
-    autocmd ColorScheme dogrun highlight QuickScopeSecondary guifg=DarkOrange gui=bold ctermfg=Red
-    autocmd ColorScheme dogrun highlight ColorColumn guibg=#5f0000 ctermbg=DarkRed
+    autocmd ColorScheme fahrenheit highlight QuickScopePrimary guifg=GreenYellow gui=bold ctermfg=Green
+    autocmd ColorScheme fahrenheit highlight QuickScopeSecondary guifg=DarkOrange gui=bold ctermfg=Red
+    autocmd ColorScheme fahrenheit highlight ColorColumn guibg=#5f0000 ctermbg=DarkRed
 augroup end
-colorscheme dogrun
-autocmd! FileType which_key
-autocmd  FileType which_key set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+colorscheme fahrenheit
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "MAXIMIZE THE WINDOW {{{
