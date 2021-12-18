@@ -56,6 +56,7 @@ set cursorline
 set colorcolumn=81
 set completeopt-=preview
 set backspace=indent,eol,start
+set switchbuf+=uselast
 if has('cscope')
     set cscopetag cscopeverbose
     if has('quickfix')
@@ -77,11 +78,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "INSTALL PLUGINS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-filetype plugin indent on
-packloadall
-silent! helptags ALL
 call plug#begin('~/.vim/plugged')
-Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'fcpg/vim-fahrenheit'
 Plug 'idanarye/vim-merginal'
@@ -90,58 +87,83 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim'
 Plug 'markonm/traces.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'wincent/ferret'
+Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
-Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-    \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
-    \ } 
+Plug 'mhinz/vim-startify'
 call plug#end()
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "CONFIGURE PLUGINS {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-let g:FerretMap = 0
-let g:notes_suffix = '.txt'
+filetype plugin indent on
+packloadall
+silent! helptags ALL
+"vim-notes
+let g:notes_suffix='.txt'
 let g:notes_directories=['$HOME/notes']
-let g:asyncrun_status = "done"
-let g:lightline = {'active':{
-            \'left':[['mode','paste'],
-            \['gitbranch','readonly','filename','modified','asyncstatus']]},
-            \'component_function':{
-            \'gitbranch':'fugitive#head',
-            \},
-            \'component':{
-            \'asyncstatus':'%{g:asyncrun_status}',
-            \}
-            \}
-let g:LanguageClient_serverCommands = {
-            \ 'rust': ['rust-analyzer'],
-            \ }
+
+""fzf
+source $HOME/fzf/plugin/fzf.vim
+let g:fzf_layout = { 'down': '40%' }
+set hidden
+
+"ferret
+let g:FerretMap = 0
+
+""startify
+let g:startify_custom_header = [
+                \ '      _          _ _                            _     _ ',
+            \ '     | |        | | |                          | |   | |',
+            \ '     | |__   ___| | | ___   __      _____  _ __| | __| |',
+            \ '     | ''_ \ / _ \ | |/ _ \  \ \ /\ / / _ \| ''__| |/ _` |',
+            \ '     | | | |  __/ | | (_) |  \ V  V / (_) | |  | | (_| |',
+            \ '     |_| |_|\___|_|_|\___/    \_/\_/ \___/|_|  |_|\__,_|',
+            \]
+
+let g:startify_bookmarks = [
+        \ '$HOME/_vimrc',
+    \]
+
+let g:startify_session_dir = '$HOME/sessions'
+
+let g:startify_lists = [
+        \ { 'type': 'bookmarks', 'header': ['Bookmarks']},
+    \ { 'type' : 'sessions', 'header' : ['Sessions']},
+    \]
+
+" sessions
+let g:session_autoload = 'no'
+let g:session_autosave = 'yes'
+let g:session_directory =$HOME . '/sessions'
+
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "quickfix
-nnoremap <C-H> :cp<CR>
-nnoremap <C-J> :cclose<CR>
-nnoremap <C-K> :bo copen<CR>
-nnoremap <C-L> :cn<CR>
-"window manip
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>d :GFiles<CR>
+nnoremap <leader>s :BLines<CR>
+nnoremap <leader>a :History:<CR>
+nnoremap <leader>q :vertical help quickref<CR>
+
 map <space> <C-W>
-nnoremap <C-W>' :tabnext<CR>
-nnoremap <C-W>; :tabprevious<CR>
-nnoremap <C-W>t :tabnew %<CR><C-O>
-"lookaround
-nnoremap H 5zh
-nnoremap L 5zl
-nnoremap J <C-E>
-nnoremap K <C-Y>
-nnoremap <leader><leader> :b#<CR>
+nnoremap <C-H> :cp<CR>
+nnoremap <C-L> :cn<CR>
+nnoremap <C-K> :copen<CR>
+nnoremap <C-J> :cclose<CR>
+nnoremap <C-W>; :tabnext<CR>
+nnoremap <C-W>, :tabprevious<CR>
+
+"some compatibility with general editing keybindings
+inoremap <C-S> <C-O>:w<CR>
+inoremap <C-backspace> <C-W>
+inoremap <C-left> <C-O>B
+inoremap <C-right> <C-O>W
+inoremap <C-Del> <C-O>dW
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ENABLE ADDITIONAL PLUGINS{{{
@@ -154,12 +176,6 @@ endif
 "CONFIGURE COLORSCHEME{{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " colorscheme settings
-augroup fahrenheit_custom
-    au!
-    autocmd ColorScheme fahrenheit highlight QuickScopePrimary guifg=GreenYellow gui=bold ctermfg=Green
-    autocmd ColorScheme fahrenheit highlight QuickScopeSecondary guifg=DarkOrange gui=bold ctermfg=Red
-    autocmd ColorScheme fahrenheit highlight ColorColumn guibg=#5f0000 ctermbg=DarkRed
-augroup end
 colorscheme fahrenheit
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
