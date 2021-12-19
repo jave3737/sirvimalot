@@ -93,6 +93,11 @@ Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'mhinz/vim-startify'
+Plug 'Shougo/deoplete.nvim'
+Plug 'autozimu/LanguageClient-neovim', {
+            \ 'branch': 'next',
+            \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
+            \ }
 call plug#end()
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -139,10 +144,24 @@ let g:session_autoload = 'no'
 let g:session_autosave = 'yes'
 let g:session_directory =$HOME . '/sessions'
 
+let g:deoplete#enable_at_startup = 1
+set omnifunc=LanguageClient#complete
+set signcolumn=yes
+let g:LanguageClient_serverCommands = {
+            \ 'rust': ['rust-analyzer'],
+            \ }
+let g:LanguageClient_useVirtualText = 'No'
+let g:LanguageClient_autoStart = 1
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+nnoremap <leader>r <Plug>(lcn-menu)
+"nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+"nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 "quickfix
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>d :GFiles<CR>
