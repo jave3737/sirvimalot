@@ -79,15 +79,11 @@ endif
 "INSTALL PLUGINS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
-Plug 'airblade/vim-gitgutter'
 Plug 'fcpg/vim-fahrenheit'
-Plug 'idanarye/vim-merginal'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/gv.vim'
 Plug 'markonm/traces.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-fugitive'
 Plug 'wincent/ferret'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
