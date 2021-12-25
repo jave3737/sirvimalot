@@ -56,7 +56,7 @@ set cursorline
 set colorcolumn=81
 set completeopt-=preview
 set backspace=indent,eol,start
-set switchbuf+=uselast
+set switchbuf+=useopen
 if has('cscope')
     set cscopetag cscopeverbose
     if has('quickfix')
