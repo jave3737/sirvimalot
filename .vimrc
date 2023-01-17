@@ -89,7 +89,21 @@ Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-fugitive'
+Plug 'preservim/tagbar'
+Plug 'idanarye/vim-merginal'
+Plug 'airblade/vim-gitgutter'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'liuchengxu/vista.vim'
+Plug 'junegunn/gv.vim'
 call plug#end()
+packadd termdebug
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "CONFIGURE PLUGINS {{{
@@ -97,6 +111,12 @@ call plug#end()
 filetype plugin indent on
 packloadall
 silent! helptags ALL
+
+"debugging
+let g:termdebugger = "gdb-multiarch"
+let g:termdebug_popup = 0
+let g:termdebug_wide = 163
+
 "vim-notes
 let g:notes_suffix='.txt'
 let g:notes_directories=['$HOME/notes']
@@ -120,7 +140,7 @@ let g:startify_custom_header = [
             \]
 
 let g:startify_bookmarks = [
-        \ '$HOME/_vimrc',
+        \ '/Users/alejandromiranda/sirvimalot/.vimrc'
     \]
 
 let g:startify_session_dir = '$HOME/sessions'
@@ -135,6 +155,41 @@ let g:session_autoload = 'no'
 let g:session_autosave = 'yes'
 let g:session_directory =$HOME . '/sessions'
 
+"mucomplete
+set completeopt+=menuone
+set completeopt+=noinsert
+set completeopt+=noselect
+let g:mucomplete#enable_auto_at_startup = 1
+
+"asyncrun
+let g:asyncrun_open=6
+let g:LanguageClient_serverCommands = {
+            \ 'c': ['~/ccls/Release/ccls','--log-file=/tmp/cc.log'],
+            \ 'cpp': ['~/ccls/Release/ccls','--log-file=/tmp/cc.log'],
+            \ 'rust' :['rust-analyzer'],
+            \ }
+let g:LanguageClient_loadSettings = 1
+let g:LanguageClient_settingsPath = '~/.config/nvim/settings.json'
+set completefunc=LanguageClient#complete
+
+let g:lightline = {
+            \ 'active': {
+            \ 'left': [ [ 'mode', 'paste' ],
+            \ [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+            \ },
+            \ 'component_function': {
+            \ 'gitbranch': 'FugitiveHead'
+            \ },
+            \ }
+
+let g:gutentags_file_list_command = {
+            \ 'markers': {
+            \ '.git': 'bash -c "git ls-files; git ls-files --others --exclude-standard"',
+            \ },
+            \ }
+
+let g:vista_default_executive = 'lcn'
+let g:vista_ignore_kinds = ['255']
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS {{{
@@ -153,6 +208,8 @@ nnoremap <C-K> :copen<CR>
 nnoremap <C-J> :cclose<CR>
 nnoremap <C-W>; :tabnext<CR>
 nnoremap <C-W>, :tabprevious<CR>
+nnoremap <leader><leader> :b#<CR>
+tnoremap <ESC> <C-\><C-n>
 
 "some compatibility with general editing keybindings
 inoremap <C-S> <C-O>:w<CR>
