@@ -140,7 +140,7 @@ let g:startify_custom_header = [
             \]
 
 let g:startify_bookmarks = [
-        \ '/Users/alejandromiranda/sirvimalot/.vimrc'
+        \ '~/sirvimalot/.vimrc'
     \]
 
 let g:startify_session_dir = '$HOME/sessions'
