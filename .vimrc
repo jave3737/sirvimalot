@@ -53,7 +53,7 @@ set tags=./tags,tags;$HOME
 set encoding=utf-8
 set foldmethod=marker
 set cursorline
-set colorcolumn=81
+"set colorcolumn=81
 set completeopt-=preview
 set backspace=indent,eol,start
 set switchbuf+=useopen
@@ -85,23 +85,20 @@ Plug 'junegunn/fzf.vim'
 Plug 'markonm/traces.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'wincent/ferret'
-Plug 'xolox/vim-session'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
+Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/tagbar'
 Plug 'idanarye/vim-merginal'
 Plug 'airblade/vim-gitgutter'
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'liuchengxu/vista.vim'
 Plug 'junegunn/gv.vim'
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 packadd termdebug
 "}}}
@@ -161,6 +158,12 @@ set completeopt+=noinsert
 set completeopt+=noselect
 let g:mucomplete#enable_auto_at_startup = 1
 
+"polyglot 
+let g:polyglot_disable=['markdown']
+
+""ale
+"let b:ale_linters = ['markdownlint', 'vale']
+"let b:ale_fixers = ['prettier']
 "asyncrun
 let g:asyncrun_open=6
 let g:LanguageClient_serverCommands = {
@@ -190,6 +193,26 @@ let g:gutentags_file_list_command = {
 
 let g:vista_default_executive = 'lcn'
 let g:vista_ignore_kinds = ['255']
+
+"vim-markdown
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_math = 1
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_autowrite = 1
+let g:vim_markdown_edit_url_in = 'tab'
+let g:vim_markdown_follow_anchor = 1
+"}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"AUTOCMD {{{
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd FileType markdown set cursorline
+"autocmd Filetype markdown set conceallevel=2
+autocmd FileType markdown setlocal spell spelllang=en_gb linebreak textwidth=80 wrap
+"autocmd FileType markdown Goyo
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "KEYMAPPINGS {{{
@@ -209,7 +232,7 @@ nnoremap <C-J> :cclose<CR>
 nnoremap <C-W>; :tabnext<CR>
 nnoremap <C-W>, :tabprevious<CR>
 nnoremap <leader><leader> :b#<CR>
-tnoremap <ESC> <C-\><C-n>
+"tnoremap <ESC> <C-\><C-n>
 
 "some compatibility with general editing keybindings
 inoremap <C-S> <C-O>:w<CR>
